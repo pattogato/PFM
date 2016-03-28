@@ -9,8 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CategoryModel: Object {
-    dynamic var uuid: String = ""
+class CategoryModel: ModelObject {
     dynamic var parentId: String = ""
     dynamic var order: Int = 0
     dynamic var name: String = ""

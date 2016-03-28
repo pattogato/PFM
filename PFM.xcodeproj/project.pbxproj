@@ -16,6 +16,10 @@
 		B18785B41CA98E6A00DD18E9 /* PFMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785B31CA98E6A00DD18E9 /* PFMTests.swift */; };
 		B18785BF1CA98E6A00DD18E9 /* PFMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785BE1CA98E6A00DD18E9 /* PFMUITests.swift */; };
 		B18785D41CA9928500DD18E9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D31CA9928500DD18E9 /* CategoryModel.swift */; };
+		B18785D61CA99AB500DD18E9 /* KeyboardTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D51CA99AB500DD18E9 /* KeyboardTypeModel.swift */; };
+		B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D71CA99AE000DD18E9 /* ModelObject.swift */; };
+		B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */; };
+		B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DC1CA99CDA00DD18E9 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		B18785BE1CA98E6A00DD18E9 /* PFMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFMUITests.swift; sourceTree = "<group>"; };
 		B18785C01CA98E6A00DD18E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B18785D31CA9928500DD18E9 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = DAL/Realm/CategoryModel.swift; sourceTree = "<group>"; };
+		B18785D51CA99AB500DD18E9 /* KeyboardTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardTypeModel.swift; path = DAL/Realm/KeyboardTypeModel.swift; sourceTree = "<group>"; };
+		B18785D71CA99AE000DD18E9 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelObject.swift; path = DAL/Realm/ModelObject.swift; sourceTree = "<group>"; };
+		B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionModel.swift; path = DAL/Realm/TransactionModel.swift; sourceTree = "<group>"; };
+		B18785DC1CA99CDA00DD18E9 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = DAL/Realm/UserModel.swift; sourceTree = "<group>"; };
 		ED38454F2A0285882D09E37A /* Pods-PFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM/Pods-PFM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +172,10 @@
 			isa = PBXGroup;
 			children = (
 				B18785D31CA9928500DD18E9 /* CategoryModel.swift */,
+				B18785D51CA99AB500DD18E9 /* KeyboardTypeModel.swift */,
+				B18785D71CA99AE000DD18E9 /* ModelObject.swift */,
+				B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */,
+				B18785DC1CA99CDA00DD18E9 /* UserModel.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -350,8 +362,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */,
+				B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */,
 				B18785A11CA98E6A00DD18E9 /* ViewController.swift in Sources */,
 				B18785D41CA9928500DD18E9 /* CategoryModel.swift in Sources */,
+				B18785D61CA99AB500DD18E9 /* KeyboardTypeModel.swift in Sources */,
+				B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */,
 				B187859F1CA98E6A00DD18E9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
