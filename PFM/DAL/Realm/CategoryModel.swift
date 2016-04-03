@@ -13,7 +13,7 @@ class CategoryModel: ModelObject {
     dynamic var parentId: String = ""
     dynamic var order: Int = 0
     dynamic var name: String = ""
-    dynamic var image: String = ""
+    dynamic var imageUri: String = ""
     
     
 }
