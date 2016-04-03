@@ -28,7 +28,7 @@ class CategoryInteractor: NSObject {
     /**
         Return all the Transacion Models from the DB
      */
-    class func getAllCategorys() -> Results<CategoryModel> {
+    class func getAllCategories() -> Results<CategoryModel> {
         return DALHelper.sharedInstance.realm.objects(CategoryModel)
     }
     
@@ -99,7 +99,7 @@ class CategoryInteractor: NSObject {
     /**
      Updates a Category's parentId
      */
-    class func updateCategoryName(category: CategoryModel, parentId: String) {
+    class func updateCategoryParentId(category: CategoryModel, parentId: String) {
         DALHelper.writeInMainRealm { (realm) in
             category.parentId = parentId
         }

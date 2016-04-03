@@ -13,6 +13,7 @@
 		B1783BEB1CB1A34B00056895 /* CategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */; };
 		B1783BED1CB1A77200056895 /* TransactionInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEC1CB1A77200056895 /* TransactionInteractorTests.swift */; };
 		B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEF1CB1A8C600056895 /* MockDAL.swift */; };
+		B1783BF21CB1BA4800056895 /* CategoryInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BF11CB1BA4800056895 /* CategoryInteractorTests.swift */; };
 		B187859F1CA98E6A00DD18E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187859E1CA98E6A00DD18E9 /* AppDelegate.swift */; };
 		B18785A11CA98E6A00DD18E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785A01CA98E6A00DD18E9 /* ViewController.swift */; };
 		B18785A41CA98E6A00DD18E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18785A21CA98E6A00DD18E9 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryInteractor.swift; path = DAL/Interactors/CategoryInteractor.swift; sourceTree = "<group>"; };
 		B1783BEC1CB1A77200056895 /* TransactionInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionInteractorTests.swift; sourceTree = "<group>"; };
 		B1783BEF1CB1A8C600056895 /* MockDAL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockDAL.swift; path = DAL/Mock/MockDAL.swift; sourceTree = "<group>"; };
+		B1783BF11CB1BA4800056895 /* CategoryInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryInteractorTests.swift; sourceTree = "<group>"; };
 		B187859B1CA98E6A00DD18E9 /* PFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B187859E1CA98E6A00DD18E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B18785A01CA98E6A00DD18E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				B18785B51CA98E6A00DD18E9 /* Info.plist */,
 				B1783BEC1CB1A77200056895 /* TransactionInteractorTests.swift */,
+				B1783BF11CB1BA4800056895 /* CategoryInteractorTests.swift */,
 			);
 			path = PFMTests;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1783BF21CB1BA4800056895 /* CategoryInteractorTests.swift in Sources */,
 				B1783BED1CB1A77200056895 /* TransactionInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

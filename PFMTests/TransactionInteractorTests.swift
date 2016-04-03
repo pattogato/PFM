@@ -25,6 +25,7 @@ class TransactionInteractorTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        
         DALHelper.writeInMainRealm { (realm) in
             realm.deleteAll()
         }
@@ -123,5 +124,12 @@ class TransactionInteractorTests: XCTestCase {
         XCTAssertEqual(transaction?.category, newCategory)
     }
     
+    func testDeleteTransaction() {
+        let numberOfTransactions = TransactionInteractor.getAllTransactions().count
+        
+        TransactionInteractor.deleteTransaction(TransactionInteractor.getTransaction(byServerId: "sample_server_id0")!)
+        
+        XCTAssertEqual(numberOfTransactions-1, TransactionInteractor.getAllTransactions().count)
+    }
     
 }
