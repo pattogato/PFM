@@ -14,4 +14,7 @@ class CategoryModel: ModelObject {
     dynamic var order: Int = 0
     dynamic var name: String = ""
     dynamic var image: String = ""
+    
+    
 }
+

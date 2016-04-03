@@ -10,6 +10,5 @@ import UIKit
 
 class UserModel: ModelObject {
     dynamic var name: String = ""
-    dynamic var fbToken: String = ""
-    dynamic var googleToken: String = ""
+    dynamic var last_currency: String = ""
 }
