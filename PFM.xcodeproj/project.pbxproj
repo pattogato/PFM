@@ -11,13 +11,13 @@
 		B1783BE41CB186A400056895 /* DALHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE31CB186A400056895 /* DALHelper.swift */; };
 		B1783BE91CB18A2400056895 /* TransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE81CB18A2400056895 /* TransactionInteractor.swift */; };
 		B1783BEB1CB1A34B00056895 /* CategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */; };
+		B1783BED1CB1A77200056895 /* TransactionInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEC1CB1A77200056895 /* TransactionInteractorTests.swift */; };
+		B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEF1CB1A8C600056895 /* MockDAL.swift */; };
 		B187859F1CA98E6A00DD18E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187859E1CA98E6A00DD18E9 /* AppDelegate.swift */; };
 		B18785A11CA98E6A00DD18E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785A01CA98E6A00DD18E9 /* ViewController.swift */; };
 		B18785A41CA98E6A00DD18E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18785A21CA98E6A00DD18E9 /* Main.storyboard */; };
 		B18785A61CA98E6A00DD18E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B18785A51CA98E6A00DD18E9 /* Assets.xcassets */; };
 		B18785A91CA98E6A00DD18E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18785A71CA98E6A00DD18E9 /* LaunchScreen.storyboard */; };
-		B18785B41CA98E6A00DD18E9 /* PFMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785B31CA98E6A00DD18E9 /* PFMTests.swift */; };
-		B18785BF1CA98E6A00DD18E9 /* PFMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785BE1CA98E6A00DD18E9 /* PFMUITests.swift */; };
 		B18785D41CA9928500DD18E9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D31CA9928500DD18E9 /* CategoryModel.swift */; };
 		B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D71CA99AE000DD18E9 /* ModelObject.swift */; };
 		B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */; };
@@ -32,13 +32,6 @@
 			remoteGlobalIDString = B187859A1CA98E6A00DD18E9;
 			remoteInfo = PFM;
 		};
-		B18785BB1CA98E6A00DD18E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B18785931CA98E6A00DD18E9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B187859A1CA98E6A00DD18E9;
-			remoteInfo = PFM;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +40,8 @@
 		B1783BE31CB186A400056895 /* DALHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DALHelper.swift; path = DAL/DALHelper.swift; sourceTree = "<group>"; };
 		B1783BE81CB18A2400056895 /* TransactionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionInteractor.swift; path = DAL/Interactors/TransactionInteractor.swift; sourceTree = "<group>"; };
 		B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryInteractor.swift; path = DAL/Interactors/CategoryInteractor.swift; sourceTree = "<group>"; };
+		B1783BEC1CB1A77200056895 /* TransactionInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionInteractorTests.swift; sourceTree = "<group>"; };
+		B1783BEF1CB1A8C600056895 /* MockDAL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockDAL.swift; path = DAL/Mock/MockDAL.swift; sourceTree = "<group>"; };
 		B187859B1CA98E6A00DD18E9 /* PFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B187859E1CA98E6A00DD18E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B18785A01CA98E6A00DD18E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,10 +50,7 @@
 		B18785A81CA98E6A00DD18E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B18785AA1CA98E6A00DD18E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B18785AF1CA98E6A00DD18E9 /* PFMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B18785B31CA98E6A00DD18E9 /* PFMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFMTests.swift; sourceTree = "<group>"; };
 		B18785B51CA98E6A00DD18E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B18785BA1CA98E6A00DD18E9 /* PFMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B18785BE1CA98E6A00DD18E9 /* PFMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFMUITests.swift; sourceTree = "<group>"; };
 		B18785C01CA98E6A00DD18E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B18785D31CA9928500DD18E9 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = DAL/Realm/CategoryModel.swift; sourceTree = "<group>"; };
 		B18785D71CA99AE000DD18E9 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelObject.swift; path = DAL/Realm/ModelObject.swift; sourceTree = "<group>"; };
@@ -77,13 +69,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B18785AC1CA98E6A00DD18E9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B18785B71CA98E6A00DD18E9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -119,6 +104,14 @@
 			name = Interactors;
 			sourceTree = "<group>";
 		};
+		B1783BEE1CB1A85600056895 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B1783BEF1CB1A8C600056895 /* MockDAL.swift */,
+			);
+			name = Mock;
+			sourceTree = "<group>";
+		};
 		B18785921CA98E6A00DD18E9 = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +129,6 @@
 			children = (
 				B187859B1CA98E6A00DD18E9 /* PFM.app */,
 				B18785AF1CA98E6A00DD18E9 /* PFMTests.xctest */,
-				B18785BA1CA98E6A00DD18E9 /* PFMUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,8 +150,8 @@
 		B18785B21CA98E6A00DD18E9 /* PFMTests */ = {
 			isa = PBXGroup;
 			children = (
-				B18785B31CA98E6A00DD18E9 /* PFMTests.swift */,
 				B18785B51CA98E6A00DD18E9 /* Info.plist */,
+				B1783BEC1CB1A77200056895 /* TransactionInteractorTests.swift */,
 			);
 			path = PFMTests;
 			sourceTree = "<group>";
@@ -167,7 +159,6 @@
 		B18785BD1CA98E6A00DD18E9 /* PFMUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B18785BE1CA98E6A00DD18E9 /* PFMUITests.swift */,
 				B18785C01CA98E6A00DD18E9 /* Info.plist */,
 			);
 			path = PFMUITests;
@@ -176,6 +167,7 @@
 		B18785CC1CA991E600DD18E9 /* DAL */ = {
 			isa = PBXGroup;
 			children = (
+				B1783BEE1CB1A85600056895 /* Mock */,
 				B1783BE71CB18A0500056895 /* Interactors */,
 				B18785CD1CA991EE00DD18E9 /* Realm */,
 				B1783BE31CB186A400056895 /* DALHelper.swift */,
@@ -235,24 +227,6 @@
 			productReference = B18785AF1CA98E6A00DD18E9 /* PFMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B18785B91CA98E6A00DD18E9 /* PFMUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B18785C91CA98E6A00DD18E9 /* Build configuration list for PBXNativeTarget "PFMUITests" */;
-			buildPhases = (
-				B18785B61CA98E6A00DD18E9 /* Sources */,
-				B18785B71CA98E6A00DD18E9 /* Frameworks */,
-				B18785B81CA98E6A00DD18E9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B18785BC1CA98E6A00DD18E9 /* PBXTargetDependency */,
-			);
-			name = PFMUITests;
-			productName = PFMUITests;
-			productReference = B18785BA1CA98E6A00DD18E9 /* PFMUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -267,10 +241,6 @@
 						CreatedOnToolsVersion = 7.3;
 					};
 					B18785AE1CA98E6A00DD18E9 = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = B187859A1CA98E6A00DD18E9;
-					};
-					B18785B91CA98E6A00DD18E9 = {
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = B187859A1CA98E6A00DD18E9;
 					};
@@ -291,7 +261,6 @@
 			targets = (
 				B187859A1CA98E6A00DD18E9 /* PFM */,
 				B18785AE1CA98E6A00DD18E9 /* PFMTests */,
-				B18785B91CA98E6A00DD18E9 /* PFMUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -308,13 +277,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B18785AD1CA98E6A00DD18E9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B18785B81CA98E6A00DD18E9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
 				B1783BEB1CB1A34B00056895 /* CategoryInteractor.swift in Sources */,
 				B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */,
 				B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */,
@@ -392,15 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B18785B41CA98E6A00DD18E9 /* PFMTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B18785B61CA98E6A00DD18E9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B18785BF1CA98E6A00DD18E9 /* PFMUITests.swift in Sources */,
+				B1783BED1CB1A77200056895 /* TransactionInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,11 +366,6 @@
 			isa = PBXTargetDependency;
 			target = B187859A1CA98E6A00DD18E9 /* PFM */;
 			targetProxy = B18785B01CA98E6A00DD18E9 /* PBXContainerItemProxy */;
-		};
-		B18785BC1CA98E6A00DD18E9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B187859A1CA98E6A00DD18E9 /* PFM */;
-			targetProxy = B18785BB1CA98E6A00DD18E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -572,28 +522,6 @@
 			};
 			name = Release;
 		};
-		B18785CA1CA98E6A00DD18E9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = PFMUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.pinup.PFMUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = PFM;
-			};
-			name = Debug;
-		};
-		B18785CB1CA98E6A00DD18E9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = PFMUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.pinup.PFMUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = PFM;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -620,15 +548,6 @@
 			buildConfigurations = (
 				B18785C71CA98E6A00DD18E9 /* Debug */,
 				B18785C81CA98E6A00DD18E9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B18785C91CA98E6A00DD18E9 /* Build configuration list for PBXNativeTarget "PFMUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B18785CA1CA98E6A00DD18E9 /* Debug */,
-				B18785CB1CA98E6A00DD18E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

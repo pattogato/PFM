@@ -15,7 +15,7 @@ class TransactionInteractor: NSObject {
         Returns the TransactionModel with the given server ID
      */
     class func getTransaction(byServerId serverId: String) -> TransactionModel? {
-        return DALHelper.sharedInstance.realm.objects(TransactionModel).filter("serverId == \(serverId)").first
+        return DALHelper.sharedInstance.realm.objects(TransactionModel).filter("serverId == '\(serverId)'").first
     }
     
     /**
