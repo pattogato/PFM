@@ -14,22 +14,22 @@ class TransactionInteractor: NSObject {
     /**
         Returns the TransactionModel with the given server ID
      */
-    class func getTransaction(byServerId serverId: String) -> TransactionModel? {
-        return DALHelper.sharedInstance.realm.objects(TransactionModel).filter("serverId == '\(serverId)'").first
+    class func getTransaction(byServerId serverId: String, realm: Realm = DALHelper.sharedInstance.realm) -> TransactionModel? {
+        return realm.objects(TransactionModel).filter("serverId == '\(serverId)'").first
     }
     
     /**
         Returns the TransactionModel with the given local ID
      */
-    class func getTransaction(byLocalId localId: String) -> TransactionModel? {
-        return DALHelper.sharedInstance.realm.objects(TransactionModel).filter("id == \(localId)").first
+    class func getTransaction(byLocalId localId: String, realm: Realm = DALHelper.sharedInstance.realm) -> TransactionModel? {
+        return realm.objects(TransactionModel).filter("id == \(localId)").first
     }
     
     /**
         Return all the Transacion Models from the DB
      */
-    class func getAllTransactions() -> Results<TransactionModel> {
-        return DALHelper.sharedInstance.realm.objects(TransactionModel)
+    class func getAllTransactions(realm: Realm = DALHelper.sharedInstance.realm) -> Results<TransactionModel> {
+        return realm.objects(TransactionModel)
     }
     
     /**
@@ -51,8 +51,8 @@ class TransactionInteractor: NSObject {
     /**
         Updates a transaction's serverID
      */
-    class func updateTransactionServerID(transaction: TransactionModel, serverId: String) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateTransactionServerID(transaction: TransactionModel, serverId: String, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             transaction.serverId = serverId
         }
     }
@@ -60,8 +60,8 @@ class TransactionInteractor: NSObject {
     /**
         Updates a transaction's imageUri
      */
-    class func updateTransactionImageUri(transaction: TransactionModel, imageUri: String) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateTransactionImageUri(transaction: TransactionModel, imageUri: String, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             transaction.imageUri = imageUri
         }
     }
@@ -69,8 +69,8 @@ class TransactionInteractor: NSObject {
     /**
         Updates a transaction's amount
      */
-    class func updateTransactionAmount(transaction: TransactionModel, amount: Double) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateTransactionAmount(transaction: TransactionModel, amount: Double, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             transaction.amount = amount
         }
     }
@@ -78,8 +78,8 @@ class TransactionInteractor: NSObject {
     /**
         Updates a transaction's name
      */
-    class func updateTransactionName(transaction: TransactionModel, name: String) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateTransactionName(transaction: TransactionModel, name: String, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             transaction.name = name
         }
     }
@@ -87,8 +87,8 @@ class TransactionInteractor: NSObject {
     /**
         Updates a transaction's description
      */
-    class func updateTransactionDescription(transaction: TransactionModel, description: String) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateTransactionDescription(transaction: TransactionModel, description: String, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             transaction.desc = description
         }
     }
@@ -96,8 +96,8 @@ class TransactionInteractor: NSObject {
     /**
         Updates a transaction's tag
      */
-    class func updateTransactionTag(transaction: TransactionModel, tag: String) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateTransactionTag(transaction: TransactionModel, tag: String, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             transaction.tag = tag
         }
     }
@@ -105,8 +105,8 @@ class TransactionInteractor: NSObject {
     /**
         Updates a transaction's category
      */
-    class func updateTransactionCategory(transaction: TransactionModel, category: CategoryModel) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateTransactionCategory(transaction: TransactionModel, category: CategoryModel, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             transaction.category = category
         }
     }
@@ -114,8 +114,8 @@ class TransactionInteractor: NSObject {
     /**
         Deletes a transaction
      */
-    class func deleteTransaction(transaction: TransactionModel) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func deleteTransaction(transaction: TransactionModel, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             realm.delete(transaction)
         }
     }

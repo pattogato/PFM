@@ -119,7 +119,9 @@ public extension DALHelper {
         block(realm)
         // Commit write transaction
         do { try realm.commitWrite() }
-        catch {}
+        catch {
+            print("Could not write to realm")
+        }
     }
     
     /**

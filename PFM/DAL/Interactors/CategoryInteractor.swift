@@ -14,37 +14,37 @@ class CategoryInteractor: NSObject {
     /**
         Returns the CategoryModel with the given server ID
      */
-    class func getCategory(byServerId serverId: String) -> CategoryModel? {
-        return DALHelper.sharedInstance.realm.objects(CategoryModel).filter("serverId == \(serverId)").first
+    class func getCategory(byServerId serverId: String, realm: Realm = DALHelper.sharedInstance.realm) -> CategoryModel? {
+        return realm.objects(CategoryModel).filter("serverId == \(serverId)").first
     }
     
     /**
         Returns the CategoryModel with the given local ID
      */
-    class func getCategory(byLocalId localId: String) -> CategoryModel? {
-        return DALHelper.sharedInstance.realm.objects(CategoryModel).filter("id == \(localId)").first
+    class func getCategory(byLocalId localId: String, realm: Realm = DALHelper.sharedInstance.realm) -> CategoryModel? {
+        return realm.objects(CategoryModel).filter("id == \(localId)").first
     }
     
     /**
         Return all the Transacion Models from the DB
      */
-    class func getAllCategories() -> Results<CategoryModel> {
-        return DALHelper.sharedInstance.realm.objects(CategoryModel)
+    class func getAllCategories(realm: Realm = DALHelper.sharedInstance.realm) -> Results<CategoryModel> {
+        return realm.objects(CategoryModel)
     }
     
     
     /**
         Returns all the main categories ordered by order parameter
      */
-    class func getAllMainCategories() -> Results<CategoryModel> {
-        return DALHelper.sharedInstance.realm.objects(CategoryModel).filter("parentId != ''").sorted("order", ascending: true)
+    class func getAllMainCategories(realm: Realm = DALHelper.sharedInstance.realm) -> Results<CategoryModel> {
+        return realm.objects(CategoryModel).filter("parentId != ''").sorted("order", ascending: true)
     }
     
     /**
      Returns all the non-main aka. "selectable" (those that the user can see) categories ordered by order parameter
      */
-    class func getAllSelectableCategories() -> Results<CategoryModel> {
-        return DALHelper.sharedInstance.realm.objects(CategoryModel).filter("parentId == ''").sorted("order", ascending: true)
+    class func getAllSelectableCategories(realm: Realm = DALHelper.sharedInstance.realm) -> Results<CategoryModel> {
+        return realm.objects(CategoryModel).filter("parentId == ''").sorted("order", ascending: true)
     }
     
     /**
@@ -52,14 +52,14 @@ class CategoryInteractor: NSObject {
      
      - Returns: The created Category Model with uniqe ID
      */
-    class func createOrUpdateCategory(serverId: String, name: String, order: Int, imageUri: String? = nil) -> CategoryModel {
+    class func createOrUpdateCategory(serverId: String, name: String, order: Int, imageUri: String? = nil, realm: Realm = DALHelper.sharedInstance.realm) -> CategoryModel {
         var category = CategoryInteractor.getCategory(byServerId: serverId)
         
         if category == nil {
             category = CategoryModel()
         }
         
-        DALHelper.writeInMainRealm { (realm) in
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             category?.serverId = serverId
             category?.name = name
             category?.order = order
@@ -72,8 +72,8 @@ class CategoryInteractor: NSObject {
     /**
      Updates a Category's serverID
      */
-    class func updateCategoryServerID(category: CategoryModel, serverId: String) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateCategoryServerID(category: CategoryModel, serverId: String, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             category.serverId = serverId
         }
     }
@@ -81,8 +81,8 @@ class CategoryInteractor: NSObject {
     /**
      Updates a Category's imageUri
      */
-    class func updateCategoryImageUri(category: CategoryModel, imageUri: String) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateCategoryImageUri(category: CategoryModel, imageUri: String, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             category.imageUri = imageUri
         }
     }
@@ -90,8 +90,8 @@ class CategoryInteractor: NSObject {
     /**
      Updates a Category's name
      */
-    class func updateCategoryName(category: CategoryModel, name: String) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateCategoryName(category: CategoryModel, name: String, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             category.name = name
         }
     }
@@ -99,8 +99,8 @@ class CategoryInteractor: NSObject {
     /**
      Updates a Category's parentId
      */
-    class func updateCategoryParentId(category: CategoryModel, parentId: String) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func updateCategoryParentId(category: CategoryModel, parentId: String, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             category.parentId = parentId
         }
     }
@@ -109,8 +109,8 @@ class CategoryInteractor: NSObject {
     /**
      Deletes a Category
      */
-    class func deleteCategory(category: CategoryModel) {
-        DALHelper.writeInMainRealm { (realm) in
+    class func deleteCategory(category: CategoryModel, realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             realm.delete(category)
         }
     }
@@ -118,8 +118,8 @@ class CategoryInteractor: NSObject {
     /**
      Deletes all categories
      */
-    class func deleteAllCategories() {
-        DALHelper.writeInMainRealm { (realm) in
+    class func deleteAllCategories(realm: Realm = DALHelper.sharedInstance.realm) {
+        DALHelper.writeInRealm(realm: realm) { (realm) in
             realm.delete(DALHelper.sharedInstance.realm.objects(CategoryModel))
         }
     }
