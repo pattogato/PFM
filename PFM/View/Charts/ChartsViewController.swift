@@ -1,19 +1,16 @@
 //
-//  InputViewController.swift
+//  ChartsViewController.swift
 //  PFM
 //
-//  Created by Bence Pattogato on 04/04/16.
+//  Created by Bence Pattogato on 05/04/16.
 //  Copyright © 2016 Pinup. All rights reserved.
 //
 
 import UIKit
 
-class InputViewController: UIViewController, PresentableView, InputViewProtocol{
+class ChartsViewController: UIViewController, PresentableView {
 
-    //typealias PresenterType = InputViewPresenterProtocol
-    
-    var transactionModel: TransactionModel?
-    var presenter: InputViewPresenterProtocol?
+    var presenter: ChartsViewPresenterProtocol?
     
     weak var delegate: SwipeViewControllerProtocol?
     
@@ -28,16 +25,11 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol{
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Event handlers
     
-    @IBAction func chartsButtonTouched(sender: AnyObject) {
-        self.presenter?.navigateToCharts()
+    @IBAction func navigateToInputButtonTouched(sender: AnyObject) {
+        self.presenter?.navigateToInputScreen()
     }
-    
-    @IBAction func settingsButtonTouched(sender: AnyObject) {
-        self.presenter?.navigateToSettings()
-    }
-    
+
     /*
     // MARK: - Navigation
 
@@ -47,11 +39,13 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol{
         // Pass the selected object to the new view controller.
     }
     */
-    
-    
-    
-    func setTransaction(transaction: TransactionModel) {
-        self.transactionModel = transaction
-    }
+
 }
 
+extension ChartsViewController: ChartsViewProtocol {
+    
+    func setCharts() {
+        print("charts set")
+    }
+    
+}

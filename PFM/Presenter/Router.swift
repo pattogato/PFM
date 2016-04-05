@@ -19,19 +19,47 @@ class Router {
         // Initalization code comes here
     }
     
+    // MARK: - View initalizations
+    
     /**
-     Presents the input screen by setting the swipe controller to root (if needed) and swipes to the middle view
+     Initializes an input screen that conforms to protocol: InputViewProtocol
+     
+     - Returns: Returns the initialized View
      */
-    func presentInputScreen() {
+    func initInputScreen() -> InputViewProtocol {
         let inputVC = Router.initViewController(storyboardID: StoryboardID.inputViewController) as! InputViewController
         
         let inputViewPresenter = InputViewPresenter(view: inputVC)
         inputVC.presenter = inputViewPresenter
         
-        inputViewPresenter.presentInputScreen()
+        return inputVC
+    }
+    
+    /**
+     Initializes an input screen that conforms to protocol: InputViewProtocol
+     
+     - Returns: Returns the initialized View
+     */
+    func initChartsScreen() -> ChartsViewProtocol {
+        let chartsVC = Router.initViewController(storyboardID: StoryboardID.chartsViewController) as! ChartsViewController
+        
+        let chartViewPresenter = ChartsViewPresenter(view: chartsVC)
+        
+        chartsVC.presenter = chartViewPresenter
+        
+        return chartsVC
     }
  
     // MARK: Swipe navigation
+    
+    func setSwipeControllerToRoot(inout window: UIWindow?) {
+        let swipeVC = Router.initViewController(storyboardID: StoryboardID.swipeViewController) as! SwipeNavigationController
+        
+        let swipeViewPresenter = SwipeNavigationPresenter(view: swipeVC)
+        swipeVC.presenter = swipeViewPresenter
+        
+        swipeViewPresenter.presentNavigationRoot(&window)
+    }
     
     /**
         Shows the view left from the visible if there is one

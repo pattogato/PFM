@@ -4,14 +4,11 @@ use_frameworks!
 target 'PFM' do
 
 pod 'RealmSwift'
+pod 'EZSwipeController'
 
 end
 
 target 'PFMTests' do
-
-end
-
-target 'PFMUITests' do
 
 end
 
