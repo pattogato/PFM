@@ -29,6 +29,10 @@
 		B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C1D1CB3B44000056895 /* ChartsViewProtocol.swift */; };
 		B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C1F1CB3B50600056895 /* ChartsViewPresenter.swift */; };
 		B1783C221CB3B6B500056895 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C211CB3B6B500056895 /* ChartsViewController.swift */; };
+		B1783C251CB3C73600056895 /* SettingsViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C241CB3C73600056895 /* SettingsViewPresenterProtocol.swift */; };
+		B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C271CB3C78000056895 /* SettingsViewProtocol.swift */; };
+		B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C291CB3C83500056895 /* SettingsViewPresenter.swift */; };
+		B1783C2C1CB3CA6A00056895 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C2B1CB3CA6A00056895 /* SettingsViewController.swift */; };
 		B187859F1CA98E6A00DD18E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187859E1CA98E6A00DD18E9 /* AppDelegate.swift */; };
 		B18785A11CA98E6A00DD18E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785A01CA98E6A00DD18E9 /* ViewController.swift */; };
 		B18785A41CA98E6A00DD18E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18785A21CA98E6A00DD18E9 /* Main.storyboard */; };
@@ -74,6 +78,10 @@
 		B1783C1D1CB3B44000056895 /* ChartsViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewProtocol.swift; path = View/Charts/ChartsViewProtocol.swift; sourceTree = "<group>"; };
 		B1783C1F1CB3B50600056895 /* ChartsViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewPresenter.swift; path = Presenter/Charts/ChartsViewPresenter.swift; sourceTree = "<group>"; };
 		B1783C211CB3B6B500056895 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewController.swift; path = View/Charts/ChartsViewController.swift; sourceTree = "<group>"; };
+		B1783C241CB3C73600056895 /* SettingsViewPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewPresenterProtocol.swift; path = Presenter/Settings/SettingsViewPresenterProtocol.swift; sourceTree = "<group>"; };
+		B1783C271CB3C78000056895 /* SettingsViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewProtocol.swift; path = View/Settings/SettingsViewProtocol.swift; sourceTree = "<group>"; };
+		B1783C291CB3C83500056895 /* SettingsViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewPresenter.swift; path = Presenter/Settings/SettingsViewPresenter.swift; sourceTree = "<group>"; };
+		B1783C2B1CB3CA6A00056895 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = View/Settings/SettingsViewController.swift; sourceTree = "<group>"; };
 		B187859B1CA98E6A00DD18E9 /* PFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B187859E1CA98E6A00DD18E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B18785A01CA98E6A00DD18E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +170,7 @@
 				B1783C0D1CB397C400056895 /* Navigation */,
 				B1783BFE1CB2FD9800056895 /* Input */,
 				B1783C1B1CB3B40F00056895 /* Charts */,
+				B1783C261CB3C74A00056895 /* Settings */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 				B1783C0A1CB3971900056895 /* Navigation */,
 				B1783BF91CB2FBBC00056895 /* Input */,
 				B1783C181CB3B25300056895 /* Charts */,
+				B1783C231CB3C71300056895 /* Settings */,
 				B1783BF71CB2FAA200056895 /* Router.swift */,
 			);
 			name = Presenter;
@@ -245,6 +255,24 @@
 				B1783C211CB3B6B500056895 /* ChartsViewController.swift */,
 			);
 			name = Charts;
+			sourceTree = "<group>";
+		};
+		B1783C231CB3C71300056895 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B1783C241CB3C73600056895 /* SettingsViewPresenterProtocol.swift */,
+				B1783C291CB3C83500056895 /* SettingsViewPresenter.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		B1783C261CB3C74A00056895 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B1783C271CB3C78000056895 /* SettingsViewProtocol.swift */,
+				B1783C2B1CB3CA6A00056895 /* SettingsViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		B18785921CA98E6A00DD18E9 = {
@@ -468,15 +496,18 @@
 			files = (
 				B1783BF81CB2FAA200056895 /* Router.swift in Sources */,
 				B1783C221CB3B6B500056895 /* ChartsViewController.swift in Sources */,
+				B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */,
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
 				B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */,
 				B1783BEB1CB1A34B00056895 /* CategoryInteractor.swift in Sources */,
 				B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */,
 				B1783C021CB3039500056895 /* InputViewController.swift in Sources */,
 				B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */,
+				B1783C251CB3C73600056895 /* SettingsViewPresenterProtocol.swift in Sources */,
 				B1783C1A1CB3B26C00056895 /* ChartsViewPresenterProtocol.swift in Sources */,
 				B1783C051CB3059800056895 /* Constants.swift in Sources */,
 				B1783C071CB3073F00056895 /* InputViewPresenter.swift in Sources */,
+				B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */,
 				B1783C091CB30A1000056895 /* PresentableView.swift in Sources */,
 				B1783C001CB2FDF100056895 /* InputViewProtocol.swift in Sources */,
 				B1783BFB1CB2FCB600056895 /* InputViewPresenterProtocol.swift in Sources */,
@@ -486,6 +517,7 @@
 				B1783BE41CB186A400056895 /* DALHelper.swift in Sources */,
 				B18785A11CA98E6A00DD18E9 /* ViewController.swift in Sources */,
 				B1783C141CB3A5AB00056895 /* SwipeNavigationPresenter.swift in Sources */,
+				B1783C2C1CB3CA6A00056895 /* SettingsViewController.swift in Sources */,
 				B18785D41CA9928500DD18E9 /* CategoryModel.swift in Sources */,
 				B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */,
 				B1783BE91CB18A2400056895 /* TransactionInteractor.swift in Sources */,

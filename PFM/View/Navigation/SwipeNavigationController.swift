@@ -114,14 +114,20 @@ extension SwipeNavigationController: EZSwipeControllerDataSource {
         guard let chartsVC = Router.sharedInstance.initChartsScreen() as? SwipeableViewControllerProtocol else
             { assert(false, "the viewcontroller does not conform to protocol: 'SwipeableViewControllerProtocol'")}
         
+        guard let settingsVC = Router.sharedInstance.initSettingsScreen() as? SwipeableViewControllerProtocol else
+            { assert(false, "the viewcontroller does not conform to protocol: 'SwipeableViewControllerProtocol'")}
+        
         inputVC.delegate = self
         chartsVC.delegate = self
+        settingsVC.delegate = self
         
         if let inputViewController = inputVC as? UIViewController,
-            let chartsViewController = chartsVC as? UIViewController {
+            let chartsViewController = chartsVC as? UIViewController,
+            let settingsViewController = settingsVC as? UIViewController {
             
             viewControllers.append(chartsViewController)
             viewControllers.append(inputViewController)
+            viewControllers.append(settingsViewController)
             return viewControllers
         }
         

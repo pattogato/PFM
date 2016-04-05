@@ -49,6 +49,16 @@ class Router {
         
         return chartsVC
     }
+    
+    func initSettingsScreen() -> SettingsViewProtocol {
+        let settingsVC = Router.initViewController(storyboardID: StoryboardID.settingsViewController) as! SettingsViewController
+        
+        let settingsViewPresenter = SettingsViewPresenter(view: settingsVC)
+        
+        settingsVC.presenter = settingsViewPresenter
+        
+        return settingsVC
+    }
  
     // MARK: Swipe navigation
     
@@ -60,6 +70,7 @@ class Router {
         
         swipeViewPresenter.presentNavigationRoot(&window)
     }
+    
     
     /**
         Shows the view left from the visible if there is one

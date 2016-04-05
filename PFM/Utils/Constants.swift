@@ -12,4 +12,5 @@ struct StoryboardID {
     static let inputViewController = "InputViewControllerStoryboardID"
     static let swipeViewController = "SwipeViewControllerStoryboardID"
     static let chartsViewController = "ChartsViewControllerStoryboardID"
+    static let settingsViewController = "SettingsViewControllerStoryboardID"
 }
