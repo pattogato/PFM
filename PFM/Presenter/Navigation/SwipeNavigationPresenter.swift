@@ -18,9 +18,12 @@ class SwipeNavigationPresenter: NavigationPresenterProtocol {
     
     func presentNavigationRoot(inout window: UIWindow?) {
         if let navigationVC = view as? UIViewController {
-            window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            window!.rootViewController = navigationVC
-            window!.makeKeyAndVisible()
+            let newWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+            
+            newWindow.rootViewController = navigationVC
+            newWindow.makeKeyAndVisible()
+            
+            window = newWindow
         }
     }
     
