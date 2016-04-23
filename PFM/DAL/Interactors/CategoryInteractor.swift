@@ -15,7 +15,7 @@ class CategoryInteractor: NSObject {
         Returns the CategoryModel with the given server ID
      */
     class func getCategory(byServerId serverId: String, realm: Realm = DALHelper.sharedInstance.realm) -> CategoryModel? {
-        return realm.objects(CategoryModel).filter("serverId == \(serverId)").first
+        return realm.objects(CategoryModel).filter("serverId == '\(serverId)'").first
     }
     
     /**

@@ -27,7 +27,7 @@ class Router {
      - Returns: Returns the initialized View
      */
     func initInputScreen() -> InputViewProtocol {
-        let inputVC = Router.initViewController(storyboardID: StoryboardID.inputViewController) as! InputViewController
+        let inputVC = Router.initViewController("InputStoryboard", storyboardID: StoryboardID.inputViewController) as! InputViewController
         
         let inputViewPresenter = InputViewPresenter(view: inputVC)
         inputVC.presenter = inputViewPresenter
@@ -41,7 +41,7 @@ class Router {
      - Returns: Returns the initialized View
      */
     func initChartsScreen() -> ChartsViewProtocol {
-        let chartsVC = Router.initViewController(storyboardID: StoryboardID.chartsViewController) as! ChartsViewController
+        let chartsVC = Router.initViewController("ChartsStoryboard", storyboardID: StoryboardID.chartsViewController) as! ChartsViewController
         
         let chartViewPresenter = ChartsViewPresenter(view: chartsVC)
         
@@ -51,7 +51,7 @@ class Router {
     }
     
     func initSettingsScreen() -> SettingsViewProtocol {
-        let settingsVC = Router.initViewController(storyboardID: StoryboardID.settingsViewController) as! SettingsViewController
+        let settingsVC = Router.initViewController("SettingsStoryboard", storyboardID: StoryboardID.settingsViewController) as! SettingsViewController
         
         let settingsViewPresenter = SettingsViewPresenter(view: settingsVC)
         
