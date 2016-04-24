@@ -13,7 +13,9 @@ enum KeyboardType {
     case Notes
 }
 
-protocol InputViewProtocol: class, SwipeableViewControllerProtocol{
+protocol InputViewProtocol: class, SwipeableViewControllerProtocol {
+    
+    weak var amountLabel: UILabel! { get set }
     
     /**
         Sets up the input screen with a given Transaction Model

@@ -13,6 +13,7 @@
 		B120CA7F1CCBC67800E9985B /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B120CA7E1CCBC67800E9985B /* SettingsStoryboard.storyboard */; };
 		B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120CA811CCBC93500E9985B /* NumpadViewController.swift */; };
 		B120CA841CCBC93500E9985B /* NumpadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B120CA821CCBC93500E9985B /* NumpadViewController.xib */; };
+		B120CA861CCCFDC100E9985B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120CA851CCCFDC100E9985B /* Extensions.swift */; };
 		B1783BE41CB186A400056895 /* DALHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE31CB186A400056895 /* DALHelper.swift */; };
 		B1783BE91CB18A2400056895 /* TransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE81CB18A2400056895 /* TransactionInteractor.swift */; };
 		B1783BEB1CB1A34B00056895 /* CategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */; };
@@ -67,6 +68,8 @@
 		B120CA7E1CCBC67800E9985B /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SettingsStoryboard.storyboard; path = View/Settings/SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		B120CA811CCBC93500E9985B /* NumpadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumpadViewController.swift; path = View/Numpad/NumpadViewController.swift; sourceTree = "<group>"; };
 		B120CA821CCBC93500E9985B /* NumpadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NumpadViewController.xib; path = View/Numpad/NumpadViewController.xib; sourceTree = "<group>"; };
+		B120CA851CCCFDC100E9985B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utils/Extensions.swift; sourceTree = "<group>"; };
+		B120CA8A1CCD068B00E9985B /* PFM-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PFM-BridgingHeader.h"; sourceTree = "<group>"; };
 		B1783BE31CB186A400056895 /* DALHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DALHelper.swift; path = DAL/DALHelper.swift; sourceTree = "<group>"; };
 		B1783BE81CB18A2400056895 /* TransactionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionInteractor.swift; path = DAL/Interactors/TransactionInteractor.swift; sourceTree = "<group>"; };
 		B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryInteractor.swift; path = DAL/Interactors/CategoryInteractor.swift; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				B1783C041CB3059800056895 /* Constants.swift */,
+				B120CA851CCCFDC100E9985B /* Extensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -332,6 +336,7 @@
 				B18785A51CA98E6A00DD18E9 /* Assets.xcassets */,
 				B18785A71CA98E6A00DD18E9 /* LaunchScreen.storyboard */,
 				B18785AA1CA98E6A00DD18E9 /* Info.plist */,
+				B120CA8A1CCD068B00E9985B /* PFM-BridgingHeader.h */,
 			);
 			path = PFM;
 			sourceTree = "<group>";
@@ -540,6 +545,7 @@
 				B1783C001CB2FDF100056895 /* InputViewProtocol.swift in Sources */,
 				B1783BFB1CB2FCB600056895 /* InputViewPresenterProtocol.swift in Sources */,
 				B1783C0C1CB3978900056895 /* NavigationPresenterProtocol.swift in Sources */,
+				B120CA861CCCFDC100E9985B /* Extensions.swift in Sources */,
 				B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */,
 				B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */,
 				B1783BE41CB186A400056895 /* DALHelper.swift in Sources */,
@@ -687,6 +693,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.pinup.PFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_NAME)/PFM-BridgingHeader.h";
 			};
 			name = Debug;
 		};
@@ -699,6 +706,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.pinup.PFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_NAME)/PFM-BridgingHeader.h";
 			};
 			name = Release;
 		};

@@ -30,15 +30,26 @@ class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func enterDigit(value: Int) {
-        print("enterDigit \(value)")
+        if self.view.amountLabel.text != nil {
+            self.view.amountLabel.text!.append(Character("\(value)"))
+        }
     }
     
     func enterComa() {
-        print("enterComa")
+        if let labelText = self.view.amountLabel.text {
+            if !labelText.characters.contains(".") {
+                if labelText.characters.count == 0 {
+                    self.view.amountLabel.text!.append(Character("0"))
+                }
+                self.view.amountLabel.text!.append(Character("."))
+            }
+        }
     }
     
     func deleteDigit() {
-        print("deleteDigit")
+        if let text = self.view.amountLabel.text where self.view.amountLabel.text?.characters.count > 0 {
+            self.view.amountLabel.text = String(text.characters.dropLast())
+        }
     }
     
     func categorySelected(category: CategoryModel) {

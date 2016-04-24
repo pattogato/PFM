@@ -11,7 +11,7 @@ import UIKit
 class MockDAL: NSObject {
 
     internal static let numberOfTransactions = 10
-    internal static let numberOfCategories = 10
+    internal static let numberOfCategories = 40
     
     class func mockTransactions() -> [TransactionModel] {
         

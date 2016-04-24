@@ -9,9 +9,9 @@
 import UIKit
 
 protocol NumberPadDelegate: class {
-    func numberPressed(number: Int)
-    func comaPressed()
-    func deletePressed()
+    func numberPadDelegateNumberPressed(number: Int)
+    func numberPadDelegateComaPressed()
+    func numberPadDelegateDeletePressed()
 }
 
 class NumpadViewController: UIViewController {
@@ -30,15 +30,15 @@ class NumpadViewController: UIViewController {
     }
     
     @IBAction func numberPressed(sender: UIButton) {
-        self.delegate?.numberPressed(sender.tag)
+        self.delegate?.numberPadDelegateNumberPressed(sender.tag)
     }
 
     @IBAction func deleteTouhced(sender: AnyObject) {
-        self.delegate?.deletePressed()
+        self.delegate?.numberPadDelegateDeletePressed()
     }
     
     @IBAction func comaTouched(sender: AnyObject) {
-        self.delegate?.comaPressed()
+        self.delegate?.numberPadDelegateComaPressed()
     }
     
 

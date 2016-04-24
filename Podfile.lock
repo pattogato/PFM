@@ -1,5 +1,6 @@
 PODS:
   - EZSwipeController (0.4)
+  - MBPullDownController (1.1.1)
   - Realm (0.98.6):
     - Realm/Headers (= 0.98.6)
   - Realm/Headers (0.98.6)
@@ -8,10 +9,12 @@ PODS:
 
 DEPENDENCIES:
   - EZSwipeController
+  - MBPullDownController (~> 1.0)
   - RealmSwift
 
 SPEC CHECKSUMS:
   EZSwipeController: 49aa0f869e66049ac433483120f458434272ee32
+  MBPullDownController: 6e5ee6fa099f2283cc207b3d2fa5c4867c652258
   Realm: 44803f35418c5d89b27825a564247fcd190de37e
   RealmSwift: c7239c52c83f8c43525a5269ba7be1694da33afc
 
