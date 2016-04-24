@@ -17,8 +17,9 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     let kCategoryCollectionViewMargin: CGFloat = 16.0
     let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsetsMake(16, 16, 16, 16)
     
-    // Properties
+    // InputProtocol properties
     @IBOutlet weak var amountLabel: UILabel!
+    weak var inputContentPresenter: InputContentPresenterProtocol?
     
     var transactionModel: TransactionModel?
     var presenter: InputViewPresenterProtocol?
@@ -30,8 +31,9 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     }
     
     // Outlets
-    @IBOutlet weak var numberPadContainerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var inputContentContainerView: UIView!
+    
     
     // Properties
     var numpadViewController: NumpadViewController!
@@ -42,11 +44,11 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setupNumpad()
         self.setupUI()
         self.setupPulldownController()
         
         self.categories = MockDAL.mockCategories()
+        self.inputContentPresenter?.showContent(InputContentType.Keyboard, keyboardType: KeyboardType.Numeric)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,15 +73,8 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     func setupPulldownController() {
         
     }
-    
-    func setupNumpad() {
-        numpadViewController = NumpadViewController(nibName: "NumpadViewController", bundle: NSBundle.mainBundle())
-        self.addChildViewController(numpadViewController)
-        self.numpadViewController.view.frame = numberPadContainerView.bounds
-        self.numberPadContainerView.addSubview(numpadViewController!.view)
-        self.numpadViewController?.didMoveToParentViewController(self)
-        numpadViewController.delegate = self
-    }
+
+    // IBActions
     
     @IBAction func completeButtonTouched(sender: AnyObject) {
         if self.amountLabel.text != nil {
@@ -87,30 +82,50 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
         }
     }
     
-    
     @IBAction func changeKeyboardTypeButtonTouched(sender: AnyObject) {
         self.presenter?.toggleKeyboardType()
     }
     
+    @IBAction func cameraButtonTouched(sender: AnyObject) {
+    }
     
-    /*
+    @IBAction func locationButtonTouched(sender: AnyObject) {
+    }
+    
+    @IBAction func noteButtonTouched(sender: AnyObject) {
+    }
+    
+    @IBAction func timeButtonTouched(sender: UIButton) {
+        if self.inputContentPresenter?.presentingType != InputContentType.DatePicker {
+            self.inputContentPresenter?.showContent(InputContentType.DatePicker, keyboardType: nil)
+        } else {
+            self.inputContentPresenter?.showContent(InputContentType.Keyboard, keyboardType: nil)
+        }
+        
+        sender.selected = !sender.selected
+    }
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let inputContentVC = segue.destinationViewController as? InputContentViewProtocol
+            where segue.identifier == "InputContentContainerView" {
+            
+            self.inputContentPresenter = InputContentPresenter(view: inputContentVC)
+            inputContentVC.presenter = self.inputContentPresenter
+            inputContentVC.parentVC = self
+        }
+        
     }
-    */
-    
-    
     
     func setTransaction(transaction: TransactionModel) {
         self.transactionModel = transaction
     }
 }
 
-extension InputViewController: NumberPadDelegate {
+
+// Numpad delegate methods
+extension InputViewController {
     
     func numberPadDelegateComaPressed() {
         self.presenter?.enterComa()

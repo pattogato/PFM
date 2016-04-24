@@ -13,9 +13,10 @@ enum KeyboardType {
     case Notes
 }
 
-protocol InputViewProtocol: class, SwipeableViewControllerProtocol {
+protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDelegate {
     
     weak var amountLabel: UILabel! { get set }
+    weak var inputContentPresenter: InputContentPresenterProtocol? { get set }
     
     /**
         Sets up the input screen with a given Transaction Model
@@ -24,6 +25,5 @@ protocol InputViewProtocol: class, SwipeableViewControllerProtocol {
      - transaction: The transaction model to edit/show
      */
     func setTransaction(transaction: TransactionModel)
-    
     
 }
