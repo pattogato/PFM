@@ -11,6 +11,7 @@ import Foundation
 enum InputContentType {
     case Keyboard
     case DatePicker
+    case CurrencyPicker
 }
 
 protocol InputContentPresenterProtocol: class {

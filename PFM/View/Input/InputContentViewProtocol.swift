@@ -8,10 +8,17 @@
 
 import Foundation
 
+@objc
+protocol InputContentDelegate: class {
+    optional func currencySelected(string: String)
+    optional func dateSelected(date: NSDate)
+}
+
 protocol InputContentViewProtocol:class {
     
     var presenter: InputContentPresenterProtocol! { get set }
     weak var parentVC: InputViewProtocol! { get set }
+    weak var delegate: InputContentDelegate? { get set }
     
     var presentingKeyboardType: KeyboardType? {get set }
     

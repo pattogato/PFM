@@ -65,7 +65,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func changeCurrency() {
-        print("changeCurrency")
+        self.view.inputContentPresenter?.showContent(InputContentType.CurrencyPicker, keyboardType: nil)
     }
     
     func openCameraScreen() {

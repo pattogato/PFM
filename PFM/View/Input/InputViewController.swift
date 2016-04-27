@@ -33,6 +33,7 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     // Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var inputContentContainerView: UIView!
+    @IBOutlet weak var currencyButton: UIButton!
     
     
     // Properties
@@ -95,6 +96,10 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     @IBAction func noteButtonTouched(sender: AnyObject) {
     }
     
+    @IBAction func currencyButtonTouched(sender: AnyObject) {
+        self.presenter?.changeCurrency()
+    }
+    
     @IBAction func timeButtonTouched(sender: UIButton) {
         if self.inputContentPresenter?.presentingType != InputContentType.DatePicker {
             self.inputContentPresenter?.showContent(InputContentType.DatePicker, keyboardType: nil)
@@ -114,6 +119,7 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
             self.inputContentPresenter = InputContentPresenter(view: inputContentVC)
             inputContentVC.presenter = self.inputContentPresenter
             inputContentVC.parentVC = self
+            inputContentVC.delegate = self
         }
         
     }
@@ -170,5 +176,16 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return kCategoryCollectionInsets
     }
     
+}
+
+extension InputViewController: InputContentDelegate {
+    
+    func currencySelected(string: String) {
+        currencyButton.setTitle(string, forState: UIControlState.Normal)
+    }
+    
+    func dateSelected(date: NSDate) {
+        
+    }
 }
 
