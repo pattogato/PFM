@@ -8,6 +8,7 @@
 
 import UIKit
 import MBPullDownController
+import ALCameraViewController
 
 class InputViewController: UIViewController, PresentableView, InputViewProtocol {
 
@@ -34,6 +35,7 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var inputContentContainerView: UIView!
     @IBOutlet weak var currencyButton: UIButton!
+    @IBOutlet weak var nameTextField: UITextField!
     
     
     // Properties
@@ -57,30 +59,66 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Event handlers
+
     
-    @IBAction func chartsButtonTouched(sender: AnyObject) {
-        self.presenter?.navigateToCharts()
-    }
-    
-    @IBAction func settingsButtonTouched(sender: AnyObject) {
-        self.presenter?.navigateToSettings()
-    }
-    
+
     func setupUI() {
         self.amountLabel.numberOfLines = 1
+        self.amountLabel.adjustsFontSizeToFitWidth = true
+        self.amountLabel.minimumScaleFactor = 0.3
     }
     
     func setupPulldownController() {
         
     }
 
+    
+    // MARK: - Navigation
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let inputContentVC = segue.destinationViewController as? InputContentViewProtocol
+            where segue.identifier == "InputContentContainerView" {
+            
+            self.inputContentPresenter = InputContentPresenter(view: inputContentVC)
+            inputContentVC.presenter = self.inputContentPresenter
+            inputContentVC.parentVC = self
+            inputContentVC.delegate = self
+        }
+        
+    }
+    
+    func setTransaction(transaction: TransactionModel) {
+        self.transactionModel = transaction
+    }
+}
+
+// Button event handlers
+
+extension InputViewController {
+    // MARK: - Event handlers
+    
+    @IBAction func chartsButtonTouched(sender: AnyObject) {
+        self.presenter?.navigateToCharts()
+    }
+    @IBAction func settingsButtonTouched(sender: AnyObject) {
+        self.presenter?.navigateToSettings()
+    }
+    
     // IBActions
     
     @IBAction func completeButtonTouched(sender: AnyObject) {
         if self.amountLabel.text != nil {
             self.presenter?.saveAmount(self.amountLabel.text!)
         }
+        
+        let amount = Double(amountLabel.text ?? "0")
+        
+        // TODO: set categories
+        let category = CategoryModel()
+        
+        let transaction = TransactionInteractor.createTransaction(nameTextField.text ?? "Untitled expense", amount: amount ?? 0, currency: currencyButton.titleLabel?.text ?? "USD", category: category)
+        
+        self.presenter?.saveTransaction(transaction)
     }
     
     @IBAction func changeKeyboardTypeButtonTouched(sender: AnyObject) {
@@ -88,6 +126,7 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     }
     
     @IBAction func cameraButtonTouched(sender: AnyObject) {
+        self.presenter?.openCameraScreen()
     }
     
     @IBAction func locationButtonTouched(sender: AnyObject) {
@@ -109,23 +148,20 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
         
         sender.selected = !sender.selected
     }
-    
-    // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let inputContentVC = segue.destinationViewController as? InputContentViewProtocol
-            where segue.identifier == "InputContentContainerView" {
-            
-            self.inputContentPresenter = InputContentPresenter(view: inputContentVC)
-            inputContentVC.presenter = self.inputContentPresenter
-            inputContentVC.parentVC = self
-            inputContentVC.delegate = self
+}
+
+// Input view protocol methods
+extension InputViewController {
+    func openCamera() {
+        let croppingEnabled = true
+        let cameraViewController = CameraViewController(croppingEnabled: croppingEnabled) { image in
+            self.dismissViewControllerAnimated(true, completion: { 
+                print("got image")
+            })
         }
         
-    }
-    
-    func setTransaction(transaction: TransactionModel) {
-        self.transactionModel = transaction
+        presentViewController(cameraViewController, animated: true, completion: nil)
     }
 }
 
@@ -158,9 +194,13 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CategoryCollectionViewCell", forIndexPath: indexPath)
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CategoryCollectionViewCell", forIndexPath: indexPath) as? CategoryCollectionViewCell {
+            cell.model = categories[indexPath.item]
+            
+            return cell
+        }
         
-        return cell
+        return UICollectionViewCell()
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -176,6 +216,10 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return kCategoryCollectionInsets
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.presenter?.categorySelected(categories[indexPath.item])
+    }
+    
 }
 
 extension InputViewController: InputContentDelegate {
@@ -187,5 +231,14 @@ extension InputViewController: InputContentDelegate {
     func dateSelected(date: NSDate) {
         
     }
+}
+
+extension InputViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
 

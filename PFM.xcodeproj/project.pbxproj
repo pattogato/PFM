@@ -52,6 +52,7 @@
 		B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D71CA99AE000DD18E9 /* ModelObject.swift */; };
 		B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */; };
 		B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DC1CA99CDA00DD18E9 /* UserModel.swift */; };
+		B196C0971CD20D67004E8D4E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196C0961CD20D67004E8D4E /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		B18785D71CA99AE000DD18E9 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelObject.swift; path = DAL/Realm/ModelObject.swift; sourceTree = "<group>"; };
 		B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionModel.swift; path = DAL/Realm/TransactionModel.swift; sourceTree = "<group>"; };
 		B18785DC1CA99CDA00DD18E9 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = DAL/Realm/UserModel.swift; sourceTree = "<group>"; };
+		B196C0961CD20D67004E8D4E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryCollectionViewCell.swift; path = View/Input/CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED38454F2A0285882D09E37A /* Pods-PFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM/Pods-PFM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +240,7 @@
 				B120CA7A1CCBC64900E9985B /* InputStoryboard.storyboard */,
 				B120CA8D1CCD142B00E9985B /* InputContentViewProtocol.swift */,
 				B120CA911CCD15F700E9985B /* InputContentViewController.swift */,
+				B196C0961CD20D67004E8D4E /* CategoryCollectionViewCell.swift */,
 			);
 			name = Input;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				B1783C221CB3B6B500056895 /* ChartsViewController.swift in Sources */,
 				B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */,
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
+				B196C0971CD20D67004E8D4E /* CategoryCollectionViewCell.swift in Sources */,
 				B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */,
 				B1783BEB1CB1A34B00056895 /* CategoryInteractor.swift in Sources */,
 				B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */,

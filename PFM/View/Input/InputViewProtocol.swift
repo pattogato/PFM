@@ -26,4 +26,6 @@ protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDel
      */
     func setTransaction(transaction: TransactionModel)
     
+    func openCamera()
+    
 }

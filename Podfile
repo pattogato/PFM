@@ -6,6 +6,7 @@ target 'PFM' do
 pod 'RealmSwift'
 pod 'EZSwipeController'
 pod 'MBPullDownController', '~> 1.0'
+pod 'ALCameraViewController'
 
 end
 

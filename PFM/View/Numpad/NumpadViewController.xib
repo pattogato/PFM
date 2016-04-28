@@ -17,7 +17,9 @@
             <subviews>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85z-sA-a8l">
                     <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="1"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="cfN-As-T5A"/>
@@ -25,7 +27,9 @@
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D96-em-KQM">
                     <rect key="frame" x="200" y="0.0" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="2"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="qcE-AQ-Ag7"/>
@@ -33,7 +37,9 @@
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5F-Ar-RPT">
                     <rect key="frame" x="400" y="0.0" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="3"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="tGp-ws-5ei"/>
@@ -41,7 +47,9 @@
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKj-2A-380">
                     <rect key="frame" x="0.0" y="150" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="4"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="T8w-HY-ppe"/>
@@ -49,7 +57,9 @@
                 </button>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAm-kM-wVC">
                     <rect key="frame" x="200" y="150" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="5"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="J80-Pg-5bR"/>
@@ -57,7 +67,9 @@
                 </button>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NS-rE-Sbk">
                     <rect key="frame" x="400" y="150" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="6"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="lZB-XJ-k9z"/>
@@ -65,7 +77,9 @@
                 </button>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdh-eH-7Ue">
                     <rect key="frame" x="0.0" y="300" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="7"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="2iJ-E9-eEi"/>
@@ -73,7 +87,9 @@
                 </button>
                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvC-Sp-19W">
                     <rect key="frame" x="200" y="300" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="8"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="L5c-ri-EpX"/>
@@ -81,7 +97,9 @@
                 </button>
                 <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNv-Y9-ELy">
                     <rect key="frame" x="400" y="300" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="9"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="mM9-rJ-4Gn"/>
@@ -89,7 +107,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPk-PB-fij">
                     <rect key="frame" x="0.0" y="450" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="."/>
                     <connections>
                         <action selector="comaTouched:" destination="-1" eventType="touchUpInside" id="e6w-aZ-O0J"/>
@@ -97,7 +117,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pn-Nf-fnp">
                     <rect key="frame" x="200" y="450" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="0"/>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="63o-Hs-P28"/>
@@ -105,7 +127,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM5-IL-ZIq">
                     <rect key="frame" x="400" y="450" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="del"/>
                     <connections>
                         <action selector="deleteTouhced:" destination="-1" eventType="touchUpInside" id="9nq-gJ-9tk"/>

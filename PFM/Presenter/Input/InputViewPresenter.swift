@@ -69,7 +69,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func openCameraScreen() {
-        print("openCameraScreen")
+        self.view.openCamera()
     }
     
     func openLocationScreen() {
