@@ -22,6 +22,8 @@ class SwipeNavigationController: EZSwipeController, NavigationViewProtocol, Pres
 
     var presenter: NavigationPresenterProtocol?
     
+    var inputVc: InputViewController?
+    
     override func setupView() {
         datasource = self
         navigationBarShouldNotExist = true
@@ -109,6 +111,7 @@ extension SwipeNavigationController: EZSwipeControllerDataSource {
         var viewControllers = [UIViewController]()
         
         let inputVC = Router.sharedInstance.initInputScreen()
+        self.inputVc = inputVC
         
         let chartsVC = Router.sharedInstance.initChartsScreen()
         

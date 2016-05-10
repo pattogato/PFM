@@ -9,19 +9,24 @@
 import UIKit
 import MBPullDownController
 
-class InputViewController: UIViewController, PresentableView, InputViewProtocol {
+final class InputViewController: UIViewController, PresentableView, InputViewProtocol {
 
     // Constants
-    let kCategoryCollectionViewCellHeight: CGFloat = 75.0
-    let kCategoryCollectionViewItemSpacing: CGFloat = 16.0
-    let kCategoryCollectionViewMargin: CGFloat = 16.0
-    let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsetsMake(16, 16, 16, 16)
+    
+    private let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
+    
+    private let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsets(top: 26, left: 20, bottom: 0, right: 20)
+
+    private let kCategoryCellIdentifier = "CategoryCollectionViewCell"
     
     // InputProtocol properties
+    
     @IBOutlet weak var amountLabel: UILabel!
+    
     weak var inputContentPresenter: InputContentPresenterProtocol?
     
     var transactionModel: TransactionModel?
+    
     var presenter: InputViewPresenterProtocol?
     
     var categories = [CategoryModel]() {
@@ -31,24 +36,49 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     }
     
     // Outlets
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet weak var inputContentContainerView: UIView!
     
+    @IBOutlet weak var categoriesContainerView: UIView!
+    
+    @IBOutlet weak var categoriesPullIndicator: UIView!
+    
+    @IBOutlet var categoryPanGestureRecognizer: UIPanGestureRecognizer!
+    
+    @IBOutlet var categoryTapGestureRecognizer: UITapGestureRecognizer!
+    
+    @IBOutlet var menuButtons: [UIButton]!
     
     // Properties
+    
     var numpadViewController: NumpadViewController!
     
     weak var delegate: SwipeViewControllerProtocol?
+    
+    var categoriesViewController: CategoriesViewController? = nil
+    
+    private let categoriesTransition = CategoriesTransition()
+    
+    // MARK: - General methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setupUI()
-        self.setupPulldownController()
+        setupUI()
+        setupPulldownController()
         
-        self.categories = MockDAL.mockCategories()
-        self.inputContentPresenter?.showContent(InputContentType.Keyboard, keyboardType: KeyboardType.Numeric)
+        categories = MockDAL.mockCategories()
+        inputContentPresenter?.showContent(InputContentType.Keyboard, keyboardType: KeyboardType.Numeric)
+        
+        collectionView.registerNib(
+            UINib(nibName: "CategoryCollectionViewCell", bundle: NSBundle.mainBundle()),
+            forCellWithReuseIdentifier: kCategoryCellIdentifier)
+        categoriesContainerView.layer.cornerRadius = 16
+        
+        categoriesPullIndicator.layer.cornerRadius = 2
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,15 +89,15 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     // MARK: - Event handlers
     
     @IBAction func chartsButtonTouched(sender: AnyObject) {
-        self.presenter?.navigateToCharts()
+        presenter?.navigateToCharts()
     }
     
     @IBAction func settingsButtonTouched(sender: AnyObject) {
-        self.presenter?.navigateToSettings()
+        presenter?.navigateToSettings()
     }
     
     func setupUI() {
-        self.amountLabel.numberOfLines = 1
+        amountLabel.numberOfLines = 1
     }
     
     func setupPulldownController() {
@@ -77,13 +107,13 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     // IBActions
     
     @IBAction func completeButtonTouched(sender: AnyObject) {
-        if self.amountLabel.text != nil {
-            self.presenter?.saveAmount(self.amountLabel.text!)
+        if amountLabel.text != nil {
+            presenter?.saveAmount(self.amountLabel.text!)
         }
     }
     
     @IBAction func changeKeyboardTypeButtonTouched(sender: AnyObject) {
-        self.presenter?.toggleKeyboardType()
+        presenter?.toggleKeyboardType()
     }
     
     @IBAction func cameraButtonTouched(sender: AnyObject) {
@@ -96,13 +126,21 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     }
     
     @IBAction func timeButtonTouched(sender: UIButton) {
-        if self.inputContentPresenter?.presentingType != InputContentType.DatePicker {
-            self.inputContentPresenter?.showContent(InputContentType.DatePicker, keyboardType: nil)
+        if inputContentPresenter?.presentingType != InputContentType.DatePicker {
+            inputContentPresenter?.showContent(InputContentType.DatePicker, keyboardType: nil)
         } else {
-            self.inputContentPresenter?.showContent(InputContentType.Keyboard, keyboardType: nil)
+            inputContentPresenter?.showContent(InputContentType.Keyboard, keyboardType: nil)
         }
         
         sender.selected = !sender.selected
+    }
+    
+    @IBAction func handleCategoryTap(sender: AnyObject) {
+        openCategories()
+    }
+    
+    @IBAction func handleCategoryPan(sender: AnyObject) {
+        
     }
     
     // MARK: - Navigation
@@ -111,32 +149,85 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
         if let inputContentVC = segue.destinationViewController as? InputContentViewProtocol
             where segue.identifier == "InputContentContainerView" {
             
-            self.inputContentPresenter = InputContentPresenter(view: inputContentVC)
+            inputContentPresenter = InputContentPresenter(view: inputContentVC)
             inputContentVC.presenter = self.inputContentPresenter
             inputContentVC.parentVC = self
+        }
+    }
+    
+    func setTransaction(transaction: TransactionModel) {
+        transactionModel = transaction
+    }
+}
+
+// MARK: - Categories Open
+
+extension InputViewController: UIViewControllerTransitioningDelegate {
+    
+    private func  openCategories() {
+    
+        guard self.categoriesViewController == nil else { return }
+        
+        let categoriesViewController = CategoriesViewController(
+            nibName: CategoriesViewController.kNibName,
+            bundle: NSBundle.mainBundle())
+        
+        categoriesViewController.categories = self.categories
+        
+        categoriesViewController.transitioningDelegate = self
+        self.categoriesViewController = categoriesViewController
+
+        presentViewController(categoriesViewController,
+                              animated: true,
+                              completion: nil)
+        
+    }
+    
+    func animationControllerForPresentedController(
+        presented: UIViewController,
+        presentingController presenting: UIViewController,
+                             sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if let presented = presented as? CategoriesViewController {
+            
+            categoriesTransition.presenting = true
+            return categoriesTransition
+            
+        } else {
+            return nil
+        }
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if dismissed is CategoriesViewController {
+        
+            categoriesTransition.presenting = false
+            return categoriesTransition
+        
+        } /* Else if history .. */
+        else {
+            return nil
         }
         
     }
     
-    func setTransaction(transaction: TransactionModel) {
-        self.transactionModel = transaction
-    }
 }
 
-
 // Numpad delegate methods
+
 extension InputViewController {
     
     func numberPadDelegateComaPressed() {
-        self.presenter?.enterComa()
+        presenter?.enterComa()
     }
     
     func numberPadDelegateNumberPressed(number: Int) {
-        self.presenter?.enterDigit(number)
+        presenter?.enterDigit(number)
     }
     
     func numberPadDelegateDeletePressed() {
-        self.presenter?.deleteDigit()
+        presenter?.deleteDigit()
     }
     
 }
@@ -152,18 +243,15 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CategoryCollectionViewCell", forIndexPath: indexPath)
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCategoryCellIdentifier, forIndexPath: indexPath)
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let collectionViewWidth = (collectionView.frame.width - ((2 * kCategoryCollectionViewMargin) + (3 * kCategoryCollectionViewItemSpacing))) / 4
-        return CGSizeMake(collectionViewWidth, kCategoryCollectionViewCellHeight)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return kCategoryCollectionViewItemSpacing
+
+        return kCategoryCollectionViewCellSize
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {

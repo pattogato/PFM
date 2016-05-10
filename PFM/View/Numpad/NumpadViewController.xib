@@ -4,6 +4,21 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Light.otf">
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NumpadViewController" customModule="PFM" customModuleProvider="target">
             <connections>
@@ -17,102 +32,136 @@
             <subviews>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85z-sA-a8l">
                     <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="1">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="cfN-As-T5A"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D96-em-KQM">
                     <rect key="frame" x="200" y="0.0" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="2"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="2">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="qcE-AQ-Ag7"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5F-Ar-RPT">
                     <rect key="frame" x="400" y="0.0" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="3"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="3">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="tGp-ws-5ei"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKj-2A-380">
                     <rect key="frame" x="0.0" y="150" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="4"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="4">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="T8w-HY-ppe"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAm-kM-wVC">
                     <rect key="frame" x="200" y="150" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="5">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="J80-Pg-5bR"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NS-rE-Sbk">
                     <rect key="frame" x="400" y="150" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="6"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="6">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="lZB-XJ-k9z"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdh-eH-7Ue">
                     <rect key="frame" x="0.0" y="300" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="7"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="7">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="2iJ-E9-eEi"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvC-Sp-19W">
                     <rect key="frame" x="200" y="300" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="8"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="8">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="L5c-ri-EpX"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNv-Y9-ELy">
                     <rect key="frame" x="400" y="300" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="9"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="9">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="mM9-rJ-4Gn"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPk-PB-fij">
                     <rect key="frame" x="0.0" y="450" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="."/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title=".">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="comaTouched:" destination="-1" eventType="touchUpInside" id="e6w-aZ-O0J"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pn-Nf-fnp">
                     <rect key="frame" x="200" y="450" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="0"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
+                    <state key="normal" title="0">
+                        <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="numberPressed:" destination="-1" eventType="touchUpInside" id="63o-Hs-P28"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM5-IL-ZIq">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM5-IL-ZIq">
                     <rect key="frame" x="400" y="450" width="200" height="150"/>
-                    <color key="backgroundColor" red="0.8862745098" green="0.0" blue="0.4549019608" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="del"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" image="buttonDelete"/>
                     <connections>
                         <action selector="deleteTouhced:" destination="-1" eventType="touchUpInside" id="9nq-gJ-9tk"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="LPk-PB-fij" firstAttribute="width" secondItem="3Pn-Nf-fnp" secondAttribute="width" id="0Ha-4v-R4P"/>
                 <constraint firstItem="jdh-eH-7Ue" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1Sd-9j-QgQ"/>
@@ -165,4 +214,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="buttonDelete" width="23" height="17"/>
+    </resources>
 </document>

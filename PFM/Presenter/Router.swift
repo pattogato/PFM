@@ -26,7 +26,7 @@ class Router {
      
      - Returns: Returns the initialized View
      */
-    func initInputScreen() -> InputViewProtocol {
+    func initInputScreen() -> InputViewController {
         let inputVC = Router.initViewController("InputStoryboard", storyboardID: StoryboardID.inputViewController) as! InputViewController
         
         let inputViewPresenter = InputViewPresenter(view: inputVC)
