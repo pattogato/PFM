@@ -24,6 +24,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryImageView: UIImageView!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     // MARK: - General Methods
     
     override func awakeFromNib() {

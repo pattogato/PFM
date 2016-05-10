@@ -165,10 +165,8 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
 extension InputViewController: UIViewControllerTransitioningDelegate {
     
     private func  openCategories() {
-    
-        guard self.categoriesViewController == nil else { return }
         
-        let categoriesViewController = CategoriesViewController(
+        let categoriesViewController = self.categoriesViewController ?? CategoriesViewController(
             nibName: CategoriesViewController.kNibName,
             bundle: NSBundle.mainBundle())
         

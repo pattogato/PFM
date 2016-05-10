@@ -57,6 +57,7 @@
             <connections>
                 <outlet property="categoryImageView" destination="nY6-VM-2uN" id="R99-ah-YtC"/>
                 <outlet property="containerView" destination="Fod-if-X62" id="zgc-Af-xMG"/>
+                <outlet property="titleLabel" destination="1BJ-BC-WTh" id="rdO-cH-SNB"/>
             </connections>
             <point key="canvasLocation" x="125" y="403"/>
         </collectionViewCell>

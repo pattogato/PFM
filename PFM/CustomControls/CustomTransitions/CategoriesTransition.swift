@@ -100,6 +100,13 @@ final class CategoriesTransition: PresentingTransitionAnimator {
                         button.transform = menuButtonTranslate
                     })
                     
+                    // Cell titles
+                    categoriesVc.collectionView.visibleCells().forEach({ (cell) in
+                        if let categoryCell = cell as? CategoryCollectionViewCell {
+                            categoryCell.titleLabel.alpha = 1
+                        }
+                    })
+                    
                     categoriesView.layoutIfNeeded()
                     
                 },
@@ -158,6 +165,14 @@ final class CategoriesTransition: PresentingTransitionAnimator {
                     inputVc.menuButtons.forEach({ (button) in
                         button.transform = CGAffineTransformIdentity
                     })
+                    
+                    // Cell titles
+                    categoriesVc.collectionView.visibleCells().forEach({ (cell) in
+                        if let categoryCell = cell as? CategoryCollectionViewCell {
+                            categoryCell.titleLabel.alpha = 0
+                        }
+                    })
+
                     
                     categoriesView.layoutIfNeeded()
                 },
