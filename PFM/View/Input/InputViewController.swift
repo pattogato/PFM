@@ -40,6 +40,7 @@ class InputViewController: UIViewController, PresentableView, InputViewProtocol 
     
     // Properties
     var numpadViewController: NumpadViewController!
+    var locationPickerPresenter: LocationPickerPresenterProtocol?
     
     weak var delegate: SwipeViewControllerProtocol?
     
@@ -130,6 +131,7 @@ extension InputViewController {
     }
     
     @IBAction func locationButtonTouched(sender: AnyObject) {
+        self.presenter?.openLocationScreen()
     }
     
     @IBAction func noteButtonTouched(sender: AnyObject) {
@@ -162,6 +164,11 @@ extension InputViewController {
         }
         
         presentViewController(cameraViewController, animated: true, completion: nil)
+    }
+    
+    func openLocationPicker() {
+        self.locationPickerPresenter = LocationPickerPresenter.presentLocationPicker(self)
+        
     }
 }
 

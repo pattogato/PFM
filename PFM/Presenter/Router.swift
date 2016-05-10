@@ -59,6 +59,15 @@ class Router {
         
         return settingsVC
     }
+    
+    func initLocationPickerScreen() -> LocationPickerViewProtocol {
+        
+        let locationVC = Router.initViewController("InputStoryboard", storyboardID: StoryboardID.locationPickerViewController) as! LocationPickerViewProtocol
+        
+        let _ = LocationPickerPresenter(view: locationVC)
+        
+        return locationVC
+    }
  
     // MARK: Swipe navigation
     

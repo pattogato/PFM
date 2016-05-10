@@ -28,4 +28,6 @@ protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDel
     
     func openCamera()
     
+    func openLocationPicker()
+    
 }

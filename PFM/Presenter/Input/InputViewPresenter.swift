@@ -73,7 +73,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func openLocationScreen() {
-        print("openLocationScreen")
+        self.view.openLocationPicker()
     }
     
     func openNoteScreen() {

@@ -13,4 +13,9 @@ struct StoryboardID {
     static let swipeViewController = "SwipeViewControllerStoryboardID"
     static let chartsViewController = "ChartsViewControllerStoryboardID"
     static let settingsViewController = "SettingsViewControllerStoryboardID"
+    static let locationPickerViewController = "LocationPickerViewcontrollerStoryboardID"
+}
+
+struct Segues {
+    static let LocationPicker = "SegueLocationPicker"
 }
