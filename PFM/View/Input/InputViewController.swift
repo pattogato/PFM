@@ -121,6 +121,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     func setTransaction(transaction: TransactionModel) {
         self.transactionModel = transaction
     }
+ 
 }
 
 // Button event handlers
@@ -129,10 +130,11 @@ extension InputViewController {
     // MARK: - Event handlers
     
     @IBAction func chartsButtonTouched(sender: AnyObject) {
-        self.presenter?.navigateToCharts()
+        presenter?.navigateToCharts()
     }
+    
     @IBAction func settingsButtonTouched(sender: AnyObject) {
-        self.presenter?.navigateToSettings()
+        presenter?.navigateToSettings()
     }
     
     // IBActions
@@ -180,7 +182,15 @@ extension InputViewController {
         
         sender.selected = !sender.selected
     }
-
+    
+    @IBAction func handleCategoryTap(sender: AnyObject) {
+        openCategories()
+    }
+    
+    @IBAction func handleCategoryPan(sender: AnyObject) {
+        
+    }
+    
 }
 
 // Input view protocol methods
@@ -283,13 +293,10 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CategoryCollectionViewCell", forIndexPath: indexPath) as? CategoryCollectionViewCell {
-            cell.model = categories[indexPath.item]
-            
-            return cell
-        }
         
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCategoryCellIdentifier, forIndexPath: indexPath)
+        
+        return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

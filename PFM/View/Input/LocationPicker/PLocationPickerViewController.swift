@@ -12,7 +12,6 @@ import LocationPickerViewController
 class PLocationPickerViewController: LocationPicker, LocationPickerViewProtocol {
 
     var presenter: LocationPickerPresenterProtocol!
-    var viewController: ViewController!
     
     override func viewDidLoad() {
         super.addButtons() // Handle over the button to LocationPicker and let it do the rest.
