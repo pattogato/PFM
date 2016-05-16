@@ -121,12 +121,14 @@ extension SwipeNavigationController: EZSwipeControllerDataSource {
         chartsVC.delegate = self
         settingsVC.delegate = self
         
-        if let inputViewController = inputVC as? UIViewController,
-            let chartsViewController = chartsVC as? UIViewController,
+        let inputNavController = Router.sharedInstance.initInputScreenNavigationController()
+        inputNavController.viewControllers = [inputVC];
+        
+        if let chartsViewController = chartsVC as? UIViewController,
             let settingsViewController = settingsVC as? UIViewController {
             
             viewControllers.append(chartsViewController)
-            viewControllers.append(inputViewController)
+            viewControllers.append(inputNavController)
             viewControllers.append(settingsViewController)
             return viewControllers
         }

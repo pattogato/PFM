@@ -158,7 +158,7 @@
                                     <constraint firstItem="raf-1c-bIF" firstAttribute="centerX" secondItem="NhV-3g-KeM" secondAttribute="centerX" id="zl1-IM-fgi"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8O-4j-fwT">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8O-4j-fwT">
                                 <rect key="frame" x="20" y="25" width="33" height="22"/>
                                 <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="menuButtonCharts">
@@ -168,7 +168,7 @@
                                     <action selector="chartsButtonTouched:" destination="nPq-tj-Veb" eventType="touchUpInside" id="3Mw-LD-cgx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sba-od-5SJ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sba-od-5SJ">
                                 <rect key="frame" x="561" y="25" width="19" height="25"/>
                                 <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="menuButtonProfile">
@@ -178,7 +178,7 @@
                                     <action selector="settingsButtonTouched:" destination="nPq-tj-Veb" eventType="touchUpInside" id="3z6-tC-cDg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18l-Uq-9jg">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18l-Uq-9jg">
                                 <rect key="frame" x="286" y="25" width="29" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
@@ -205,14 +205,14 @@
                                     <action selector="currencyButtonTouched:" destination="nPq-tj-Veb" eventType="touchUpInside" id="qFU-f8-207"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="500" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="5jP-h4-sGU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="500" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="5jP-h4-sGU">
                                 <rect key="frame" x="20" y="110" width="560" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="108"/>
                                 <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name expense" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Qk-YZ-yWi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name expense" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Qk-YZ-yWi">
                                 <rect key="frame" x="20" y="63" width="560" height="31"/>
                                 <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="25"/>
@@ -254,6 +254,7 @@
                             <constraint firstItem="G8O-4j-fwT" firstAttribute="top" secondItem="7HE-W2-sfh" secondAttribute="bottom" constant="5" id="zji-Oh-B7N"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gqm-ft-m6c"/>
                     <connections>
                         <outlet property="amountLabel" destination="5jP-h4-sGU" id="lH0-Yk-rOp"/>
                         <outlet property="categoriesContainerView" destination="NhV-3g-KeM" id="7bg-JB-L1O"/>
@@ -282,7 +283,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="891" y="-436"/>
+            <point key="canvasLocation" x="1703" y="-436"/>
         </scene>
         <!--Input Content View Controller-->
         <scene sceneID="P14-hI-La6">
@@ -421,7 +422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEi-Sn-NRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1808" y="-759"/>
+            <point key="canvasLocation" x="2620" y="-759"/>
         </scene>
         <!--Location Picker View Controller-->
         <scene sceneID="jAN-RK-tFl">
@@ -439,7 +440,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWI-Ki-Ypj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1808" y="-178"/>
+            <point key="canvasLocation" x="2620" y="-178"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yvq-zF-e4t">
+            <objects>
+                <navigationController storyboardIdentifier="InputNavigationControllerStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="Lmu-xf-Pnh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2D-pN-77b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nPq-tj-Veb" kind="relationship" relationship="rootViewController" id="fsa-qI-HAJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="voZ-Ph-WO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="891" y="-436"/>
         </scene>
     </scenes>
     <resources>

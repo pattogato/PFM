@@ -27,12 +27,17 @@ class Router {
      - Returns: Returns the initialized View
      */
     func initInputScreen() -> InputViewController {
+        
         let inputVC = Router.initViewController("InputStoryboard", storyboardID: StoryboardID.inputViewController) as! InputViewController
         
         let inputViewPresenter = InputViewPresenter(view: inputVC)
         inputVC.presenter = inputViewPresenter
         
         return inputVC
+    }
+    
+    func initInputScreenNavigationController() -> UINavigationController {
+        return Router.initViewController("InputStoryboard", storyboardID: StoryboardID.inputNavigationController) as! UINavigationController
     }
     
     /**

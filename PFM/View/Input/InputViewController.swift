@@ -83,6 +83,8 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         categoriesContainerView.layer.cornerRadius = 16
         
         categoriesPullIndicator.layer.cornerRadius = 2
+        
+        self.navigationController?.navigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,7 +92,11 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBarHidden = true
+    }
     
 
     func setupUI() {

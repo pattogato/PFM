@@ -16,6 +16,11 @@ class PLocationPickerViewController: LocationPicker, LocationPickerViewProtocol 
     override func viewDidLoad() {
         super.addButtons() // Handle over the button to LocationPicker and let it do the rest.
         super.viewDidLoad()
+        
+        if let cancelButton = navigationItem.leftBarButtonItem {
+            cancelButton.target = self
+            cancelButton.action = #selector(self.cancelButtonTouched(_:))
+        }
     }
     
     override func locationDidSelect(locationItem: LocationItem) {
@@ -24,6 +29,11 @@ class PLocationPickerViewController: LocationPicker, LocationPickerViewProtocol 
     
     override func locationDidPick(locationItem: LocationItem) {
         print("Picked: " + locationItem.name)
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func cancelButtonTouched(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
 }

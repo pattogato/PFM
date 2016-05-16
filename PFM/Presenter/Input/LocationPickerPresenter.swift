@@ -20,9 +20,11 @@ class LocationPickerPresenter: LocationPickerPresenterProtocol {
     
     static func presentLocationPicker(fromViewController: UIViewController) -> LocationPickerPresenterProtocol {
         let locationVC = Router.sharedInstance.initLocationPickerScreen()
-            fromViewController.showViewController(locationVC as! UIViewController, sender: nil)
-        return locationVC.presenter
         
+        fromViewController.navigationController?.navigationBarHidden = false
+        fromViewController.navigationController?.pushViewController(locationVC as! UIViewController, animated: true)
+        
+        return locationVC.presenter
     }
     
 }
