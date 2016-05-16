@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DALHelper.configure()
         
         Router.sharedInstance.setSwipeControllerToRoot(&window)
-        
+                
         return true
     }
 

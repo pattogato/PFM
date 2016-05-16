@@ -10,11 +10,14 @@ import UIKit
 import RealmSwift
 
 class CategoryModel: ModelObject {
-    dynamic var parentId: String = ""
-    dynamic var order: Int = 0
-    dynamic var name: String = ""
-    dynamic var imageUri: String = ""
     
+    dynamic var parentId: String = ""
+    
+    dynamic var order: Int = 0
+    
+    dynamic var name: String = ""
+    
+    dynamic var imageUri: String = ""
     
 }
 
