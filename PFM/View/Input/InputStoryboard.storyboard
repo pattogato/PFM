@@ -8,6 +8,7 @@
         <mutableArray key="Montserrat-Regular.otf">
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
         </mutableArray>
         <mutableArray key="Montserrat-UltraLight.otf">
             <string>Montserrat-UltraLight</string>
@@ -314,30 +315,6 @@
                                     <constraint firstAttribute="trailing" secondItem="RkT-fi-Dtl" secondAttribute="trailing" id="skG-mx-Pvn"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hl-hZ-NBr" userLabel="CurrencyPickerContainer">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBI-4q-cBw">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
-                                    </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TM-VL-spt">
-                                        <rect key="frame" x="554" y="8" width="37" height="30"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <action selector="selectCurrencyButtonDoneTouched:" destination="p1q-c0-EqG" eventType="touchUpInside" id="Bb3-dg-jDd"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="9TM-VL-spt" secondAttribute="trailing" constant="9" id="1MT-uz-M3P"/>
-                                    <constraint firstItem="BBI-4q-cBw" firstAttribute="leading" secondItem="2hl-hZ-NBr" secondAttribute="leading" id="2kr-G1-i3Z"/>
-                                    <constraint firstAttribute="trailing" secondItem="BBI-4q-cBw" secondAttribute="trailing" id="4BE-0W-ZYi"/>
-                                    <constraint firstItem="9TM-VL-spt" firstAttribute="top" secondItem="2hl-hZ-NBr" secondAttribute="top" constant="8" id="TdV-kd-Kmz"/>
-                                    <constraint firstAttribute="bottom" secondItem="BBI-4q-cBw" secondAttribute="bottom" id="aj6-9q-BPh"/>
-                                    <constraint firstItem="BBI-4q-cBw" firstAttribute="top" secondItem="2hl-hZ-NBr" secondAttribute="top" id="jI5-UG-jF9"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghN-n8-DME" userLabel="NumericKeyboardContainerView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
                                 <subviews>
@@ -393,6 +370,33 @@
                                     <constraint firstItem="Zzk-85-Kns" firstAttribute="leading" secondItem="ghN-n8-DME" secondAttribute="leading" id="c1K-Hx-Cga"/>
                                     <constraint firstAttribute="bottom" secondItem="vOS-Ol-rSU" secondAttribute="bottom" id="cqm-qo-3s7"/>
                                     <constraint firstAttribute="bottom" secondItem="Zzk-85-Kns" secondAttribute="bottom" id="oqG-0C-Xlf"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hl-hZ-NBr" userLabel="CurrencyPickerContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBI-4q-cBw">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TM-VL-spt">
+                                        <rect key="frame" x="551" y="8" width="40" height="30"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectCurrencyButtonDoneTouched:" destination="p1q-c0-EqG" eventType="touchUpInside" id="Bb3-dg-jDd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9TM-VL-spt" secondAttribute="trailing" constant="9" id="1MT-uz-M3P"/>
+                                    <constraint firstItem="BBI-4q-cBw" firstAttribute="leading" secondItem="2hl-hZ-NBr" secondAttribute="leading" id="2kr-G1-i3Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="BBI-4q-cBw" secondAttribute="trailing" id="4BE-0W-ZYi"/>
+                                    <constraint firstItem="9TM-VL-spt" firstAttribute="top" secondItem="2hl-hZ-NBr" secondAttribute="top" constant="8" id="TdV-kd-Kmz"/>
+                                    <constraint firstAttribute="bottom" secondItem="BBI-4q-cBw" secondAttribute="bottom" id="aj6-9q-BPh"/>
+                                    <constraint firstItem="BBI-4q-cBw" firstAttribute="top" secondItem="2hl-hZ-NBr" secondAttribute="top" id="jI5-UG-jF9"/>
                                 </constraints>
                             </view>
                         </subviews>
