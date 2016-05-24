@@ -31,9 +31,17 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
     
     private func updateUI() {
         
-        titleLabel.text = transaction?.name
+        if transaction?.name.characters.count > 0 {
+            titleLabel.text = transaction?.name
+        } else {
+            timeLabel.text = "Unnamed item"
+        }
         timeLabel.text = transaction?.date.toString(.Custom("hh : mm"))
-        priceLabel.text = "$ \(transaction?.amount)"
+        if let amount = transaction?.amount {
+            priceLabel.text = "$ \(amount)"
+        } else {
+            priceLabel.text = ""
+        }
     }
     
 }

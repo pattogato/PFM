@@ -30,7 +30,7 @@ final class HistoryViewController: UIViewController {
     // MARK: - Properties
     
     // TODO: Sorted Dictionary [Day/week/Month : [TransactionModel]]
-    private var transactions = [TransactionModel]()
+    var transactions = [TransactionModel]()
     
     // MARK: - IBOutlets
     
@@ -44,10 +44,12 @@ final class HistoryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        collectionView.scrollToItemAtIndexPath(
-            NSIndexPath(forItem: transactions.count-1, inSection: 0),
-            atScrollPosition: .Bottom,
-            animated: false)
+        if transactions.count > 0 {
+            collectionView.scrollToItemAtIndexPath(
+                NSIndexPath(forItem: transactions.count-1, inSection: 0),
+                atScrollPosition: .Bottom,
+                animated: false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,7 +93,8 @@ extension HistoryViewController : UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: Constants.CellHeight)
+        print(collectionView.bounds.width)
+        return CGSize(width: UIScreen.mainScreen().bounds.width, height: Constants.CellHeight)
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -118,7 +121,7 @@ extension HistoryViewController : UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: Constants.HeaderHeight)
+        return CGSize(width: UIScreen.mainScreen().bounds.width, height: Constants.HeaderHeight)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
@@ -133,7 +136,8 @@ extension HistoryViewController : UICollectionViewDataSource, UICollectionViewDe
                 contentHeight += Constants.CellHeight * CGFloat(collectionView.numberOfItemsInSection(i))
             }
             
-            let top = max(collectionView.bounds.height - contentHeight, Constants.SectionInset.top)
+            // FIXME: Magic number
+            let top = max(UIScreen.mainScreen().bounds.height - 50 - contentHeight, Constants.SectionInset.top)
             
             var insets = Constants.SectionInset
             insets.top = top

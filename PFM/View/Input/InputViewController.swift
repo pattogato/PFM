@@ -130,6 +130,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         }
         else if let historyVc = segue.destinationViewController as? HistoryViewController {
             historyVc.transitioningDelegate = self
+            historyVc.transactions = Array(TransactionInteractor.getAllTransactions())
         }
     }
     
