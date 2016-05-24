@@ -14,6 +14,7 @@ class TransactionModel: ModelObject {
     dynamic var date: NSDate = NSDate()
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
+    dynamic var venue: String = ""
     dynamic var imageUri: String = ""
     dynamic var amount: Double = 0.0
     dynamic var currency: String = ""

@@ -12,6 +12,7 @@ import Foundation
 protocol InputContentDelegate: class {
     optional func currencySelected(string: String)
     optional func dateSelected(date: NSDate)
+    optional func saveButtonTouched()
 }
 
 protocol InputContentViewProtocol:class {

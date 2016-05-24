@@ -10,6 +10,8 @@ import UIKit
 
 class InputViewPresenter: InputViewPresenterProtocol {
 
+    var editingTransaction: TransactionModel?
+    
     unowned let view: InputViewProtocol
     
     required init(view: InputViewProtocol) {
@@ -30,38 +32,32 @@ class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func enterDigit(value: Int) {
-        if self.view.amountLabel.text != nil {
-            self.view.amountLabel.text!.append(Character("\(value)"))
-        }
+        self.view.appendAmountDigit(Character("\(value)"))
+        saveAmount()
     }
     
     func enterComa() {
-        if let labelText = self.view.amountLabel.text {
-            if !labelText.characters.contains(".") {
-                if labelText.characters.count == 0 {
-                    self.view.amountLabel.text!.append(Character("0"))
-                }
-                self.view.amountLabel.text!.append(Character("."))
-            }
-        }
+        self.view.appendAmountComa()
+        saveAmount()
     }
     
     func deleteDigit() {
-        if let text = self.view.amountLabel.text where self.view.amountLabel.text?.characters.count > 0 {
-            self.view.amountLabel.text = String(text.characters.dropLast())
+        self.view.deleteAmountDigit()
+        saveAmount()
+    }
+    
+    private func saveAmount() {
+        if let amount = Double(self.view.amountLabel.text ?? "0") {
+            CurrentTransactionInteractor.sharedInstance.saveAmount(amount)
         }
     }
     
-    func categorySelected(category: CategoryModel) {
-        print("categorySelected: \(category.name)")
-    }
-    
     func saveTransaction(transaction: TransactionModel) {
-        print("saveTransaction: \(transaction.name)")
-    }
-    
-    func saveAmount(amount: String) {
-        print("saveAmount: \(amount)")
+        DALHelper.writeInMainRealm { (realm) in
+            DALHelper.sharedInstance.realm.add(transaction)
+        }
+        CurrentTransactionInteractor.sharedInstance.resetTransaction()
+        self.view.resetUI()
     }
     
     func changeCurrency() {
@@ -81,7 +77,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func changeDate() {
-        print("changeDate")
+        
     }
     
     func navigateToCharts() {

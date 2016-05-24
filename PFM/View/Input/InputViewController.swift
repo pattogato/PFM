@@ -71,13 +71,6 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     var keyboardHideTapGestureRecognizer: UITapGestureRecognizer?
     
-    // MARK: - Transaction related properties
-    
-    var selectedDate: NSDate?
-    var selectedLocationLat: Double?
-    var selectedLocationLng: Double?
-    var selectedLocationVenue: String?
-    
     // MARK: - General methods
     
     override func viewDidLoad() {
@@ -143,6 +136,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     func setTransaction(transaction: TransactionModel) {
         self.transactionModel = transaction
     }
+    
  
 }
 
@@ -160,21 +154,7 @@ extension InputViewController {
     }
     
     // IBActions
-    
-    @IBAction func completeButtonTouched(sender: AnyObject) {
-        if amountLabel.text != nil {
-            presenter?.saveAmount(self.amountLabel.text!)
-        }
-        
-        let amount = Double(amountLabel.text ?? "0")
-        
-        // TODO: set categories
-        let category = CategoryModel()
-        
-        let transaction = TransactionInteractor.createTransaction(nameTextField.text ?? "Untitled expense", amount: amount ?? 0, currency: currencyButton.titleLabel?.text ?? "USD", category: category)
-        
-        self.presenter?.saveTransaction(transaction)
-    }
+
     
     @IBAction func changeKeyboardTypeButtonTouched(sender: AnyObject) {
         presenter?.toggleKeyboardType()
@@ -230,6 +210,46 @@ extension InputViewController {
     
     func openLocationPicker() {
         self.locationPickerPresenter = LocationPickerPresenter.presentLocationPicker(self)
+    }
+    
+    func resetUI() {
+        self.amountLabel.text = "0"
+        self.nameTextField.text = ""
+    }
+    
+    func appendAmountComa() {
+        if let labelText = self.amountLabel.text {
+            if !labelText.characters.contains(".") {
+                if labelText.characters.count == 0 {
+                    self.amountLabel.text!.append(Character("0"))
+                } else if labelText == "0" {
+                    self.amountLabel.text = "0."
+                } else {
+                    self.amountLabel.text!.append(Character("."))
+                }
+            }
+            
+        }
+    }
+    
+    func appendAmountDigit(digit: Character) {
+        if self.amountLabel.text != nil {
+            if amountLabel.text! == "0" {
+                self.amountLabel.text = "\(digit)"
+            } else {
+                self.amountLabel.text!.append(digit)
+            }
+        }
+    }
+    
+    func deleteAmountDigit() {
+        if let text = self.amountLabel.text {
+            if self.amountLabel.text?.characters.count == 1 {
+                self.amountLabel.text = "0"
+            } else if self.amountLabel.text?.characters.count > 1 {
+                self.amountLabel.text = String(text.characters.dropLast())
+            }
+        }
     }
 }
 
@@ -335,7 +355,7 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.presenter?.categorySelected(categories[indexPath.item])
+        CurrentTransactionInteractor.sharedInstance.saveCategory(categories[indexPath.item])
     }
     
 }
@@ -344,10 +364,17 @@ extension InputViewController: InputContentDelegate {
     
     func currencySelected(string: String) {
         currencyButton.setTitle(string, forState: UIControlState.Normal)
+        CurrentTransactionInteractor.sharedInstance.saveCurrency(string)
     }
     
     func dateSelected(date: NSDate) {
-        
+        CurrentTransactionInteractor.sharedInstance.saveDate(date)
+    }
+    
+    func saveButtonTouched() {
+        if let transaction = CurrentTransactionInteractor.sharedInstance.getTransaction() {
+            self.presenter?.saveTransaction(transaction)
+        }
     }
 }
 
@@ -367,6 +394,7 @@ extension InputViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         keyboardHideTapGestureRecognizer?.enabled = false
+        CurrentTransactionInteractor.sharedInstance.saveName(textField.text ?? "")
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -379,10 +407,7 @@ extension InputViewController: UITextFieldDelegate {
 extension InputViewController: LocationPickerDelegate {
     
     func locationPicked(lat: Double, lng: Double, venue: String?) {
-        self.selectedLocationLat = lat
-        self.selectedLocationLng = lng
-        self.selectedLocationVenue = venue
-        print(venue)
+        CurrentTransactionInteractor.sharedInstance.saveLocation(lat, lng: lng, venue: venue)
     }
     
 }
