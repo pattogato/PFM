@@ -41,7 +41,9 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var inputContentContainerView: UIView!
+    
     @IBOutlet weak var currencyButton: UIButton!
+    
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var categoriesContainerView: UIView!
@@ -64,6 +66,8 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     var categoriesViewController: CategoriesViewController? = nil
     
     private let categoriesTransition = CategoriesTransition()
+    
+    private let historyTransition = HistoryTransition()
     
     var keyboardHideTapGestureRecognizer: UITapGestureRecognizer?
     
@@ -129,8 +133,11 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
             inputContentVC.presenter = self.inputContentPresenter
             inputContentVC.parentVC = self
             inputContentVC.delegate = self
+            
         }
-        
+        else if let historyVc = segue.destinationViewController as? HistoryViewController {
+            historyVc.transitioningDelegate = self
+        }
     }
     
     func setTransaction(transaction: TransactionModel) {
@@ -205,7 +212,7 @@ extension InputViewController {
     @IBAction func handleCategoryPan(sender: AnyObject) {
         
     }
-    
+
 }
 
 // Input view protocol methods
@@ -252,14 +259,16 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
         presentingController presenting: UIViewController,
                              sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        if let presented = presented as? CategoriesViewController {
+        if let _ = presented as? CategoriesViewController {
             
             categoriesTransition.presenting = true
             return categoriesTransition
             
-        } else {
-            return nil
+        } else if let _ = presented as? HistoryViewController {
+            historyTransition.presenting = true
+            return historyTransition
         }
+        return nil
     }
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -269,13 +278,16 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
             categoriesTransition.presenting = false
             return categoriesTransition
         
-        } /* Else if history .. */
-        else {
-            return nil
         }
+        else if dismissed is HistoryViewController {
+            
+            historyTransition.presenting = false
+            return historyTransition
+            
+        }
+        return nil
         
     }
-    
 }
 
 // Numpad delegate methods

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,6 +17,14 @@
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--History-->
+        <scene sceneID="FjV-SK-MbO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="History" id="7By-jn-hGC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qov-3T-gzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2156.5" y="-260"/>
+        </scene>
         <!--Input View Controller-->
         <scene sceneID="lWJ-OZ-7n6">
             <objects>
@@ -129,13 +137,13 @@
                                             <outlet property="delegate" destination="nPq-tj-Veb" id="Cz7-br-JDK"/>
                                         </connections>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y1w-Iz-GD2" userLabel="GestureView">
-                                        <rect key="frame" x="27" y="-18" width="61" height="44"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1w-Iz-GD2" userLabel="GestureView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="116"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="szQ-yo-9bi" appends="YES" id="hYa-aI-5mB"/>
                                             <outletCollection property="gestureRecognizers" destination="q23-w9-F99" appends="YES" id="n2i-u5-wqj"/>
+                                            <outletCollection property="gestureRecognizers" destination="szQ-yo-9bi" appends="YES" id="hYa-aI-5mB"/>
                                         </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raf-1c-bIF">
@@ -150,9 +158,13 @@
                                 <color key="backgroundColor" red="0.8784313725490196" green="0.81568627450980391" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="CDy-mo-YER" firstAttribute="top" secondItem="NhV-3g-KeM" secondAttribute="top" id="1wc-AQ-kNY"/>
+                                    <constraint firstAttribute="bottom" secondItem="y1w-Iz-GD2" secondAttribute="bottom" id="3uw-gC-WoP"/>
+                                    <constraint firstAttribute="trailing" secondItem="y1w-Iz-GD2" secondAttribute="trailing" id="Mfi-bT-YtA"/>
+                                    <constraint firstItem="y1w-Iz-GD2" firstAttribute="leading" secondItem="NhV-3g-KeM" secondAttribute="leading" id="WpT-9S-YvS"/>
                                     <constraint firstItem="raf-1c-bIF" firstAttribute="top" secondItem="NhV-3g-KeM" secondAttribute="top" constant="12" id="gIY-Cc-3mD"/>
                                     <constraint firstAttribute="trailing" secondItem="CDy-mo-YER" secondAttribute="trailing" id="mMw-fF-byd"/>
                                     <constraint firstItem="CDy-mo-YER" firstAttribute="leading" secondItem="NhV-3g-KeM" secondAttribute="leading" id="qb6-6j-bXy"/>
+                                    <constraint firstItem="y1w-Iz-GD2" firstAttribute="top" secondItem="NhV-3g-KeM" secondAttribute="top" id="shw-tF-gXC"/>
                                     <constraint firstAttribute="height" constant="116" id="tat-5E-hEd"/>
                                     <constraint firstAttribute="bottom" secondItem="CDy-mo-YER" secondAttribute="bottom" id="wnG-Vb-Pqr"/>
                                     <constraint firstItem="raf-1c-bIF" firstAttribute="centerX" secondItem="NhV-3g-KeM" secondAttribute="centerX" id="zl1-IM-fgi"/>
@@ -185,6 +197,9 @@
                                 <state key="normal" image="menuButtonHistory">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="7By-jn-hGC" kind="presentation" id="qGG-vc-FJf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENCY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24s-Pe-Qjq">
                                 <rect key="frame" x="272" y="177" width="57" height="12"/>

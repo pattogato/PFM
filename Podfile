@@ -8,6 +8,7 @@ pod 'EZSwipeController'
 pod 'MBPullDownController', '~> 1.0'
 pod 'ALCameraViewController'
 pod 'LocationPickerViewController'
+pod 'SwiftDate'
 
 end
 

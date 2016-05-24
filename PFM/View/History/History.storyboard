@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bt5-0g-u4A">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Light.otf">
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+        </mutableArray>
+        <mutableArray key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </mutableArray>
+        <mutableArray key="Montserrat-UltraLight.otf">
+            <string>Montserrat-UltraLight</string>
+            <string>Montserrat-UltraLight</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--History View Controller-->
+        <scene sceneID="tQa-9f-AHp">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="bt5-0g-u4A" customClass="HistoryViewController" customModule="PFM" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xam-NQ-nBI"/>
+                        <viewControllerLayoutGuide type="bottom" id="hhK-gO-LuD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yhl-Fx-1Uk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eN3-6I-iUu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O53-Ci-1w1">
+                                    <size key="itemSize" width="600" height="84"/>
+                                    <size key="headerReferenceSize" width="50" height="80"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HistoryCollectionViewCell" id="bK2-Su-7pb" customClass="HistoryCollectionViewCell" customModule="PFM" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="80" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grocery on the way home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lk-OH-CTK">
+                                                    <rect key="frame" x="15" y="3" width="227" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eki-HU-Ibi">
+                                                    <rect key="frame" x="15" y="27" width="37" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 34,5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQ0-N3-3kY">
+                                                    <rect key="frame" x="534" y="14" width="51" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="4lk-OH-CTK" firstAttribute="leading" secondItem="bK2-Su-7pb" secondAttribute="leading" constant="15" id="Icc-nA-G3J"/>
+                                            <constraint firstItem="4lk-OH-CTK" firstAttribute="top" secondItem="bK2-Su-7pb" secondAttribute="top" constant="3" id="Oyn-m9-RgQ"/>
+                                            <constraint firstItem="eki-HU-Ibi" firstAttribute="leading" secondItem="4lk-OH-CTK" secondAttribute="leading" id="SPx-ra-zWM"/>
+                                            <constraint firstItem="eki-HU-Ibi" firstAttribute="top" secondItem="4lk-OH-CTK" secondAttribute="bottom" constant="2" id="Wqa-fW-ERU"/>
+                                            <constraint firstAttribute="trailing" secondItem="JQ0-N3-3kY" secondAttribute="trailing" constant="15" id="ags-OM-HCb"/>
+                                            <constraint firstItem="JQ0-N3-3kY" firstAttribute="centerY" secondItem="bK2-Su-7pb" secondAttribute="centerY" id="vOR-Ho-5Yu"/>
+                                        </constraints>
+                                        <size key="customSize" width="600" height="50"/>
+                                        <connections>
+                                            <outlet property="priceLabel" destination="JQ0-N3-3kY" id="0Il-qW-HgB"/>
+                                            <outlet property="timeLabel" destination="eki-HU-Ibi" id="Igy-5z-8lp"/>
+                                            <outlet property="titleLabel" destination="4lk-OH-CTK" id="2v4-GA-mfy"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HistoryHeaderCollectionReusableView" id="HBJ-FH-fx7" customClass="HistoryHeaderCollectionReusableView" customModule="PFM" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Máj. 24." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxx-9i-lHt">
+                                            <rect key="frame" x="15" y="27" width="78" height="27"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Dxx-9i-lHt" firstAttribute="centerY" secondItem="HBJ-FH-fx7" secondAttribute="centerY" id="d6F-uz-mP6"/>
+                                        <constraint firstItem="Dxx-9i-lHt" firstAttribute="leading" secondItem="HBJ-FH-fx7" secondAttribute="leading" constant="15" id="pCm-vI-E1A"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="dateLabel" destination="Dxx-9i-lHt" id="DNa-SR-T8l"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="bt5-0g-u4A" id="kBo-vz-ehz"/>
+                                    <outlet property="delegate" destination="bt5-0g-u4A" id="OqQ-rY-t25"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rts-EK-7aB">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="500" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="Ixv-VR-nnq" userLabel="cashLabel">
+                                        <rect key="frame" x="20" y="5" width="560" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lg2-oN-Eeg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="32"/>
+                                        <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wcm-qc-FGZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1"/>
+                                        <color key="backgroundColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="dbc-iW-9d8"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="Wcm-qc-FGZ" firstAttribute="top" secondItem="Rts-EK-7aB" secondAttribute="top" id="0I8-Dr-RFL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wcm-qc-FGZ" secondAttribute="trailing" id="7RA-Pp-bod"/>
+                                    <constraint firstItem="Ixv-VR-nnq" firstAttribute="leading" secondItem="Rts-EK-7aB" secondAttribute="leading" constant="20" id="9kq-aQ-Mgx"/>
+                                    <constraint firstAttribute="height" constant="50" id="Njd-Sn-OHa"/>
+                                    <constraint firstItem="Wcm-qc-FGZ" firstAttribute="leading" secondItem="Rts-EK-7aB" secondAttribute="leading" id="PFS-ED-MKD"/>
+                                    <constraint firstItem="Ixv-VR-nnq" firstAttribute="centerY" secondItem="Rts-EK-7aB" secondAttribute="centerY" id="XNl-8u-bji"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ixv-VR-nnq" secondAttribute="trailing" constant="20" id="sP4-CB-XgL"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Xr2-uG-wb8" appends="YES" id="DAb-wO-95g"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eN3-6I-iUu" firstAttribute="top" secondItem="Yhl-Fx-1Uk" secondAttribute="top" id="4r8-rA-fes"/>
+                            <constraint firstItem="Rts-EK-7aB" firstAttribute="top" secondItem="eN3-6I-iUu" secondAttribute="bottom" id="Re3-OL-YJg"/>
+                            <constraint firstAttribute="trailing" secondItem="Rts-EK-7aB" secondAttribute="trailing" id="XZC-0r-4JW"/>
+                            <constraint firstItem="hhK-gO-LuD" firstAttribute="top" secondItem="Rts-EK-7aB" secondAttribute="bottom" id="dyL-yu-1U9"/>
+                            <constraint firstItem="Rts-EK-7aB" firstAttribute="leading" secondItem="Yhl-Fx-1Uk" secondAttribute="leading" id="hFY-nX-mw4"/>
+                            <constraint firstAttribute="trailing" secondItem="eN3-6I-iUu" secondAttribute="trailing" id="mW5-s2-Szj"/>
+                            <constraint firstItem="eN3-6I-iUu" firstAttribute="leading" secondItem="Yhl-Fx-1Uk" secondAttribute="leading" id="srx-sx-cYQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cashLabel" destination="Ixv-VR-nnq" id="QgT-Me-6xx"/>
+                        <outlet property="collectionView" destination="eN3-6I-iUu" id="3x2-dG-fPl"/>
+                        <segue destination="BBU-2t-Wv2" kind="show" id="0nh-Z4-zKr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vma-5O-AS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Xr2-uG-wb8">
+                    <connections>
+                        <action selector="handleTap:" destination="bt5-0g-u4A" id="c7s-0M-phe"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="494" y="407"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Tcv-oA-0on">
+            <objects>
+                <viewController id="BBU-2t-Wv2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8WT-uF-f5V"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Lm-kg-gYd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4QO-ze-hOO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c8u-iK-rNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="407"/>
+        </scene>
+    </scenes>
+</document>

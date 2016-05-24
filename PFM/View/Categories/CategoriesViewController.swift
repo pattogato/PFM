@@ -8,7 +8,9 @@
 
 import UIKit
 
-class CategoriesViewController: UIViewController {
+// TODO: PROTOKOLLOK
+
+final class CategoriesViewController: UIViewController {
     
     // MARK: - Constants
     
@@ -71,7 +73,6 @@ class CategoriesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
