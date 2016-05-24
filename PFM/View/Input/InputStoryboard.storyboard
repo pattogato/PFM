@@ -32,14 +32,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryR-sm-zcn" userLabel="ButtonsContainerView">
                                 <rect key="frame" x="0.0" y="233" width="600" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU8-hy-34l" userLabel="Camera">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
-                                        <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="buttonCamera"/>
-                                        <connections>
-                                            <action selector="cameraButtonTouched:" destination="nPq-tj-Veb" eventType="touchUpInside" id="uvs-v8-FIx"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70V-TF-x8B" userLabel="Place">
                                         <rect key="frame" x="154" y="0.0" width="138" height="50"/>
                                         <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
@@ -65,6 +57,14 @@
                                         </state>
                                         <connections>
                                             <action selector="timeButtonTouched:" destination="nPq-tj-Veb" eventType="touchUpInside" id="gvF-p7-5oU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU8-hy-34l" userLabel="Camera">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
+                                        <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="buttonCamera"/>
+                                        <connections>
+                                            <action selector="cameraButtonTouched:" destination="nPq-tj-Veb" eventType="touchUpInside" id="uvs-v8-FIx"/>
                                         </connections>
                                     </button>
                                 </subviews>

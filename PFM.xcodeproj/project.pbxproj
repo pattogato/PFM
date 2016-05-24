@@ -68,6 +68,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B1308C401CF45529002965EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B18785931CA98E6A00DD18E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B187859A1CA98E6A00DD18E9;
+			remoteInfo = PFM;
+		};
 		B18785B01CA98E6A00DD18E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B18785931CA98E6A00DD18E9 /* Project object */;
@@ -91,6 +98,8 @@
 		B120CA8D1CCD142B00E9985B /* InputContentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputContentViewProtocol.swift; path = View/Input/InputContentViewProtocol.swift; sourceTree = "<group>"; };
 		B120CA8F1CCD157000E9985B /* InputContentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputContentPresenter.swift; path = Presenter/Input/InputContentPresenter.swift; sourceTree = "<group>"; };
 		B120CA911CCD15F700E9985B /* InputContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputContentViewController.swift; path = View/Input/InputContentViewController.swift; sourceTree = "<group>"; };
+		B1308C3B1CF45529002965EA /* PFMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1308C3F1CF45529002965EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1783BE31CB186A400056895 /* DALHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DALHelper.swift; path = DAL/DALHelper.swift; sourceTree = "<group>"; };
 		B1783BE81CB18A2400056895 /* TransactionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionInteractor.swift; path = DAL/Interactors/TransactionInteractor.swift; sourceTree = "<group>"; };
 		B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryInteractor.swift; path = DAL/Interactors/CategoryInteractor.swift; sourceTree = "<group>"; };
@@ -124,7 +133,6 @@
 		B18785AA1CA98E6A00DD18E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B18785AF1CA98E6A00DD18E9 /* PFMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18785B51CA98E6A00DD18E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B18785C01CA98E6A00DD18E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B18785D31CA9928500DD18E9 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = DAL/Realm/CategoryModel.swift; sourceTree = "<group>"; };
 		B18785D71CA99AE000DD18E9 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelObject.swift; path = DAL/Realm/ModelObject.swift; sourceTree = "<group>"; };
 		B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionModel.swift; path = DAL/Realm/TransactionModel.swift; sourceTree = "<group>"; };
@@ -147,6 +155,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B1308C381CF45529002965EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B18785981CA98E6A00DD18E9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +204,14 @@
 				B120CA821CCBC93500E9985B /* NumpadViewController.xib */,
 			);
 			name = Numberpad;
+			sourceTree = "<group>";
+		};
+		B1308C3C1CF45529002965EA /* PFMUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B1308C3F1CF45529002965EA /* Info.plist */,
+			);
+			path = PFMUITests;
 			sourceTree = "<group>";
 		};
 		B1783BE71CB18A0500056895 /* Interactors */ = {
@@ -349,7 +372,7 @@
 			children = (
 				B187859D1CA98E6A00DD18E9 /* PFM */,
 				B18785B21CA98E6A00DD18E9 /* PFMTests */,
-				B18785BD1CA98E6A00DD18E9 /* PFMUITests */,
+				B1308C3C1CF45529002965EA /* PFMUITests */,
 				B187859C1CA98E6A00DD18E9 /* Products */,
 				7DDFBC927C38600C7E4B84D0 /* Pods */,
 				31B6687B1D32AA508E8CED18 /* Frameworks */,
@@ -361,6 +384,7 @@
 			children = (
 				B187859B1CA98E6A00DD18E9 /* PFM.app */,
 				B18785AF1CA98E6A00DD18E9 /* PFMTests.xctest */,
+				B1308C3B1CF45529002965EA /* PFMUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -390,14 +414,6 @@
 				B1783BF11CB1BA4800056895 /* CategoryInteractorTests.swift */,
 			);
 			path = PFMTests;
-			sourceTree = "<group>";
-		};
-		B18785BD1CA98E6A00DD18E9 /* PFMUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B18785C01CA98E6A00DD18E9 /* Info.plist */,
-			);
-			path = PFMUITests;
 			sourceTree = "<group>";
 		};
 		B18785CD1CA991EE00DD18E9 /* Realm */ = {
@@ -480,6 +496,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B1308C3A1CF45529002965EA /* PFMUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1308C441CF45529002965EA /* Build configuration list for PBXNativeTarget "PFMUITests" */;
+			buildPhases = (
+				B1308C371CF45529002965EA /* Sources */,
+				B1308C381CF45529002965EA /* Frameworks */,
+				B1308C391CF45529002965EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1308C411CF45529002965EA /* PBXTargetDependency */,
+			);
+			name = PFMUITests;
+			productName = PFMUITests;
+			productReference = B1308C3B1CF45529002965EA /* PFMUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B187859A1CA98E6A00DD18E9 /* PFM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B18785C31CA98E6A00DD18E9 /* Build configuration list for PBXNativeTarget "PFM" */;
@@ -528,6 +562,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Pinup;
 				TargetAttributes = {
+					B1308C3A1CF45529002965EA = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = B187859A1CA98E6A00DD18E9;
+					};
 					B187859A1CA98E6A00DD18E9 = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -552,11 +590,19 @@
 			targets = (
 				B187859A1CA98E6A00DD18E9 /* PFM */,
 				B18785AE1CA98E6A00DD18E9 /* PFMTests */,
+				B1308C3A1CF45529002965EA /* PFMUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B1308C391CF45529002965EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B18785991CA98E6A00DD18E9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -634,6 +680,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B1308C371CF45529002965EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B18785971CA98E6A00DD18E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -696,6 +749,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B1308C411CF45529002965EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B187859A1CA98E6A00DD18E9 /* PFM */;
+			targetProxy = B1308C401CF45529002965EA /* PBXContainerItemProxy */;
+		};
 		B18785B11CA98E6A00DD18E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B187859A1CA98E6A00DD18E9 /* PFM */;
@@ -723,6 +781,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B1308C421CF45529002965EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PFMUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ninja.pinup.PhotoCrop.PFMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PFM;
+			};
+			name = Debug;
+		};
+		B1308C431CF45529002965EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PFMUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ninja.pinup.PhotoCrop.PFMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PFM;
+			};
+			name = Release;
+		};
 		B18785C11CA98E6A00DD18E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -861,6 +941,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B1308C441CF45529002965EA /* Build configuration list for PBXNativeTarget "PFMUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1308C421CF45529002965EA /* Debug */,
+				B1308C431CF45529002965EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B18785961CA98E6A00DD18E9 /* Build configuration list for PBXProject "PFM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

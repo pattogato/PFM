@@ -13,7 +13,7 @@ enum KeyboardType {
     case Notes
 }
 
-protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDelegate {
+protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDelegate, LocationPickerDelegate {
     
     weak var amountLabel: UILabel! { get set }
     weak var inputContentPresenter: InputContentPresenterProtocol? { get set }

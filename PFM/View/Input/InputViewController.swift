@@ -12,7 +12,7 @@ import ALCameraViewController
 
 final class InputViewController: UIViewController, PresentableView, InputViewProtocol {
 
-    // Constants
+    // MARK: - Constants
     
     private let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
     
@@ -20,7 +20,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
 
     private let kCategoryCellIdentifier = "CategoryCollectionViewCell"
     
-    // InputProtocol properties
+    // MARK: - InputProtocol properties
     
     @IBOutlet weak var amountLabel: UILabel!
     
@@ -36,7 +36,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         }
     }
     
-    // Outlets
+    // MARK: - Outlets
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -54,7 +54,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     @IBOutlet var menuButtons: [UIButton]!
     
-    // Properties
+    // MARK: - Properties
     
     var numpadViewController: NumpadViewController!
     var locationPickerPresenter: LocationPickerPresenterProtocol?
@@ -66,6 +66,13 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     private let categoriesTransition = CategoriesTransition()
     
     var keyboardHideTapGestureRecognizer: UITapGestureRecognizer?
+    
+    // MARK: - Transaction related properties
+    
+    var selectedDate: NSDate?
+    var selectedLocationLat: Double?
+    var selectedLocationLng: Double?
+    var selectedLocationVenue: String?
     
     // MARK: - General methods
     
@@ -216,7 +223,6 @@ extension InputViewController {
     
     func openLocationPicker() {
         self.locationPickerPresenter = LocationPickerPresenter.presentLocationPicker(self)
-        
     }
 }
 
@@ -354,6 +360,17 @@ extension InputViewController: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+}
+
+extension InputViewController: LocationPickerDelegate {
+    
+    func locationPicked(lat: Double, lng: Double, venue: String?) {
+        self.selectedLocationLat = lat
+        self.selectedLocationLng = lng
+        self.selectedLocationVenue = venue
+        print(venue)
     }
     
 }

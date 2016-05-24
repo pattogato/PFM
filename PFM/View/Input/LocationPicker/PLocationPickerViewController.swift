@@ -12,6 +12,7 @@ import LocationPickerViewController
 class PLocationPickerViewController: LocationPicker, LocationPickerViewProtocol {
 
     var presenter: LocationPickerPresenterProtocol!
+    weak var locationPickerDelegate: LocationPickerDelegate?
     
     override func viewDidLoad() {
         super.addButtons() // Handle over the button to LocationPicker and let it do the rest.
@@ -23,12 +24,13 @@ class PLocationPickerViewController: LocationPicker, LocationPickerViewProtocol 
         }
     }
     
+    
     override func locationDidSelect(locationItem: LocationItem) {
         print("Select overrided method: " + locationItem.name)
     }
     
     override func locationDidPick(locationItem: LocationItem) {
-        print("Picked: " + locationItem.name)
+        self.locationPickerDelegate?.locationPicked(locationItem.coordinate?.latitude ?? 0, lng: locationItem.coordinate?.longitude ?? 0, venue: locationItem.name)
         self.navigationController?.popViewControllerAnimated(true)
     }
     

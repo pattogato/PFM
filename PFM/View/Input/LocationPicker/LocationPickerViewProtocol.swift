@@ -8,8 +8,13 @@
 
 import Foundation
 
+protocol LocationPickerDelegate: class {
+    func locationPicked(lat: Double, lng: Double, venue: String?)
+}
+
 protocol LocationPickerViewProtocol: class {
     
     var presenter: LocationPickerPresenterProtocol! { get set }
+    weak var locationPickerDelegate:  LocationPickerDelegate? { get set }
     
 }
