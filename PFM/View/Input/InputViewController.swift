@@ -65,6 +65,8 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     private let categoriesTransition = CategoriesTransition()
     
+    var keyboardHideTapGestureRecognizer: UITapGestureRecognizer?
+    
     // MARK: - General methods
     
     override func viewDidLoad() {
@@ -332,6 +334,22 @@ extension InputViewController: InputContentDelegate {
 }
 
 extension InputViewController: UITextFieldDelegate {
+    
+    func dismissKeyBoard() {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if keyboardHideTapGestureRecognizer == nil {
+            keyboardHideTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyBoard))
+            self.view.addGestureRecognizer(keyboardHideTapGestureRecognizer!)
+        }
+        keyboardHideTapGestureRecognizer?.enabled = true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        keyboardHideTapGestureRecognizer?.enabled = false
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
