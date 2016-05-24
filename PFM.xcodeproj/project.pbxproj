@@ -51,6 +51,7 @@
 		B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D71CA99AE000DD18E9 /* ModelObject.swift */; };
 		B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */; };
 		B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DC1CA99CDA00DD18E9 /* UserModel.swift */; };
+		B18B5E9D1CF48229008427C0 /* CurrentTransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B5E9C1CF48229008427C0 /* CurrentTransactionInteractor.swift */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
@@ -137,6 +138,7 @@
 		B18785D71CA99AE000DD18E9 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelObject.swift; path = DAL/Realm/ModelObject.swift; sourceTree = "<group>"; };
 		B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionModel.swift; path = DAL/Realm/TransactionModel.swift; sourceTree = "<group>"; };
 		B18785DC1CA99CDA00DD18E9 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = DAL/Realm/UserModel.swift; sourceTree = "<group>"; };
+		B18B5E9C1CF48229008427C0 /* CurrentTransactionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTransactionInteractor.swift; path = DAL/Interactors/CurrentTransactionInteractor.swift; sourceTree = "<group>"; };
 		B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenter.swift; path = Presenter/Input/LocationPickerPresenter.swift; sourceTree = "<group>"; };
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			children = (
 				B1783BE81CB18A2400056895 /* TransactionInteractor.swift */,
 				B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */,
+				B18B5E9C1CF48229008427C0 /* CurrentTransactionInteractor.swift */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 				B1783C0C1CB3978900056895 /* NavigationPresenterProtocol.swift in Sources */,
 				B120CA861CCCFDC100E9985B /* Extensions.swift in Sources */,
 				B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */,
+				B18B5E9D1CF48229008427C0 /* CurrentTransactionInteractor.swift in Sources */,
 				B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */,
 				B1783BE41CB186A400056895 /* DALHelper.swift in Sources */,
 				B120CA921CCD15F700E9985B /* InputContentViewController.swift in Sources */,

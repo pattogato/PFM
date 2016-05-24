@@ -9,6 +9,7 @@
 import UIKit
 
 protocol InputViewPresenterProtocol {
+    
     init(view: InputViewProtocol)
     
     /**
@@ -30,11 +31,6 @@ protocol InputViewPresenterProtocol {
     func deleteDigit()
     
     /**
-     Updates the selected category property and hightlights the selected on the UI
-     */
-    func categorySelected(category: CategoryModel)
-    
-    /**
      Changes the keyboard type to the given value
      */
     func changeKeyboardType(keyboardType: KeyboardType)
@@ -48,17 +44,9 @@ protocol InputViewPresenterProtocol {
      Saves the transaction model to the database
      
      - Parameters:
-     - transaction: The transaction model to be saved
+     - transaction: The editingTransaction model will be saved to the DB
      */
     func saveTransaction(transaction: TransactionModel)
-    
-    /**
-     Saves the amount that is visible on the screen
-     
-     - Parameters:
-     - amount: The amount in String that is coming from the input label
-     */
-    func saveAmount(amount: String)
     
     /**
      Shows the currency changer view
@@ -94,4 +82,6 @@ protocol InputViewPresenterProtocol {
      Navigates the view to the Settings screen (eg. swipe to right)
      */
     func navigateToSettings()
+    
+    
 }

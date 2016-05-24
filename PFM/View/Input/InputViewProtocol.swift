@@ -30,4 +30,12 @@ protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDel
     
     func openLocationPicker()
     
+    func resetUI()
+    
+    func appendAmountDigit(digit: Character)
+    
+    func deleteAmountDigit()
+    
+    func appendAmountComa()
+    
 }

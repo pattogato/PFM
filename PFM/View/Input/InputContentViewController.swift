@@ -85,8 +85,6 @@ class InputContentViewController: UIViewController, InputContentViewProtocol {
         self.showKeyboard(self.presentingKeyboardType ?? KeyboardType.Numeric)
     }
     
-    
-    
     // Common
     func showViewHideOthers(view: UIView) {
         self.datePickerContainerView.hidden = view != datePickerContainerView
@@ -94,6 +92,11 @@ class InputContentViewController: UIViewController, InputContentViewProtocol {
         self.currencyPickerContainerView.hidden = view != currencyPickerContainerView
     }
     
+    // Save
+    
+    @IBAction func okButtonTouched(sender: AnyObject) {
+        self.delegate?.saveButtonTouched?()
+    }
 }
 
 extension InputContentViewController: UIPickerViewDelegate, UIPickerViewDataSource {
