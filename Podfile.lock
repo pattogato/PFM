@@ -1,0 +1,61 @@
+PODS:
+  - ALCameraViewController (1.2.7)
+  - EZSwipeController (0.5)
+  - LocationPickerViewController (2.0.0)
+  - MBPullDownController (1.1.1)
+  - PromiseKit (4.0.4):
+    - PromiseKit/Foundation (= 4.0.4)
+    - PromiseKit/QuartzCore (= 4.0.4)
+    - PromiseKit/UIKit (= 4.0.4)
+  - PromiseKit/CorePromise (4.0.4)
+  - PromiseKit/Foundation (4.0.4):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.0.4):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.0.4):
+    - PromiseKit/CorePromise
+  - Realm (1.1.0):
+    - Realm/Headers (= 1.1.0)
+  - Realm/Headers (1.1.0)
+  - RealmSwift (1.1.0):
+    - Realm (= 1.1.0)
+  - SwiftDate (4.0.6)
+
+DEPENDENCIES:
+  - ALCameraViewController (~> 1.2.7)
+  - EZSwipeController (from `https://github.com/pattogato/EZSwipeController`, branch `bugfix/swift-3-fixes`)
+  - LocationPickerViewController (from `https://github.com/JeromeTan1997/LocationPicker`, branch `swift-3`)
+  - MBPullDownController (~> 1.0)
+  - PromiseKit
+  - RealmSwift (~> 1.1.0)
+  - SwiftDate (~> 4.0)
+
+EXTERNAL SOURCES:
+  EZSwipeController:
+    :branch: bugfix/swift-3-fixes
+    :git: https://github.com/pattogato/EZSwipeController
+  LocationPickerViewController:
+    :branch: swift-3
+    :git: https://github.com/JeromeTan1997/LocationPicker
+
+CHECKOUT OPTIONS:
+  EZSwipeController:
+    :commit: cf664c0f678b3df3fb11be1e74d6e4bbeba2bbb2
+    :git: https://github.com/pattogato/EZSwipeController
+  LocationPickerViewController:
+    :commit: 70a4473a21caa8d88e4b8f2b544e99a771bc6536
+    :git: https://github.com/JeromeTan1997/LocationPicker
+
+SPEC CHECKSUMS:
+  ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
+  EZSwipeController: 01cc43b319e133b6dbfb25bfdc78617a1560e952
+  LocationPickerViewController: 600d08aba48879a920dbaf1c12d19a2292f2bbed
+  MBPullDownController: 6e5ee6fa099f2283cc207b3d2fa5c4867c652258
+  PromiseKit: 8e8ee39d33ff199d92a1a883b5396f6285be6c91
+  Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
+  RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  SwiftDate: 549729eaa54bd9f64fd80abfd12ddd3d44ff5098
+
+PODFILE CHECKSUM: 5c41121ff6e37471fc43c7d169e0d360ce0226ba
+
+COCOAPODS: 1.1.0.rc.2
