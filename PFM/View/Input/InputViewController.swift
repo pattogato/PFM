@@ -8,7 +8,7 @@
 
 import UIKit
 import MBPullDownController
-import ALCameraViewController
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -30,7 +30,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-final class InputViewController: UIViewController, PresentableView, InputViewProtocol {
+final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol {
 
     // MARK: - Constants
     
@@ -89,7 +89,9 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     fileprivate let historyTransition = HistoryTransition()
     
-    var keyboardHideTapGestureRecognizer: UITapGestureRecognizer?
+    fileprivate var keyboardHideTapGestureRecognizer: UITapGestureRecognizer?
+    
+    fileprivate var imageHelper: ImageHelper?
     
     // MARK: - General methods
     
@@ -219,14 +221,13 @@ extension InputViewController {
 // Input view protocol methods
 extension InputViewController {
     func openCamera() {
-        let croppingEnabled = true
-        let cameraViewController = CameraViewController(croppingEnabled: croppingEnabled) { image in
-            self.dismiss(animated: true, completion: { 
-                print("got image")
-            })
-        }
-        
-        present(cameraViewController, animated: true, completion: nil)
+        imageHelper = ImageHelper()
+        imageHelper?.showImagePickerWithSourceSelector(
+            viewController: self,
+            onPickerCancelled: nil,
+            onPickerImageSelected: { (image) in
+                print("got image2")
+        })
     }
     
     func openLocationPicker() {

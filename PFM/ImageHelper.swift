@@ -27,14 +27,6 @@ final class ImageHelper: NSObject {
     
     private lazy var imagePickerController: UIImagePickerController = self.initImagePicker()
     
-    static var placeholderImage: UIImage = {
-        return HeroImage.placeholder
-    }()
-    
-    static var imageError404: UIImage = {
-       return HeroImage.imageError404
-    }()
-    
     var pickerCancelledAction: PickerCancelled?
     var pickerImageSelectedAction: PickerImageSelected!
     

@@ -21,6 +21,8 @@
 		B12655AA1DBEB48D00AEDED5 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12655A91DBEB48D00AEDED5 /* UserDefaults.swift */; };
 		B12655AC1DBEB57600AEDED5 /* AlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12655AB1DBEB57600AEDED5 /* AlertProtocol.swift */; };
 		B12655AE1DBEB58600AEDED5 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12655AD1DBEB58600AEDED5 /* ImageHelper.swift */; };
+		B12655B01DBEB9E500AEDED5 /* LoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12655AF1DBEB9E500AEDED5 /* LoaderProtocol.swift */; };
+		B12655B31DBEBCC000AEDED5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B12655B51DBEBCC000AEDED5 /* Localizable.strings */; };
 		B1783BE41CB186A400056895 /* DALHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE31CB186A400056895 /* DALHelper.swift */; };
 		B1783BE91CB18A2400056895 /* TransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE81CB18A2400056895 /* TransactionInteractor.swift */; };
 		B1783BEB1CB1A34B00056895 /* CategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */; };
@@ -113,6 +115,8 @@
 		B12655A91DBEB48D00AEDED5 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B12655AB1DBEB57600AEDED5 /* AlertProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertProtocol.swift; sourceTree = "<group>"; };
 		B12655AD1DBEB58600AEDED5 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		B12655AF1DBEB9E500AEDED5 /* LoaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderProtocol.swift; sourceTree = "<group>"; };
+		B12655B41DBEBCC000AEDED5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B1308C3B1CF45529002965EA /* PFMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1308C3F1CF45529002965EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1783BE31CB186A400056895 /* DALHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DALHelper.swift; path = DAL/DALHelper.swift; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				B12655AD1DBEB58600AEDED5 /* ImageHelper.swift */,
+				B12655AF1DBEB9E500AEDED5 /* LoaderProtocol.swift */,
 				B12655AB1DBEB57600AEDED5 /* AlertProtocol.swift */,
 				B1783C041CB3059800056895 /* Constants.swift */,
 				B120CA851CCCFDC100E9985B /* Extensions.swift */,
@@ -530,6 +535,7 @@
 				E2DEB6841CE1CC5000843D99 /* Fonts */,
 				B18785AA1CA98E6A00DD18E9 /* Info.plist */,
 				B120CA8A1CCD068B00E9985B /* PFM-BridgingHeader.h */,
+				B12655B51DBEBCC000AEDED5 /* Localizable.strings */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				E2DEB6891CE1CCB400843D99 /* Montserrat-Light.otf in Resources */,
 				B120CA7F1CCBC67800E9985B /* SettingsStoryboard.storyboard in Resources */,
 				B18785A91CA98E6A00DD18E9 /* LaunchScreen.storyboard in Resources */,
+				B12655B31DBEBCC000AEDED5 /* Localizable.strings in Resources */,
 				E26D7E751CCE4B1D00454C08 /* CategoriesViewController.xib in Resources */,
 				E2DEB68A1CE1CCB400843D99 /* Montserrat-UltraLight.otf in Resources */,
 				E2DEB6861CE1CCA800843D99 /* Montserrat-Regular.otf in Resources */,
@@ -826,6 +833,7 @@
 				B120CA921CCD15F700E9985B /* InputContentViewController.swift in Sources */,
 				E2D55DE81CF47DE3002343BD /* HistoryHeaderCollectionReusableView.swift in Sources */,
 				B1783C141CB3A5AB00056895 /* SwipeNavigationPresenter.swift in Sources */,
+				B12655B01DBEB9E500AEDED5 /* LoaderProtocol.swift in Sources */,
 				B120CA8E1CCD142B00E9985B /* InputContentViewProtocol.swift in Sources */,
 				E26D7E711CCE4AF900454C08 /* CategoriesViewProtocol.swift in Sources */,
 				B12655AC1DBEB57600AEDED5 /* AlertProtocol.swift in Sources */,
@@ -873,6 +881,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B12655B51DBEBCC000AEDED5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B12655B41DBEBCC000AEDED5 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B18785A21CA98E6A00DD18E9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

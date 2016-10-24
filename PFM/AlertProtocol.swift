@@ -53,7 +53,6 @@ extension AlertProtocol where Self : UIViewController {
         
         let alertController = alert(title: title, message: message, cancelAction: cancelAction, actions: otherActions)
         present(alertController, animated: true, completion: nil)
-        alertController.view.tintColor = Colors.primary
     }
     
     /**
@@ -85,7 +84,6 @@ extension AlertProtocol where Self : UIViewController {
         
         let alertController = alert(title: title, message: message, cancelAction: cancelAction, preferredStyle: .actionSheet, actions: otherActions)
         present(alertController, animated: true, completion: nil)
-        alertController.view.tintColor = Colors.primary
         return alertController
     }
     
@@ -143,7 +141,6 @@ extension AlertProtocol where Self : UIViewController {
     func showError(title: String = "general.error.title".localized, message: String, cancelAction: UIAlertAction, otherActions: [UIAlertAction]) {
         let alertController = alert(title: title, message: message, cancelAction: cancelAction, actions: otherActions)
         present(alertController, animated: true, completion: nil)
-        alertController.view.tintColor = Colors.primary
     }
     
     // MARK: - Helpers

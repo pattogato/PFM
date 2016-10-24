@@ -114,3 +114,8 @@ extension UITextField {
     }
 }
 
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, tableName: "Localizable", bundle: Bundle.main, value: "", comment: "")
+    }
+}

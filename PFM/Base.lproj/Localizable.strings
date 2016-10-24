@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  PFM
+
+  Created by Bence Pattogato on 24/10/16.
+  Copyright © 2016 Pinup. All rights reserved.
+*/
+
+"general.dismissalert.ok" = "Discard";
+"general.dismissalert.cancel" = "Keep editing";
+"general.discard" = "Discard";
+"general.send.failed" = "Failed to send";
+"general.done" = "Done";
+"general.camera" = "Camera";
+"general.library" = "Photo library";
+"general.cancel" = "Cancel";
