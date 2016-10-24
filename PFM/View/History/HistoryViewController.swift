@@ -14,7 +14,7 @@ final class HistoryViewController: UIViewController {
     
     // MARK: - Constants
 
-    private struct Constants {
+    fileprivate struct Constants {
     
         static let HistoryCellIdentifier = "HistoryCollectionViewCell"
         
@@ -45,9 +45,9 @@ final class HistoryViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         if transactions.count > 0 {
-            collectionView.scrollToItemAtIndexPath(
-                NSIndexPath(forItem: transactions.count-1, inSection: 0),
-                atScrollPosition: .Bottom,
+            collectionView.scrollToItem(
+                at: IndexPath(item: transactions.count-1, section: 0),
+                at: .bottom,
                 animated: false)
         }
     }
@@ -60,8 +60,8 @@ final class HistoryViewController: UIViewController {
     
     // MARK: - IBActions
 
-    @IBAction func handleTap(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func handleTap(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
@@ -70,49 +70,49 @@ final class HistoryViewController: UIViewController {
 
 extension HistoryViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return transactions.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            Constants.HistoryCellIdentifier,
-            forIndexPath: indexPath) as? HistoryCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: Constants.HistoryCellIdentifier,
+            for: indexPath) as? HistoryCollectionViewCell else {
                 assertionFailure("Check your cells")
                 return UICollectionViewCell()
         }
         
-        cell.transaction = transactions[indexPath.item]
+        cell.transaction = transactions[(indexPath as NSIndexPath).item]
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         print(collectionView.bounds.width)
-        return CGSize(width: UIScreen.mainScreen().bounds.width, height: Constants.CellHeight)
+        return CGSize(width: UIScreen.main.bounds.width, height: Constants.CellHeight)
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
         case UICollectionElementKindSectionHeader:
 
             let headerView =
-                collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                       withReuseIdentifier: Constants.HeaderCellIdentifier,
-                                                                      forIndexPath: indexPath)
+                                                                      for: indexPath)
                     as! HistoryHeaderCollectionReusableView
             
-            headerView.date = NSDate()
+            headerView.date = Date()
             
             return headerView
         default:
@@ -120,24 +120,24 @@ extension HistoryViewController : UICollectionViewDataSource, UICollectionViewDe
         }
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.mainScreen().bounds.width, height: Constants.HeaderHeight)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: Constants.HeaderHeight)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         if section == 0 {
             
-            let sections = CGFloat(collectionView.numberOfSections())
+            let sections = CGFloat(collectionView.numberOfSections)
             var contentHeight = sections * Constants.HeaderHeight
             contentHeight += sections * Constants.SectionInset.top + sections * Constants.SectionInset.bottom
             
             for i in 0..<Int(sections) {
-                contentHeight += Constants.CellHeight * CGFloat(collectionView.numberOfItemsInSection(i))
+                contentHeight += Constants.CellHeight * CGFloat(collectionView.numberOfItems(inSection: i))
             }
             
             // FIXME: Magic number
-            let top = max(UIScreen.mainScreen().bounds.height - 50 - contentHeight, Constants.SectionInset.top)
+            let top = max(UIScreen.main.bounds.height - 50 - contentHeight, Constants.SectionInset.top)
             
             var insets = Constants.SectionInset
             insets.top = top

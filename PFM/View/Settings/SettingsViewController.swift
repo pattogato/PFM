@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController, PresentableView {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func navigateToInputScreenTouched(sender: AnyObject) {
+    @IBAction func navigateToInputScreenTouched(_ sender: AnyObject) {
         self.presenter?.navigateToInputScreen()
     }
 

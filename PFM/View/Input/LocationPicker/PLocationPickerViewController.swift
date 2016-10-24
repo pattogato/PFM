@@ -15,7 +15,7 @@ class PLocationPickerViewController: LocationPicker, LocationPickerViewProtocol 
     weak var locationPickerDelegate: LocationPickerDelegate?
     
     override func viewDidLoad() {
-        super.addButtons() // Handle over the button to LocationPicker and let it do the rest.
+//        super.addButtons() // Handle over the button to LocationPicker and let it do the rest.
         super.viewDidLoad()
         
         if let cancelButton = navigationItem.leftBarButtonItem {
@@ -31,11 +31,11 @@ class PLocationPickerViewController: LocationPicker, LocationPickerViewProtocol 
     
     override func locationDidPick(locationItem: LocationItem) {
         self.locationPickerDelegate?.locationPicked(locationItem.coordinate?.latitude ?? 0, lng: locationItem.coordinate?.longitude ?? 0, venue: locationItem.name)
-        self.navigationController?.popViewControllerAnimated(true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
-    func cancelButtonTouched(sender: UIBarButtonItem) {
-        self.navigationController?.popViewControllerAnimated(true)
+    func cancelButtonTouched(_ sender: UIBarButtonItem) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
 }

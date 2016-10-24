@@ -26,7 +26,7 @@ class ChartsViewController: UIViewController, PresentableView {
     }
     
     
-    @IBAction func navigateToInputButtonTouched(sender: AnyObject) {
+    @IBAction func navigateToInputButtonTouched(_ sender: AnyObject) {
         self.presenter?.navigateToInputScreen()
     }
 

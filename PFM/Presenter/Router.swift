@@ -76,7 +76,7 @@ class Router {
  
     // MARK: Swipe navigation
     
-    func setSwipeControllerToRoot(inout window: UIWindow?) {
+    func setSwipeControllerToRoot(_ window: inout UIWindow?) {
         let swipeVC = Router.initViewController(storyboardID: StoryboardID.swipeViewController) as! SwipeNavigationController
         
         let swipeViewPresenter = SwipeNavigationPresenter(view: swipeVC)
@@ -103,7 +103,7 @@ class Router {
     /**
         Swipes to the given indexed view
      */
-    func swipeToIndex(index: Int) {
+    func swipeToIndex(_ index: Int) {
         
     }
 
@@ -120,10 +120,10 @@ extension Router {
      
      - Returns: UIViewController that has been initialized, casting may needed afterwards
      */
-    class func initViewController(storyboardName: String = "Main", storyboardID: String) -> UIViewController {
+    class func initViewController(_ storyboardName: String = "Main", storyboardID: String) -> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         
-        return storyboard.instantiateViewControllerWithIdentifier(storyboardID)
+        return storyboard.instantiateViewController(withIdentifier: storyboardID)
     }
     
 }

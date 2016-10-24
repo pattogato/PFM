@@ -11,5 +11,5 @@ import UIKit
 protocol NavigationPresenterProtocol {
     init(view: NavigationViewProtocol)
     
-    func presentNavigationRoot(inout window: UIWindow?)
+    func presentNavigationRoot(_ window: inout UIWindow?)
 }

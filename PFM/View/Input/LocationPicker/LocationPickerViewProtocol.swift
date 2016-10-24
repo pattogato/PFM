@@ -9,7 +9,7 @@
 import Foundation
 
 protocol LocationPickerDelegate: class {
-    func locationPicked(lat: Double, lng: Double, venue: String?)
+    func locationPicked(_ lat: Double, lng: Double, venue: String?)
 }
 
 protocol LocationPickerViewProtocol: class {

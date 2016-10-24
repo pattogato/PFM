@@ -12,7 +12,7 @@ class PresentingTransitionAnimator: NSObject, UIViewControllerAnimatedTransition
         
     // MARK: - Properties
         
-    var animationDuration : NSTimeInterval {
+    var animationDuration : TimeInterval {
         get {
             return 0.5
         }
@@ -22,17 +22,17 @@ class PresentingTransitionAnimator: NSObject, UIViewControllerAnimatedTransition
     
     weak var storedContext: UIViewControllerContextTransitioning?
     
-    var presentContext : (UIViewControllerContextTransitioning -> Void)?
+    var presentContext : ((UIViewControllerContextTransitioning) -> Void)?
     
-    var dismissContext : (UIViewControllerContextTransitioning -> Void)?
+    var dismissContext : ((UIViewControllerContextTransitioning) -> Void)?
     
     // MARK: - Delegate Methods
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animationDuration
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         storedContext = transitionContext
         
         if presenting {
@@ -47,12 +47,13 @@ class PresentingTransitionAnimator: NSObject, UIViewControllerAnimatedTransition
         
     }
     
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        
-        if let context = storedContext {
-            context.completeTransition(!context.transitionWasCancelled())
-        }
-        storedContext = nil
-    }
     
+//    override func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+//        
+//        if let context = storedContext {
+//            context.completeTransition(!context.transitionWasCancelled)
+//        }
+//        storedContext = nil
+//    }
+//    
 }

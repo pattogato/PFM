@@ -25,37 +25,37 @@ final class HistoryTransition: PresentingTransitionAnimator {
     
     // MARK: - Methods
     
-    private func presentingAnimation( context : UIViewControllerContextTransitioning ) {
+    fileprivate func presentingAnimation( _ context : UIViewControllerContextTransitioning ) {
         
-        if let historyVc = context.viewControllerForKey(UITransitionContextToViewControllerKey) as? HistoryViewController,
-            let swipeNavigation = context.viewControllerForKey(UITransitionContextFromViewControllerKey) as? SwipeNavigationController,
+        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? HistoryViewController,
+            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? SwipeNavigationController,
             let inputVc = swipeNavigation.inputVc {
             
             // Add 'toView' to context view
             
             let historyView = historyVc.view
-            historyView.frame = UIScreen.mainScreen().bounds
-            context.containerView()?.addSubview(historyView)
-            historyView.layoutIfNeeded()
+            historyView?.frame = UIScreen.main.bounds
+            context.containerView.addSubview(historyView!)
+            historyView?.layoutIfNeeded()
             
             // Init positions and content
             
-            historyView.transform = CGAffineTransformMakeTranslation(0, -historyView.bounds.size.height)
+            historyView?.transform = CGAffineTransform(translationX: 0, y: -(historyView?.bounds.size.height)!)
             
             historyVc.cashLabel.text = inputVc.amountLabel.text
 
             
             // Animate
             
-            UIView.animateWithDuration(
-                animationDuration,
+            UIView.animate(
+                withDuration: animationDuration,
                 delay: 0,
                 usingSpringWithDamping: 1.0,
                 initialSpringVelocity: 0.1,
                 options: [],
                 animations: { () -> Void in
                     
-                    historyView.transform = CGAffineTransformIdentity
+                    historyView?.transform = CGAffineTransform.identity
                     
                 },
                 completion: { (completed) -> Void in
@@ -66,10 +66,10 @@ final class HistoryTransition: PresentingTransitionAnimator {
         
     }
     
-    private func dismissAnimation( context : UIViewControllerContextTransitioning ) {
+    fileprivate func dismissAnimation( _ context : UIViewControllerContextTransitioning ) {
         
-        if let historyVc = context.viewControllerForKey(UITransitionContextFromViewControllerKey) as? HistoryViewController,
-            let swipeNavigation = context.viewControllerForKey(UITransitionContextToViewControllerKey) as? SwipeNavigationController,
+        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? HistoryViewController,
+            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? SwipeNavigationController,
             let inputVc = swipeNavigation.inputVc {
             
             let historyView = historyVc.view
@@ -79,15 +79,15 @@ final class HistoryTransition: PresentingTransitionAnimator {
             
             // Animation
             
-            UIView.animateWithDuration(
-                animationDuration,
+            UIView.animate(
+                withDuration: animationDuration,
                 delay: 0,
                 usingSpringWithDamping: 1.0,
                 initialSpringVelocity: 0.1,
                 options: [],
                 animations: { () -> Void in
                     
-                    historyView.transform = CGAffineTransformMakeTranslation(0, -historyView.bounds.size.height)
+                    historyView?.transform = CGAffineTransform(translationX: 0, y: -(historyView?.bounds.size.height ?? 0))
                     
                 },
                 completion: { (completed) -> Void in

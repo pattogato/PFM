@@ -32,7 +32,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        containerView.layer.borderColor = UIColor.pfmGold().CGColor
+        containerView.layer.borderColor = UIColor.pfmGold().cgColor
         containerView.layer.borderWidth = 1
         containerView.layer.cornerRadius = 25
     }

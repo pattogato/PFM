@@ -18,7 +18,7 @@ protocol InputViewPresenterProtocol {
      - Parameters:
      - value: The pressed digit's value
      */
-    func enterDigit(value: Int)
+    func enterDigit(_ value: Int)
     
     /**
      Writes a come at the end of the input field
@@ -33,7 +33,7 @@ protocol InputViewPresenterProtocol {
     /**
      Changes the keyboard type to the given value
      */
-    func changeKeyboardType(keyboardType: KeyboardType)
+    func changeKeyboardType(_ keyboardType: KeyboardType)
     
     /**
      Changes the keyboard to the other one from the one that is visible
@@ -46,7 +46,7 @@ protocol InputViewPresenterProtocol {
      - Parameters:
      - transaction: The editingTransaction model will be saved to the DB
      */
-    func saveTransaction(transaction: TransactionModel)
+    func saveTransaction(_ transaction: TransactionModel)
     
     /**
      Shows the currency changer view

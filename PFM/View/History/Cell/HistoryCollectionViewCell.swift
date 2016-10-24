@@ -8,6 +8,26 @@
 
 import UIKit
 import SwiftDate
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 final class HistoryCollectionViewCell: UICollectionViewCell {
     
@@ -29,14 +49,14 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
     
     // MARK: - General Methods
     
-    private func updateUI() {
+    fileprivate func updateUI() {
         
         if transaction?.name.characters.count > 0 {
             titleLabel.text = transaction?.name
         } else {
             timeLabel.text = "Unnamed item"
         }
-        timeLabel.text = transaction?.date.toString(.Custom("hh : mm"))
+        timeLabel.text = transaction?.date.string(custom: "hh : mm")
         if let amount = transaction?.amount {
             priceLabel.text = "$ \(amount)"
         } else {

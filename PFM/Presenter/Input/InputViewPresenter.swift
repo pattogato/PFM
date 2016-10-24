@@ -23,7 +23,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
         print("presting input screen")
     }
     
-    func changeKeyboardType(keyboardType: KeyboardType) {
+    func changeKeyboardType(_ keyboardType: KeyboardType) {
         print("change keyboard to \(keyboardType.hashValue)")
     }
     
@@ -31,7 +31,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
         print("toggle keyboard type")
     }
     
-    func enterDigit(value: Int) {
+    func enterDigit(_ value: Int) {
         self.view.appendAmountDigit(Character("\(value)"))
         saveAmount()
     }
@@ -46,14 +46,14 @@ class InputViewPresenter: InputViewPresenterProtocol {
         saveAmount()
     }
     
-    private func saveAmount() {
+    fileprivate func saveAmount() {
         if let amount = Double(self.view.amountLabel.text ?? "0") {
             CurrentTransactionInteractor.sharedInstance.saveAmount(amount)
         }
     }
     
-    func saveTransaction(transaction: TransactionModel) {
-        DALHelper.writeInMainRealm { (realm) in
+    func saveTransaction(_ transaction: TransactionModel) {
+        DALHelper.sharedInstance.writeInMainRealm { (realm) in
             DALHelper.sharedInstance.realm.add(transaction)
         }
         CurrentTransactionInteractor.sharedInstance.resetTransaction()
@@ -61,7 +61,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func changeCurrency() {
-        self.view.inputContentPresenter?.showContent(InputContentType.CurrencyPicker, keyboardType: nil)
+        self.view.inputContentPresenter?.showContent(InputContentType.currencyPicker, keyboardType: nil)
     }
     
     func openCameraScreen() {

@@ -10,9 +10,9 @@ import Foundation
 
 @objc
 protocol InputContentDelegate: class {
-    optional func currencySelected(string: String)
-    optional func dateSelected(date: NSDate)
-    optional func saveButtonTouched()
+    @objc optional func currencySelected(_ string: String)
+    @objc optional func dateSelected(_ date: Date)
+    @objc optional func saveButtonTouched()
 }
 
 protocol InputContentViewProtocol:class {
@@ -23,6 +23,6 @@ protocol InputContentViewProtocol:class {
     
     var presentingKeyboardType: KeyboardType? {get set }
     
-    func presentContentType(type: InputContentType, keyboardType: KeyboardType?)
+    func presentContentType(_ type: InputContentType, keyboardType: KeyboardType?)
     
 }

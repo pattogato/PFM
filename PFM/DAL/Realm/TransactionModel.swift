@@ -11,7 +11,7 @@ import UIKit
 class TransactionModel: ModelObject {
 
     dynamic var name: String = ""
-    dynamic var date: NSDate = NSDate()
+    dynamic var date: Date = Date()
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
     dynamic var venue: String = ""

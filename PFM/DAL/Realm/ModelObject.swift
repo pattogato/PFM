@@ -11,7 +11,7 @@ import RealmSwift
 
 class ModelObject: Object {
     dynamic var serverId: String = ""
-    dynamic var id: String = NSUUID().UUIDString
+    dynamic var id: String = UUID().uuidString
     
     override class func primaryKey() -> String? {
         return "id"

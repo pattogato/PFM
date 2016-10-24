@@ -12,13 +12,13 @@ final class CategoriesTransition: PresentingTransitionAnimator {
     
     //  MARK: - Constants
     
-    private let menuButtonDeltaY: CGFloat = -84
+    fileprivate let menuButtonDeltaY: CGFloat = -84
     
-    private let kCashLabelHeight: CGFloat = 40.0
+    fileprivate let kCashLabelHeight: CGFloat = 40.0
     
-    private let kCategoriesStartBGColor = UIColor(netHex: 0xE0D0B1)
+    fileprivate let kCategoriesStartBGColor = UIColor(netHex: 0xE0D0B1)
     
-    private let kCategoriesEndBGColor = UIColor(netHex: 0xD8C299)
+    fileprivate let kCategoriesEndBGColor = UIColor(netHex: 0xD8C299)
     
     // MARK: - General Methods
     
@@ -32,32 +32,32 @@ final class CategoriesTransition: PresentingTransitionAnimator {
     
     // MARK: - Methods
     
-    private func presentingAnimation( context : UIViewControllerContextTransitioning ) {
+    fileprivate func presentingAnimation( _ context : UIViewControllerContextTransitioning ) {
         
-        if let categoriesVc = context.viewControllerForKey(UITransitionContextToViewControllerKey) as? CategoriesViewController,
-            let swipeNavigation = context.viewControllerForKey(UITransitionContextFromViewControllerKey) as? SwipeNavigationController,
+        if let categoriesVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? CategoriesViewController,
+            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? SwipeNavigationController,
             let inputVc = swipeNavigation.inputVc {
             
             // Add 'toView' to context view
             
             let categoriesView = categoriesVc.view
-            categoriesView.frame = UIScreen.mainScreen().bounds
-            context.containerView()?.addSubview(categoriesView)
-            categoriesView.layoutIfNeeded()
+            categoriesView?.frame = UIScreen.main.bounds
+            context.containerView.addSubview(categoriesView!)
+            categoriesView?.layoutIfNeeded()
 
             // Init positions and content
 
             // Categories CollectionView
             let categoriesY = inputVc.categoriesContainerView.frame.origin.y
             let deltaY = categoriesY - categoriesVc.categoriesContainerView.frame.origin.y
-            let categoriesTranslate = CGAffineTransformMakeTranslation(0, deltaY)
+            let categoriesTranslate = CGAffineTransform(translationX: 0, y: deltaY)
             
             categoriesVc.categoriesContainerView.transform = categoriesTranslate
             
             // Amount Label
             let amountLabelY = inputVc.amountLabel.frame.origin.y
             let deltaAmountY = amountLabelY - categoriesVc.cashLabel.frame.origin.y
-            let amountTranslate = CGAffineTransformMakeTranslation(0, -84) //deltaAmountY)
+            let amountTranslate = CGAffineTransform(translationX: 0, y: -84) //deltaAmountY)
             
             categoriesVc.cashLabel.text = inputVc.amountLabel.text
             categoriesVc.cashLabel.transform = amountTranslate
@@ -70,12 +70,12 @@ final class CategoriesTransition: PresentingTransitionAnimator {
             
             // Menu buttons
             
-            let menuButtonTranslate = CGAffineTransformMakeTranslation(0, menuButtonDeltaY)
+            let menuButtonTranslate = CGAffineTransform(translationX: 0, y: menuButtonDeltaY)
             
             // Animate
             
-            UIView.animateWithDuration(
-                animationDuration,
+            UIView.animate(
+                withDuration: animationDuration,
                 delay: 0,
                 usingSpringWithDamping: 1.0,
                 initialSpringVelocity: 0.1,
@@ -83,10 +83,10 @@ final class CategoriesTransition: PresentingTransitionAnimator {
                 animations: { () -> Void in
                     
                     // Categories collectionView
-                    categoriesVc.categoriesContainerView.transform = CGAffineTransformIdentity
+                    categoriesVc.categoriesContainerView.transform = CGAffineTransform.identity
                     
                     // Cash label
-                    categoriesVc.cashLabel.transform = CGAffineTransformIdentity
+                    categoriesVc.cashLabel.transform = CGAffineTransform.identity
                     categoriesVc.cashLabel.layoutIfNeeded()
                     
                     // Categories Label
@@ -101,13 +101,13 @@ final class CategoriesTransition: PresentingTransitionAnimator {
                     })
                     
                     // Cell titles
-                    categoriesVc.collectionView.visibleCells().forEach({ (cell) in
+                    categoriesVc.collectionView.visibleCells.forEach({ (cell) in
                         if let categoryCell = cell as? CategoryCollectionViewCell {
                             categoryCell.titleLabel.alpha = 1
                         }
                     })
                     
-                    categoriesView.layoutIfNeeded()
+                    categoriesView?.layoutIfNeeded()
                     
                 },
                 completion: { (completed) -> Void in
@@ -118,10 +118,10 @@ final class CategoriesTransition: PresentingTransitionAnimator {
         
     }
     
-    private func dismissAnimation( context : UIViewControllerContextTransitioning ) {
+    fileprivate func dismissAnimation( _ context : UIViewControllerContextTransitioning ) {
         
-        if let categoriesVc = context.viewControllerForKey(UITransitionContextFromViewControllerKey) as? CategoriesViewController,
-        let swipeNavigation = context.viewControllerForKey(UITransitionContextToViewControllerKey) as? SwipeNavigationController,
+        if let categoriesVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? CategoriesViewController,
+        let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? SwipeNavigationController,
         let inputVc = swipeNavigation.inputVc{
             
             let categoriesView = categoriesVc.view
@@ -130,18 +130,18 @@ final class CategoriesTransition: PresentingTransitionAnimator {
             
             let categoriesY = inputVc.categoriesContainerView.frame.origin.y
             let deltaY = categoriesY - categoriesVc.categoriesContainerView.frame.origin.y
-            let categoriesTranslate = CGAffineTransformMakeTranslation(0, deltaY)
+            let categoriesTranslate = CGAffineTransform(translationX: 0, y: deltaY)
             
             // Amount Label
             
             let amountLabelY = inputVc.amountLabel.frame.origin.y
             let deltaAmountY = amountLabelY - categoriesVc.cashLabel.frame.origin.y
-            let amountTranslate = CGAffineTransformMakeTranslation(0, -84)//deltaAmountY)
+            let amountTranslate = CGAffineTransform(translationX: 0, y: -84)//deltaAmountY)
             
             // Animation
             
-            UIView.animateWithDuration(
-                animationDuration,
+            UIView.animate(
+                withDuration: animationDuration,
                 delay: 0,
                 usingSpringWithDamping: 1.0,
                 initialSpringVelocity: 0.1,
@@ -163,18 +163,18 @@ final class CategoriesTransition: PresentingTransitionAnimator {
                     
                     // Menu buttons
                     inputVc.menuButtons.forEach({ (button) in
-                        button.transform = CGAffineTransformIdentity
+                        button.transform = CGAffineTransform.identity
                     })
                     
                     // Cell titles
-                    categoriesVc.collectionView.visibleCells().forEach({ (cell) in
+                    categoriesVc.collectionView.visibleCells.forEach({ (cell) in
                         if let categoryCell = cell as? CategoryCollectionViewCell {
                             categoryCell.titleLabel.alpha = 0
                         }
                     })
 
                     
-                    categoriesView.layoutIfNeeded()
+                    categoriesView?.layoutIfNeeded()
                 },
                 completion: { (completed) -> Void in
                     

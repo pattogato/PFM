@@ -42,7 +42,7 @@ extension UIColor {
      
      - returns: a color between the `startColor` and `finalColor` based on the provided percentage offset.
      */
-    class func colorBetweenColorsWithOffsetPercentage(startColor startColor: UIColor, finalColor: UIColor, percentage: CGFloat) -> UIColor? {
+    class func colorBetweenColorsWithOffsetPercentage(startColor: UIColor, finalColor: UIColor, percentage: CGFloat) -> UIColor? {
         
         if let startColorComponents = startColor.colorComponents(), let finalColorComponents = finalColor.colorComponents() {
             
@@ -76,25 +76,25 @@ extension UIColor {
 extension UIFont {
     
     class func installedFonts() {
-        for family in UIFont.familyNames() {
+        for family in UIFont.familyNames {
             print("\(family)")
             let fam: String = family
-            for name in UIFont.fontNamesForFamilyName(fam)
+            for name in UIFont.fontNames(forFamilyName: fam)
             {
                 print("\t\(name)")
             }
         }
     }
     
-    class func montserratRegular(size: CGFloat) -> UIFont {
+    class func montserratRegular(_ size: CGFloat) -> UIFont {
         return UIFont(name: "Montserrat-Regular", size: size)!
     }
     
-    class func montserratLight(size: CGFloat) -> UIFont {
+    class func montserratLight(_ size: CGFloat) -> UIFont {
         return UIFont(name: "Montserrat-Light", size: size)!
     }
     
-    class func montserratUltralight(size: CGFloat) -> UIFont {
+    class func montserratUltralight(_ size: CGFloat) -> UIFont {
         return UIFont(name: "Montserrat-UltraLight", size: size)!
     }
 }
@@ -109,7 +109,7 @@ extension UITextField {
         }
         set {
             self.attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
-                                                            attributes: [NSForegroundColorAttributeName: newValue ?? UIColor.lightGrayColor()])
+                                                            attributes: [NSForegroundColorAttributeName: newValue ?? UIColor.lightGray])
         }
     }
 }

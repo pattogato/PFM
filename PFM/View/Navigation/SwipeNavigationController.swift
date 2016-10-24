@@ -29,27 +29,6 @@ class SwipeNavigationController: EZSwipeController, NavigationViewProtocol, Pres
         navigationBarShouldNotExist = true
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func swipeToRigth() {
         self.toRight()
     }
@@ -59,7 +38,7 @@ class SwipeNavigationController: EZSwipeController, NavigationViewProtocol, Pres
     }
     
     func toRight() {
-        let currentIndex = stackPageVC.indexOf(self.currentStackVC)!
+        let currentIndex = stackPageVC.index(of: self.currentStackVC)!
         datasource?.clickedRightButtonFromPageIndex?(currentIndex)
         
         let shouldDisableSwipe = self.datasource?.disableSwipingForRightButtonAtPageIndex?(currentIndex) ?? false
@@ -71,11 +50,11 @@ class SwipeNavigationController: EZSwipeController, NavigationViewProtocol, Pres
             return
         }
         currentStackVC = stackPageVC[currentIndex + 1]
-        pageViewController.setViewControllers([currentStackVC], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        pageViewController.setViewControllers([currentStackVC], direction: .forward, animated: true, completion: nil)
     }
     
     func toLeft() {
-        let currentIndex = stackPageVC.indexOf(currentStackVC)!
+        let currentIndex = stackPageVC.index(of: currentStackVC)!
         datasource?.clickedLeftButtonFromPageIndex?(currentIndex)
         
         let shouldDisableSwipe = datasource?.disableSwipingForLeftButtonAtPageIndex?(currentIndex) ?? false
@@ -87,7 +66,7 @@ class SwipeNavigationController: EZSwipeController, NavigationViewProtocol, Pres
             return
         }
         currentStackVC = stackPageVC[currentIndex - 1]
-        pageViewController.setViewControllers([currentStackVC], direction: UIPageViewControllerNavigationDirection.Reverse, animated: true, completion: nil)
+        pageViewController.setViewControllers([currentStackVC], direction: UIPageViewControllerNavigationDirection.reverse, animated: true, completion: nil)
     }
 
 }

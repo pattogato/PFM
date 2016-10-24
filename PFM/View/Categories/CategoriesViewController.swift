@@ -16,11 +16,11 @@ final class CategoriesViewController: UIViewController {
     
     static let kNibName: String = "CategoriesViewController"
     
-    private let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
+    fileprivate let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
         
-    private let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsets(top: 26, left: 20, bottom: 0, right: 20)
+    fileprivate let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsets(top: 26, left: 20, bottom: 0, right: 20)
     
-    private let kCategoryCellIdentifier: String = "CategoryCollectionViewCell"
+    fileprivate let kCategoryCellIdentifier: String = "CategoryCollectionViewCell"
         
     // MARK: - Properties
     
@@ -44,14 +44,14 @@ final class CategoriesViewController: UIViewController {
         
     // MARK: - General Methods
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.modalPresentationStyle = .OverFullScreen
+        self.modalPresentationStyle = .overFullScreen
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.modalPresentationStyle = .OverFullScreen
+        self.modalPresentationStyle = .overFullScreen
     }
 
     override func viewDidLoad() {
@@ -61,8 +61,8 @@ final class CategoriesViewController: UIViewController {
         
 //        categories = MockDAL.mockCategories()
         
-        let cellNib = UINib(nibName: "CategoryCollectionViewCell", bundle: NSBundle.mainBundle())
-        collectionView.registerNib(cellNib, forCellWithReuseIdentifier: kCategoryCellIdentifier)
+        let cellNib = UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main)
+        collectionView.register(cellNib, forCellWithReuseIdentifier: kCategoryCellIdentifier)
         
         categoriesContainerView.layer.cornerRadius = 16
         self.collectionView.reloadData()
@@ -85,8 +85,8 @@ final class CategoriesViewController: UIViewController {
     
     //  MARK: - IBActions
     
-    @IBAction func amountLabelTapped(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func amountLabelTapped(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 
 }
@@ -95,33 +95,33 @@ final class CategoriesViewController: UIViewController {
 
 extension CategoriesViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            kCategoryCellIdentifier,
-            forIndexPath: indexPath) as! CategoryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: kCategoryCellIdentifier,
+            for: indexPath) as! CategoryCollectionViewCell
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return kCategoryCollectionViewCellSize
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return kCategoryCollectionInsets
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
     }

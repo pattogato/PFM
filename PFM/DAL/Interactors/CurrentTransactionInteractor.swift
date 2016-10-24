@@ -16,13 +16,13 @@ class CurrentTransactionInteractor {
         self.currentTransaction = TransactionModel()
     }
     
-    private var currentTransaction: TransactionModel?
+    fileprivate var currentTransaction: TransactionModel?
     
     func resetTransaction() {
         self.currentTransaction = TransactionModel()
     }
     
-    func saveAmount(amount: Double) {
+    func saveAmount(_ amount: Double) {
         guard let transaction = self.currentTransaction else {
             assertionFailure("Current transaction not initialized")
             return
@@ -30,7 +30,7 @@ class CurrentTransactionInteractor {
         transaction.amount = amount
     }
     
-    func saveCategory(category: CategoryModel) {
+    func saveCategory(_ category: CategoryModel) {
         guard let transaction = self.currentTransaction else {
             assertionFailure("Current transaction not initialized")
             return
@@ -39,7 +39,7 @@ class CurrentTransactionInteractor {
         transaction.categoryId = category.id
     }
     
-    func saveLocation(lat: Double, lng: Double, venue: String? = nil) {
+    func saveLocation(_ lat: Double, lng: Double, venue: String? = nil) {
         guard let transaction = self.currentTransaction else {
             assertionFailure("Current transaction not initialized")
             return
@@ -49,7 +49,7 @@ class CurrentTransactionInteractor {
         transaction.venue = venue ?? "Unknow place"
     }
     
-    func saveName(name: String) {
+    func saveName(_ name: String) {
         guard let transaction = self.currentTransaction else {
             assertionFailure("Current transaction not initialized")
             return
@@ -57,7 +57,7 @@ class CurrentTransactionInteractor {
         transaction.name = name
     }
     
-    func saveDate(date: NSDate) {
+    func saveDate(_ date: Date) {
         guard let transaction = self.currentTransaction else {
             assertionFailure("Current transaction not initialized")
             return
@@ -65,7 +65,7 @@ class CurrentTransactionInteractor {
         transaction.date = date
     }
     
-    func saveCurrency(currency: String) {
+    func saveCurrency(_ currency: String) {
         guard let transaction = self.currentTransaction else {
             assertionFailure("Current transaction not initialized")
             return
@@ -73,7 +73,7 @@ class CurrentTransactionInteractor {
         transaction.currency = currency
     }
     
-    func saveDescription(desc: String) {
+    func saveDescription(_ desc: String) {
         guard let transaction = self.currentTransaction else {
             assertionFailure("Current transaction not initialized")
             return
@@ -86,7 +86,7 @@ class CurrentTransactionInteractor {
         return self.currentTransaction
     }
     
-    private func setDefaultValues() {
+    fileprivate func setDefaultValues() {
         if let transaction = self.currentTransaction {
             if transaction.name == "" {
                 transaction.name = "Unnamed transaction"

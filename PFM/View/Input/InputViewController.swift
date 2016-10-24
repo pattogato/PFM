@@ -9,16 +9,36 @@
 import UIKit
 import MBPullDownController
 import ALCameraViewController
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 final class InputViewController: UIViewController, PresentableView, InputViewProtocol {
 
     // MARK: - Constants
     
-    private let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
+    fileprivate let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
     
-    private let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsets(top: 26, left: 20, bottom: 0, right: 20)
+    fileprivate let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsets(top: 26, left: 20, bottom: 0, right: 20)
 
-    private let kCategoryCellIdentifier = "CategoryCollectionViewCell"
+    fileprivate let kCategoryCellIdentifier = "CategoryCollectionViewCell"
     
     // MARK: - InputProtocol properties
     
@@ -65,9 +85,9 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     var categoriesViewController: CategoriesViewController? = nil
     
-    private let categoriesTransition = CategoriesTransition()
+    fileprivate let categoriesTransition = CategoriesTransition()
     
-    private let historyTransition = HistoryTransition()
+    fileprivate let historyTransition = HistoryTransition()
     
     var keyboardHideTapGestureRecognizer: UITapGestureRecognizer?
     
@@ -81,16 +101,16 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupPulldownController()
         
         categories = MockDAL.mockCategories()
-        inputContentPresenter?.showContent(InputContentType.Keyboard, keyboardType: KeyboardType.Numeric)
+        inputContentPresenter?.showContent(InputContentType.keyboard, keyboardType: KeyboardType.numeric)
         
-        collectionView.registerNib(
-            UINib(nibName: "CategoryCollectionViewCell", bundle: NSBundle.mainBundle()),
+        collectionView.register(
+            UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main),
             forCellWithReuseIdentifier: kCategoryCellIdentifier)
         categoriesContainerView.layer.cornerRadius = 16
         
         categoriesPullIndicator.layer.cornerRadius = 2
         
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,10 +118,10 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
     
 
@@ -118,9 +138,9 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let inputContentVC = segue.destinationViewController as? InputContentViewProtocol
-            where segue.identifier == "InputContentContainerView" {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let inputContentVC = segue.destination as? InputContentViewProtocol
+            , segue.identifier == "InputContentContainerView" {
             
             self.inputContentPresenter = InputContentPresenter(view: inputContentVC)
             inputContentVC.presenter = self.inputContentPresenter
@@ -128,13 +148,13 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
             inputContentVC.delegate = self
             
         }
-        else if let historyVc = segue.destinationViewController as? HistoryViewController {
+        else if let historyVc = segue.destination as? HistoryViewController {
             historyVc.transitioningDelegate = self
             historyVc.transactions = Array(TransactionInteractor.getAllTransactions())
         }
     }
     
-    func setTransaction(transaction: TransactionModel) {
+    func setTransaction(_ transaction: TransactionModel) {
         self.transactionModel = transaction
     }
     
@@ -146,51 +166,51 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
 extension InputViewController {
     // MARK: - Event handlers
     
-    @IBAction func chartsButtonTouched(sender: AnyObject) {
+    @IBAction func chartsButtonTouched(_ sender: AnyObject) {
         presenter?.navigateToCharts()
     }
     
-    @IBAction func settingsButtonTouched(sender: AnyObject) {
+    @IBAction func settingsButtonTouched(_ sender: AnyObject) {
         presenter?.navigateToSettings()
     }
     
     // IBActions
 
     
-    @IBAction func changeKeyboardTypeButtonTouched(sender: AnyObject) {
+    @IBAction func changeKeyboardTypeButtonTouched(_ sender: AnyObject) {
         presenter?.toggleKeyboardType()
     }
     
-    @IBAction func cameraButtonTouched(sender: AnyObject) {
+    @IBAction func cameraButtonTouched(_ sender: AnyObject) {
         self.presenter?.openCameraScreen()
     }
     
-    @IBAction func locationButtonTouched(sender: AnyObject) {
+    @IBAction func locationButtonTouched(_ sender: AnyObject) {
         self.presenter?.openLocationScreen()
     }
     
-    @IBAction func noteButtonTouched(sender: AnyObject) {
+    @IBAction func noteButtonTouched(_ sender: AnyObject) {
     }
     
-    @IBAction func currencyButtonTouched(sender: AnyObject) {
+    @IBAction func currencyButtonTouched(_ sender: AnyObject) {
         self.presenter?.changeCurrency()
     }
     
-    @IBAction func timeButtonTouched(sender: UIButton) {
-        if inputContentPresenter?.presentingType != InputContentType.DatePicker {
-            inputContentPresenter?.showContent(InputContentType.DatePicker, keyboardType: nil)
+    @IBAction func timeButtonTouched(_ sender: UIButton) {
+        if inputContentPresenter?.presentingType != InputContentType.datePicker {
+            inputContentPresenter?.showContent(InputContentType.datePicker, keyboardType: nil)
         } else {
-            inputContentPresenter?.showContent(InputContentType.Keyboard, keyboardType: nil)
+            inputContentPresenter?.showContent(InputContentType.keyboard, keyboardType: nil)
         }
         
-        sender.selected = !sender.selected
+        sender.isSelected = !sender.isSelected
     }
     
-    @IBAction func handleCategoryTap(sender: AnyObject) {
+    @IBAction func handleCategoryTap(_ sender: AnyObject) {
         openCategories()
     }
     
-    @IBAction func handleCategoryPan(sender: AnyObject) {
+    @IBAction func handleCategoryPan(_ sender: AnyObject) {
         
     }
 
@@ -201,12 +221,12 @@ extension InputViewController {
     func openCamera() {
         let croppingEnabled = true
         let cameraViewController = CameraViewController(croppingEnabled: croppingEnabled) { image in
-            self.dismissViewControllerAnimated(true, completion: { 
+            self.dismiss(animated: true, completion: { 
                 print("got image")
             })
         }
         
-        presentViewController(cameraViewController, animated: true, completion: nil)
+        present(cameraViewController, animated: true, completion: nil)
     }
     
     func openLocationPicker() {
@@ -233,7 +253,7 @@ extension InputViewController {
         }
     }
     
-    func appendAmountDigit(digit: Character) {
+    func appendAmountDigit(_ digit: Character) {
         if self.amountLabel.text != nil {
             if amountLabel.text! == "0" {
                 self.amountLabel.text = "\(digit)"
@@ -258,27 +278,27 @@ extension InputViewController {
 
 extension InputViewController: UIViewControllerTransitioningDelegate {
     
-    private func  openCategories() {
+    fileprivate func  openCategories() {
         
         let categoriesViewController = self.categoriesViewController ?? CategoriesViewController(
             nibName: CategoriesViewController.kNibName,
-            bundle: NSBundle.mainBundle())
+            bundle: Bundle.main)
         
         categoriesViewController.categories = self.categories
         
         categoriesViewController.transitioningDelegate = self
         self.categoriesViewController = categoriesViewController
 
-        presentViewController(categoriesViewController,
+        present(categoriesViewController,
                               animated: true,
                               completion: nil)
         
     }
     
-    func animationControllerForPresentedController(
-        presented: UIViewController,
-        presentingController presenting: UIViewController,
-                             sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if let _ = presented as? CategoriesViewController {
             
@@ -292,7 +312,7 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
         return nil
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if dismissed is CategoriesViewController {
         
@@ -319,7 +339,7 @@ extension InputViewController {
         presenter?.enterComa()
     }
     
-    func numberPadDelegateNumberPressed(number: Int) {
+    func numberPadDelegateNumberPressed(_ number: Int) {
         presenter?.enterDigit(number)
     }
     
@@ -331,44 +351,44 @@ extension InputViewController {
 
 extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCategoryCellIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCategoryCellIdentifier, for: indexPath)
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         return kCategoryCollectionViewCellSize
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return kCategoryCollectionInsets
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        CurrentTransactionInteractor.sharedInstance.saveCategory(categories[indexPath.item])
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        CurrentTransactionInteractor.sharedInstance.saveCategory(categories[(indexPath as NSIndexPath).item])
     }
     
 }
 
 extension InputViewController: InputContentDelegate {
     
-    func currencySelected(string: String) {
-        currencyButton.setTitle(string, forState: UIControlState.Normal)
+    func currencySelected(_ string: String) {
+        currencyButton.setTitle(string, for: UIControlState())
         CurrentTransactionInteractor.sharedInstance.saveCurrency(string)
     }
     
-    func dateSelected(date: NSDate) {
+    func dateSelected(_ date: Date) {
         CurrentTransactionInteractor.sharedInstance.saveDate(date)
     }
     
@@ -385,20 +405,20 @@ extension InputViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if keyboardHideTapGestureRecognizer == nil {
             keyboardHideTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyBoard))
             self.view.addGestureRecognizer(keyboardHideTapGestureRecognizer!)
         }
-        keyboardHideTapGestureRecognizer?.enabled = true
+        keyboardHideTapGestureRecognizer?.isEnabled = true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        keyboardHideTapGestureRecognizer?.enabled = false
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        keyboardHideTapGestureRecognizer?.isEnabled = false
         CurrentTransactionInteractor.sharedInstance.saveName(textField.text ?? "")
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -407,7 +427,7 @@ extension InputViewController: UITextFieldDelegate {
 
 extension InputViewController: LocationPickerDelegate {
     
-    func locationPicked(lat: Double, lng: Double, venue: String?) {
+    func locationPicked(_ lat: Double, lng: Double, venue: String?) {
         CurrentTransactionInteractor.sharedInstance.saveLocation(lat, lng: lng, venue: venue)
     }
     

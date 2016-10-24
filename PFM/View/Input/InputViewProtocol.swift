@@ -9,8 +9,8 @@
 import UIKit
 
 enum KeyboardType {
-    case Numeric
-    case Notes
+    case numeric
+    case notes
 }
 
 protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDelegate, LocationPickerDelegate {
@@ -24,7 +24,7 @@ protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDel
      - Parameters:
      - transaction: The transaction model to edit/show
      */
-    func setTransaction(transaction: TransactionModel)
+    func setTransaction(_ transaction: TransactionModel)
     
     func openCamera()
     
@@ -32,7 +32,7 @@ protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDel
     
     func resetUI()
     
-    func appendAmountDigit(digit: Character)
+    func appendAmountDigit(_ digit: Character)
     
     func deleteAmountDigit()
     

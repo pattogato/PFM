@@ -13,7 +13,7 @@ final class HistoryHeaderCollectionReusableView: UICollectionReusableView {
     
     // MARK: - Properties
     
-    var date: NSDate? {
+    var date: Date? {
         didSet {
             updateUI()
         }
@@ -25,9 +25,9 @@ final class HistoryHeaderCollectionReusableView: UICollectionReusableView {
     
     // MARK: - General Methods
     
-    private func updateUI() {
+    fileprivate func updateUI() {
         
-        dateLabel.text = date?.toString(.Custom("MMM dd."))
+        dateLabel.text = date?.string(custom: "MMM dd.")
         
     }
         

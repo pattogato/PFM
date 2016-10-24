@@ -9,9 +9,9 @@
 import Foundation
 
 enum InputContentType {
-    case Keyboard
-    case DatePicker
-    case CurrencyPicker
+    case keyboard
+    case datePicker
+    case currencyPicker
 }
 
 protocol InputContentPresenterProtocol: class {
@@ -21,6 +21,6 @@ protocol InputContentPresenterProtocol: class {
     /**
         Toggles to the selected type of input type
      */
-    func showContent(type: InputContentType, keyboardType: KeyboardType?)
+    func showContent(_ type: InputContentType, keyboardType: KeyboardType?)
     
 }
