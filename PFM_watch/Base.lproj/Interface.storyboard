@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
+    </dependencies>
+    <scenes>
+        <!--Input-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="Input" id="AgC-eL-Hgc" customClass="InputInterfaceController" customModule="PFM_watch_Extension">
+                    <items>
+                        <group width="1" height="0.40000000000000002" alignment="left" contentMode="center" id="UVq-cA-fuC">
+                            <items>
+                                <picker width="1" height="1" alignment="left" focusStyle="stack" id="sjZ-66-tdc"/>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                        <group width="1" height="0.59999999999999998" alignment="left" id="Xis-I5-atw">
+                            <items>
+                                <picker width="0.5" height="1" alignment="center" verticalAlignment="center" style="stack" focusStyle="sequence" indicatorMode="shownWhileFocused" enabled="NO" id="lNY-qN-g1a"/>
+                                <button width="0.5" height="1" alignment="right" verticalAlignment="center" title="OK" id="ryg-Vt-K5a">
+                                    <color key="titleColor" red="0.55294117649999996" green="0.85490196080000003" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
+                                    <connections>
+                                        <action selector="didTouchSaveButton" destination="AgC-eL-Hgc" id="qLf-Cr-JEE"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="amountPicker" destination="sjZ-66-tdc" id="XU5-Tj-qh8"/>
+                        <outlet property="categoryPicker" destination="lNY-qN-g1a" id="ikm-H1-HgN"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="34" y="60"/>
+        </scene>
+    </scenes>
+</document>
