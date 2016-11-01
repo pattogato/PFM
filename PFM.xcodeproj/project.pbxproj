@@ -64,6 +64,7 @@
 		B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */; };
 		B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DC1CA99CDA00DD18E9 /* UserModel.swift */; };
 		B18B5E9D1CF48229008427C0 /* CurrentTransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B5E9C1CF48229008427C0 /* CurrentTransactionInteractor.swift */; };
+		B18E82CA1DC93E4500143C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12655CD1DBEBE4500AEDED5 /* Assets.xcassets */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
@@ -799,6 +800,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B12655BE1DBEBE4500AEDED5 /* Assets.xcassets in Resources */,
+				B18E82CA1DC93E4500143C34 /* Assets.xcassets in Resources */,
 				B12655BC1DBEBE4500AEDED5 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1348,6 +1350,7 @@
 				B12655D51DBEBE4500AEDED5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B12655D71DBEBE4500AEDED5 /* Build configuration list for PBXNativeTarget "PFM_watch" */ = {
 			isa = XCConfigurationList;
@@ -1356,6 +1359,7 @@
 				B12655D91DBEBE4500AEDED5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1308C441CF45529002965EA /* Build configuration list for PBXNativeTarget "PFMUITests" */ = {
 			isa = XCConfigurationList;
