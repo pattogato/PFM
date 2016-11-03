@@ -8,9 +8,9 @@
 
 import Foundation
 
-class CurrentTransactionInteractor {
+class CurrentTransactionDataProvider {
     
-    static let sharedInstance = CurrentTransactionInteractor()
+    static let sharedInstance = CurrentTransactionDataProvider()
     
     init() {
         self.currentTransaction = TransactionModel()

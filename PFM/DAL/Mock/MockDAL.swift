@@ -41,7 +41,7 @@ class MockDAL: NSObject {
         var categories = [CategoryModel]()
         
         for i in 0...numberOfCategories-1 {
-            let category = CategoryInteractor.createOrUpdateCategory("sample_server_id\(i)", name: "category name \(i)", order: i, imageUri: "http://google.com")
+            let category = CategoryDataProvider.createOrUpdateCategory("sample_server_id\(i)", name: "category name \(i)", order: i, imageUri: "http://google.com")
             categories.append(category)
         }
         

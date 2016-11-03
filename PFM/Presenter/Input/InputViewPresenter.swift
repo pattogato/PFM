@@ -48,7 +48,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
     
     fileprivate func saveAmount() {
         if let amount = Double(self.view.amountLabel.text ?? "0") {
-            CurrentTransactionInteractor.sharedInstance.saveAmount(amount)
+            CurrentTransactionDataProvider.sharedInstance.saveAmount(amount)
         }
     }
     
@@ -56,7 +56,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
         DALHelper.sharedInstance.writeInMainRealm { (realm) in
             DALHelper.sharedInstance.realm.add(transaction)
         }
-        CurrentTransactionInteractor.sharedInstance.resetTransaction()
+        CurrentTransactionDataProvider.sharedInstance.resetTransaction()
         self.view.resetUI()
     }
     

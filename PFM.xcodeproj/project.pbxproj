@@ -31,8 +31,8 @@
 		B12655D21DBEBE4500AEDED5 /* PFM_watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B12655B81DBEBE4500AEDED5 /* PFM_watch.app */; };
 		B12655DC1DBEC1DE00AEDED5 /* InputInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12655DB1DBEC1DE00AEDED5 /* InputInterfaceController.swift */; };
 		B1783BE41CB186A400056895 /* DALHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE31CB186A400056895 /* DALHelper.swift */; };
-		B1783BE91CB18A2400056895 /* TransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE81CB18A2400056895 /* TransactionInteractor.swift */; };
-		B1783BEB1CB1A34B00056895 /* CategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */; };
+		B1783BE91CB18A2400056895 /* TransactionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */; };
+		B1783BEB1CB1A34B00056895 /* CategoryDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */; };
 		B1783BED1CB1A77200056895 /* TransactionInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEC1CB1A77200056895 /* TransactionInteractorTests.swift */; };
 		B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEF1CB1A8C600056895 /* MockDAL.swift */; };
 		B1783BF21CB1BA4800056895 /* CategoryInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BF11CB1BA4800056895 /* CategoryInteractorTests.swift */; };
@@ -63,7 +63,7 @@
 		B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D71CA99AE000DD18E9 /* ModelObject.swift */; };
 		B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */; };
 		B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DC1CA99CDA00DD18E9 /* UserModel.swift */; };
-		B18B5E9D1CF48229008427C0 /* CurrentTransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B5E9C1CF48229008427C0 /* CurrentTransactionInteractor.swift */; };
+		B18B5E9D1CF48229008427C0 /* CurrentTransactionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B5E9C1CF48229008427C0 /* CurrentTransactionDataProvider.swift */; };
 		B18E82CA1DC93E4500143C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12655CD1DBEBE4500AEDED5 /* Assets.xcassets */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
@@ -176,8 +176,8 @@
 		B1308C3B1CF45529002965EA /* PFMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1308C3F1CF45529002965EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1783BE31CB186A400056895 /* DALHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DALHelper.swift; path = DAL/DALHelper.swift; sourceTree = "<group>"; };
-		B1783BE81CB18A2400056895 /* TransactionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionInteractor.swift; path = DAL/Interactors/TransactionInteractor.swift; sourceTree = "<group>"; };
-		B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryInteractor.swift; path = DAL/Interactors/CategoryInteractor.swift; sourceTree = "<group>"; };
+		B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionDataProvider.swift; path = DAL/Interactors/TransactionDataProvider.swift; sourceTree = "<group>"; };
+		B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryDataProvider.swift; path = DAL/Interactors/CategoryDataProvider.swift; sourceTree = "<group>"; };
 		B1783BEC1CB1A77200056895 /* TransactionInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionInteractorTests.swift; sourceTree = "<group>"; };
 		B1783BEF1CB1A8C600056895 /* MockDAL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockDAL.swift; path = DAL/Mock/MockDAL.swift; sourceTree = "<group>"; };
 		B1783BF11CB1BA4800056895 /* CategoryInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryInteractorTests.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		B18785D71CA99AE000DD18E9 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelObject.swift; path = DAL/Realm/ModelObject.swift; sourceTree = "<group>"; };
 		B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionModel.swift; path = DAL/Realm/TransactionModel.swift; sourceTree = "<group>"; };
 		B18785DC1CA99CDA00DD18E9 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = DAL/Realm/UserModel.swift; sourceTree = "<group>"; };
-		B18B5E9C1CF48229008427C0 /* CurrentTransactionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTransactionInteractor.swift; path = DAL/Interactors/CurrentTransactionInteractor.swift; sourceTree = "<group>"; };
+		B18B5E9C1CF48229008427C0 /* CurrentTransactionDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTransactionDataProvider.swift; path = DAL/Interactors/CurrentTransactionDataProvider.swift; sourceTree = "<group>"; };
 		B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenter.swift; path = Presenter/Input/LocationPickerPresenter.swift; sourceTree = "<group>"; };
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
@@ -322,9 +322,9 @@
 		B1783BE71CB18A0500056895 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				B1783BE81CB18A2400056895 /* TransactionInteractor.swift */,
-				B1783BEA1CB1A34B00056895 /* CategoryInteractor.swift */,
-				B18B5E9C1CF48229008427C0 /* CurrentTransactionInteractor.swift */,
+				B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */,
+				B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */,
+				B18B5E9C1CF48229008427C0 /* CurrentTransactionDataProvider.swift */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -969,7 +969,7 @@
 				B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */,
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
 				B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */,
-				B1783BEB1CB1A34B00056895 /* CategoryInteractor.swift in Sources */,
+				B1783BEB1CB1A34B00056895 /* CategoryDataProvider.swift in Sources */,
 				B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */,
 				B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */,
 				B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */,
@@ -989,7 +989,7 @@
 				B1783C0C1CB3978900056895 /* NavigationPresenterProtocol.swift in Sources */,
 				B120CA861CCCFDC100E9985B /* Extensions.swift in Sources */,
 				B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */,
-				B18B5E9D1CF48229008427C0 /* CurrentTransactionInteractor.swift in Sources */,
+				B18B5E9D1CF48229008427C0 /* CurrentTransactionDataProvider.swift in Sources */,
 				B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */,
 				B1783BE41CB186A400056895 /* DALHelper.swift in Sources */,
 				E2D55DE11CF47A56002343BD /* HistoryViewController.swift in Sources */,
@@ -1004,7 +1004,7 @@
 				B18785D41CA9928500DD18E9 /* CategoryModel.swift in Sources */,
 				B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */,
 				E26D7E6E1CCE4A4100454C08 /* CategoriesTransition.swift in Sources */,
-				B1783BE91CB18A2400056895 /* TransactionInteractor.swift in Sources */,
+				B1783BE91CB18A2400056895 /* TransactionDataProvider.swift in Sources */,
 				B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */,
 				B12655AA1DBEB48D00AEDED5 /* UserDefaults.swift in Sources */,
 				B120CA901CCD157000E9985B /* InputContentPresenter.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CategoryInteractor: NSObject {
+class CategoryDataProvider: NSObject {
 
     /**
         Returns the CategoryModel with the given server ID
@@ -53,7 +53,7 @@ class CategoryInteractor: NSObject {
      - Returns: The created Category Model with uniqe ID
      */
     class func createOrUpdateCategory(_ serverId: String, name: String, order: Int, imageUri: String? = nil, realm: Realm = DALHelper.sharedInstance.realm) -> CategoryModel {
-        var category = CategoryInteractor.getCategory(byServerId: serverId)
+        var category = CategoryDataProvider.getCategory(byServerId: serverId)
         
         if category == nil {
             category = CategoryModel()

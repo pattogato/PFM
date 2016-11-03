@@ -152,7 +152,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         }
         else if let historyVc = segue.destination as? HistoryViewController {
             historyVc.transitioningDelegate = self
-            historyVc.transactions = Array(TransactionInteractor.getAllTransactions())
+            historyVc.transactions = Array(TransactionDataProvider.getAllTransactions())
         }
     }
     
@@ -377,7 +377,7 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        CurrentTransactionInteractor.sharedInstance.saveCategory(categories[(indexPath as NSIndexPath).item])
+        CurrentTransactionDataProvider.sharedInstance.saveCategory(categories[(indexPath as NSIndexPath).item])
     }
     
 }
@@ -386,15 +386,15 @@ extension InputViewController: InputContentDelegate {
     
     func currencySelected(_ string: String) {
         currencyButton.setTitle(string, for: UIControlState())
-        CurrentTransactionInteractor.sharedInstance.saveCurrency(string)
+        CurrentTransactionDataProvider.sharedInstance.saveCurrency(string)
     }
     
     func dateSelected(_ date: Date) {
-        CurrentTransactionInteractor.sharedInstance.saveDate(date)
+        CurrentTransactionDataProvider.sharedInstance.saveDate(date)
     }
     
     func saveButtonTouched() {
-        if let transaction = CurrentTransactionInteractor.sharedInstance.getTransaction() {
+        if let transaction = CurrentTransactionDataProvider.sharedInstance.getTransaction() {
             self.presenter?.saveTransaction(transaction)
         }
     }
@@ -416,7 +416,7 @@ extension InputViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         keyboardHideTapGestureRecognizer?.isEnabled = false
-        CurrentTransactionInteractor.sharedInstance.saveName(textField.text ?? "")
+        CurrentTransactionDataProvider.sharedInstance.saveName(textField.text ?? "")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -429,7 +429,7 @@ extension InputViewController: UITextFieldDelegate {
 extension InputViewController: LocationPickerDelegate {
     
     func locationPicked(_ lat: Double, lng: Double, venue: String?) {
-        CurrentTransactionInteractor.sharedInstance.saveLocation(lat, lng: lng, venue: venue)
+        CurrentTransactionDataProvider.sharedInstance.saveLocation(lat, lng: lng, venue: venue)
     }
     
 }

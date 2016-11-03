@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class TransactionInteractor: NSObject {
+class TransactionDataProvider: NSObject {
     
     /**
         Returns the TransactionModel with the given server ID
