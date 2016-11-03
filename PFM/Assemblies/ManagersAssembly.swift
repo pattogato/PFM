@@ -17,12 +17,12 @@ final class ManagersAssembly: AssemblyType {
             return Router()
             }.inObjectScope(.container)
         
-//        container.register(DALHelperProtocol.self) { r in
-//            return DALHelper(
-//                encrypted: false,
-//                schemaVersion: 13,
-//                migrationBlock: nil)
-//        }.inObjectScope(.container)
+        container.register(DALHelperProtocol.self) { r in
+            return DALHelper(
+                encrypted: false,
+                schemaVersion: 13,
+                migrationBlock: nil)
+            }.inObjectScope(.container)
         
         
 //        container.register(SwipeNavigationManagerProtcol.self) {

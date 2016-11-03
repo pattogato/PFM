@@ -11,6 +11,8 @@ import UIKit
 class InputViewPresenter: InputViewPresenterProtocol {
 
     var editingTransaction: TransactionModel?
+    var dalHelper: DALHelperProtocol!
+    var currentTransactionDataProvider: CurrentTransactionDataProviderProtocol!
     
     unowned let view: InputViewProtocol
     
@@ -48,15 +50,15 @@ class InputViewPresenter: InputViewPresenterProtocol {
     
     fileprivate func saveAmount() {
         if let amount = Double(self.view.amountLabel.text ?? "0") {
-            CurrentTransactionDataProvider.sharedInstance.saveAmount(amount)
+            currentTransactionDataProvider.saveAmount(amount)
         }
     }
     
     func saveTransaction(_ transaction: TransactionModel) {
-        DALHelper.sharedInstance.writeInMainRealm { (realm) in
-            DALHelper.sharedInstance.realm.add(transaction)
+        dalHelper.writeInMainRealm { (realm) in
+            realm.add(transaction)
         }
-        CurrentTransactionDataProvider.sharedInstance.resetTransaction()
+        currentTransactionDataProvider.resetTransaction()
         self.view.resetUI()
     }
     
