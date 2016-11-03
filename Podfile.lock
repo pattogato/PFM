@@ -20,6 +20,9 @@ PODS:
     - Realm (= 1.1.0)
   - SVProgressHUD (2.0.3)
   - SwiftDate (4.0.6)
+  - Swinject (2.0.0-beta.2)
+  - SwinjectStoryboard (1.0.0-beta.2):
+    - Swinject (= 2.0.0-beta.2)
 
 DEPENDENCIES:
   - EZSwipeController (from `https://github.com/pattogato/EZSwipeController`, branch `bugfix/swift-3-fixes`)
@@ -29,6 +32,8 @@ DEPENDENCIES:
   - RealmSwift (~> 1.1.0)
   - SVProgressHUD (~> 2.0)
   - SwiftDate (~> 4.0)
+  - Swinject (~> 2.0.0-beta.2)
+  - SwinjectStoryboard (~> 1.0.0-beta.2)
 
 EXTERNAL SOURCES:
   EZSwipeController:
@@ -55,7 +60,9 @@ SPEC CHECKSUMS:
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftDate: 549729eaa54bd9f64fd80abfd12ddd3d44ff5098
+  Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
+  SwinjectStoryboard: b52b45821a50386ef604c3cd098f8029a50a268d
 
-PODFILE CHECKSUM: eb0e8c1946c6df416a4521c3fab50400177560d8
+PODFILE CHECKSUM: 1641bfea4b4e755147783ade569117fd3e414c71
 
 COCOAPODS: 1.1.0.rc.2

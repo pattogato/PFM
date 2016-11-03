@@ -30,6 +30,11 @@
 		B12655CE1DBEBE4500AEDED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12655CD1DBEBE4500AEDED5 /* Assets.xcassets */; };
 		B12655D21DBEBE4500AEDED5 /* PFM_watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B12655B81DBEBE4500AEDED5 /* PFM_watch.app */; };
 		B12655DC1DBEC1DE00AEDED5 /* InputInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12655DB1DBEC1DE00AEDED5 /* InputInterfaceController.swift */; };
+		B164F9711DCB45F70090CF08 /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96C1DCB45F70090CF08 /* ApplicationAssembly.swift */; };
+		B164F9721DCB45F70090CF08 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96D1DCB45F70090CF08 /* ServicesAssembly.swift */; };
+		B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96E1DCB45F70090CF08 /* ManagersAssembly.swift */; };
+		B164F9741DCB45F70090CF08 /* StoragesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96F1DCB45F70090CF08 /* StoragesAssembly.swift */; };
+		B164F9751DCB45F70090CF08 /* DataProvidersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F9701DCB45F70090CF08 /* DataProvidersAssembly.swift */; };
 		B1783BE41CB186A400056895 /* DALHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE31CB186A400056895 /* DALHelper.swift */; };
 		B1783BE91CB18A2400056895 /* TransactionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */; };
 		B1783BEB1CB1A34B00056895 /* CategoryDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */; };
@@ -175,6 +180,11 @@
 		B12655DB1DBEC1DE00AEDED5 /* InputInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputInterfaceController.swift; sourceTree = "<group>"; };
 		B1308C3B1CF45529002965EA /* PFMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1308C3F1CF45529002965EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B164F96C1DCB45F70090CF08 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
+		B164F96D1DCB45F70090CF08 /* ServicesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
+		B164F96E1DCB45F70090CF08 /* ManagersAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagersAssembly.swift; sourceTree = "<group>"; };
+		B164F96F1DCB45F70090CF08 /* StoragesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoragesAssembly.swift; sourceTree = "<group>"; };
+		B164F9701DCB45F70090CF08 /* DataProvidersAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvidersAssembly.swift; sourceTree = "<group>"; };
 		B1783BE31CB186A400056895 /* DALHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DALHelper.swift; path = DAL/DALHelper.swift; sourceTree = "<group>"; };
 		B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionDataProvider.swift; path = DAL/Interactors/TransactionDataProvider.swift; sourceTree = "<group>"; };
 		B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryDataProvider.swift; path = DAL/Interactors/CategoryDataProvider.swift; sourceTree = "<group>"; };
@@ -237,6 +247,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		95724E636CC023FC24797334 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B12655C11DBEBE4500AEDED5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,14 +336,26 @@
 			path = PFMUITests;
 			sourceTree = "<group>";
 		};
-		B1783BE71CB18A0500056895 /* Interactors */ = {
+		B164F96B1DCB45D10090CF08 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				B164F96C1DCB45F70090CF08 /* ApplicationAssembly.swift */,
+				B164F96D1DCB45F70090CF08 /* ServicesAssembly.swift */,
+				B164F96E1DCB45F70090CF08 /* ManagersAssembly.swift */,
+				B164F96F1DCB45F70090CF08 /* StoragesAssembly.swift */,
+				B164F9701DCB45F70090CF08 /* DataProvidersAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		B1783BE71CB18A0500056895 /* DataProviders */ = {
 			isa = PBXGroup;
 			children = (
 				B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */,
 				B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */,
 				B18B5E9C1CF48229008427C0 /* CurrentTransactionDataProvider.swift */,
 			);
-			name = Interactors;
+			name = DataProviders;
 			sourceTree = "<group>";
 		};
 		B1783BEE1CB1A85600056895 /* Mock */ = {
@@ -341,7 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				B1783BEE1CB1A85600056895 /* Mock */,
-				B1783BE71CB18A0500056895 /* Interactors */,
+				B1783BE71CB18A0500056895 /* DataProviders */,
 				B18785CD1CA991EE00DD18E9 /* Realm */,
 				B1783BE31CB186A400056895 /* DALHelper.swift */,
 			);
@@ -511,6 +540,7 @@
 				B18785A21CA98E6A00DD18E9 /* Main.storyboard */,
 				B18785A71CA98E6A00DD18E9 /* LaunchScreen.storyboard */,
 				B18785A51CA98E6A00DD18E9 /* Assets.xcassets */,
+				B164F96B1DCB45D10090CF08 /* Assemblies */,
 				E26D7E691CCE496100454C08 /* CustomControls */,
 				B1783BF41CB2FA6900056895 /* Model */,
 				B1783BF61CB2FA7A00056895 /* Presenter */,
@@ -647,6 +677,7 @@
 			buildPhases = (
 				B12655B61DBEBE4500AEDED5 /* Resources */,
 				B12655D61DBEBE4500AEDED5 /* Embed App Extensions */,
+				95724E636CC023FC24797334 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -965,12 +996,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1783BF81CB2FAA200056895 /* Router.swift in Sources */,
+				B164F9741DCB45F70090CF08 /* StoragesAssembly.swift in Sources */,
 				B1783C221CB3B6B500056895 /* ChartsViewController.swift in Sources */,
 				B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */,
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
 				B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */,
 				B1783BEB1CB1A34B00056895 /* CategoryDataProvider.swift in Sources */,
+				B164F9751DCB45F70090CF08 /* DataProvidersAssembly.swift in Sources */,
 				B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */,
+				B164F9711DCB45F70090CF08 /* ApplicationAssembly.swift in Sources */,
 				B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */,
 				B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */,
 				B1783C021CB3039500056895 /* InputViewController.swift in Sources */,
@@ -988,6 +1022,7 @@
 				B1783BFB1CB2FCB600056895 /* InputViewPresenterProtocol.swift in Sources */,
 				B1783C0C1CB3978900056895 /* NavigationPresenterProtocol.swift in Sources */,
 				B120CA861CCCFDC100E9985B /* Extensions.swift in Sources */,
+				B164F9721DCB45F70090CF08 /* ServicesAssembly.swift in Sources */,
 				B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */,
 				B18B5E9D1CF48229008427C0 /* CurrentTransactionDataProvider.swift in Sources */,
 				B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */,
@@ -996,6 +1031,7 @@
 				B120CA921CCD15F700E9985B /* InputContentViewController.swift in Sources */,
 				E2D55DE81CF47DE3002343BD /* HistoryHeaderCollectionReusableView.swift in Sources */,
 				B1783C141CB3A5AB00056895 /* SwipeNavigationPresenter.swift in Sources */,
+				B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */,
 				B12655B01DBEB9E500AEDED5 /* LoaderProtocol.swift in Sources */,
 				B120CA8E1CCD142B00E9985B /* InputContentViewProtocol.swift in Sources */,
 				E26D7E711CCE4AF900454C08 /* CategoriesViewProtocol.swift in Sources */,

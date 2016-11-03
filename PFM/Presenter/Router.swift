@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol RouterProtocol {
+    func setSwipeControllerToRoot(_ window: inout UIWindow?)
+}
+
 /**
     Router class, to handle the switching between the app's Views/pages, has a shared instance
  */
-class Router {
+class Router: RouterProtocol {
     
     static let sharedInstance = Router()
     

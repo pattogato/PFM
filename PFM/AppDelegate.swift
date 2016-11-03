@@ -7,17 +7,33 @@
 //
 
 import UIKit
+import Swinject
+import SwinjectStoryboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var router: RouterProtocol!
+    let assembler = Assembler(container: SwinjectStoryboard.defaultContainer)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        Router.sharedInstance.setSwipeControllerToRoot(&window)
-                
+        
+        // Register assemblys
+        assembler.apply(assemblies: [
+            ApplicationAssembly(),
+            ServicesAssembly(),
+            ManagersAssembly(),
+            StoragesAssembly(),
+            DataProvidersAssembly()
+            ])
+        
+        ApplicationAssembly.resolveAppDelegateDependencies(appDelegate: self)
+        
+        router.setSwipeControllerToRoot(&window)
+        
         return true
     }
 

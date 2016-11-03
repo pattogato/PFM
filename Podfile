@@ -16,6 +16,10 @@ def shared_pods
     pod 'LocationPickerViewController', :git => 'https://github.com/JeromeTan1997/LocationPicker', :branch => 'swift-3'
     pod 'EZSwipeController', :git => 'https://github.com/pattogato/EZSwipeController', :branch => 'bugfix/swift-3-fixes'
     pod 'MBPullDownController', '~> 1.0'
+    
+    # Dependency indejction
+    pod 'Swinject', '~> 2.0.0-beta.2' # DI Tool
+    pod 'SwinjectStoryboard', '~> 1.0.0-beta.2' # DI Tool for storyboards
 end
 
 
