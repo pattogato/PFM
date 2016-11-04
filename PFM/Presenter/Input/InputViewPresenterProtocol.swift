@@ -49,6 +49,11 @@ protocol InputViewPresenterProtocol {
     func saveTransaction(_ transaction: TransactionModel)
     
     /**
+     Saves the selected category
+     */
+    func saveCategory(_ category: CategoryModel)
+    
+    /**
      Shows the currency changer view
      */
     func changeCurrency()

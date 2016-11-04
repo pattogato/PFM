@@ -14,6 +14,7 @@ protocol TransactionDataProviderProtocol {
     func getTransaction(byLocalId localId: String, realm: Realm?) -> TransactionModel?
     func getAllTransactions(_ realm: Realm?) -> Results<TransactionModel>
     func createTransaction(_ name: String, amount: Double, currency: String, category: CategoryModel) -> TransactionModel
+    func addTransaction(_ realm: Realm?, transaction: TransactionModel)
     func updateTransactionServerID(_ transaction: TransactionModel, serverId: String, realm: Realm?)
     func updateTransactionImageUri(_ transaction: TransactionModel, imageUri: String, realm: Realm?)
     func updateTransactionAmount(_ transaction: TransactionModel, amount: Double, realm: Realm?)
@@ -54,6 +55,16 @@ class TransactionDataProvider: TransactionDataProviderProtocol {
     func getAllTransactions(_ realm: Realm?) -> Results<TransactionModel> {
         let realm = realm ?? dalHelper.newRealm()
         return realm.objects(TransactionModel.self)
+    }
+    
+    /**
+        Adds a transaction to the DB
+     */
+    func addTransaction(_ realm: Realm?, transaction: TransactionModel) {
+        let realm = realm ?? dalHelper.newRealm()
+        dalHelper.writeInRealm(realm: realm) { (realm) in
+            realm.add(transaction)
+        }
     }
     
     /**

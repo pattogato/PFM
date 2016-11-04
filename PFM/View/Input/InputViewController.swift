@@ -31,7 +31,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol {
-
+    
     // MARK: - Constants
     
     fileprivate let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
@@ -152,7 +152,6 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         }
         else if let historyVc = segue.destination as? HistoryViewController {
             historyVc.transitioningDelegate = self
-            historyVc.transactions = Array(TransactionDataProvider.getAllTransactions())
         }
     }
     
@@ -177,7 +176,6 @@ extension InputViewController {
     }
     
     // IBActions
-
     
     @IBAction func changeKeyboardTypeButtonTouched(_ sender: AnyObject) {
         presenter?.toggleKeyboardType()
@@ -377,7 +375,8 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        CurrentTransactionDataProvider.sharedInstance.saveCategory(categories[(indexPath as NSIndexPath).item])
+        currentTransactionDataProvider.saveCategory(categories[(indexPath as NSIndexPath).item])
+        presenter.saveCategory(cat)
     }
     
 }
@@ -386,15 +385,15 @@ extension InputViewController: InputContentDelegate {
     
     func currencySelected(_ string: String) {
         currencyButton.setTitle(string, for: UIControlState())
-        CurrentTransactionDataProvider.sharedInstance.saveCurrency(string)
+        currentTransactionDataProvider.saveCurrency(string)
     }
     
     func dateSelected(_ date: Date) {
-        CurrentTransactionDataProvider.sharedInstance.saveDate(date)
+        currentTransactionDataProvider.saveDate(date)
     }
     
     func saveButtonTouched() {
-        if let transaction = CurrentTransactionDataProvider.sharedInstance.getTransaction() {
+        if let transaction = currentTransactionDataProvider.getTransaction() {
             self.presenter?.saveTransaction(transaction)
         }
     }
@@ -416,7 +415,7 @@ extension InputViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         keyboardHideTapGestureRecognizer?.isEnabled = false
-        CurrentTransactionDataProvider.sharedInstance.saveName(textField.text ?? "")
+        currentTransactionDataProvider.saveName(textField.text ?? "")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -429,7 +428,7 @@ extension InputViewController: UITextFieldDelegate {
 extension InputViewController: LocationPickerDelegate {
     
     func locationPicked(_ lat: Double, lng: Double, venue: String?) {
-        CurrentTransactionDataProvider.sharedInstance.saveLocation(lat, lng: lng, venue: venue)
+        currentTransactionDataProvider.saveLocation(lat, lng: lng, venue: venue)
     }
     
 }

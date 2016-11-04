@@ -41,11 +41,14 @@ final class ApplicationAssembly: AssemblyType {
     private func registerViewControllers(container: Container) {
         // Register all viewcontrollers here
         
-//        // Generals
-//        container.registerForStoryboardProject(controllerType: HeroTabRootNavigationController.self) { (r, c) in
-//            c.swipeNavigator = r.resolve(ApplicationRouterProtocol.self)
+        // Generals
+//        container.registerForStoryboardProject(controllerType: InputViewController.self) { (r, c) in
+//            c.currentTransactionDataProvider = r.resolve(CurrentTransactionDataProviderProtocol.self)
+//            c.transactionDataProvider = r.resolve(TransactionDataProviderProtocol.self)
 //        }
-//        
+        
+        
+        
     }
 }
 

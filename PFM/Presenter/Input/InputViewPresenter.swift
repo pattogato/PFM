@@ -13,6 +13,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
     var editingTransaction: TransactionModel?
     var dalHelper: DALHelperProtocol!
     var currentTransactionDataProvider: CurrentTransactionDataProviderProtocol!
+    var transactionDataProvider: TransactionDataProviderProtocol!
     
     unowned let view: InputViewProtocol
     
@@ -55,11 +56,14 @@ class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func saveTransaction(_ transaction: TransactionModel) {
-        dalHelper.writeInMainRealm { (realm) in
-            realm.add(transaction)
-        }
+        transactionDataProvider.addTransaction(nil, transaction: transaction)
         currentTransactionDataProvider.resetTransaction()
+        
         self.view.resetUI()
+    }
+    
+    func saveCategory(_ category: CategoryModel) {
+        currentTransactionDataProvider.saveCategory(category)
     }
     
     func changeCurrency() {
