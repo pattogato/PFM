@@ -23,7 +23,7 @@
                 <viewControllerPlaceholder storyboardName="History" id="7By-jn-hGC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qov-3T-gzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2156.5" y="-260"/>
+            <point key="canvasLocation" x="2263" y="-262"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="lWJ-OZ-7n6">
@@ -466,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWI-Ki-Ypj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2620" y="-178"/>
+            <point key="canvasLocation" x="2799" y="-200"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yvq-zF-e4t">

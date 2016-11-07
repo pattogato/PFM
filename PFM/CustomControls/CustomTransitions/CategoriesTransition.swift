@@ -16,10 +16,6 @@ final class CategoriesTransition: PresentingTransitionAnimator {
     
     fileprivate let kCashLabelHeight: CGFloat = 40.0
     
-    fileprivate let kCategoriesStartBGColor = UIColor(netHex: 0xE0D0B1)
-    
-    fileprivate let kCategoriesEndBGColor = UIColor(netHex: 0xD8C299)
-    
     // MARK: - General Methods
     
     override init() {
@@ -35,14 +31,16 @@ final class CategoriesTransition: PresentingTransitionAnimator {
         
         guard let categoriesVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? CategoriesViewController,
             let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? SwipeNavigationController,
-            let inputVc = swipeNavigation.inputVc,
-            let snapshot = inputVc.view.snapshotView(afterScreenUpdates: true)
+            let inputVc = swipeNavigation.inputVc
             else { return }
         
+        inputVc.categoriesContainerView.isHidden = true
+        guard let snapshot = inputVc.view.snapshotView(afterScreenUpdates: true) else { return }
+        
         // Add 'toView' to context view
-        
+
         let categoriesView = categoriesVc.view
-        
+
         categoriesView?.frame = UIScreen.main.bounds
         context.containerView.addSubview(categoriesView!)
         categoriesView?.layoutIfNeeded()
@@ -70,7 +68,7 @@ final class CategoriesTransition: PresentingTransitionAnimator {
         categoriesVc.categoriesLabel.alpha = 0
         
         // Categories BG Color
-        categoriesVc.categoriesContainerView.backgroundColor = kCategoriesStartBGColor
+//        categoriesVc.categoriesContainerView.backgroundColor = kCategoriesStartBGColor
         inputVc.contentContainerView.transform = .identity
         
         // Menu buttons
@@ -100,7 +98,7 @@ final class CategoriesTransition: PresentingTransitionAnimator {
                         categoriesVc.categoriesLabel.alpha = 1
                         
                         // Categories BG Color
-                        categoriesVc.categoriesContainerView.backgroundColor = self.kCategoriesEndBGColor
+//                        categoriesVc.categoriesContainerView.backgroundColor = self.kCategoriesEndBGColor
                         
                         // Menu buttons
                         inputVc.menuButtons.forEach({ (button) in
@@ -123,6 +121,12 @@ final class CategoriesTransition: PresentingTransitionAnimator {
         },
             completion: { _ in
                 context.completeTransition(!context.transitionWasCancelled)
+                
+                guard context.transitionWasCancelled else { return }
+                inputVc.view.alpha = 1
+                categoriesVc.snapshot = nil
+                inputVc.categoriesContainerView.isHidden = false
+                inputVc.categoriesViewController = nil
         })
     }    
     
@@ -168,7 +172,7 @@ final class CategoriesTransition: PresentingTransitionAnimator {
                 categoriesVc.categoriesLabel.alpha = 0
                 
                 // Categories BG Color
-                categoriesVc.categoriesContainerView.backgroundColor = self.kCategoriesStartBGColor
+//                categoriesVc.categoriesContainerView.backgroundColor = self.kCategoriesStartBGColor
                 
                 // Menu buttons
                 inputVc.menuButtons.forEach({ (button) in
@@ -190,8 +194,11 @@ final class CategoriesTransition: PresentingTransitionAnimator {
         },
             completion: { (completed) -> Void in
                 context.completeTransition(!context.transitionWasCancelled)
+                
+                guard !context.transitionWasCancelled else { return }
                 inputVc.view.alpha = 1
                 inputVc.categoriesViewController = nil
+                inputVc.categoriesContainerView.isHidden = false
         })
         
         
