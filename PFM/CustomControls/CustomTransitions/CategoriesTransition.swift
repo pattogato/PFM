@@ -101,9 +101,9 @@ final class CategoriesTransition: PresentingTransitionAnimator {
 //                        categoriesVc.categoriesContainerView.backgroundColor = self.kCategoriesEndBGColor
                         
                         // Menu buttons
-                        inputVc.menuButtons.forEach({ (button) in
-                            button.transform = menuButtonTranslate
-                        })
+//                        inputVc.menuButtons.forEach({ (button) in
+//                            button.transform = menuButtonTranslate
+//                        })
                         
                         // Content
                         snapshot.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
@@ -175,9 +175,9 @@ final class CategoriesTransition: PresentingTransitionAnimator {
 //                categoriesVc.categoriesContainerView.backgroundColor = self.kCategoriesStartBGColor
                 
                 // Menu buttons
-                inputVc.menuButtons.forEach({ (button) in
-                    button.transform = CGAffineTransform.identity
-                })
+//                inputVc.menuButtons.forEach({ (button) in
+//                    button.transform = CGAffineTransform.identity
+//                })
                 
                 // Content
                 snapshot.transform = .identity
