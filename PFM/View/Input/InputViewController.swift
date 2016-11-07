@@ -9,6 +9,7 @@
 import UIKit
 import MBPullDownController
 import ALCameraViewController
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -29,8 +30,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-
-final class InputViewController: UIViewController, PresentableView, InputViewProtocol {
+final class InputViewController: UIViewController, PresentableView, InputViewProtocol, CategoriesInteractionControllerProtocol {
 
     // MARK: - Constants
     
@@ -39,6 +39,10 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     fileprivate let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsets(top: 26, left: 20, bottom: 0, right: 20)
 
     fileprivate let kCategoryCellIdentifier = "CategoryCollectionViewCell"
+    
+    fileprivate let openCategoriesInteractionController = CategoriesInteractionController()
+    
+    fileprivate let closeCategoriesInteractionController = CategoriesInteractionController()
     
     // MARK: - InputProtocol properties
     
@@ -66,6 +70,8 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     @IBOutlet weak var nameTextField: UITextField!
     
+    @IBOutlet weak var contentContainerView: UIView!
+    
     @IBOutlet weak var categoriesContainerView: UIView!
     
     @IBOutlet weak var categoriesPullIndicator: UIView!
@@ -79,6 +85,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     // MARK: - Properties
     
     var numpadViewController: NumpadViewController!
+    
     var locationPickerPresenter: LocationPickerPresenterProtocol?
     
     weak var delegate: SwipeViewControllerProtocol?
@@ -111,19 +118,15 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         categoriesPullIndicator.layer.cornerRadius = 2
         
         self.navigationController?.isNavigationBarHidden = true
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        openCategoriesInteractionController.wire(to: self)
+        closeCategoriesInteractionController.open = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.isNavigationBarHidden = true
     }
-    
 
     func setupUI() {
         self.amountLabel.numberOfLines = 1
@@ -134,11 +137,11 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     func setupPulldownController() {
         
     }
-
     
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let inputContentVC = segue.destination as? InputContentViewProtocol
             , segue.identifier == "InputContentContainerView" {
             
@@ -158,7 +161,14 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         self.transactionModel = transaction
     }
     
+    var panView: UIView {
+        return categoriesContainerView
+    }
  
+    func toggleCategories(open: Bool) {
+        guard open else { return }
+        openCategories()
+    }
 }
 
 // Button event handlers
@@ -176,7 +186,6 @@ extension InputViewController {
     
     // IBActions
 
-    
     @IBAction func changeKeyboardTypeButtonTouched(_ sender: AnyObject) {
         presenter?.toggleKeyboardType()
     }
@@ -210,14 +219,11 @@ extension InputViewController {
         openCategories()
     }
     
-    @IBAction func handleCategoryPan(_ sender: AnyObject) {
-        
-    }
-
 }
 
 // Input view protocol methods
 extension InputViewController {
+    
     func openCamera() {
         let croppingEnabled = true
         let cameraViewController = CameraViewController(croppingEnabled: croppingEnabled) { image in
@@ -278,21 +284,22 @@ extension InputViewController {
 
 extension InputViewController: UIViewControllerTransitioningDelegate {
     
-    fileprivate func  openCategories() {
+    func  openCategories() {
         
         let categoriesViewController = self.categoriesViewController ?? CategoriesViewController(
             nibName: CategoriesViewController.kNibName,
             bundle: Bundle.main)
         
         categoriesViewController.categories = self.categories
-        
         categoriesViewController.transitioningDelegate = self
-        self.categoriesViewController = categoriesViewController
-
-        present(categoriesViewController,
-                              animated: true,
-                              completion: nil)
         
+        self.categoriesViewController = categoriesViewController
+        
+        present(
+            categoriesViewController,
+            animated: true) { () -> Void in
+                self.closeCategoriesInteractionController.wire(to: categoriesViewController)
+        }
     }
     
     func animationController(
@@ -327,8 +334,18 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
             
         }
         return nil
-        
     }
+    
+    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+
+        return openCategoriesInteractionController.interactionInProgress ? openCategoriesInteractionController : nil
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        
+        return closeCategoriesInteractionController.interactionInProgress ? closeCategoriesInteractionController : nil
+    }
+    
 }
 
 // Numpad delegate methods
