@@ -6,4 +6,24 @@
 //  Copyright © 2016. Pinup. All rights reserved.
 //
 
-import Foundation
+import PromiseKit
+
+protocol CategoryServiceProtocol {
+     func getCategories() -> Promise<EmptyNetworkResponseModel>
+}
+
+final class CategoryService: CategoryServiceProtocol {
+    
+    private let apiClient: RESTAPIClientProtocol
+    
+    init(apiClient: RESTAPIClientProtocol) {
+        self.apiClient = apiClient
+    }
+    
+    func getCategories() -> Promise<EmptyNetworkResponseModel> {
+        return apiClient.mappedServerMethod(
+            method: API.Method.Categories.get
+        )
+    }
+    
+}
