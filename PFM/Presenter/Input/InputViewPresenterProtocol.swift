@@ -10,8 +10,6 @@ import UIKit
 
 protocol InputViewPresenterProtocol {
     
-    init(view: InputViewProtocol)
-    
     /**
      Writes a digit to the input field
      
@@ -42,11 +40,8 @@ protocol InputViewPresenterProtocol {
     
     /**
      Saves the transaction model to the database
-     
-     - Parameters:
-     - transaction: The editingTransaction model will be saved to the DB
      */
-    func saveTransaction(_ transaction: TransactionModel)
+    func saveTransaction()
     
     /**
      Saves the selected category
@@ -88,5 +83,8 @@ protocol InputViewPresenterProtocol {
      */
     func navigateToSettings()
     
+    func saveCurrency(_ currency: String)
+    
+    func saveDate(_ date: Date)
     
 }

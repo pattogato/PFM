@@ -44,11 +44,9 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     @IBOutlet weak var amountLabel: UILabel!
     
-    weak var inputContentPresenter: InputContentPresenterProtocol?
-    
     var transactionModel: TransactionModel?
     
-    var presenter: InputViewPresenterProtocol?
+    var presenter: InputViewPresenterProtocol!
     
     var categories = [CategoryModel]() {
         didSet {
@@ -103,7 +101,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupPulldownController()
         
         categories = MockDAL.mockCategories()
-        inputContentPresenter?.showContent(InputContentType.keyboard, keyboardType: KeyboardType.numeric)
+        inputContentpresenter.showContent(InputContentType.keyboard, keyboardType: KeyboardType.numeric)
         
         collectionView.register(
             UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main),
@@ -168,39 +166,39 @@ extension InputViewController {
     // MARK: - Event handlers
     
     @IBAction func chartsButtonTouched(_ sender: AnyObject) {
-        presenter?.navigateToCharts()
+        presenter.navigateToCharts()
     }
     
     @IBAction func settingsButtonTouched(_ sender: AnyObject) {
-        presenter?.navigateToSettings()
+        presenter.navigateToSettings()
     }
     
     // IBActions
     
     @IBAction func changeKeyboardTypeButtonTouched(_ sender: AnyObject) {
-        presenter?.toggleKeyboardType()
+        presenter.toggleKeyboardType()
     }
     
     @IBAction func cameraButtonTouched(_ sender: AnyObject) {
-        self.presenter?.openCameraScreen()
+        self.presenter.openCameraScreen()
     }
     
     @IBAction func locationButtonTouched(_ sender: AnyObject) {
-        self.presenter?.openLocationScreen()
+        self.presenter.openLocationScreen()
     }
     
     @IBAction func noteButtonTouched(_ sender: AnyObject) {
     }
     
     @IBAction func currencyButtonTouched(_ sender: AnyObject) {
-        self.presenter?.changeCurrency()
+        self.presenter.changeCurrency()
     }
     
     @IBAction func timeButtonTouched(_ sender: UIButton) {
-        if inputContentPresenter?.presentingType != InputContentType.datePicker {
-            inputContentPresenter?.showContent(InputContentType.datePicker, keyboardType: nil)
+        if inputContentpresenter.presentingType != InputContentType.datePicker {
+            inputContentpresenter.showContent(InputContentType.datePicker, keyboardType: nil)
         } else {
-            inputContentPresenter?.showContent(InputContentType.keyboard, keyboardType: nil)
+            inputContentpresenter.showContent(InputContentType.keyboard, keyboardType: nil)
         }
         
         sender.isSelected = !sender.isSelected
@@ -335,15 +333,15 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
 extension InputViewController {
     
     func numberPadDelegateComaPressed() {
-        presenter?.enterComa()
+        presenter.enterComa()
     }
     
     func numberPadDelegateNumberPressed(_ number: Int) {
-        presenter?.enterDigit(number)
+        presenter.enterDigit(number)
     }
     
     func numberPadDelegateDeletePressed() {
-        presenter?.deleteDigit()
+        presenter.deleteDigit()
     }
     
 }
@@ -375,8 +373,7 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        currentTransactionDataProvider.saveCategory(categories[(indexPath as NSIndexPath).item])
-        presenter.saveCategory(cat)
+        presenter.saveCategory(categories[(indexPath as NSIndexPath).item])
     }
     
 }
@@ -385,17 +382,15 @@ extension InputViewController: InputContentDelegate {
     
     func currencySelected(_ string: String) {
         currencyButton.setTitle(string, for: UIControlState())
-        currentTransactionDataProvider.saveCurrency(string)
+        presenter.saveCurrency(string)
     }
     
     func dateSelected(_ date: Date) {
-        currentTransactionDataProvider.saveDate(date)
+        presenter.saveDate(date)
     }
     
     func saveButtonTouched() {
-        if let transaction = currentTransactionDataProvider.getTransaction() {
-            self.presenter?.saveTransaction(transaction)
-        }
+        self.presenter.saveTransaction()
     }
 }
 

@@ -11,20 +11,31 @@ import UIKit
 class InputViewPresenter: InputViewPresenterProtocol {
 
     var editingTransaction: TransactionModel?
-    var dalHelper: DALHelperProtocol!
-    var currentTransactionDataProvider: CurrentTransactionDataProviderProtocol!
-    var transactionDataProvider: TransactionDataProviderProtocol!
+    let dalHelper: DALHelperProtocol!
+    let currentTransactionDataProvider: CurrentTransactionDataProviderProtocol!
+    let transactionDataProvider: TransactionDataProviderProtocol!
+    let inputContentPresenter: InputContentPresenterProtocol!
     
     unowned let view: InputViewProtocol
     
-    required init(view: InputViewProtocol) {
+    init(view: InputViewProtocol,
+         dalHelper: DALHelperProtocol,
+         currentTransactionDataProvider: CurrentTransactionDataProviderProtocol,
+         transactionDataProvider: TransactionDataProviderProtocol,
+         inputContentPresenter: InputContentPresenterProtocol) {
+        
         self.view = view
-        print("InputViewPresenter initalization")
+        self.dalHelper = dalHelper
+        self.currentTransactionDataProvider = currentTransactionDataProvider
+        self.transactionDataProvider = transactionDataProvider
+        self.inputContentPresenter = inputContentPresenter
     }
     
     func presentInputScreen() {
         print("presting input screen")
     }
+    
+    // MARK: - Functional methods
     
     func changeKeyboardType(_ keyboardType: KeyboardType) {
         print("change keyboard to \(keyboardType.hashValue)")
@@ -49,25 +60,12 @@ class InputViewPresenter: InputViewPresenterProtocol {
         saveAmount()
     }
     
-    fileprivate func saveAmount() {
-        if let amount = Double(self.view.amountLabel.text ?? "0") {
-            currentTransactionDataProvider.saveAmount(amount)
-        }
-    }
-    
-    func saveTransaction(_ transaction: TransactionModel) {
-        transactionDataProvider.addTransaction(nil, transaction: transaction)
-        currentTransactionDataProvider.resetTransaction()
-        
-        self.view.resetUI()
-    }
-    
-    func saveCategory(_ category: CategoryModel) {
-        currentTransactionDataProvider.saveCategory(category)
-    }
-    
     func changeCurrency() {
-        self.view.inputContentPresenter?.showContent(InputContentType.currencyPicker, keyboardType: nil)
+        self.inputContentPresenter.showContent(InputContentType.currencyPicker, keyboardType: nil)
+    }
+    
+    func changeDate() {
+        
     }
     
     func openCameraScreen() {
@@ -82,9 +80,7 @@ class InputViewPresenter: InputViewPresenterProtocol {
         print("openNoteScreen")
     }
     
-    func changeDate() {
-        
-    }
+    // MARK: - Navigation methods
     
     func navigateToCharts() {
         view.delegate?.swipePageToLeft()
@@ -94,4 +90,31 @@ class InputViewPresenter: InputViewPresenterProtocol {
         view.delegate?.swipePageToRight()
     }
     
+    // MARK: - Save methods
+    
+    func saveDate(_ date: Date) {
+        self.currentTransactionDataProvider.saveDate(date)
+    }
+    
+    func saveCurrency(_ currency: String) {
+        self.currentTransactionDataProvider.saveCurrency(currency)
+    }
+    
+    func saveTransaction() {
+        if let transaction = currentTransactionDataProvider.getTransaction() {
+            transactionDataProvider.addTransaction(nil, transaction: transaction)
+            
+            self.view.resetUI()
+        }
+    }
+    
+    fileprivate func saveAmount() {
+        if let amount = Double(self.view.amountLabel.text ?? "0") {
+            currentTransactionDataProvider.saveAmount(amount)
+        }
+    }
+    
+    func saveCategory(_ category: CategoryModel) {
+        currentTransactionDataProvider.saveCategory(category)
+    }
 }

@@ -14,23 +14,23 @@ final class ManagersAssembly: AssemblyType {
     func assemble(container: Container) {
         
         container.register(RouterProtocol.self) { r in
-            return Router()
+            // Resolve storyboards:
+            var storyboards: [Storyboards: UIStoryboard] = [:]
+            for storyboard in Storyboards.all() {
+                storyboards[storyboard] = r.resolve(UIStoryboard.self, name: storyboard.name)
+            }
+            
+            return Router(
+                window: r.resolve(UIWindow.self)!,
+                storyboards: storyboards)
             }.inObjectScope(.container)
         
         container.register(DALHelperProtocol.self) { r in
             return DALHelper(
                 encrypted: false,
-                schemaVersion: 13,
+                schemaVersion: 1,
                 migrationBlock: nil)
             }.inObjectScope(.container)
-        
-        
-//        container.register(SwipeNavigationManagerProtcol.self) {
-//            (r, a: SwipeNavigationManagerDataSource) -> SwipeNavigationManagerProtcol in
-//            return SwipeNavigationManager(
-//                dataSource: a
-//            )
-//        }
         
     }
 }

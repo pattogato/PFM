@@ -16,7 +16,6 @@ enum KeyboardType {
 protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDelegate, LocationPickerDelegate {
     
     weak var amountLabel: UILabel! { get set }
-    weak var inputContentPresenter: InputContentPresenterProtocol? { get set }
     
     /**
         Sets up the input screen with a given Transaction Model
