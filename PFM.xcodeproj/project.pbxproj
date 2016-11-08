@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DBD1DD21A28004175EF /* APIResources.swift */; };
+		014E2DC11DD21F27004175EF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC01DD21F27004175EF /* AuthService.swift */; };
+		014E2DC31DD21F2E004175EF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC21DD21F2E004175EF /* UserService.swift */; };
+		014E2DC51DD21F45004175EF /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC41DD21F45004175EF /* CategoryService.swift */; };
+		014E2DC71DD21F4F004175EF /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC61DD21F4F004175EF /* TransactionService.swift */; };
+		014E2DCA1DD22086004175EF /* BaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC91DD22086004175EF /* BaseModels.swift */; };
 		015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */; };
 		015A56131DD1CA6500D1D7F9 /* RESTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */; };
 		21B83D47BDC881371BD59FA5 /* Pods_PFM_TOOL_PFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085360B1D3C1E73F2D3F13D6 /* Pods_PFM_TOOL_PFMTests.framework */; };
@@ -153,6 +159,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		014E2DBD1DD21A28004175EF /* APIResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResources.swift; sourceTree = "<group>"; };
+		014E2DC01DD21F27004175EF /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		014E2DC21DD21F2E004175EF /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		014E2DC41DD21F45004175EF /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		014E2DC61DD21F4F004175EF /* TransactionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
+		014E2DC91DD22086004175EF /* BaseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModels.swift; sourceTree = "<group>"; };
 		015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClientProtocol.swift; sourceTree = "<group>"; };
 		015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClient.swift; sourceTree = "<group>"; };
 		085360B1D3C1E73F2D3F13D6 /* Pods_PFM_TOOL_PFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFM_TOOL_PFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,11 +313,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014E2DBF1DD21F1F004175EF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				014E2DC01DD21F27004175EF /* AuthService.swift */,
+				014E2DC21DD21F2E004175EF /* UserService.swift */,
+				014E2DC41DD21F45004175EF /* CategoryService.swift */,
+				014E2DC61DD21F4F004175EF /* TransactionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		014E2DC81DD2207D004175EF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				014E2DC91DD22086004175EF /* BaseModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		015A560F1DD1C3A100D1D7F9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */,
 				015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */,
+				014E2DBD1DD21A28004175EF /* APIResources.swift */,
+				014E2DBF1DD21F1F004175EF /* Services */,
+				014E2DC81DD2207D004175EF /* Models */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1028,12 +1062,14 @@
 				B1783BF81CB2FAA200056895 /* Router.swift in Sources */,
 				B164F9741DCB45F70090CF08 /* StoragesAssembly.swift in Sources */,
 				B1783C221CB3B6B500056895 /* ChartsViewController.swift in Sources */,
+				014E2DC51DD21F45004175EF /* CategoryService.swift in Sources */,
 				B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */,
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
 				B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */,
 				B1783BEB1CB1A34B00056895 /* CategoryDataProvider.swift in Sources */,
 				B164F9751DCB45F70090CF08 /* DataProvidersAssembly.swift in Sources */,
 				B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */,
+				014E2DC71DD21F4F004175EF /* TransactionService.swift in Sources */,
 				B164F9711DCB45F70090CF08 /* ApplicationAssembly.swift in Sources */,
 				B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */,
 				015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */,
@@ -1052,11 +1088,13 @@
 				B1783C001CB2FDF100056895 /* InputViewProtocol.swift in Sources */,
 				B1783BFB1CB2FCB600056895 /* InputViewPresenterProtocol.swift in Sources */,
 				B1783C0C1CB3978900056895 /* NavigationPresenterProtocol.swift in Sources */,
+				014E2DCA1DD22086004175EF /* BaseModels.swift in Sources */,
 				B120CA861CCCFDC100E9985B /* Extensions.swift in Sources */,
 				B164F9721DCB45F70090CF08 /* ServicesAssembly.swift in Sources */,
 				B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */,
 				B18B5E9D1CF48229008427C0 /* CurrentTransactionDataProvider.swift in Sources */,
 				B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */,
+				014E2DC11DD21F27004175EF /* AuthService.swift in Sources */,
 				B1783BE41CB186A400056895 /* DALHelper.swift in Sources */,
 				E2D55DE11CF47A56002343BD /* HistoryViewController.swift in Sources */,
 				B120CA921CCD15F700E9985B /* InputContentViewController.swift in Sources */,
@@ -1068,6 +1106,7 @@
 				E26D7E711CCE4AF900454C08 /* CategoriesViewProtocol.swift in Sources */,
 				B12655AC1DBEB57600AEDED5 /* AlertProtocol.swift in Sources */,
 				B1783C2C1CB3CA6A00056895 /* SettingsViewController.swift in Sources */,
+				014E2DC31DD21F2E004175EF /* UserService.swift in Sources */,
 				B18785D41CA9928500DD18E9 /* CategoryModel.swift in Sources */,
 				B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */,
 				E26D7E6E1CCE4A4100454C08 /* CategoriesTransition.swift in Sources */,
@@ -1079,6 +1118,7 @@
 				B1783C111CB398E400056895 /* SwipeNavigationController.swift in Sources */,
 				E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */,
 				E2D55DE41CF47BA4002343BD /* HistoryCollectionViewCell.swift in Sources */,
+				014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */,
 				E2D55DEA1CF48491002343BD /* HistoryTransition.swift in Sources */,
 				B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */,
 				B187859F1CA98E6A00DD18E9 /* AppDelegate.swift in Sources */,
