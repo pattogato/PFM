@@ -38,11 +38,11 @@ extension TransactionRequestModelProtocol {
 }
 
 protocol TransactionServiceProtocol {
-    func getTransactions(from date: Date) -> Promise<EmptyNetworkResponseModel>
+    func getTransactions(from date: Date) -> Promise<[TransactionModel]>
     func uploadTransactions(transactions: [TransactionRequestModelProtocol])
-        -> Promise<EmptyNetworkResponseModel>
+        -> Promise<[TransactionModel]>
     func editTransactions(transactions: [TransactionRequestModelProtocol])
-        -> Promise<EmptyNetworkResponseModel>
+        -> Promise<[TransactionModel]>
     func deleteTransactions(ids: [String]) -> Promise<EmptyNetworkResponseModel>
 }
 
@@ -54,7 +54,7 @@ final class TransactionService: TransactionServiceProtocol {
         self.apiClient = apiClient
     }
     
-    func getTransactions(from date: Date) -> Promise<EmptyNetworkResponseModel> {
+    func getTransactions(from date: Date) -> Promise<[TransactionModel]> {
         return apiClient.mappedServerMethod(
             method: API.Method.Transactions.getList,
             object: GetTransactionsRequestModel(
@@ -64,7 +64,7 @@ final class TransactionService: TransactionServiceProtocol {
     }
     
     func uploadTransactions(transactions: [TransactionRequestModelProtocol])
-        -> Promise<EmptyNetworkResponseModel> {
+        -> Promise<[TransactionModel]> {
             return apiClient.mappedServerMethod(
                 method: API.Method.Transactions.post,
                 object: TransactionUploadRequestModel(
@@ -74,7 +74,7 @@ final class TransactionService: TransactionServiceProtocol {
     }
     
     func editTransactions(transactions: [TransactionRequestModelProtocol])
-        -> Promise<EmptyNetworkResponseModel> {
+        -> Promise<[TransactionModel]> {
             return apiClient.mappedServerMethod(
                 method: API.Method.Transactions.put,
                 object: TransactionUploadRequestModel(

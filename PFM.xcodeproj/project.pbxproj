@@ -13,6 +13,8 @@
 		014E2DC51DD21F45004175EF /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC41DD21F45004175EF /* CategoryService.swift */; };
 		014E2DC71DD21F4F004175EF /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC61DD21F4F004175EF /* TransactionService.swift */; };
 		014E2DCA1DD22086004175EF /* BaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC91DD22086004175EF /* BaseModels.swift */; };
+		014E2DCC1DD22F0E004175EF /* MappableModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DCB1DD22F0E004175EF /* MappableModelObject.swift */; };
+		014E2DCE1DD23100004175EF /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DCD1DD23100004175EF /* RealmExtensions.swift */; };
 		015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */; };
 		015A56131DD1CA6500D1D7F9 /* RESTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */; };
 		21B83D47BDC881371BD59FA5 /* Pods_PFM_TOOL_PFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085360B1D3C1E73F2D3F13D6 /* Pods_PFM_TOOL_PFMTests.framework */; };
@@ -165,6 +167,8 @@
 		014E2DC41DD21F45004175EF /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		014E2DC61DD21F4F004175EF /* TransactionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		014E2DC91DD22086004175EF /* BaseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModels.swift; sourceTree = "<group>"; };
+		014E2DCB1DD22F0E004175EF /* MappableModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MappableModelObject.swift; path = DAL/Realm/MappableModelObject.swift; sourceTree = "<group>"; };
+		014E2DCD1DD23100004175EF /* RealmExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmExtensions.swift; path = Utils/RealmExtensions.swift; sourceTree = "<group>"; };
 		015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClientProtocol.swift; sourceTree = "<group>"; };
 		015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClient.swift; sourceTree = "<group>"; };
 		085360B1D3C1E73F2D3F13D6 /* Pods_PFM_TOOL_PFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFM_TOOL_PFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -501,6 +505,7 @@
 				B1783C041CB3059800056895 /* Constants.swift */,
 				B120CA851CCCFDC100E9985B /* Extensions.swift */,
 				B12655A91DBEB48D00AEDED5 /* UserDefaults.swift */,
+				014E2DCD1DD23100004175EF /* RealmExtensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -626,9 +631,10 @@
 		B18785CD1CA991EE00DD18E9 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				B18785D71CA99AE000DD18E9 /* ModelObject.swift */,
+				014E2DCB1DD22F0E004175EF /* MappableModelObject.swift */,
 				B18785D31CA9928500DD18E9 /* CategoryModel.swift */,
 				B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */,
-				B18785D71CA99AE000DD18E9 /* ModelObject.swift */,
 				B18785DC1CA99CDA00DD18E9 /* UserModel.swift */,
 			);
 			name = Realm;
@@ -1063,6 +1069,7 @@
 				B164F9741DCB45F70090CF08 /* StoragesAssembly.swift in Sources */,
 				B1783C221CB3B6B500056895 /* ChartsViewController.swift in Sources */,
 				014E2DC51DD21F45004175EF /* CategoryService.swift in Sources */,
+				014E2DCE1DD23100004175EF /* RealmExtensions.swift in Sources */,
 				B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */,
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
 				B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */,
@@ -1081,6 +1088,7 @@
 				B1783C1A1CB3B26C00056895 /* ChartsViewPresenterProtocol.swift in Sources */,
 				B1783C051CB3059800056895 /* Constants.swift in Sources */,
 				B1783C071CB3073F00056895 /* InputViewPresenter.swift in Sources */,
+				014E2DCC1DD22F0E004175EF /* MappableModelObject.swift in Sources */,
 				B1DA8A761CEA80E500C51E85 /* PLocationPickerViewController.swift in Sources */,
 				B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */,
 				E26D7E781CCE5B8600454C08 /* CategoryCollectionViewCell.swift in Sources */,

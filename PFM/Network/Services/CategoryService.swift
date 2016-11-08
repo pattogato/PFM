@@ -9,7 +9,7 @@
 import PromiseKit
 
 protocol CategoryServiceProtocol {
-     func getCategories() -> Promise<EmptyNetworkResponseModel>
+     func getCategories() -> Promise<[CategoryModel]>
 }
 
 final class CategoryService: CategoryServiceProtocol {
@@ -20,7 +20,7 @@ final class CategoryService: CategoryServiceProtocol {
         self.apiClient = apiClient
     }
     
-    func getCategories() -> Promise<EmptyNetworkResponseModel> {
+    func getCategories() -> Promise<[CategoryModel]> {
         return apiClient.mappedServerMethod(
             method: API.Method.Categories.get
         )

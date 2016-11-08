@@ -6,18 +6,33 @@
 //  Copyright © 2016 Pinup. All rights reserved.
 //
 
-import UIKit
-import RealmSwift
+import ObjectMapper
 
-class CategoryModel: ModelObject {
+final class CategoryModel: MappableModelObject {
     
-    dynamic var parentId: String = ""
-    
+    dynamic var parentId: String?
+    dynamic var parent: CategoryModel?
     dynamic var order: Int = 0
-    
     dynamic var name: String = ""
-    
     dynamic var imageUri: String = ""
+    
+    override func mapping(map: Map) {
+        super.mapping(map: map)
+        
+        parentId <- map["parentId"]
+        order <- map["order"]
+        name <- map["name"]
+        imageUri <- map["imageUrl"]
+    }
+    
+    override func updateRelationships() {
+        super.updateRelationships()
+        
+        parent = realm?.objectForServerId(
+            type: CategoryModel.self,
+            serverId: parentId
+        )
+    }
     
 }
 
