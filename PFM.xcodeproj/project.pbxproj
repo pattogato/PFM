@@ -13,6 +13,8 @@
 		B10B2ECB1DD1CFB20089E848 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B10B2ECA1DD1CFB20089E848 /* Settings.storyboard */; };
 		B10B2ECF1DD1D1F70089E848 /* Extensions+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2ECE1DD1D1F70089E848 /* Extensions+UIApplication.swift */; };
 		B10B2ED11DD1DEF80089E848 /* ViewsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2ED01DD1DEF80089E848 /* ViewsAssembly.swift */; };
+		B10B2ED41DD228610089E848 /* InputContentSelectorDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2ED31DD228610089E848 /* InputContentSelectorDateViewController.swift */; };
+		B10B2ED61DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2ED51DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift */; };
 		B120CA7B1CCBC64900E9985B /* Input.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B120CA7A1CCBC64900E9985B /* Input.storyboard */; };
 		B120CA7D1CCBC65B00E9985B /* Charts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B120CA7C1CCBC65B00E9985B /* Charts.storyboard */; };
 		B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120CA811CCBC93500E9985B /* NumpadViewController.swift */; };
@@ -162,6 +164,8 @@
 		B10B2ECA1DD1CFB20089E848 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = View/Settings/Settings.storyboard; sourceTree = "<group>"; };
 		B10B2ECE1DD1D1F70089E848 /* Extensions+UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Extensions+UIApplication.swift"; path = "Utils/Extensions+UIApplication.swift"; sourceTree = "<group>"; };
 		B10B2ED01DD1DEF80089E848 /* ViewsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewsAssembly.swift; sourceTree = "<group>"; };
+		B10B2ED31DD228610089E848 /* InputContentSelectorDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputContentSelectorDateViewController.swift; sourceTree = "<group>"; };
+		B10B2ED51DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputContentSelectorCurrencyViewController.swift; sourceTree = "<group>"; };
 		B120CA7A1CCBC64900E9985B /* Input.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Input.storyboard; path = View/Input/Input.storyboard; sourceTree = "<group>"; };
 		B120CA7C1CCBC65B00E9985B /* Charts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Charts.storyboard; path = View/Charts/Charts.storyboard; sourceTree = "<group>"; };
 		B120CA811CCBC93500E9985B /* NumpadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumpadViewController.swift; path = View/Numpad/NumpadViewController.swift; sourceTree = "<group>"; };
@@ -306,6 +310,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B10B2ED21DD228360089E848 /* InputContentSelectors */ = {
+			isa = PBXGroup;
+			children = (
+				B10B2ED31DD228610089E848 /* InputContentSelectorDateViewController.swift */,
+				B10B2ED51DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift */,
+			);
+			name = InputContentSelectors;
+			path = View/Input/InputContentSelectors;
+			sourceTree = "<group>";
+		};
 		B120CA801CCBC8F500E9985B /* Numberpad */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				B1DA8A721CEA80CE00C51E85 /* LocationPicker */,
+				B10B2ED21DD228360089E848 /* InputContentSelectors */,
 				B1783BFF1CB2FDF100056895 /* InputViewProtocol.swift */,
 				B1783C011CB3039500056895 /* InputViewController.swift */,
 				B120CA7A1CCBC64900E9985B /* Input.storyboard */,
@@ -1018,6 +1033,7 @@
 				B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */,
 				B164F9711DCB45F70090CF08 /* ApplicationAssembly.swift in Sources */,
 				B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */,
+				B10B2ED61DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift in Sources */,
 				B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */,
 				B1783C021CB3039500056895 /* InputViewController.swift in Sources */,
 				B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */,
@@ -1025,6 +1041,7 @@
 				B120CA8C1CCD13F100E9985B /* InputContentPresenterProtocol.swift in Sources */,
 				B1783C1A1CB3B26C00056895 /* ChartsViewPresenterProtocol.swift in Sources */,
 				B1783C051CB3059800056895 /* Constants.swift in Sources */,
+				B10B2ED41DD228610089E848 /* InputContentSelectorDateViewController.swift in Sources */,
 				B1783C071CB3073F00056895 /* InputViewPresenter.swift in Sources */,
 				B1DA8A761CEA80E500C51E85 /* PLocationPickerViewController.swift in Sources */,
 				B10B2EC71DCF5EAE0089E848 /* PresenterAssemly.swift in Sources */,

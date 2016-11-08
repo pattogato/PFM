@@ -140,12 +140,9 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let inputContentVC = segue.destination as? InputContentViewProtocol
-            , segue.identifier == "InputContentContainerView" {
+        if let inputContentVC = segue.destination as? InputContentViewProtocol {
             
             presenter.inputContentPresenter = inputContentVC.presenter
-            // TODO: @BENCE - Ezt itt lehet át kellene gondolni
-            inputContentVC.parentVC = self
             inputContentVC.contentDelegate = self
             
         }
@@ -380,20 +377,24 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
 }
 
-extension InputViewController: InputContentDelegate {
+extension InputViewController: InputContentSelectorDelegate {
     
-    func currencySelected(_ string: String) {
-        currencyButton.setTitle(string, for: UIControlState())
-        presenter.saveCurrency(string)
+    func valueSelected(type: InputContentType, value: Any) {
+        print(value)
     }
     
-    func dateSelected(_ date: Date) {
-        presenter.saveDate(date)
-    }
-    
-    func saveButtonTouched() {
-        self.presenter.saveTransaction()
-    }
+//    func currencySelected(_ string: String) {
+//        currencyButton.setTitle(string, for: UIControlState())
+//        presenter.saveCurrency(string)
+//    }
+//    
+//    func dateSelected(_ date: Date) {
+//        presenter.saveDate(date)
+//    }
+//    
+//    func saveButtonTouched() {
+//        self.presenter.saveTransaction()
+//    }
 }
 
 extension InputViewController: UITextFieldDelegate {

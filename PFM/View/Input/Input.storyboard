@@ -360,7 +360,7 @@
         <!--Item 2-->
         <scene sceneID="NnR-st-KpL">
             <objects>
-                <viewController id="MY7-XH-BuT" sceneMemberID="viewController">
+                <viewController id="MY7-XH-BuT" customClass="InputContentSelectorCurrencyViewController" customModule="PFM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OBV-Tz-FG4"/>
                         <viewControllerLayoutGuide type="bottom" id="EMs-W3-mYB"/>
@@ -371,7 +371,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdF-pU-2Qh" userLabel="CurrencyPickerContainer">
                                 <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5WO-aR-V1Y"/>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5WO-aR-V1Y">
+                                        <connections>
+                                            <outlet property="dataSource" destination="MY7-XH-BuT" id="a6m-Gz-Y1v"/>
+                                            <outlet property="delegate" destination="MY7-XH-BuT" id="pLk-8f-s8L"/>
+                                        </connections>
+                                    </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THb-J0-G4b">
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                         <state key="normal" title="Done">
@@ -400,6 +405,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="0yi-3m-K8Y"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="currencyPicker" destination="5WO-aR-V1Y" id="Dra-FG-MmB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iho-uB-kci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,7 +416,7 @@
         <!--Item 1-->
         <scene sceneID="Paz-Xp-CL2">
             <objects>
-                <viewController id="7QE-Ya-VUj" sceneMemberID="viewController">
+                <viewController id="7QE-Ya-VUj" customClass="InputContentSelectorDateViewController" customModule="PFM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5PD-ez-qVM"/>
                         <viewControllerLayoutGuide type="bottom" id="bTw-wj-jfO"/>
@@ -421,6 +429,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="483205628.27166402">
                                     <!--2016-04-24 15:47:08 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="dateSelected:" destination="7QE-Ya-VUj" eventType="valueChanged" id="yqi-ix-8xk"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -433,6 +444,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="1X1-jf-U9u"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="datePicker" destination="l83-He-CnN" id="SBc-cF-egx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZs-mZ-WpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -480,7 +494,7 @@
             <objects>
                 <navigationController storyboardIdentifier="InputNavigationControllerStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="Lmu-xf-Pnh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M2D-pN-77b">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2D-pN-77b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

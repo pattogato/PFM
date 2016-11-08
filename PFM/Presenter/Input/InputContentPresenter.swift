@@ -15,13 +15,13 @@ final class InputContentPresenter: InputContentPresenterProtocol {
     
     required init(view: InputContentViewProtocol) {
         self.view = view
-        self.presentingType = InputContentType.keyboard
+        self.presentingType = InputContentType.numericKeyboard
         
         view.presenter = self
     }
     
-    func showContent(_ type: InputContentType, keyboardType: KeyboardType?) {
-        self.view.presentContentType(type, keyboardType: keyboardType)
+    func showContent(_ type: InputContentType) {
+        self.view.presentContentType(type)
         self.presentingType = type
     }
     

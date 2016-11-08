@@ -62,7 +62,7 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     }
     
     func changeCurrency() {
-        self.inputContentPresenter.showContent(InputContentType.currencyPicker, keyboardType: nil)
+        self.inputContentPresenter.showContent(.currencyPicker)
     }
     
     func changeDate() {

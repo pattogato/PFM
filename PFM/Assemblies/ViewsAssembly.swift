@@ -20,6 +20,15 @@ final class ViewsAssembly: AssemblyType {
             )
         }
         
+        // Input content
+        container.registerForStoryboardProject(controllerType: InputContentViewController.self) { (r, c) in
+            c.presenter = r.resolve(
+                InputContentPresenterProtocol.self,
+                argument: c as InputContentViewProtocol
+            )
+        }
+        
+        
     }
     
     
