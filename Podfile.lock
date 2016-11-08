@@ -1,7 +1,18 @@
 PODS:
+  - Alamofire (4.0.1)
+  - AlamofireActivityLogger (2.0.0):
+    - Alamofire (~> 4.0)
+  - AlamofireImage (3.0.0):
+    - Alamofire (~> 4.0)
+  - AlamofireNetworkActivityIndicator (2.0.1):
+    - Alamofire (~> 4.0)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
   - EZSwipeController (0.5)
   - LocationPickerViewController (2.0.0)
   - MBPullDownController (1.1.1)
+  - ObjectMapper (2.2.0)
   - PromiseKit (4.0.4):
     - PromiseKit/Foundation (= 4.0.4)
     - PromiseKit/QuartzCore (= 4.0.4)
@@ -25,6 +36,11 @@ PODS:
     - Swinject (= 2.0.0-beta.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0.0)
+  - AlamofireActivityLogger (~> 2.0.0)
+  - AlamofireImage (~> 3.0.0)
+  - AlamofireNetworkActivityIndicator
+  - AlamofireObjectMapper (~> 4.0.0)
   - EZSwipeController (from `https://github.com/pattogato/EZSwipeController`, branch `bugfix/swift-3-fixes`)
   - LocationPickerViewController (from `https://github.com/JeromeTan1997/LocationPicker`, branch `swift-3`)
   - MBPullDownController (~> 1.0)
@@ -52,9 +68,15 @@ CHECKOUT OPTIONS:
     :git: https://github.com/JeromeTan1997/LocationPicker
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireActivityLogger: 149b3c984f8368f7a2c2e75ece1c7c5b2e41f4e3
+  AlamofireImage: 6594aa1139a67dcd36cde6da79ea4e5b318e60fb
+  AlamofireNetworkActivityIndicator: 3e55069ada3e1ff7703665156429eedcdfea0bc1
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
   EZSwipeController: 01cc43b319e133b6dbfb25bfdc78617a1560e952
   LocationPickerViewController: 600d08aba48879a920dbaf1c12d19a2292f2bbed
   MBPullDownController: 6e5ee6fa099f2283cc207b3d2fa5c4867c652258
+  ObjectMapper: 4060d739febae11ab0c6af8d786f98667c82e1bd
   PromiseKit: 8e8ee39d33ff199d92a1a883b5396f6285be6c91
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
@@ -63,6 +85,6 @@ SPEC CHECKSUMS:
   Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
   SwinjectStoryboard: b52b45821a50386ef604c3cd098f8029a50a268d
 
-PODFILE CHECKSUM: 1641bfea4b4e755147783ade569117fd3e414c71
+PODFILE CHECKSUM: 45a7aac3af84ab346ab8d0cca66552c6a933cd00
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.1.1
