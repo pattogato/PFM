@@ -8,16 +8,18 @@
 
 import UIKit
 
-class SettingsViewPresenter: SettingsViewPresenterProtocol {
+class SettingsViewPresenter: SettingsViewPresenterProtocol, RouterDependentProtocol {
 
     unowned let view: SettingsViewProtocol
+    
+    var router: RouterProtocol!
     
     required init(view: SettingsViewProtocol) {
         self.view = view
     }
     
     func navigateToInputScreen() {
-        view.delegate?.swipePageToLeft()
+        router.showPage(page: .middle, animated: true)
     }
     
 }

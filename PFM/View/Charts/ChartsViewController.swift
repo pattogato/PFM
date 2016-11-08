@@ -12,8 +12,6 @@ class ChartsViewController: UIViewController, PresentableView {
 
     var presenter: ChartsViewPresenterProtocol?
     
-    weak var delegate: SwipeViewControllerProtocol?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

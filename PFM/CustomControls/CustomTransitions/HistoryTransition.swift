@@ -28,8 +28,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
     fileprivate func presentingAnimation( _ context : UIViewControllerContextTransitioning ) {
         
         if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? HistoryViewController,
-            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? SwipeNavigationController,
-            let inputVc = swipeNavigation.inputVc {
+            let inputVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? InputViewController {
             
             // Add 'toView' to context view
             
@@ -69,8 +68,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
     fileprivate func dismissAnimation( _ context : UIViewControllerContextTransitioning ) {
         
         if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? HistoryViewController,
-            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? SwipeNavigationController,
-            let inputVc = swipeNavigation.inputVc {
+            let inputVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? InputViewController {
             
             let historyView = historyVc.view
             

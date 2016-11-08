@@ -27,12 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ServicesAssembly(),
             ManagersAssembly(),
             StoragesAssembly(),
-            DataProvidersAssembly()
+            DataProvidersAssembly(),
+            PresenterAssembly(),
+            ViewsAssembly()
             ])
         
         ApplicationAssembly.resolveAppDelegateDependencies(appDelegate: self)
         
-        router.setSwipeControllerToRoot(&window)
+        router.start()
         
         return true
     }

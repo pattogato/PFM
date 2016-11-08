@@ -8,27 +8,28 @@
 
 import UIKit
 
-class InputViewPresenter: InputViewPresenterProtocol {
+class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
 
+    // MARK: - Dependencies
+    
     var editingTransaction: TransactionModel?
     let dalHelper: DALHelperProtocol!
     let currentTransactionDataProvider: CurrentTransactionDataProviderProtocol!
     let transactionDataProvider: TransactionDataProviderProtocol!
-    let inputContentPresenter: InputContentPresenterProtocol!
+    var inputContentPresenter: InputContentPresenterProtocol!
+    var router: RouterProtocol!
     
     unowned let view: InputViewProtocol
     
     init(view: InputViewProtocol,
          dalHelper: DALHelperProtocol,
          currentTransactionDataProvider: CurrentTransactionDataProviderProtocol,
-         transactionDataProvider: TransactionDataProviderProtocol,
-         inputContentPresenter: InputContentPresenterProtocol) {
+         transactionDataProvider: TransactionDataProviderProtocol) {
         
         self.view = view
         self.dalHelper = dalHelper
         self.currentTransactionDataProvider = currentTransactionDataProvider
         self.transactionDataProvider = transactionDataProvider
-        self.inputContentPresenter = inputContentPresenter
     }
     
     func presentInputScreen() {
@@ -83,11 +84,11 @@ class InputViewPresenter: InputViewPresenterProtocol {
     // MARK: - Navigation methods
     
     func navigateToCharts() {
-        view.delegate?.swipePageToLeft()
+        router.showPage(page: .left, animated: true)
     }
     
     func navigateToSettings() {
-        view.delegate?.swipePageToRight()
+        router.showPage(page: .right, animated: true)
     }
     
     // MARK: - Save methods
@@ -116,5 +117,13 @@ class InputViewPresenter: InputViewPresenterProtocol {
     
     func saveCategory(_ category: CategoryModel) {
         currentTransactionDataProvider.saveCategory(category)
+    }
+    
+    func saveName(_ name: String) {
+        currentTransactionDataProvider.saveName(name)
+    }
+    
+    func saveLocation(lat: Double, lng: Double, venue: String?) {
+        currentTransactionDataProvider.saveLocation(lat, lng: lng, venue: venue ?? "")
     }
 }

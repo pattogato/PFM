@@ -15,9 +15,11 @@ final class ApplicationAssembly: AssemblyType {
     class func resolveAppDelegateDependencies(appDelegate: AppDelegate) {
         let resolver = appDelegate.assembler.resolver
         appDelegate.router = resolver.resolve(RouterProtocol.self)!
+        appDelegate.window = resolver.resolve(UIWindow.self)
     }
     
     func assemble(container: Container) {
+        registerWindow(container: container)
         registerStoryboards(container: container)
         registerViewControllers(container: container)
     }
@@ -41,34 +43,19 @@ final class ApplicationAssembly: AssemblyType {
     private func registerViewControllers(container: Container) {
         // Register all viewcontrollers here
         
-        // Generals
-//        container.registerForStoryboardProject(controllerType: InputViewController.self) { (r, c) in
-//            c.currentTransactionDataProvider = r.resolve(CurrentTransactionDataProviderProtocol.self)
-//            c.transactionDataProvider = r.resolve(TransactionDataProviderProtocol.self)
-//        }
         
-        
-        
+    }
+    
+    private func registerWindow(container: Container) {
+        container.register(UIWindow.self) { (r) -> UIWindow in
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            window.makeKeyAndVisible()
+            return window
+            }.inObjectScope(.container)
     }
 }
 
-fileprivate extension Container {
-    
-    func registerForStoryboardProject<C:Controller>(controllerType: C.Type, name: String? = nil, initCompleted: ((ResolverType, C) -> ())? = nil) {
-        self.registerForStoryboard(controllerType, name: name) { (r, c) in
-            
-            // Resolve known dependencies
-            
-//            if let c = c as? ApplicationRouterDependantProtocol {
-//                c.applicationRouter = r.resolve(ApplicationRouterProtocol.self)
-//            }
-            
-            // Call additional resolver
-            initCompleted?(r, c)
-        }
-    }
-    
-}
+
 
 enum Storyboards {
     case main
@@ -93,10 +80,10 @@ enum Storyboards {
         switch self {
         case .main: return "Main"
         case .launchScreen: return "LaunchScreen"
-        case .input: return "InputStoryboard"
-        case .charts: return "ChartsStoryboard"
-        case .history: return "HistoryStoryboard"
-        case .settings: return "SettingsStoryboard"
+        case .input: return "Input"
+        case .charts: return "Charts"
+        case .history: return "History"
+        case .settings: return "Settings"
         }
     }
 }

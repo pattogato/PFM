@@ -87,4 +87,9 @@ protocol InputViewPresenterProtocol {
     
     func saveDate(_ date: Date)
     
+    func saveName(_ name: String)
+    
+    func saveLocation(lat: Double, lng: Double, venue: String?)
+    
+    var inputContentPresenter: InputContentPresenterProtocol! { get set }
 }

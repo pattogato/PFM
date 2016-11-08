@@ -8,9 +8,10 @@
 
 import Foundation
 
-class LocationPickerPresenter: LocationPickerPresenterProtocol {
+class LocationPickerPresenter: LocationPickerPresenterProtocol, RouterDependentProtocol {
     
     unowned var view: LocationPickerViewProtocol
+    var router: RouterProtocol!
     
     required init(view: LocationPickerViewProtocol) {
         self.view = view
@@ -18,18 +19,18 @@ class LocationPickerPresenter: LocationPickerPresenterProtocol {
         view.presenter = self
     }
     
-    static func presentLocationPicker(_ fromViewController: UIViewController) -> LocationPickerPresenterProtocol {
-        let locationVC = Router.sharedInstance.initLocationPickerScreen()
-        
-        if let delegateVC = fromViewController as? LocationPickerDelegate {
-            locationVC.locationPickerDelegate = delegateVC
-        }
-        
-        fromViewController.navigationController?.isNavigationBarHidden = false
-        fromViewController.navigationController?.pushViewController(locationVC as! UIViewController, animated: true)
-        
-        
-        return locationVC.presenter
-    }
+//    static func presentLocationPicker(_ fromViewController: UIViewController) -> LocationPickerPresenterProtocol {
+//        let locationVC = Router.sharedInstance.initLocationPickerScreen()
+//        
+//        if let delegateVC = fromViewController as? LocationPickerDelegate {
+//            locationVC.locationPickerDelegate = delegateVC
+//        }
+//        
+//        fromViewController.navigationController?.isNavigationBarHidden = false
+//        fromViewController.navigationController?.pushViewController(locationVC as! UIViewController, animated: true)
+//        
+//        
+//        return locationVC.presenter
+//    }
     
 }

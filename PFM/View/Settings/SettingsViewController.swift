@@ -11,8 +11,6 @@ import UIKit
 class SettingsViewController: UIViewController, PresentableView {
     
     var presenter: SettingsViewPresenterProtocol?
-    
-    weak var delegate: SwipeViewControllerProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()

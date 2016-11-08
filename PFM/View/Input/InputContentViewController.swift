@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class InputContentViewController: UIViewController, InputContentViewProtocol {
+class InputContentViewController: UITabBarController, InputContentViewProtocol {
     
     // InputContentViewProtocol properties
     var presenter: InputContentPresenterProtocol!
@@ -18,7 +18,7 @@ class InputContentViewController: UIViewController, InputContentViewProtocol {
     var presentingKeyboardType: KeyboardType?
     
     // Delegate
-    weak var delegate: InputContentDelegate?
+    weak var contentDelegate: InputContentDelegate?
     
     // Outlets
     @IBOutlet weak var numericKeyboardContainerView: UIView!
@@ -35,12 +35,23 @@ class InputContentViewController: UIViewController, InputContentViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNumpad()
-        self.showKeyboard(KeyboardType.numeric)
-        self.setupCurrencyPicker()
+        
+        tabBar.isHidden = true
+
+        // TODO: @bence
+//        self.setupNumpad()
+//        self.showKeyboard(KeyboardType.numeric)
+//        self.setupCurrencyPicker()
     }
 
     func presentContentType(_ type: InputContentType, keyboardType: KeyboardType? = nil) {
+        selectedIndex = type.tabIndex
+        setupInput(for: type, keyboardType: keyboardType)
+    }
+    
+    private func setupInput(for type: InputContentType, keyboardType: KeyboardType? = nil) {
+        // TODO: @Bence
+        return
         switch type {
         case .datePicker:
             self.showDatePicker()
@@ -59,7 +70,6 @@ class InputContentViewController: UIViewController, InputContentViewProtocol {
         self.presentingKeyboardType = type
         self.showViewHideOthers(self.numericKeyboardContainerView)
     }
-    
     
     func setupNumpad() {
         numpadViewController = NumpadViewController(nibName: "NumpadViewController", bundle: Bundle.main)
@@ -95,7 +105,7 @@ class InputContentViewController: UIViewController, InputContentViewProtocol {
     // Save
     
     @IBAction func okButtonTouched(_ sender: AnyObject) {
-        self.delegate?.saveButtonTouched?()
+        self.contentDelegate?.saveButtonTouched?()
     }
 }
 
@@ -114,10 +124,18 @@ extension InputContentViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        delegate?.currencySelected?(currencyPickerData[row])
+        contentDelegate?.currencySelected?(currencyPickerData[row])
         
     }
     
 }
 
+fileprivate extension InputContentType {
+    var tabIndex: Int {
+        switch self {
+        case .datePicker: return 0
+        case .currencyPicker: return 1
+        case .keyboard: return 2
+        }
+    }
+}

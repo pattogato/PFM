@@ -30,7 +30,13 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol {
+final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol, RouterDependentProtocol {
+    
+    // MARK: Dependencies
+    var presenter: InputViewPresenterProtocol!
+    var router: RouterProtocol!
+//    var inputContentPresenter: InputContentPresenterProtocol!
+//    var currentTransactionDataProvider: CurrentTransactionDataProviderProtocol!
     
     // MARK: - Constants
     
@@ -45,8 +51,6 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     @IBOutlet weak var amountLabel: UILabel!
     
     var transactionModel: TransactionModel?
-    
-    var presenter: InputViewPresenterProtocol!
     
     var categories = [CategoryModel]() {
         didSet {
@@ -77,9 +81,6 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     // MARK: - Properties
     
     var numpadViewController: NumpadViewController!
-    var locationPickerPresenter: LocationPickerPresenterProtocol?
-    
-    weak var delegate: SwipeViewControllerProtocol?
     
     var categoriesViewController: CategoriesViewController? = nil
     
@@ -101,7 +102,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupPulldownController()
         
         categories = MockDAL.mockCategories()
-        inputContentpresenter.showContent(InputContentType.keyboard, keyboardType: KeyboardType.numeric)
+//        inputContentPresenter.showContent(InputContentType.keyboard, keyboardType: KeyboardType.numeric)
         
         collectionView.register(
             UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main),
@@ -142,10 +143,10 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         if let inputContentVC = segue.destination as? InputContentViewProtocol
             , segue.identifier == "InputContentContainerView" {
             
-            self.inputContentPresenter = InputContentPresenter(view: inputContentVC)
-            inputContentVC.presenter = self.inputContentPresenter
+            presenter.inputContentPresenter = inputContentVC.presenter
+            // TODO: @BENCE - Ezt itt lehet át kellene gondolni
             inputContentVC.parentVC = self
-            inputContentVC.delegate = self
+            inputContentVC.contentDelegate = self
             
         }
         else if let historyVc = segue.destination as? HistoryViewController {
@@ -195,11 +196,11 @@ extension InputViewController {
     }
     
     @IBAction func timeButtonTouched(_ sender: UIButton) {
-        if inputContentpresenter.presentingType != InputContentType.datePicker {
-            inputContentpresenter.showContent(InputContentType.datePicker, keyboardType: nil)
-        } else {
-            inputContentpresenter.showContent(InputContentType.keyboard, keyboardType: nil)
-        }
+//        if inputContentPresenter.presentingType != InputContentType.datePicker {
+//            inputContentPresenter.showContent(InputContentType.datePicker, keyboardType: nil)
+//        } else {
+//            inputContentPresenter.showContent(InputContentType.keyboard, keyboardType: nil)
+//        }
         
         sender.isSelected = !sender.isSelected
     }
@@ -227,7 +228,8 @@ extension InputViewController {
     }
     
     func openLocationPicker() {
-        self.locationPickerPresenter = LocationPickerPresenter.presentLocationPicker(self)
+        // TODO: Implement
+//        self.locationPickerPresenter = LocationPickerPresenter.presentLocationPicker(self)
     }
     
     func resetUI() {
@@ -410,7 +412,7 @@ extension InputViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         keyboardHideTapGestureRecognizer?.isEnabled = false
-        currentTransactionDataProvider.saveName(textField.text ?? "")
+        self.presenter.saveName(textField.text ?? "")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -423,7 +425,7 @@ extension InputViewController: UITextFieldDelegate {
 extension InputViewController: LocationPickerDelegate {
     
     func locationPicked(_ lat: Double, lng: Double, venue: String?) {
-        currentTransactionDataProvider.saveLocation(lat, lng: lng, venue: venue)
+        self.presenter.saveLocation(lat: lat, lng: lng, venue: venue)
     }
     
 }

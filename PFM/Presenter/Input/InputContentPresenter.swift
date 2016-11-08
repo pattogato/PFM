@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InputContentPresenter: InputContentPresenterProtocol {
+final class InputContentPresenter: InputContentPresenterProtocol {
     
     unowned let view: InputContentViewProtocol
     var presentingType: InputContentType

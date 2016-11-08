@@ -35,8 +35,7 @@ final class CategoriesTransition: PresentingTransitionAnimator {
     fileprivate func presentingAnimation( _ context : UIViewControllerContextTransitioning ) {
         
         if let categoriesVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? CategoriesViewController,
-            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? SwipeNavigationController,
-            let inputVc = swipeNavigation.inputVc {
+            let inputVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? InputViewController {
             
             // Add 'toView' to context view
             
@@ -121,8 +120,7 @@ final class CategoriesTransition: PresentingTransitionAnimator {
     fileprivate func dismissAnimation( _ context : UIViewControllerContextTransitioning ) {
         
         if let categoriesVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? CategoriesViewController,
-        let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? SwipeNavigationController,
-        let inputVc = swipeNavigation.inputVc{
+        let inputVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? InputViewController {
             
             let categoriesView = categoriesVc.view
             

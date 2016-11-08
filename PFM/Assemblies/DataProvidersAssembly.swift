@@ -12,5 +12,18 @@ final class DataProvidersAssembly: AssemblyType {
     
     func assemble(container: Container) {
         
+        container.register(CurrentTransactionDataProviderProtocol.self, factory: {
+            r in
+            return CurrentTransactionDataProvider()
+        })
+        
+        container.register(TransactionDataProviderProtocol.self, factory: {
+            r in
+            return TransactionDataProvider(
+                dalHelper: r.resolve(DALHelperProtocol.self)!
+            )
+        })
+        
     }
+    
 }

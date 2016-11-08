@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SettingsViewProtocol: class, SwipeableViewControllerProtocol {
+protocol SettingsViewProtocol: class {
     
     /**
         Loads the users saved settings

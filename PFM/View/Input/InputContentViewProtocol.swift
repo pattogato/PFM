@@ -15,14 +15,12 @@ protocol InputContentDelegate: class {
     @objc optional func saveButtonTouched()
 }
 
-protocol InputContentViewProtocol:class {
-    
+protocol InputContentViewProtocol: class {
     var presenter: InputContentPresenterProtocol! { get set }
-    weak var parentVC: InputViewProtocol! { get set }
-    weak var delegate: InputContentDelegate? { get set }
     
-    var presentingKeyboardType: KeyboardType? {get set }
+    weak var contentDelegate: InputContentDelegate? { get set }
+    
+    var presentingKeyboardType: KeyboardType? { get set }
     
     func presentContentType(_ type: InputContentType, keyboardType: KeyboardType?)
-    
 }

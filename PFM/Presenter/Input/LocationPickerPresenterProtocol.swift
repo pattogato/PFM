@@ -12,5 +12,5 @@ protocol LocationPickerPresenterProtocol: class {
     
     init(view: LocationPickerViewProtocol)
     
-    static func presentLocationPicker(_ fromViewController: UIViewController) -> LocationPickerPresenterProtocol
+//    static func presentLocationPicker(_ fromViewController: UIViewController) -> LocationPickerPresenterProtocol
 }
