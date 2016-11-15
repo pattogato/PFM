@@ -12,6 +12,10 @@ enum InputContentType {
     case numericKeyboard
     case datePicker
     case currencyPicker
+    
+    static var defaultType: InputContentType {
+        return .numericKeyboard
+    }
 }
 
 protocol InputContentPresenterProtocol: class {

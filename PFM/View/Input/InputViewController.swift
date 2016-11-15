@@ -143,8 +143,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         if let inputContentVC = segue.destination as? InputContentViewProtocol {
             
             presenter.inputContentPresenter = inputContentVC.presenter
-            inputContentVC.contentDelegate = self
-            
+            inputContentVC.contentDelegate = self.presenter
         }
         else if let historyVc = segue.destination as? HistoryViewController {
             historyVc.transitioningDelegate = self
@@ -198,6 +197,8 @@ extension InputViewController {
 //        } else {
 //            inputContentPresenter.showContent(InputContentType.keyboard, keyboardType: nil)
 //        }
+        
+        presenter.changeDate()
         
         sender.isSelected = !sender.isSelected
     }
@@ -327,24 +328,6 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-// Numpad delegate methods
-
-extension InputViewController {
-    
-    func numberPadDelegateComaPressed() {
-        presenter.enterComa()
-    }
-    
-    func numberPadDelegateNumberPressed(_ number: Int) {
-        presenter.enterDigit(number)
-    }
-    
-    func numberPadDelegateDeletePressed() {
-        presenter.deleteDigit()
-    }
-    
-}
-
 extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -375,26 +358,6 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
         presenter.saveCategory(categories[(indexPath as NSIndexPath).item])
     }
     
-}
-
-extension InputViewController: InputContentSelectorDelegate {
-    
-    func valueSelected(type: InputContentType, value: Any) {
-        print(value)
-    }
-    
-//    func currencySelected(_ string: String) {
-//        currencyButton.setTitle(string, for: UIControlState())
-//        presenter.saveCurrency(string)
-//    }
-//    
-//    func dateSelected(_ date: Date) {
-//        presenter.saveDate(date)
-//    }
-//    
-//    func saveButtonTouched() {
-//        self.presenter.saveTransaction()
-//    }
 }
 
 extension InputViewController: UITextFieldDelegate {

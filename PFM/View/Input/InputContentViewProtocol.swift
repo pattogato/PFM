@@ -18,6 +18,7 @@ import Foundation
 protocol InputContentSelectorDelegate: class {
     
     func valueSelected(type: InputContentType, value: Any)
+    func selectorCancelled()
 }
 
 protocol InputContentViewProtocol: class {

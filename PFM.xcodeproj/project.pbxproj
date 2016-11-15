@@ -42,6 +42,7 @@
 		B164F9741DCB45F70090CF08 /* StoragesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96F1DCB45F70090CF08 /* StoragesAssembly.swift */; };
 		B164F9751DCB45F70090CF08 /* DataProvidersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F9701DCB45F70090CF08 /* DataProvidersAssembly.swift */; };
 		B164F9771DCC81320090CF08 /* SecureProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F9761DCC81320090CF08 /* SecureProperty.swift */; };
+		B1650D491DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1650D481DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift */; };
 		B1783BE41CB186A400056895 /* DALHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE31CB186A400056895 /* DALHelper.swift */; };
 		B1783BE91CB18A2400056895 /* TransactionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */; };
 		B1783BEB1CB1A34B00056895 /* CategoryDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */; };
@@ -198,6 +199,7 @@
 		B164F96F1DCB45F70090CF08 /* StoragesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoragesAssembly.swift; sourceTree = "<group>"; };
 		B164F9701DCB45F70090CF08 /* DataProvidersAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvidersAssembly.swift; sourceTree = "<group>"; };
 		B164F9761DCC81320090CF08 /* SecureProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureProperty.swift; sourceTree = "<group>"; };
+		B1650D481DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputContentSelectorNumpadViewController.swift; sourceTree = "<group>"; };
 		B1783BE31CB186A400056895 /* DALHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DALHelper.swift; path = DAL/DALHelper.swift; sourceTree = "<group>"; };
 		B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionDataProvider.swift; path = DAL/Interactors/TransactionDataProvider.swift; sourceTree = "<group>"; };
 		B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryDataProvider.swift; path = DAL/Interactors/CategoryDataProvider.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			children = (
 				B10B2ED31DD228610089E848 /* InputContentSelectorDateViewController.swift */,
 				B10B2ED51DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift */,
+				B1650D481DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift */,
 			);
 			name = InputContentSelectors;
 			path = View/Input/InputContentSelectors;
@@ -1061,6 +1064,7 @@
 				B120CA921CCD15F700E9985B /* InputContentViewController.swift in Sources */,
 				E2D55DE81CF47DE3002343BD /* HistoryHeaderCollectionReusableView.swift in Sources */,
 				B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */,
+				B1650D491DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift in Sources */,
 				B12655B01DBEB9E500AEDED5 /* LoaderProtocol.swift in Sources */,
 				B120CA8E1CCD142B00E9985B /* InputContentViewProtocol.swift in Sources */,
 				E26D7E711CCE4AF900454C08 /* CategoriesViewProtocol.swift in Sources */,

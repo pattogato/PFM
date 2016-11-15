@@ -23,20 +23,10 @@ class InputContentViewController: UITabBarController, InputContentViewProtocol {
     @IBOutlet weak var numberPadContainerView: UIView!
     @IBOutlet weak var datePickerContainerView: UIView!
     
-    // Properties
-    var numpadViewController: NumpadViewController!
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tabBar.isHidden = true
-
-        // TODO: @bence
-//        self.setupNumpad()
-//        self.showKeyboard(KeyboardType.numeric)
-//        self.setupCurrencyPicker()
         
         if let viewControllers = self.viewControllers {
             for vc in viewControllers {
@@ -51,25 +41,6 @@ class InputContentViewController: UITabBarController, InputContentViewProtocol {
         selectedIndex = type.tabIndex
     }
 
-    
-//    func showDatePicker() {
-//        self.showViewHideOthers(datePickerContainerView)
-//    }
-//    
-//    func showKeyboard(_ type: KeyboardType) {
-//        self.presentingKeyboardType = type
-//        self.showViewHideOthers(self.numericKeyboardContainerView)
-//    }
-//    
-//    func setupNumpad() {
-//        numpadViewController = NumpadViewController(nibName: "NumpadViewController", bundle: Bundle.main)
-//        self.addChildViewController(numpadViewController)
-//        self.numpadViewController.view.frame = numberPadContainerView.bounds
-//        self.numberPadContainerView.addSubview(numpadViewController!.view)
-//        self.numpadViewController?.didMove(toParentViewController: self)
-//        numpadViewController.delegate = self.parentVC
-//    }
-    
     // Currency picker
     
 //    func setupCurrencyPicker() {

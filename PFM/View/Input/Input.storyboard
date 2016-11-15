@@ -284,7 +284,7 @@
         <!--Item-->
         <scene sceneID="fWA-KM-zpw">
             <objects>
-                <viewController id="C3p-dM-OPZ" sceneMemberID="viewController">
+                <viewController id="C3p-dM-OPZ" customClass="InputContentSelectorNumpadViewController" customModule="PFM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kwk-8Y-IcR"/>
                         <viewControllerLayoutGuide type="bottom" id="LaC-D3-idE"/>
@@ -302,13 +302,16 @@
                                                 <state key="normal" title="OK">
                                                     <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="okButtonTouched:" destination="C3p-dM-OPZ" eventType="touchUpInside" id="Yfn-pb-p52"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46a-cn-BLz">
                                                 <state key="normal" image="buttonChangeKeyboard">
                                                     <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="changeKeyboardTypeButtonTouched:" destination="nPq-tj-Veb" eventType="touchUpInside" id="U4r-m2-g8Q"/>
+                                                    <action selector="keyboardChangeButtonTouched:" destination="C3p-dM-OPZ" eventType="touchUpInside" id="RVv-L2-QIP"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -352,6 +355,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="RRm-jk-dDL"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="numberPadContainerView" destination="ugF-hh-220" id="cWB-HE-8Cv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxY-9H-RJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -382,6 +388,18 @@
                                         <state key="normal" title="Done">
                                             <color key="titleColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTouchDoneButton:" destination="MY7-XH-BuT" eventType="touchUpInside" id="A9v-ce-ujX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-Lt-7cb">
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTouchCancelButton:" destination="MY7-XH-BuT" eventType="touchUpInside" id="kFt-iO-dXg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -389,9 +407,11 @@
                                     <constraint firstAttribute="trailing" secondItem="THb-J0-G4b" secondAttribute="trailing" constant="9" id="AEe-Bi-aAh"/>
                                     <constraint firstItem="5WO-aR-V1Y" firstAttribute="top" secondItem="zdF-pU-2Qh" secondAttribute="top" id="L6h-VM-iEX"/>
                                     <constraint firstAttribute="bottom" secondItem="5WO-aR-V1Y" secondAttribute="bottom" id="TNL-u4-QGR"/>
+                                    <constraint firstItem="ESv-Lt-7cb" firstAttribute="leading" secondItem="zdF-pU-2Qh" secondAttribute="leading" constant="8" id="WL1-dE-fxb"/>
                                     <constraint firstAttribute="trailing" secondItem="5WO-aR-V1Y" secondAttribute="trailing" id="hUy-MF-GAB"/>
                                     <constraint firstItem="5WO-aR-V1Y" firstAttribute="leading" secondItem="zdF-pU-2Qh" secondAttribute="leading" id="jqa-5J-Erk"/>
                                     <constraint firstItem="THb-J0-G4b" firstAttribute="top" secondItem="zdF-pU-2Qh" secondAttribute="top" constant="8" id="lgX-QX-Uct"/>
+                                    <constraint firstItem="ESv-Lt-7cb" firstAttribute="top" secondItem="zdF-pU-2Qh" secondAttribute="top" constant="8" id="ydp-CJ-3Xl"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -494,7 +514,7 @@
             <objects>
                 <navigationController storyboardIdentifier="InputNavigationControllerStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="Lmu-xf-Pnh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2D-pN-77b">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M2D-pN-77b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

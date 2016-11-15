@@ -66,7 +66,7 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     }
     
     func changeDate() {
-        
+        self.inputContentPresenter.showContent(.datePicker)
     }
     
     func openCameraScreen() {
@@ -126,4 +126,46 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     func saveLocation(lat: Double, lng: Double, venue: String?) {
         currentTransactionDataProvider.saveLocation(lat, lng: lng, venue: venue ?? "")
     }
+}
+
+extension InputViewPresenter: InputContentSelectorDelegate {
+    
+    func valueSelected(type: InputContentType, value: Any) {
+        switch type {
+        case .currencyPicker:
+            print(value)
+        case .datePicker:
+            print(value)
+        case .numericKeyboard:
+            if let enumValue = value as? NumberPadContentValue {
+                switch enumValue {
+                case .coma:
+                    enterComa()
+                case .delete:
+                    deleteDigit()
+                case .ok:
+                    print("ok")
+                case .number(let number):
+                    enterDigit(number)
+                }
+            }
+        }
+    }
+    
+    func selectorCancelled() {
+        inputContentPresenter.showContent(InputContentType.defaultType)
+    }
+    
+    //    func currencySelected(_ string: String) {
+    //        currencyButton.setTitle(string, for: UIControlState())
+    //        presenter.saveCurrency(string)
+    //    }
+    //
+    //    func dateSelected(_ date: Date) {
+    //        presenter.saveDate(date)
+    //    }
+    //
+    //    func saveButtonTouched() {
+    //        self.presenter.saveTransaction()
+    //    }
 }

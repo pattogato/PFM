@@ -15,10 +15,24 @@ final class InputContentSelectorCurrencyViewController: UIViewController, InputC
     
     var contentDelegate: InputContentSelectorDelegate?
     
+    var lastSelectedCurrency: String? = nil
+    
     fileprivate let currencyPickerData = ["AUD", "BAM", "BGN", "CAD", "CHF", "CNY", "CZK", "DKK", "EUR", "GBP", "HUF", "HRK", "ILS", "JPY", "NOK", "PLN", "RON", "RSD", "RUB", "SEK", "TRY", "UAH", "USD"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func didTouchCancelButton(_ sender: AnyObject) {
+        contentDelegate?.selectorCancelled()
+    }
+    
+    @IBAction func didTouchDoneButton(_ sender: AnyObject) {
+        guard let selectedCurrency = lastSelectedCurrency else {
+            return
+        }
+        
+        contentDelegate?.valueSelected(type: .currencyPicker, value: selectedCurrency)
     }
     
 }
@@ -38,6 +52,6 @@ extension InputContentSelectorCurrencyViewController: UIPickerViewDelegate, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        contentDelegate?.valueSelected(type: .currencyPicker, value: currencyPickerData[row])
+        lastSelectedCurrency = currencyPickerData[row]
     }
 }

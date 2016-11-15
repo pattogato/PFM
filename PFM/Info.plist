@@ -49,5 +49,12 @@
 		<string>Montserrat-Light.otf</string>
 		<string>Montserrat-UltraLight.otf</string>
 	</array>
+    <!-- 🖼 Photo Library -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME) photo use</string>
+    
+    <!-- 📷 Camera -->
+    <key>NSCameraUsageDescription</key>
+    <string>$(PRODUCT_NAME) camera use</string>
 </dict>
 </plist>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol InputViewPresenterProtocol {
+protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     
     /**
      Writes a digit to the input field
@@ -93,3 +93,4 @@ protocol InputViewPresenterProtocol {
     
     var inputContentPresenter: InputContentPresenterProtocol! { get set }
 }
+
