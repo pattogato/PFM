@@ -12,6 +12,7 @@ enum InputContentType {
     case numericKeyboard
     case datePicker
     case currencyPicker
+    case image
     
     static var defaultType: InputContentType {
         return .numericKeyboard

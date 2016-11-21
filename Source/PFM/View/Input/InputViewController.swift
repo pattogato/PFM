@@ -102,7 +102,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupPulldownController()
         
         categories = MockDAL.mockCategories()
-//        inputContentPresenter.showContent(InputContentType.keyboard, keyboardType: KeyboardType.numeric)
+        presenter.openNumberPad()
         
         collectionView.register(
             UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main),
@@ -181,26 +181,35 @@ extension InputViewController {
     }
     
     @IBAction func locationButtonTouched(_ sender: AnyObject) {
-        self.presenter.openLocationScreen()
+        if presenter.presentedContent == .numericKeyboard {
+            self.presenter.openLocationScreen()
+        } else {
+            presenter.openNumberPad()
+        }
     }
     
     @IBAction func noteButtonTouched(_ sender: AnyObject) {
+        if presenter.presentedContent == .numericKeyboard {
+            presenter.openNoteScreen()
+        } else {
+            presenter.openNumberPad()
+        }
     }
     
     @IBAction func currencyButtonTouched(_ sender: AnyObject) {
-        self.presenter.changeCurrency()
+        if presenter.presentedContent == .numericKeyboard {
+            presenter.changeCurrency()
+        } else {
+            presenter.openNumberPad()
+        }
     }
     
     @IBAction func timeButtonTouched(_ sender: UIButton) {
-//        if inputContentPresenter.presentingType != InputContentType.datePicker {
-//            inputContentPresenter.showContent(InputContentType.datePicker, keyboardType: nil)
-//        } else {
-//            inputContentPresenter.showContent(InputContentType.keyboard, keyboardType: nil)
-//        }
-        
-        presenter.changeDate()
-        
-        sender.isSelected = !sender.isSelected
+        if presenter.presentedContent == .numericKeyboard {
+            presenter.changeDate()
+        } else {
+            presenter.openNumberPad()
+        }
     }
     
     @IBAction func handleCategoryTap(_ sender: AnyObject) {

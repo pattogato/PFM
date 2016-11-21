@@ -21,6 +21,8 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     
     unowned let view: InputViewProtocol
     
+    private (set) var presentedContent = InputContentType.numericKeyboard
+    
     init(view: InputViewProtocol,
          dalHelper: DALHelperProtocol,
          currentTransactionDataProvider: CurrentTransactionDataProviderProtocol,
@@ -62,11 +64,15 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     }
     
     func changeCurrency() {
-        self.inputContentPresenter.showContent(.currencyPicker)
+        self.showContent(type: .currencyPicker)
     }
     
     func changeDate() {
-        self.inputContentPresenter.showContent(.datePicker)
+        self.showContent(type: .datePicker)
+    }
+    
+    func openNumberPad() {
+        self.showContent(type: .numericKeyboard)
     }
     
     func openCameraScreen() {
@@ -126,6 +132,11 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     func saveLocation(lat: Double, lng: Double, venue: String?) {
         currentTransactionDataProvider.saveLocation(lat, lng: lng, venue: venue ?? "")
     }
+    
+    fileprivate func showContent(type: InputContentType) {
+        self.presentedContent = type
+        inputContentPresenter.showContent(type)
+    }
 }
 
 extension InputViewPresenter: InputContentSelectorDelegate {
@@ -149,11 +160,13 @@ extension InputViewPresenter: InputContentSelectorDelegate {
                     enterDigit(number)
                 }
             }
+        case .image:
+            print("image selected")
         }
     }
     
     func selectorCancelled() {
-        inputContentPresenter.showContent(InputContentType.defaultType)
+        self.showContent(type: .defaultType)
     }
     
     //    func currencySelected(_ string: String) {

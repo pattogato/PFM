@@ -58,6 +58,8 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
      */
     func openCameraScreen()
     
+    func openNumberPad()
+    
     /**
      Opens the location input screen
      */
@@ -90,6 +92,8 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     func saveName(_ name: String)
     
     func saveLocation(lat: Double, lng: Double, venue: String?)
+    
+    var presentedContent: InputContentType { get }
     
     var inputContentPresenter: InputContentPresenterProtocol! { get set }
 }

@@ -20,7 +20,7 @@
                 <viewControllerPlaceholder storyboardName="History" id="7By-jn-hGC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qov-3T-gzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2156.5" y="-260"/>
+            <point key="canvasLocation" x="2260" y="-269"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="lWJ-OZ-7n6">
@@ -363,6 +363,75 @@
             </objects>
             <point key="canvasLocation" x="3908" y="-1305"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="OgH-8l-Su5">
+            <objects>
+                <viewController id="uwQ-40-gxk" customClass="InputContentSelectorImageViewController" customModule="PFM" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sqN-Ee-Ebb"/>
+                        <viewControllerLayoutGuide type="bottom" id="fIi-uA-V6A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="19G-gk-jM7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jPk-NT-cUv"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLy-Td-ZV0">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBH-x8-0nB">
+                                        <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTouchDeleteButton:" destination="uwQ-40-gxk" eventType="touchUpInside" id="c2M-51-eBu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mde-y5-3lm">
+                                        <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
+                                        <state key="normal" title="Retake">
+                                            <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTouchRetakeButton:" destination="uwQ-40-gxk" eventType="touchUpInside" id="T3h-jN-Czw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="rBH-x8-0nB" firstAttribute="top" secondItem="mde-y5-3lm" secondAttribute="bottom" id="0uY-Y9-FLA"/>
+                                    <constraint firstItem="mde-y5-3lm" firstAttribute="top" secondItem="fLy-Td-ZV0" secondAttribute="top" id="7hp-aL-Cr9"/>
+                                    <constraint firstItem="rBH-x8-0nB" firstAttribute="leading" secondItem="fLy-Td-ZV0" secondAttribute="leading" id="GAx-vf-3be"/>
+                                    <constraint firstAttribute="width" constant="90" id="IhV-EC-GC7"/>
+                                    <constraint firstAttribute="trailing" secondItem="rBH-x8-0nB" secondAttribute="trailing" id="J3I-OK-JK2"/>
+                                    <constraint firstItem="mde-y5-3lm" firstAttribute="height" secondItem="rBH-x8-0nB" secondAttribute="height" id="PlR-Fu-A8Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="rBH-x8-0nB" secondAttribute="bottom" id="h6e-sv-wc7"/>
+                                    <constraint firstAttribute="trailing" secondItem="mde-y5-3lm" secondAttribute="trailing" id="qMD-v9-73A"/>
+                                    <constraint firstItem="mde-y5-3lm" firstAttribute="leading" secondItem="fLy-Td-ZV0" secondAttribute="leading" id="svl-Hy-Z3C"/>
+                                    <constraint firstItem="rBH-x8-0nB" firstAttribute="top" secondItem="mde-y5-3lm" secondAttribute="bottom" id="tJ6-KO-fI8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fLy-Td-ZV0" secondAttribute="trailing" id="01B-c2-DAh"/>
+                            <constraint firstAttribute="bottom" secondItem="jPk-NT-cUv" secondAttribute="bottom" id="48F-2l-aVe"/>
+                            <constraint firstItem="jPk-NT-cUv" firstAttribute="top" secondItem="sqN-Ee-Ebb" secondAttribute="bottom" id="7zL-Mm-JwG"/>
+                            <constraint firstAttribute="bottom" secondItem="fLy-Td-ZV0" secondAttribute="bottom" id="9qG-e8-i2b"/>
+                            <constraint firstItem="fLy-Td-ZV0" firstAttribute="top" secondItem="sqN-Ee-Ebb" secondAttribute="bottom" id="F4K-6r-njC"/>
+                            <constraint firstItem="jPk-NT-cUv" firstAttribute="leading" secondItem="19G-gk-jM7" secondAttribute="leading" id="wZR-SD-kxE"/>
+                            <constraint firstItem="fLy-Td-ZV0" firstAttribute="leading" secondItem="jPk-NT-cUv" secondAttribute="trailing" id="zK0-l5-yl1"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="DFB-cv-UE2"/>
+                    <connections>
+                        <outlet property="imageView" destination="jPk-NT-cUv" id="fAI-4o-ttY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sm-um-YfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3908" y="-948.12593703148434"/>
+        </scene>
         <!--Item 2-->
         <scene sceneID="NnR-st-KpL">
             <objects>
@@ -485,6 +554,7 @@
                         <segue destination="7QE-Ya-VUj" kind="relationship" relationship="viewControllers" id="SAM-c2-5Ei"/>
                         <segue destination="MY7-XH-BuT" kind="relationship" relationship="viewControllers" id="THY-qH-S4e"/>
                         <segue destination="C3p-dM-OPZ" kind="relationship" relationship="viewControllers" id="UHi-4b-c7z"/>
+                        <segue destination="uwQ-40-gxk" kind="relationship" relationship="viewControllers" id="Hbz-MM-dZX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ew-ni-ucP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -507,7 +577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWI-Ki-Ypj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2620" y="-178"/>
+            <point key="canvasLocation" x="2820" y="-179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yvq-zF-e4t">

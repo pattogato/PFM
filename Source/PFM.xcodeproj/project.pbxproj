@@ -36,6 +36,7 @@
 		B12655CE1DBEBE4500AEDED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12655CD1DBEBE4500AEDED5 /* Assets.xcassets */; };
 		B12655D21DBEBE4500AEDED5 /* PFM_watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B12655B81DBEBE4500AEDED5 /* PFM_watch.app */; };
 		B12655DC1DBEC1DE00AEDED5 /* InputInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12655DB1DBEC1DE00AEDED5 /* InputInterfaceController.swift */; };
+		B139CAC81DDB484C00DF1965 /* InputContentSelectorImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B139CAC71DDB484C00DF1965 /* InputContentSelectorImageViewController.swift */; };
 		B164F9711DCB45F70090CF08 /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96C1DCB45F70090CF08 /* ApplicationAssembly.swift */; };
 		B164F9721DCB45F70090CF08 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96D1DCB45F70090CF08 /* ServicesAssembly.swift */; };
 		B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96E1DCB45F70090CF08 /* ManagersAssembly.swift */; };
@@ -193,6 +194,7 @@
 		B12655DB1DBEC1DE00AEDED5 /* InputInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputInterfaceController.swift; sourceTree = "<group>"; };
 		B1308C3B1CF45529002965EA /* PFMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1308C3F1CF45529002965EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B139CAC71DDB484C00DF1965 /* InputContentSelectorImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputContentSelectorImageViewController.swift; sourceTree = "<group>"; };
 		B164F96C1DCB45F70090CF08 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		B164F96D1DCB45F70090CF08 /* ServicesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
 		B164F96E1DCB45F70090CF08 /* ManagersAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagersAssembly.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				B10B2ED31DD228610089E848 /* InputContentSelectorDateViewController.swift */,
 				B10B2ED51DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift */,
 				B1650D481DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift */,
+				B139CAC71DDB484C00DF1965 /* InputContentSelectorImageViewController.swift */,
 			);
 			name = InputContentSelectors;
 			path = View/Input/InputContentSelectors;
@@ -1086,6 +1089,7 @@
 				B10B2ECF1DD1D1F70089E848 /* Extensions+UIApplication.swift in Sources */,
 				E2D55DEA1CF48491002343BD /* HistoryTransition.swift in Sources */,
 				B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */,
+				B139CAC81DDB484C00DF1965 /* InputContentSelectorImageViewController.swift in Sources */,
 				B187859F1CA98E6A00DD18E9 /* AppDelegate.swift in Sources */,
 				E26D7E741CCE4B1D00454C08 /* CategoriesViewController.swift in Sources */,
 				B12655AE1DBEB58600AEDED5 /* ImageHelper.swift in Sources */,
