@@ -17,6 +17,7 @@ protocol CurrentTransactionDataProviderProtocol {
     func saveDate(_ date: Date)
     func saveCurrency(_ currency: String)
     func saveDescription(_ desc: String)
+    func saveImage(_ image: UIImage)
     func getTransaction() -> TransactionModel?
 }
 
@@ -57,6 +58,10 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     
     func saveDescription(_ desc: String) {
         currentTransaction.desc = desc
+    }
+    
+    func saveImage(_ image: UIImage) {
+        currentTransaction.image = image
     }
     
     func getTransaction() -> TransactionModel? {

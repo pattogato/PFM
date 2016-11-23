@@ -75,8 +75,16 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
         self.showContent(type: .numericKeyboard)
     }
     
-    func openCameraScreen() {
-        self.view.openCamera()
+    func openCameraScreen(forced: Bool) {
+        if forced {
+            self.view.openCamera()
+        } else {
+            if let image = self.currentTransactionDataProvider.getTransaction()?.image {
+                self.showContent(type: .image(image: image))
+            } else {
+                self.view.openCamera()
+            }
+        }
     }
     
     func openLocationScreen() {
@@ -131,6 +139,10 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     
     func saveLocation(lat: Double, lng: Double, venue: String?) {
         currentTransactionDataProvider.saveLocation(lat, lng: lng, venue: venue ?? "")
+    }
+    
+    func saveImage(_ image: UIImage) {
+        currentTransactionDataProvider.saveImage(image)
     }
     
     fileprivate func showContent(type: InputContentType) {

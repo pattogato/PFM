@@ -31,6 +31,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol, RouterDependentProtocol {
+
     
     // MARK: Dependencies
     var presenter: InputViewPresenterProtocol!
@@ -177,38 +178,34 @@ extension InputViewController {
     }
     
     @IBAction func cameraButtonTouched(_ sender: AnyObject) {
-        self.presenter.openCameraScreen()
+        if presenter.presentedContent == .image(image: nil) {
+            self.presenter.openNumberPad()
+        } else {
+            self.presenter.openCameraScreen(forced: false)
+        }
     }
     
     @IBAction func locationButtonTouched(_ sender: AnyObject) {
-        if presenter.presentedContent == .numericKeyboard {
-            self.presenter.openLocationScreen()
-        } else {
-            presenter.openNumberPad()
-        }
+        self.presenter.openLocationScreen()
     }
     
     @IBAction func noteButtonTouched(_ sender: AnyObject) {
-        if presenter.presentedContent == .numericKeyboard {
-            presenter.openNoteScreen()
-        } else {
-            presenter.openNumberPad()
-        }
+        presenter.openNoteScreen()
     }
     
     @IBAction func currencyButtonTouched(_ sender: AnyObject) {
-        if presenter.presentedContent == .numericKeyboard {
-            presenter.changeCurrency()
-        } else {
+        if presenter.presentedContent == .currencyPicker {
             presenter.openNumberPad()
+        } else {
+            presenter.changeCurrency()
         }
     }
     
     @IBAction func timeButtonTouched(_ sender: UIButton) {
-        if presenter.presentedContent == .numericKeyboard {
-            presenter.changeDate()
-        } else {
+        if presenter.presentedContent == .datePicker {
             presenter.openNumberPad()
+        } else {
+            presenter.changeDate()
         }
     }
     
@@ -230,7 +227,7 @@ extension InputViewController {
             viewController: self,
             onPickerCancelled: nil,
             onPickerImageSelected: { (image) in
-                print("got image2")
+                self.presenter.saveImage(image)
         })
     }
     

@@ -53,10 +53,8 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
      */
     func changeCurrency()
     
-    /**
-     Opens the image input screen
-     */
-    func openCameraScreen()
+    /// - Parameter forced: set to true, if want to go to image selector
+    func openCameraScreen(forced: Bool)
     
     func openNumberPad()
     
@@ -92,6 +90,8 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     func saveName(_ name: String)
     
     func saveLocation(lat: Double, lng: Double, venue: String?)
+    
+    func saveImage(_ image: UIImage)
     
     var presentedContent: InputContentType { get }
     

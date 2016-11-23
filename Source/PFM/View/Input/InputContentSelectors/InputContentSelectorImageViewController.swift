@@ -9,7 +9,7 @@
 import UIKit
 
 class InputContentSelectorImageViewController: UIViewController, AlertProtocol {
-
+    
     private var imageHelper: ImageHelper?
     
     var image: UIImage? {

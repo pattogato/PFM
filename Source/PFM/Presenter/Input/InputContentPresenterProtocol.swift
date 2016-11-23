@@ -8,14 +8,21 @@
 
 import Foundation
 
-enum InputContentType {
+enum InputContentType: Equatable {
     case numericKeyboard
     case datePicker
     case currencyPicker
-    case image
+    case image(image: UIImage?)
     
     static var defaultType: InputContentType {
         return .numericKeyboard
+    }
+}
+
+func ==(lhs: InputContentType, rhs: InputContentType) -> Bool {
+    switch (lhs, rhs) {
+    case (.image(let a), .image(let b)) where a == b: return true
+    default: return false
     }
 }
 

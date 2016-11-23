@@ -39,6 +39,15 @@ class InputContentViewController: UITabBarController, InputContentViewProtocol {
 
     func presentContentType(_ type: InputContentType) {
         selectedIndex = type.tabIndex
+
+        switch type {
+        case .image(let image):
+            if let imageContentVC = self.viewControllers?[selectedIndex] as? InputContentSelectorImageViewController {
+                imageContentVC.image = image
+            }
+        default:
+            break
+        }
     }
 
     // Currency picker
@@ -65,6 +74,7 @@ fileprivate extension InputContentType {
         case .datePicker: return 0
         case .currencyPicker: return 1
         case .numericKeyboard: return 2
+        case .image: return 3
         }
     }
 }

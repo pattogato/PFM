@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TransactionModel: ModelObject {
 
@@ -23,4 +24,9 @@ class TransactionModel: ModelObject {
     dynamic var categoryId: String = ""
     dynamic var category: CategoryModel?
     
+    var image: UIImage?
+    
+    override class func ignoredProperties() -> [String] {
+        return ["image"]
+    }
 }
