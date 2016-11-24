@@ -10,7 +10,7 @@ import UIKit
 
 class InputContentSelectorImageViewController: UIViewController, AlertProtocol {
     
-    private var imageHelper: ImageHelper?
+    var inputViewPresenter: InputViewPresenterProtocol!
     
     var image: UIImage? {
         didSet {
@@ -22,17 +22,11 @@ class InputContentSelectorImageViewController: UIViewController, AlertProtocol {
 
     
     @IBAction func didTouchRetakeButton(_ sender: AnyObject) {
-        imageHelper = ImageHelper()
-        imageHelper?.showImagePickerWithSourceSelector(
-            viewController: self,
-            onPickerCancelled: nil,
-            onPickerImageSelected: { (image) in
-                print("got image2")
-        })
+        inputViewPresenter.openCameraScreen(forced: true)
     }
     
     @IBAction func didTouchDeleteButton(_ sender: AnyObject) {
-        
+        inputViewPresenter.deleteImage()
     }
     
     

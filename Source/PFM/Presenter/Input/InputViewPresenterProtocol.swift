@@ -93,6 +93,8 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     
     func saveImage(_ image: UIImage)
     
+    func deleteImage()
+    
     var presentedContent: InputContentType { get }
     
     var inputContentPresenter: InputContentPresenterProtocol! { get set }

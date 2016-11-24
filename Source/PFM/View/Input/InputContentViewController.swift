@@ -50,21 +50,6 @@ class InputContentViewController: UITabBarController, InputContentViewProtocol {
         }
     }
 
-    // Currency picker
-    
-//    func setupCurrencyPicker() {
-//        currencyPicker.delegate = self
-//        currencyPicker.dataSource = self
-//    }
-//    
-//    @IBAction func selectCurrencyButtonDoneTouched(_ sender: AnyObject) {
-//        self.presentContentType(.keyboard)
-//    }
-//    
-//    // Save
-//    @IBAction func okButtonTouched(_ sender: AnyObject) {
-//        self.contentDelegate?.saveButtonTouched?()
-//    }
 }
 
 
