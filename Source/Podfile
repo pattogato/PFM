@@ -17,6 +17,7 @@ def shared_pods
     pod 'LocationPickerViewController', :git => 'https://github.com/JeromeTan1997/LocationPicker', :branch => 'swift-3'
     pod 'EZSwipeController', :git => 'https://github.com/pattogato/EZSwipeController', :branch => 'bugfix/swift-3-fixes'
     pod 'MBPullDownController', '~> 1.0'
+    pod 'Charts/Realm' # Presenting beautifil charts
     
     # Dependency indejction
     pod 'Swinject', '~> 2.0.0-beta.2' # DI Tool

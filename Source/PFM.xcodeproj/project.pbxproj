@@ -59,7 +59,6 @@
 		B1783C091CB30A1000056895 /* PresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C081CB30A1000056895 /* PresentableView.swift */; };
 		B1783C0C1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C0B1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift */; };
 		B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C0E1CB3981B00056895 /* NavigationViewProtocol.swift */; };
-		B1783C111CB398E400056895 /* DELSwipeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C101CB398E400056895 /* DELSwipeNavigationController.swift */; };
 		B1783C1A1CB3B26C00056895 /* ChartsViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C191CB3B26C00056895 /* ChartsViewPresenterProtocol.swift */; };
 		B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C1D1CB3B44000056895 /* ChartsViewProtocol.swift */; };
 		B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C1F1CB3B50600056895 /* ChartsViewPresenter.swift */; };
@@ -217,7 +216,6 @@
 		B1783C081CB30A1000056895 /* PresentableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentableView.swift; path = Presenter/PresentableView.swift; sourceTree = "<group>"; };
 		B1783C0B1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeNavigationPresenterProtocol.swift; path = Presenter/Navigation/SwipeNavigationPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1783C0E1CB3981B00056895 /* NavigationViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationViewProtocol.swift; path = View/Navigation/NavigationViewProtocol.swift; sourceTree = "<group>"; };
-		B1783C101CB398E400056895 /* DELSwipeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DELSwipeNavigationController.swift; path = View/Navigation/DELSwipeNavigationController.swift; sourceTree = "<group>"; };
 		B1783C191CB3B26C00056895 /* ChartsViewPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewPresenterProtocol.swift; path = Presenter/Charts/ChartsViewPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1783C1D1CB3B44000056895 /* ChartsViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewProtocol.swift; path = View/Charts/ChartsViewProtocol.swift; sourceTree = "<group>"; };
 		B1783C1F1CB3B50600056895 /* ChartsViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewPresenter.swift; path = Presenter/Charts/ChartsViewPresenter.swift; sourceTree = "<group>"; };
@@ -490,7 +488,6 @@
 			isa = PBXGroup;
 			children = (
 				B1783C0E1CB3981B00056895 /* NavigationViewProtocol.swift */,
-				B1783C101CB398E400056895 /* DELSwipeNavigationController.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -1082,7 +1079,6 @@
 				B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */,
 				B12655AA1DBEB48D00AEDED5 /* UserDefaults.swift in Sources */,
 				B120CA901CCD157000E9985B /* InputContentPresenter.swift in Sources */,
-				B1783C111CB398E400056895 /* DELSwipeNavigationController.swift in Sources */,
 				E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */,
 				E2D55DE41CF47BA4002343BD /* HistoryCollectionViewCell.swift in Sources */,
 				B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */,
