@@ -44,6 +44,7 @@ class InputContentViewController: UITabBarController, InputContentViewProtocol {
         case .image(let image):
             if let imageContentVC = self.viewControllers?[selectedIndex] as? InputContentSelectorImageViewController {
                 imageContentVC.image = image
+                imageContentVC.delegate = self.contentDelegate
             }
         default:
             break

@@ -1,4 +1,8 @@
 PODS:
+  - Charts/Core (3.0.1)
+  - Charts/Realm (3.0.1):
+    - Charts/Core
+    - RealmSwift (~> 1.1)
   - EZSwipeController (0.5)
   - LocationPickerViewController (2.0.0)
   - Locksmith (3.0.0)
@@ -26,6 +30,7 @@ PODS:
     - Swinject (= 2.0.0-beta.2)
 
 DEPENDENCIES:
+  - Charts/Realm
   - EZSwipeController (from `https://github.com/pattogato/EZSwipeController`, branch `bugfix/swift-3-fixes`)
   - LocationPickerViewController (from `https://github.com/JeromeTan1997/LocationPicker`, branch `swift-3`)
   - Locksmith (~> 3.0.0)
@@ -54,6 +59,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/JeromeTan1997/LocationPicker
 
 SPEC CHECKSUMS:
+  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   EZSwipeController: 01cc43b319e133b6dbfb25bfdc78617a1560e952
   LocationPickerViewController: 600d08aba48879a920dbaf1c12d19a2292f2bbed
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
@@ -66,6 +72,6 @@ SPEC CHECKSUMS:
   Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
   SwinjectStoryboard: b52b45821a50386ef604c3cd098f8029a50a268d
 
-PODFILE CHECKSUM: cf5c3d2acc071399059d96eef8f74ef4f5bac59f
+PODFILE CHECKSUM: 0e3409f30783b7d9fd8a815b0b3046ecb1e7e75f
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.1.1

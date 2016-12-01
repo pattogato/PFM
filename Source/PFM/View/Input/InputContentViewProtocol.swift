@@ -19,6 +19,8 @@ protocol InputContentSelectorDelegate: class {
     
     func valueSelected(type: InputContentType, value: Any)
     func selectorCancelled()
+    func imageRetake()
+    func deleteValue(type: InputContentType)
 }
 
 protocol InputContentViewProtocol: class {

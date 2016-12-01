@@ -7,36 +7,33 @@
 //
 
 import UIKit
+import Charts
 
 class ChartsViewController: UIViewController, PresentableView {
-
+    
+    private struct Colors {
+        static let primaryChartColor = UIColor.red
+        static let chartBGColor = UIColor.clear
+        static let secoundaryChartColor = UIColor.green
+        static let primaryLegendColor = UIColor.blue
+        static let secoundaryLegendColor = UIColor.purple
+    }
+    
     var presenter: ChartsViewPresenterProtocol?
+    
+    @IBOutlet weak var currentMonthPieChartView: PieChartView!
+    @IBOutlet weak var lastFewDaysBarChartView: BarChartView!
+    @IBOutlet weak var lastFewMonthBarChartView: BarChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     @IBAction func navigateToInputButtonTouched(_ sender: AnyObject) {
         self.presenter?.navigateToInputScreen()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

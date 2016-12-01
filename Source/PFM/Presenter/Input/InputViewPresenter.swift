@@ -95,6 +95,11 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
         print("openNoteScreen")
     }
     
+    func deleteImage() {
+        self.currentTransactionDataProvider.deleteImage()
+        self.showContent(type: .numericKeyboard)
+    }
+    
     // MARK: - Navigation methods
     
     func navigateToCharts() {
@@ -179,6 +184,16 @@ extension InputViewPresenter: InputContentSelectorDelegate {
     
     func selectorCancelled() {
         self.showContent(type: .defaultType)
+    }
+    
+    func imageRetake() {
+        self.openCameraScreen(forced: true)
+    }
+    
+    func deleteValue(type: InputContentType) {
+        if type == .image(image: nil) {
+            deleteImage()
+        }
     }
     
     //    func currencySelected(_ string: String) {

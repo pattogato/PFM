@@ -36,8 +36,6 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     // MARK: Dependencies
     var presenter: InputViewPresenterProtocol!
     var router: RouterProtocol!
-//    var inputContentPresenter: InputContentPresenterProtocol!
-//    var currentTransactionDataProvider: CurrentTransactionDataProviderProtocol!
     
     // MARK: - Constants
     
@@ -228,6 +226,7 @@ extension InputViewController {
             onPickerCancelled: nil,
             onPickerImageSelected: { (image) in
                 self.presenter.saveImage(image)
+                self.presenter.openCameraScreen(forced: false)
         })
     }
     

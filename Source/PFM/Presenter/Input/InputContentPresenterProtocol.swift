@@ -21,7 +21,10 @@ enum InputContentType: Equatable {
 
 func ==(lhs: InputContentType, rhs: InputContentType) -> Bool {
     switch (lhs, rhs) {
-    case (.image(let a), .image(let b)) where a == b: return true
+    case (.image(_), .image(_)): return true
+    case (.numericKeyboard, .numericKeyboard): return true
+    case (.datePicker, .datePicker): return true
+    case (.currencyPicker, .currencyPicker): return true
     default: return false
     }
 }

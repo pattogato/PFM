@@ -9,8 +9,8 @@
 import UIKit
 
 class InputContentSelectorImageViewController: UIViewController, AlertProtocol {
-    
-    var inputViewPresenter: InputViewPresenterProtocol!
+
+    weak var delegate: InputContentSelectorDelegate?
     
     var image: UIImage? {
         didSet {
@@ -22,11 +22,11 @@ class InputContentSelectorImageViewController: UIViewController, AlertProtocol {
 
     
     @IBAction func didTouchRetakeButton(_ sender: AnyObject) {
-        inputViewPresenter.openCameraScreen(forced: true)
+        delegate?.imageRetake()
     }
     
     @IBAction func didTouchDeleteButton(_ sender: AnyObject) {
-        inputViewPresenter.deleteImage()
+        delegate?.deleteValue(type: .image(image: image))
     }
     
     
