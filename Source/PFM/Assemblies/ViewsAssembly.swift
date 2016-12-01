@@ -28,6 +28,12 @@ final class ViewsAssembly: AssemblyType {
             )
         }
         
+        container.registerForStoryboardProject(controllerType: NoteViewController.self) { (r, c) in
+            c.presenter = r.resolve(
+                NoteViewPresenterProtocol.self,
+                argument: c as NoteViewProtocol
+            )
+        }
         
     }
     

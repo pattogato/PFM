@@ -61,6 +61,7 @@ fileprivate extension InputContentType {
         case .currencyPicker: return 1
         case .numericKeyboard: return 2
         case .image: return 3
+        default: return 0
         }
     }
 }

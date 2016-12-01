@@ -77,6 +77,10 @@
 		B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DC1CA99CDA00DD18E9 /* UserModel.swift */; };
 		B18B5E9D1CF48229008427C0 /* CurrentTransactionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B5E9C1CF48229008427C0 /* CurrentTransactionDataProvider.swift */; };
 		B18E82CA1DC93E4500143C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12655CD1DBEBE4500AEDED5 /* Assets.xcassets */; };
+		B18EC84F1DF084C50069A722 /* NoteViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC84E1DF084C50069A722 /* NoteViewProtocol.swift */; };
+		B18EC8521DF085100069A722 /* NoteViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC8511DF085100069A722 /* NoteViewPresenterProtocol.swift */; };
+		B18EC8541DF085220069A722 /* NoteViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC8531DF085220069A722 /* NoteViewPresenter.swift */; };
+		B18EC8561DF085340069A722 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC8551DF085340069A722 /* NoteViewController.swift */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
@@ -237,6 +241,10 @@
 		B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionModel.swift; path = DAL/Realm/TransactionModel.swift; sourceTree = "<group>"; };
 		B18785DC1CA99CDA00DD18E9 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = DAL/Realm/UserModel.swift; sourceTree = "<group>"; };
 		B18B5E9C1CF48229008427C0 /* CurrentTransactionDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTransactionDataProvider.swift; path = DAL/Interactors/CurrentTransactionDataProvider.swift; sourceTree = "<group>"; };
+		B18EC84E1DF084C50069A722 /* NoteViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewProtocol.swift; sourceTree = "<group>"; };
+		B18EC8511DF085100069A722 /* NoteViewPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewPresenterProtocol.swift; path = Presenter/Note/NoteViewPresenterProtocol.swift; sourceTree = "<group>"; };
+		B18EC8531DF085220069A722 /* NoteViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewPresenter.swift; path = Presenter/Note/NoteViewPresenter.swift; sourceTree = "<group>"; };
+		B18EC8551DF085340069A722 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenter.swift; path = Presenter/Input/LocationPickerPresenter.swift; sourceTree = "<group>"; };
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
@@ -412,6 +420,7 @@
 				B120CA801CCBC8F500E9985B /* Numberpad */,
 				B1783C151CB3A81B00056895 /* General */,
 				B1783C0D1CB397C400056895 /* Navigation */,
+				B18EC84B1DF084A20069A722 /* Note */,
 				B1783BFE1CB2FD9800056895 /* Input */,
 				B1783C1B1CB3B40F00056895 /* Charts */,
 				E26D7E6F1CCE4AB900454C08 /* Categories */,
@@ -424,6 +433,7 @@
 		B1783BF61CB2FA7A00056895 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				B18EC8501DF084CC0069A722 /* Note */,
 				B1783C081CB30A1000056895 /* PresentableView.swift */,
 				B1783C0A1CB3971900056895 /* Navigation */,
 				B1783BF91CB2FBBC00056895 /* Input */,
@@ -600,6 +610,25 @@
 				B18785DC1CA99CDA00DD18E9 /* UserModel.swift */,
 			);
 			name = Realm;
+			sourceTree = "<group>";
+		};
+		B18EC84B1DF084A20069A722 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				B18EC84E1DF084C50069A722 /* NoteViewProtocol.swift */,
+				B18EC8551DF085340069A722 /* NoteViewController.swift */,
+			);
+			name = Note;
+			path = View/Note;
+			sourceTree = "<group>";
+		};
+		B18EC8501DF084CC0069A722 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				B18EC8511DF085100069A722 /* NoteViewPresenterProtocol.swift */,
+				B18EC8531DF085220069A722 /* NoteViewPresenter.swift */,
+			);
+			name = Note;
 			sourceTree = "<group>";
 		};
 		B1DA8A721CEA80CE00C51E85 /* LocationPicker */ = {
@@ -1049,6 +1078,7 @@
 				B1DA8A761CEA80E500C51E85 /* PLocationPickerViewController.swift in Sources */,
 				B10B2EC71DCF5EAE0089E848 /* PresenterAssemly.swift in Sources */,
 				B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */,
+				B18EC84F1DF084C50069A722 /* NoteViewProtocol.swift in Sources */,
 				E26D7E781CCE5B8600454C08 /* CategoryCollectionViewCell.swift in Sources */,
 				B1783C091CB30A1000056895 /* PresentableView.swift in Sources */,
 				B1783C001CB2FDF100056895 /* InputViewProtocol.swift in Sources */,
@@ -1057,12 +1087,14 @@
 				B120CA861CCCFDC100E9985B /* Extensions.swift in Sources */,
 				B164F9721DCB45F70090CF08 /* ServicesAssembly.swift in Sources */,
 				B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */,
+				B18EC8521DF085100069A722 /* NoteViewPresenterProtocol.swift in Sources */,
 				B18B5E9D1CF48229008427C0 /* CurrentTransactionDataProvider.swift in Sources */,
 				B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */,
 				B1783BE41CB186A400056895 /* DALHelper.swift in Sources */,
 				E2D55DE11CF47A56002343BD /* HistoryViewController.swift in Sources */,
 				B120CA921CCD15F700E9985B /* InputContentViewController.swift in Sources */,
 				E2D55DE81CF47DE3002343BD /* HistoryHeaderCollectionReusableView.swift in Sources */,
+				B18EC8541DF085220069A722 /* NoteViewPresenter.swift in Sources */,
 				B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */,
 				B1650D491DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift in Sources */,
 				B12655B01DBEB9E500AEDED5 /* LoaderProtocol.swift in Sources */,
@@ -1082,6 +1114,7 @@
 				E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */,
 				E2D55DE41CF47BA4002343BD /* HistoryCollectionViewCell.swift in Sources */,
 				B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */,
+				B18EC8561DF085340069A722 /* NoteViewController.swift in Sources */,
 				B10B2ECF1DD1D1F70089E848 /* Extensions+UIApplication.swift in Sources */,
 				E2D55DEA1CF48491002343BD /* HistoryTransition.swift in Sources */,
 				B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */,

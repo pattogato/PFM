@@ -29,6 +29,8 @@ protocol InputViewProtocol: class, LocationPickerDelegate {
     
     func openLocationPicker()
     
+    func openNoteScreen()
+    
     func resetUI()
     
     func appendAmountDigit(_ digit: Character)

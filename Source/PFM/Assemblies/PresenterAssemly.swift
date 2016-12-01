@@ -64,5 +64,15 @@ final class PresenterAssembly: AssemblyType {
                 dataSource: a
             )
         }
+        
+        /**
+         Note presenter
+         */
+        container.register(NoteViewPresenterProtocol.self) {
+            (r, view: NoteViewProtocol) in
+            return NoteViewPresenter(
+                view: view
+            )
+        }
     }
 }

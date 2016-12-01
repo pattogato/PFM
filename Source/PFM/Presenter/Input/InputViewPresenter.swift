@@ -92,7 +92,7 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     }
     
     func openNoteScreen() {
-        print("openNoteScreen")
+        self.view.openNoteScreen()
     }
     
     func deleteImage() {
@@ -179,6 +179,8 @@ extension InputViewPresenter: InputContentSelectorDelegate {
             }
         case .image:
             print("image selected")
+        case .note:
+            print(value as! String)
         }
     }
     

@@ -143,9 +143,10 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
             
             presenter.inputContentPresenter = inputContentVC.presenter
             inputContentVC.contentDelegate = self.presenter
-        }
-        else if let historyVc = segue.destination as? HistoryViewController {
+        } else if let historyVc = segue.destination as? HistoryViewController {
             historyVc.transitioningDelegate = self
+        } else if let noteView = segue.destination as? NoteViewProtocol {
+            noteView.presenter.delegate = self.presenter
         }
     }
     
@@ -228,6 +229,10 @@ extension InputViewController {
                 self.presenter.saveImage(image)
                 self.presenter.openCameraScreen(forced: false)
         })
+    }
+    
+    func openNoteScreen() {
+        self.performSegue(withIdentifier: "toNotesSegue", sender: nil)
     }
     
     func openLocationPicker() {

@@ -17,6 +17,72 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Note View Controller-->
+        <scene sceneID="KzT-LB-6ci">
+            <objects>
+                <viewController id="PL8-Ki-lLc" customClass="NoteViewController" customModule="PFM" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TC5-gg-0CI"/>
+                        <viewControllerLayoutGuide type="bottom" id="QeB-7O-ocx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YIM-WV-1tl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uXj-pR-h1t" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
+                                <rect key="frame" x="8" y="72" width="359" height="365"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Type your note to the transaction"/>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKg-06-iLq">
+                                <rect key="frame" x="0.0" y="28" width="144" height="36"/>
+                                <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonTouched:" destination="PL8-Ki-lLc" eventType="touchUpInside" id="dOn-Hu-DOa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAL-no-E78">
+                                <rect key="frame" x="231" y="28" width="144" height="36"/>
+                                <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonTouched:" destination="PL8-Ki-lLc" eventType="touchUpInside" id="D1h-4K-ept"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cKg-06-iLq" firstAttribute="leading" secondItem="YIM-WV-1tl" secondAttribute="leading" id="04v-11-Sjf"/>
+                            <constraint firstAttribute="trailing" secondItem="WAL-no-E78" secondAttribute="trailing" id="4W6-oq-HJ9"/>
+                            <constraint firstAttribute="trailing" secondItem="uXj-pR-h1t" secondAttribute="trailing" constant="8" id="AVc-jb-mMS"/>
+                            <constraint firstItem="WAL-no-E78" firstAttribute="top" secondItem="TC5-gg-0CI" secondAttribute="bottom" constant="8" id="Gxs-Hz-TX2"/>
+                            <constraint firstItem="cKg-06-iLq" firstAttribute="top" secondItem="TC5-gg-0CI" secondAttribute="bottom" constant="8" id="Lpd-sa-fxb"/>
+                            <constraint firstItem="QeB-7O-ocx" firstAttribute="top" secondItem="uXj-pR-h1t" secondAttribute="bottom" constant="230" id="bVb-87-51H"/>
+                            <constraint firstItem="uXj-pR-h1t" firstAttribute="top" secondItem="WAL-no-E78" secondAttribute="bottom" constant="8" id="ema-Jj-BcD"/>
+                            <constraint firstItem="uXj-pR-h1t" firstAttribute="leading" secondItem="YIM-WV-1tl" secondAttribute="leading" constant="8" id="nTL-De-a59"/>
+                            <constraint firstItem="WAL-no-E78" firstAttribute="width" secondItem="cKg-06-iLq" secondAttribute="width" id="vqC-Cm-3OP"/>
+                            <constraint firstItem="WAL-no-E78" firstAttribute="leading" secondItem="cKg-06-iLq" secondAttribute="trailing" constant="87" id="zwA-Ze-XPx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="saveButton" destination="WAL-no-E78" id="so4-po-yyg"/>
+                        <outlet property="textView" destination="uXj-pR-h1t" id="z9e-io-scQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TPr-Fr-2Tc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2948" y="-432.23388305847078"/>
+        </scene>
         <!--History-->
         <scene sceneID="FjV-SK-MbO">
             <objects>
@@ -147,7 +213,7 @@
                                         </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raf-1c-bIF">
-                                        <rect key="frame" x="167.5" y="12" width="40" height="4"/>
+                                        <rect key="frame" x="168" y="12" width="40" height="4"/>
                                         <color key="backgroundColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="SLo-Li-iWV"/>
@@ -202,7 +268,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENCY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24s-Pe-Qjq">
-                                <rect key="frame" x="159.5" y="244" width="57" height="12"/>
+                                <rect key="frame" x="159" y="244" width="57" height="12"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                 <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -286,6 +352,7 @@
                         <outletCollection property="menuButtons" destination="G8O-4j-fwT" collectionClass="NSMutableArray" id="Onl-4Q-QTg"/>
                         <outletCollection property="menuButtons" destination="18l-Uq-9jg" collectionClass="NSMutableArray" id="XrH-4h-Fds"/>
                         <outletCollection property="menuButtons" destination="Sba-od-5SJ" collectionClass="NSMutableArray" id="IeI-jd-95F"/>
+                        <segue destination="PL8-Ki-lLc" kind="presentation" identifier="toNotesSegue" id="fY6-2w-YcQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fl9-W0-BwW" sceneMemberID="firstResponder"/>
@@ -479,43 +546,62 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5WO-aR-V1Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="220"/>
                                         <connections>
                                             <outlet property="dataSource" destination="MY7-XH-BuT" id="a6m-Gz-Y1v"/>
                                             <outlet property="delegate" destination="MY7-XH-BuT" id="pLk-8f-s8L"/>
                                         </connections>
                                     </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THb-J0-G4b">
-                                        <rect key="frame" x="326" y="8" width="40" height="30"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
-                                        <state key="normal" title="Done">
-                                            <color key="titleColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTouchDoneButton:" destination="MY7-XH-BuT" eventType="touchUpInside" id="A9v-ce-ujX"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-Lt-7cb">
-                                        <rect key="frame" x="8" y="8" width="51" height="30"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTouchCancelButton:" destination="MY7-XH-BuT" eventType="touchUpInside" id="kFt-iO-dXg"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoM-lW-Jqb">
+                                        <rect key="frame" x="285" y="0.0" width="90" height="220"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6V7-M9-fwy">
+                                                <rect key="frame" x="0.0" y="110" width="90" height="110"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTouchDeleteButton:" destination="uwQ-40-gxk" eventType="touchUpInside" id="p0W-ii-bfe"/>
+                                                    <action selector="didTouchDoneButton:" destination="MY7-XH-BuT" eventType="touchUpInside" id="zgM-nF-Mv6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDG-G0-bc5">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="110"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTouchCancelButton:" destination="MY7-XH-BuT" eventType="touchUpInside" id="8An-V4-RJ3"/>
+                                                    <action selector="didTouchRetakeButton:" destination="uwQ-40-gxk" eventType="touchUpInside" id="nZZ-vY-B2u"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="kDG-G0-bc5" firstAttribute="leading" secondItem="SoM-lW-Jqb" secondAttribute="leading" id="1OJ-dl-e6w"/>
+                                            <constraint firstAttribute="trailing" secondItem="6V7-M9-fwy" secondAttribute="trailing" id="GI0-ZI-Vz3"/>
+                                            <constraint firstAttribute="trailing" secondItem="kDG-G0-bc5" secondAttribute="trailing" id="JmU-cH-gyK"/>
+                                            <constraint firstItem="kDG-G0-bc5" firstAttribute="top" secondItem="SoM-lW-Jqb" secondAttribute="top" id="KqO-3c-pb2"/>
+                                            <constraint firstItem="6V7-M9-fwy" firstAttribute="leading" secondItem="SoM-lW-Jqb" secondAttribute="leading" id="dsD-94-hdY"/>
+                                            <constraint firstItem="6V7-M9-fwy" firstAttribute="top" secondItem="kDG-G0-bc5" secondAttribute="bottom" id="hSU-mK-sAx"/>
+                                            <constraint firstItem="kDG-G0-bc5" firstAttribute="height" secondItem="6V7-M9-fwy" secondAttribute="height" id="ify-wr-81c"/>
+                                            <constraint firstAttribute="width" constant="90" id="oSV-OJ-HDn"/>
+                                            <constraint firstAttribute="bottom" secondItem="6V7-M9-fwy" secondAttribute="bottom" id="pJ9-Y3-6BV"/>
+                                            <constraint firstItem="6V7-M9-fwy" firstAttribute="top" secondItem="kDG-G0-bc5" secondAttribute="bottom" id="xjJ-hQ-DLt"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="THb-J0-G4b" secondAttribute="trailing" constant="9" id="AEe-Bi-aAh"/>
+                                    <constraint firstAttribute="trailing" secondItem="SoM-lW-Jqb" secondAttribute="trailing" id="2w1-ob-zdM"/>
+                                    <constraint firstItem="SoM-lW-Jqb" firstAttribute="leading" secondItem="5WO-aR-V1Y" secondAttribute="trailing" id="Kg1-Se-lFR"/>
                                     <constraint firstItem="5WO-aR-V1Y" firstAttribute="top" secondItem="zdF-pU-2Qh" secondAttribute="top" id="L6h-VM-iEX"/>
+                                    <constraint firstAttribute="bottom" secondItem="SoM-lW-Jqb" secondAttribute="bottom" id="O0R-Jf-NMr"/>
                                     <constraint firstAttribute="bottom" secondItem="5WO-aR-V1Y" secondAttribute="bottom" id="TNL-u4-QGR"/>
-                                    <constraint firstItem="ESv-Lt-7cb" firstAttribute="leading" secondItem="zdF-pU-2Qh" secondAttribute="leading" constant="8" id="WL1-dE-fxb"/>
-                                    <constraint firstAttribute="trailing" secondItem="5WO-aR-V1Y" secondAttribute="trailing" id="hUy-MF-GAB"/>
+                                    <constraint firstItem="SoM-lW-Jqb" firstAttribute="top" secondItem="zdF-pU-2Qh" secondAttribute="top" id="VP0-PT-F24"/>
                                     <constraint firstItem="5WO-aR-V1Y" firstAttribute="leading" secondItem="zdF-pU-2Qh" secondAttribute="leading" id="jqa-5J-Erk"/>
-                                    <constraint firstItem="THb-J0-G4b" firstAttribute="top" secondItem="zdF-pU-2Qh" secondAttribute="top" constant="8" id="lgX-QX-Uct"/>
-                                    <constraint firstItem="ESv-Lt-7cb" firstAttribute="top" secondItem="zdF-pU-2Qh" secondAttribute="top" constant="8" id="ydp-CJ-3Xl"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -535,7 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iho-uB-kci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3908" y="-1601"/>
+            <point key="canvasLocation" x="3908" y="-1601.1994002998501"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="Paz-Xp-CL2">
@@ -613,7 +699,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWI-Ki-Ypj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="-179"/>
+            <point key="canvasLocation" x="2929" y="346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yvq-zF-e4t">
