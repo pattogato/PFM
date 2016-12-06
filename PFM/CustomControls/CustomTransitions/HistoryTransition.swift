@@ -9,7 +9,7 @@
 import UIKit
 
 final class HistoryTransition: PresentingTransitionAnimator {
-
+    
     //  MARK: - Constants
     
     
@@ -27,8 +27,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
     
     fileprivate func presentingAnimation( _ context : UIViewControllerContextTransitioning ) {
         
-        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? HistoryViewController,
-            let inputVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? InputViewController {
+        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? HistoryViewController {
             
             // Add 'toView' to context view
             
@@ -41,8 +40,10 @@ final class HistoryTransition: PresentingTransitionAnimator {
             
             historyView?.transform = CGAffineTransform(translationX: 0, y: -(historyView?.bounds.size.height)!)
             
-            historyVc.cashLabel.text = inputVc.amountLabel.text
-
+            // TODO betenni
+//            historyVc.cashLabel.text = inputVc.amountLabel.text
+            historyVc.cashLabel.text = "todo"
+            
             
             // Animate
             
@@ -56,7 +57,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
                     
                     historyView?.transform = CGAffineTransform.identity
                     
-                },
+            },
                 completion: { (completed) -> Void in
                     context.completeTransition(true)
             })
@@ -67,8 +68,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
     
     fileprivate func dismissAnimation( _ context : UIViewControllerContextTransitioning ) {
         
-        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? HistoryViewController,
-            let inputVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? InputViewController {
+        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? HistoryViewController {
             
             let historyView = historyVc.view
             
@@ -87,7 +87,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
                     
                     historyView?.transform = CGAffineTransform(translationX: 0, y: -(historyView?.bounds.size.height ?? 0))
                     
-                },
+            },
                 completion: { (completed) -> Void in
                     
                     context.completeTransition(true)
@@ -98,3 +98,4 @@ final class HistoryTransition: PresentingTransitionAnimator {
     }
     
 }
+
