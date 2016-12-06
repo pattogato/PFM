@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0106058A1DF76EB3000A2707 /* CategoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605891DF76EB3000A2707 /* CategoriesManager.swift */; };
+		0106058D1DF770A9000A2707 /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106058C1DF770A9000A2707 /* CategoriesPresenter.swift */; };
 		014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DBD1DD21A28004175EF /* APIResources.swift */; };
 		014E2DC11DD21F27004175EF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC01DD21F27004175EF /* AuthService.swift */; };
 		014E2DC31DD21F2E004175EF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC21DD21F2E004175EF /* UserService.swift */; };
@@ -179,6 +181,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010605891DF76EB3000A2707 /* CategoriesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesManager.swift; sourceTree = "<group>"; };
+		0106058C1DF770A9000A2707 /* CategoriesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
 		014E2DBD1DD21A28004175EF /* APIResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResources.swift; sourceTree = "<group>"; };
 		014E2DC01DD21F27004175EF /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		014E2DC21DD21F2E004175EF /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -348,6 +352,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0106058B1DF77099000A2707 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0106058C1DF770A9000A2707 /* CategoriesPresenter.swift */,
+			);
+			name = Categories;
+			path = Presenter/Categories;
+			sourceTree = "<group>";
+		};
 		014E2DBF1DD21F1F004175EF /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +442,7 @@
 			children = (
 				B19C33D01DF6C0E700C432DC /* FacebookManager.swift */,
 				B1157DF21DF63D7C00954671 /* UserManager.swift */,
+				010605891DF76EB3000A2707 /* CategoriesManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -544,6 +558,7 @@
 				B1783C181CB3B25300056895 /* Charts */,
 				B1783C231CB3C71300056895 /* Settings */,
 				B1783BF71CB2FAA200056895 /* Router.swift */,
+				0106058B1DF77099000A2707 /* Categories */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -1219,9 +1234,11 @@
 				B19C33D41DF6E7D700C432DC /* ChartsDataProvider.swift in Sources */,
 				E2D55DE11CF47A56002343BD /* HistoryViewController.swift in Sources */,
 				B120CA921CCD15F700E9985B /* InputContentViewController.swift in Sources */,
+				0106058D1DF770A9000A2707 /* CategoriesPresenter.swift in Sources */,
 				E2D55DE81CF47DE3002343BD /* HistoryHeaderCollectionReusableView.swift in Sources */,
 				B18EC8541DF085220069A722 /* NoteViewPresenter.swift in Sources */,
 				B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */,
+				0106058A1DF76EB3000A2707 /* CategoriesManager.swift in Sources */,
 				B1650D491DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift in Sources */,
 				B12655B01DBEB9E500AEDED5 /* LoaderProtocol.swift in Sources */,
 				B19C33D91DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift in Sources */,

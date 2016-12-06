@@ -10,7 +10,13 @@ import UIKit
 
 // TODO: PROTOKOLLOK
 
-final class CategoriesViewController: UIViewController {
+protocol CategoriesViewProtocol: class {
+    var categories: [CategoryModel] { get set }
+}
+
+final class CategoriesViewController: UIViewController, CategoriesViewProtocol {
+    
+    var presenter: CategoriesPresenterProtocol!
     
     // MARK: - Constants
     
@@ -59,7 +65,13 @@ final class CategoriesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-//        categories = MockDAL.mockCategories()
+        // TODO: Not very nice (should load from sb)
+        if presenter == nil {
+            presenter = UIApplication.resolve(
+                CategoriesPresenterProtocol.self,
+                argument: self as CategoriesViewProtocol
+            )
+        }
         
         let cellNib = UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main)
         collectionView.register(cellNib, forCellWithReuseIdentifier: kCategoryCellIdentifier)
@@ -67,21 +79,6 @@ final class CategoriesViewController: UIViewController {
         categoriesContainerView.layer.cornerRadius = 16
         self.collectionView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     //  MARK: - IBActions
     

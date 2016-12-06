@@ -56,6 +56,12 @@ final class ManagersAssembly: AssemblyType {
                 networkActivityIndicatorEnabled: true
             )
         }.inObjectScope(.container)
+        
+        container.register(CategoriesManagerProtocol.self) { r in
+            return CategoriesManager(
+                categoryService: r.resolve(CategoryServiceProtocol.self)!
+            )
+        }
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {

@@ -62,6 +62,14 @@ final class ViewsAssembly: AssemblyType {
             c.dataProvider = r.resolve(ChartsDataProviderProtocol.self)
         }
         
+        
+        container.registerForStoryboardProject(controllerType: CategoriesViewController.self) { (r, c) in
+            c.presenter = r.resolve(
+                CategoriesPresenterProtocol.self,
+                argument: c as CategoriesViewProtocol
+            )
+        }
+        
     }
     
     
