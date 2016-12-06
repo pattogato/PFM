@@ -30,8 +30,13 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol {
+final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol, RouterDependentProtocol {
 
+    
+    // MARK: Dependencies
+    var presenter: InputViewPresenterProtocol!
+    var router: RouterProtocol!
+    
     // MARK: - Constants
     
     fileprivate let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
@@ -44,11 +49,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     @IBOutlet weak var amountLabel: UILabel!
     
-    weak var inputContentPresenter: InputContentPresenterProtocol?
-    
     var transactionModel: TransactionModel?
-    
-    var presenter: InputViewPresenterProtocol?
     
     var categories = [CategoryModel]() {
         didSet {
@@ -79,9 +80,6 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     // MARK: - Properties
     
     var numpadViewController: NumpadViewController!
-    var locationPickerPresenter: LocationPickerPresenterProtocol?
-    
-    weak var delegate: SwipeViewControllerProtocol?
     
     var categoriesViewController: CategoriesViewController? = nil
     
@@ -103,7 +101,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupPulldownController()
         
         categories = MockDAL.mockCategories()
-        inputContentPresenter?.showContent(InputContentType.keyboard, keyboardType: KeyboardType.numeric)
+        presenter.openNumberPad()
         
         collectionView.register(
             UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main),
@@ -141,18 +139,14 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let inputContentVC = segue.destination as? InputContentViewProtocol
-            , segue.identifier == "InputContentContainerView" {
+        if let inputContentVC = segue.destination as? InputContentViewProtocol {
             
-            self.inputContentPresenter = InputContentPresenter(view: inputContentVC)
-            inputContentVC.presenter = self.inputContentPresenter
-            inputContentVC.parentVC = self
-            inputContentVC.delegate = self
-            
-        }
-        else if let historyVc = segue.destination as? HistoryViewController {
+            presenter.inputContentPresenter = inputContentVC.presenter
+            inputContentVC.contentDelegate = self.presenter
+        } else if let historyVc = segue.destination as? HistoryViewController {
             historyVc.transitioningDelegate = self
-            historyVc.transactions = Array(TransactionDataProvider.getAllTransactions())
+        } else if let noteView = segue.destination as? NoteViewProtocol {
+            noteView.presenter.delegate = self.presenter
         }
     }
     
@@ -169,43 +163,49 @@ extension InputViewController {
     // MARK: - Event handlers
     
     @IBAction func chartsButtonTouched(_ sender: AnyObject) {
-        presenter?.navigateToCharts()
+        presenter.navigateToCharts()
     }
     
     @IBAction func settingsButtonTouched(_ sender: AnyObject) {
-        presenter?.navigateToSettings()
+        presenter.navigateToSettings()
     }
     
     // IBActions
-
     
     @IBAction func changeKeyboardTypeButtonTouched(_ sender: AnyObject) {
-        presenter?.toggleKeyboardType()
+        presenter.toggleKeyboardType()
     }
     
     @IBAction func cameraButtonTouched(_ sender: AnyObject) {
-        self.presenter?.openCameraScreen()
+        if presenter.presentedContent == .image(image: nil) {
+            self.presenter.openNumberPad()
+        } else {
+            self.presenter.openCameraScreen(forced: false)
+        }
     }
     
     @IBAction func locationButtonTouched(_ sender: AnyObject) {
-        self.presenter?.openLocationScreen()
+        self.presenter.openLocationScreen()
     }
     
     @IBAction func noteButtonTouched(_ sender: AnyObject) {
+        presenter.openNoteScreen()
     }
     
     @IBAction func currencyButtonTouched(_ sender: AnyObject) {
-        self.presenter?.changeCurrency()
+        if presenter.presentedContent == .currencyPicker {
+            presenter.openNumberPad()
+        } else {
+            presenter.changeCurrency()
+        }
     }
     
     @IBAction func timeButtonTouched(_ sender: UIButton) {
-        if inputContentPresenter?.presentingType != InputContentType.datePicker {
-            inputContentPresenter?.showContent(InputContentType.datePicker, keyboardType: nil)
+        if presenter.presentedContent == .datePicker {
+            presenter.openNumberPad()
         } else {
-            inputContentPresenter?.showContent(InputContentType.keyboard, keyboardType: nil)
+            presenter.changeDate()
         }
-        
-        sender.isSelected = !sender.isSelected
     }
     
     @IBAction func handleCategoryTap(_ sender: AnyObject) {
@@ -226,12 +226,18 @@ extension InputViewController {
             viewController: self,
             onPickerCancelled: nil,
             onPickerImageSelected: { (image) in
-                print("got image2")
+                self.presenter.saveImage(image)
+                self.presenter.openCameraScreen(forced: false)
         })
     }
     
+    func openNoteScreen() {
+        self.performSegue(withIdentifier: "toNotesSegue", sender: nil)
+    }
+    
     func openLocationPicker() {
-        self.locationPickerPresenter = LocationPickerPresenter.presentLocationPicker(self)
+        // TODO: Implement
+//        self.locationPickerPresenter = LocationPickerPresenter.presentLocationPicker(self)
     }
     
     func resetUI() {
@@ -332,24 +338,6 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-// Numpad delegate methods
-
-extension InputViewController {
-    
-    func numberPadDelegateComaPressed() {
-        presenter?.enterComa()
-    }
-    
-    func numberPadDelegateNumberPressed(_ number: Int) {
-        presenter?.enterDigit(number)
-    }
-    
-    func numberPadDelegateDeletePressed() {
-        presenter?.deleteDigit()
-    }
-    
-}
-
 extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -377,27 +365,9 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        CurrentTransactionDataProvider.sharedInstance.saveCategory(categories[(indexPath as NSIndexPath).item])
+        presenter.saveCategory(categories[(indexPath as NSIndexPath).item])
     }
     
-}
-
-extension InputViewController: InputContentDelegate {
-    
-    func currencySelected(_ string: String) {
-        currencyButton.setTitle(string, for: UIControlState())
-        CurrentTransactionDataProvider.sharedInstance.saveCurrency(string)
-    }
-    
-    func dateSelected(_ date: Date) {
-        CurrentTransactionDataProvider.sharedInstance.saveDate(date)
-    }
-    
-    func saveButtonTouched() {
-        if let transaction = CurrentTransactionDataProvider.sharedInstance.getTransaction() {
-            self.presenter?.saveTransaction(transaction)
-        }
-    }
 }
 
 extension InputViewController: UITextFieldDelegate {
@@ -416,7 +386,7 @@ extension InputViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         keyboardHideTapGestureRecognizer?.isEnabled = false
-        CurrentTransactionDataProvider.sharedInstance.saveName(textField.text ?? "")
+        self.presenter.saveName(textField.text ?? "")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -429,7 +399,7 @@ extension InputViewController: UITextFieldDelegate {
 extension InputViewController: LocationPickerDelegate {
     
     func locationPicked(_ lat: Double, lng: Double, venue: String?) {
-        CurrentTransactionDataProvider.sharedInstance.saveLocation(lat, lng: lng, venue: venue)
+        self.presenter.saveLocation(lat: lat, lng: lng, venue: venue)
     }
     
 }

@@ -8,9 +8,7 @@
 
 import UIKit
 
-
-
-class InputContentViewController: UIViewController, InputContentViewProtocol {
+class InputContentViewController: UITabBarController, InputContentViewProtocol {
     
     // InputContentViewProtocol properties
     var presenter: InputContentPresenterProtocol!
@@ -18,106 +16,52 @@ class InputContentViewController: UIViewController, InputContentViewProtocol {
     var presentingKeyboardType: KeyboardType?
     
     // Delegate
-    weak var delegate: InputContentDelegate?
+    weak var contentDelegate: InputContentSelectorDelegate?
     
     // Outlets
     @IBOutlet weak var numericKeyboardContainerView: UIView!
     @IBOutlet weak var numberPadContainerView: UIView!
     @IBOutlet weak var datePickerContainerView: UIView!
     
-    // Properties
-    var numpadViewController: NumpadViewController!
-    
-    // Currencypicker
-    @IBOutlet weak var currencyPickerContainerView: UIView!
-    @IBOutlet weak var currencyPicker: UIPickerView!
-    fileprivate let currencyPickerData = ["AUD", "BAM", "BGN", "CAD", "CHF", "CNY", "CZK", "DKK", "EUR", "GBP", "HUF", "HRK", "ILS", "JPY", "NOK", "PLN", "RON", "RSD", "RUB", "SEK", "TRY", "UAH", "USD"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNumpad()
-        self.showKeyboard(KeyboardType.numeric)
-        self.setupCurrencyPicker()
-    }
-
-    func presentContentType(_ type: InputContentType, keyboardType: KeyboardType? = nil) {
-        switch type {
-        case .datePicker:
-            self.showDatePicker()
-        case .keyboard:
-            self.showKeyboard(keyboardType ?? (self.presentingKeyboardType ?? KeyboardType.numeric))
-        case .currencyPicker:
-            self.showCurrencyPicker()
+        
+        tabBar.isHidden = true
+        
+        if let viewControllers = self.viewControllers {
+            for vc in viewControllers {
+                if let selectorVC = vc as? InputContentSelectorProtocol {
+                    selectorVC.contentDelegate = self.contentDelegate
+                }
+            }
         }
     }
-    
-    func showDatePicker() {
-        self.showViewHideOthers(datePickerContainerView)
+
+    func presentContentType(_ type: InputContentType) {
+        selectedIndex = type.tabIndex
+
+        switch type {
+        case .image(let image):
+            if let imageContentVC = self.viewControllers?[selectedIndex] as? InputContentSelectorImageViewController {
+                imageContentVC.image = image
+                imageContentVC.delegate = self.contentDelegate
+            }
+        default:
+            break
+        }
     }
-    
-    func showKeyboard(_ type: KeyboardType) {
-        self.presentingKeyboardType = type
-        self.showViewHideOthers(self.numericKeyboardContainerView)
-    }
-    
-    
-    func setupNumpad() {
-        numpadViewController = NumpadViewController(nibName: "NumpadViewController", bundle: Bundle.main)
-        self.addChildViewController(numpadViewController)
-        self.numpadViewController.view.frame = numberPadContainerView.bounds
-        self.numberPadContainerView.addSubview(numpadViewController!.view)
-        self.numpadViewController?.didMove(toParentViewController: self)
-        numpadViewController.delegate = self.parentVC
-    }
-    
-    // Currency picker
-    
-    func setupCurrencyPicker() {
-        currencyPicker.delegate = self
-        currencyPicker.dataSource = self
-    }
-    
-    func showCurrencyPicker() {
-        self.showViewHideOthers(currencyPickerContainerView)
-    }
-    
-    @IBAction func selectCurrencyButtonDoneTouched(_ sender: AnyObject) {
-        self.showKeyboard(self.presentingKeyboardType ?? KeyboardType.numeric)
-    }
-    
-    // Common
-    func showViewHideOthers(_ view: UIView) {
-        self.datePickerContainerView.isHidden = view != datePickerContainerView
-        self.numericKeyboardContainerView.isHidden = view != numericKeyboardContainerView
-        self.currencyPickerContainerView.isHidden = view != currencyPickerContainerView
-    }
-    
-    // Save
-    
-    @IBAction func okButtonTouched(_ sender: AnyObject) {
-        self.delegate?.saveButtonTouched?()
-    }
+
 }
 
-extension InputContentViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return currencyPickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return currencyPickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        delegate?.currencySelected?(currencyPickerData[row])
-        
-    }
-    
-}
 
+fileprivate extension InputContentType {
+    var tabIndex: Int {
+        switch self {
+        case .datePicker: return 0
+        case .currencyPicker: return 1
+        case .numericKeyboard: return 2
+        case .image: return 3
+        default: return 0
+        }
+    }
+}

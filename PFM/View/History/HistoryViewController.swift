@@ -12,6 +12,8 @@ import UIKit
 
 final class HistoryViewController: UIViewController {
     
+    // TODO: View protocol, presenter, adatok kiszervezése
+    
     // MARK: - Constants
 
     fileprivate struct Constants {

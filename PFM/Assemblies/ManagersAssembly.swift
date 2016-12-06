@@ -8,29 +8,53 @@
 
 import Foundation
 import Swinject
+import SwinjectStoryboard
 
 final class ManagersAssembly: AssemblyType {
+    
+    fileprivate let assembler = Assembler(container: SwinjectStoryboard.defaultContainer)
     
     func assemble(container: Container) {
         
         container.register(RouterProtocol.self) { r in
-            return Router()
-            }.inObjectScope(.container)
+            // Resolve storyboards:
+            var storyboards: [Storyboards: UIStoryboard] = [:]
+            for storyboard in Storyboards.all() {
+                storyboards[storyboard] = r.resolve(UIStoryboard.self, name: storyboard.name)
+            }
+            
+            return Router(
+                window: r.resolve(UIWindow.self)!,
+                storyboards: storyboards)
+        }.inObjectScope(.container)
         
-//        container.register(DALHelperProtocol.self) { r in
-//            return DALHelper(
-//                encrypted: false,
-//                schemaVersion: 13,
-//                migrationBlock: nil)
-//        }.inObjectScope(.container)
+        container.register(DALHelperProtocol.self) { r in
+            return DALHelper(
+                encrypted: false,
+                schemaVersion: 1,
+                migrationBlock: nil)
+        }.inObjectScope(.container)
         
+        // User Manager
+        container.register(UserManagerProtocol.self) { r in
+            return DummyUserManager()
+        }.inObjectScope(.container)
         
-//        container.register(SwipeNavigationManagerProtcol.self) {
-//            (r, a: SwipeNavigationManagerDataSource) -> SwipeNavigationManagerProtcol in
-//            return SwipeNavigationManager(
-//                dataSource: a
-//            )
-//        }
-        
+        // Facebook manager
+        // Facebook
+        container.register(FacebookManagerProtocol.self) { r in
+            return FacebookManager()
+        }.inObjectScope(.container)
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        let resolver = assembler.resolver
+        resolver.resolve(FacebookManagerProtocol.self)!.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        // Try to parse facebook url
+        let resolver = assembler.resolver
+        return resolver.resolve(FacebookManagerProtocol.self)!.application(app, open: url, options: options)
     }
 }

@@ -8,9 +8,7 @@
 
 import UIKit
 
-protocol InputViewPresenterProtocol {
-    
-    init(view: InputViewProtocol)
+protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     
     /**
      Writes a digit to the input field
@@ -42,21 +40,23 @@ protocol InputViewPresenterProtocol {
     
     /**
      Saves the transaction model to the database
-     
-     - Parameters:
-     - transaction: The editingTransaction model will be saved to the DB
      */
-    func saveTransaction(_ transaction: TransactionModel)
+    func saveTransaction()
+    
+    /**
+     Saves the selected category
+     */
+    func saveCategory(_ category: CategoryModel)
     
     /**
      Shows the currency changer view
      */
     func changeCurrency()
     
-    /**
-     Opens the image input screen
-     */
-    func openCameraScreen()
+    /// - Parameter forced: set to true, if want to go to image selector
+    func openCameraScreen(forced: Bool)
+    
+    func openNumberPad()
     
     /**
      Opens the location input screen
@@ -83,5 +83,20 @@ protocol InputViewPresenterProtocol {
      */
     func navigateToSettings()
     
+    func saveCurrency(_ currency: String)
     
+    func saveDate(_ date: Date)
+    
+    func saveName(_ name: String)
+    
+    func saveLocation(lat: Double, lng: Double, venue: String?)
+    
+    func saveImage(_ image: UIImage)
+    
+    func deleteImage()
+    
+    var presentedContent: InputContentType { get }
+    
+    var inputContentPresenter: InputContentPresenterProtocol! { get set }
 }
+

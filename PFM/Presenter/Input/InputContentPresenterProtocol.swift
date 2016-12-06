@@ -8,10 +8,27 @@
 
 import Foundation
 
-enum InputContentType {
-    case keyboard
+enum InputContentType: Equatable {
+    case numericKeyboard
     case datePicker
     case currencyPicker
+    case image(image: UIImage?)
+    case note
+    
+    static var defaultType: InputContentType {
+        return .numericKeyboard
+    }
+}
+
+func ==(lhs: InputContentType, rhs: InputContentType) -> Bool {
+    switch (lhs, rhs) {
+    case (.image(_), .image(_)): return true
+    case (.numericKeyboard, .numericKeyboard): return true
+    case (.datePicker, .datePicker): return true
+    case (.currencyPicker, .currencyPicker): return true
+    case (.note, .note): return true
+    default: return false
+    }
 }
 
 protocol InputContentPresenterProtocol: class {
@@ -21,6 +38,6 @@ protocol InputContentPresenterProtocol: class {
     /**
         Toggles to the selected type of input type
      */
-    func showContent(_ type: InputContentType, keyboardType: KeyboardType?)
+    func showContent(_ type: InputContentType)
     
 }

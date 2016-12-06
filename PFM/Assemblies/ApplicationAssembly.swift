@@ -15,9 +15,11 @@ final class ApplicationAssembly: AssemblyType {
     class func resolveAppDelegateDependencies(appDelegate: AppDelegate) {
         let resolver = appDelegate.assembler.resolver
         appDelegate.router = resolver.resolve(RouterProtocol.self)!
+        appDelegate.window = resolver.resolve(UIWindow.self)
     }
     
     func assemble(container: Container) {
+        registerWindow(container: container)
         registerStoryboards(container: container)
         registerViewControllers(container: container)
     }
@@ -41,31 +43,19 @@ final class ApplicationAssembly: AssemblyType {
     private func registerViewControllers(container: Container) {
         // Register all viewcontrollers here
         
-//        // Generals
-//        container.registerForStoryboardProject(controllerType: HeroTabRootNavigationController.self) { (r, c) in
-//            c.swipeNavigator = r.resolve(ApplicationRouterProtocol.self)
-//        }
-//        
+        
+    }
+    
+    private func registerWindow(container: Container) {
+        container.register(UIWindow.self) { (r) -> UIWindow in
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            window.makeKeyAndVisible()
+            return window
+            }.inObjectScope(.container)
     }
 }
 
-fileprivate extension Container {
-    
-    func registerForStoryboardProject<C:Controller>(controllerType: C.Type, name: String? = nil, initCompleted: ((ResolverType, C) -> ())? = nil) {
-        self.registerForStoryboard(controllerType, name: name) { (r, c) in
-            
-            // Resolve known dependencies
-            
-//            if let c = c as? ApplicationRouterDependantProtocol {
-//                c.applicationRouter = r.resolve(ApplicationRouterProtocol.self)
-//            }
-            
-            // Call additional resolver
-            initCompleted?(r, c)
-        }
-    }
-    
-}
+
 
 enum Storyboards {
     case main
@@ -74,6 +64,7 @@ enum Storyboards {
     case charts
     case history
     case settings
+    case login
     
     static func all() -> [Storyboards] {
         return [
@@ -83,6 +74,7 @@ enum Storyboards {
             charts,
             history,
             settings,
+            login
         ]
     }
     
@@ -90,10 +82,11 @@ enum Storyboards {
         switch self {
         case .main: return "Main"
         case .launchScreen: return "LaunchScreen"
-        case .input: return "InputStoryboard"
-        case .charts: return "ChartsStoryboard"
-        case .history: return "HistoryStoryboard"
-        case .settings: return "SettingsStoryboard"
+        case .input: return "Input"
+        case .charts: return "Charts"
+        case .history: return "History"
+        case .settings: return "Settings"
+        case .login: return "Login"
         }
     }
 }
@@ -103,7 +96,8 @@ enum ViewControllers {
     case charts
     case history
     case settings
-    
+    case login
+    case loginNavigation
     
     var storyboard: Storyboards {
         switch self {
@@ -111,6 +105,8 @@ enum ViewControllers {
         case .charts: return .charts
         case .history: return .history
         case .settings: return .settings
+        case .login: return .login
+        case .loginNavigation: return .login
         }
     }
     
@@ -120,6 +116,8 @@ enum ViewControllers {
         case .charts: return "ChartsViewControllerStoryboardID"
         case .history: return "HistoryViewControllerStoryboardID"
         case .settings: return "SettingsViewControllerStoryboardID"
+        case .login: return "LoginViewControllerStoryboardID"
+        case .loginNavigation: return "LoginNavigationViewControllerID"
         }
     }
 }

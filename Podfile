@@ -7,6 +7,7 @@ target 'PFM' do
     
     # Utils
     pod 'SwiftDate', '~> 4.0' # Date helper
+    pod 'Locksmith', '~> 3.0.0' # Keychain wrapper
     
     # Async handling
     pod 'PromiseKit'
@@ -16,6 +17,8 @@ target 'PFM' do
     pod 'LocationPickerViewController', :git => 'https://github.com/JeromeTan1997/LocationPicker', :branch => 'swift-3'
     pod 'EZSwipeController', :git => 'https://github.com/pattogato/EZSwipeController', :branch => 'bugfix/swift-3-fixes'
     pod 'MBPullDownController', '~> 1.0'
+    pod 'Charts/Realm' # Presenting beautifil charts
+    pod 'KMPlaceholderTextView', '~> 1.3.0' # UITextField with placeholder
     
     # Dependency indejction
     pod 'Swinject', '~> 2.0.0-beta.2' # DI Tool

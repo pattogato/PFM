@@ -8,8 +8,21 @@
 
 import UIKit
 
+protocol RouterDependentProtocol: class {
+    var router: RouterProtocol! { get set }
+}
+
 protocol RouterProtocol {
-    func setSwipeControllerToRoot(_ window: inout UIWindow?)
+    func showPage(page: SwipeControllerPosition, animated: Bool)
+    
+    func change(rootViewController: UIViewController)
+    func showViewController(ofType type: ViewControllers)
+    func viewController(ofType type: ViewControllers) -> UIViewController
+    func start()
+}
+
+protocol SwipeNavigatorProtocol {
+    func showPage(page: SwipeControllerPosition, animated: Bool)
 }
 
 /**
@@ -17,100 +30,81 @@ protocol RouterProtocol {
  */
 class Router: RouterProtocol {
     
-    static let sharedInstance = Router()
+    fileprivate let storyboards: [Storyboards: UIStoryboard]
+    fileprivate let window: UIWindow
     
-    init() {
-        // Initalization code comes here
+    private var _swipeNavigationManager: SwipeNavigationPresenterProtocol?
+    fileprivate var swipeNavigationPresenter: SwipeNavigationPresenterProtocol! {
+        get {
+            if let existingManager = _swipeNavigationManager {
+                return existingManager
+            } else {
+                let newManager = UIApplication.resolve(
+                    SwipeNavigationPresenterProtocol.self,
+                    argument: self as SwipeNavigationManagerDataSource)
+                
+                _swipeNavigationManager = newManager
+                
+                return newManager
+            }
+        }
+    }
+  
+    init(window: UIWindow,
+         storyboards: [Storyboards: UIStoryboard]) {
+        self.window = window
+        self.storyboards = storyboards
     }
     
-    // MARK: - View initalizations
-    
-    /**
-     Initializes an input screen that conforms to protocol: InputViewProtocol
-     
-     - Returns: Returns the initialized View
-     */
-    func initInputScreen() -> InputViewController {
-        
-        let inputVC = Router.initViewController("InputStoryboard", storyboardID: StoryboardID.inputViewController) as! InputViewController
-        
-        let inputViewPresenter = InputViewPresenter(view: inputVC)
-        inputVC.presenter = inputViewPresenter
-        
-        return inputVC
+    func start() {
+        // Do something else if needed at first start
+        route()
     }
     
-    func initInputScreenNavigationController() -> UINavigationController {
-        return Router.initViewController("InputStoryboard", storyboardID: StoryboardID.inputNavigationController) as! UINavigationController
+    func route() {
+        swipeNavigationPresenter.setAsRootWindow(window: self.window)
+        swipeNavigationPresenter.showPage(page: .middle, animated: false)
     }
     
-    /**
-     Initializes an input screen that conforms to protocol: InputViewProtocol
-     
-     - Returns: Returns the initialized View
-     */
-    func initChartsScreen() -> ChartsViewProtocol {
-        let chartsVC = Router.initViewController("ChartsStoryboard", storyboardID: StoryboardID.chartsViewController) as! ChartsViewController
-        
-        let chartViewPresenter = ChartsViewPresenter(view: chartsVC)
-        
-        chartsVC.presenter = chartViewPresenter
-        
-        return chartsVC
+    func showViewController(ofType type: ViewControllers) {
+        change(rootViewController: viewController(ofType: type))
     }
     
-    func initSettingsScreen() -> SettingsViewProtocol {
-        let settingsVC = Router.initViewController("SettingsStoryboard", storyboardID: StoryboardID.settingsViewController) as! SettingsViewController
-        
-        let settingsViewPresenter = SettingsViewPresenter(view: settingsVC)
-        
-        settingsVC.presenter = settingsViewPresenter
-        
-        return settingsVC
+    func change(rootViewController: UIViewController) {
+        window.rootViewController = rootViewController
     }
     
-    func initLocationPickerScreen() -> LocationPickerViewProtocol {
-        
-        let locationVC = Router.initViewController("InputStoryboard", storyboardID: StoryboardID.locationPickerViewController) as! LocationPickerViewProtocol
-        
-        let _ = LocationPickerPresenter(view: locationVC)
-        
-        return locationVC
-    }
- 
-    // MARK: Swipe navigation
-    
-    func setSwipeControllerToRoot(_ window: inout UIWindow?) {
-        let swipeVC = Router.initViewController(storyboardID: StoryboardID.swipeViewController) as! SwipeNavigationController
-        
-        let swipeViewPresenter = SwipeNavigationPresenter(view: swipeVC)
-        swipeVC.presenter = swipeViewPresenter
-        
-        swipeViewPresenter.presentNavigationRoot(&window)
+    func viewController(ofType type: ViewControllers) -> UIViewController {
+        let storyboard = self.storyboards[type.storyboard]
+        assert(storyboard != nil, "Storyboard should be registered before first use.")
+        return storyboard!.instantiateViewController(withIdentifier: type.identifier)
     }
     
-    
-    /**
-        Shows the view left from the visible if there is one
-     */
-    func swipeToLeft() {
-        
-    }
-    
-    /**
-        Shows the view right from the visible if there is one
-     */
-    func swipeToRight() {
-        
-    }
-    
-    /**
-        Swipes to the given indexed view
-     */
-    func swipeToIndex(_ index: Int) {
-        
+    func enableSwipe(enable: Bool) {
+        swipeNavigationPresenter.swipeEnabled = enable
     }
 
+}
+
+extension Router: SwipeNavigatorProtocol {
+    func showPage(page: SwipeControllerPosition, animated: Bool) {
+        swipeNavigationPresenter.showPage(page: page, animated: true)
+    }
+    
+}
+
+extension Router: SwipeNavigationManagerDataSource {
+    func viewControllerData() -> [UIViewController] {
+        return [
+            viewController(ofType: .charts),
+            viewController(ofType: .input),
+            viewController(ofType: .settings)
+        ]
+    }
+    
+    func startPosition() -> SwipeControllerPosition {
+        return .middle
+    }
 }
 
 extension Router {

@@ -10,10 +10,13 @@ import UIKit
 
 class ChartsViewPresenter: ChartsViewPresenterProtocol {
 
+    let router: RouterProtocol
+    
     unowned let view: ChartsViewProtocol
     
-    required init(view: ChartsViewProtocol) {
+    required init(view: ChartsViewProtocol, router: RouterProtocol) {
         self.view = view
+        self.router = router
     }
     
     func openChart() {
@@ -21,6 +24,6 @@ class ChartsViewPresenter: ChartsViewPresenterProtocol {
     }
     
     func navigateToInputScreen() {
-        view.delegate?.swipePageToRight()
+        router.showPage(page: .middle, animated: true)
     }
 }

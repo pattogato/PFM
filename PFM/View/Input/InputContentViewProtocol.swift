@@ -8,21 +8,32 @@
 
 import Foundation
 
-@objc
-protocol InputContentDelegate: class {
-    @objc optional func currencySelected(_ string: String)
-    @objc optional func dateSelected(_ date: Date)
-    @objc optional func saveButtonTouched()
+//@objc
+//protocol InputContentDelegate: class {
+//    @objc optional func currencySelected(_ string: String)
+//    @objc optional func dateSelected(_ date: Date)
+//    @objc optional func saveButtonTouched()
+//}
+
+protocol InputContentSelectorDelegate: class {
+    
+    func valueSelected(type: InputContentType, value: Any)
+    func selectorCancelled()
+    func imageRetake()
+    func deleteValue(type: InputContentType)
 }
 
-protocol InputContentViewProtocol:class {
+protocol InputContentViewProtocol: class {
     
     var presenter: InputContentPresenterProtocol! { get set }
-    weak var parentVC: InputViewProtocol! { get set }
-    weak var delegate: InputContentDelegate? { get set }
     
-    var presentingKeyboardType: KeyboardType? {get set }
+    weak var contentDelegate: InputContentSelectorDelegate? { get set }
     
-    func presentContentType(_ type: InputContentType, keyboardType: KeyboardType?)
+    func presentContentType(_ type: InputContentType)
+}
+
+protocol InputContentSelectorProtocol: class {
+    
+    weak var contentDelegate: InputContentSelectorDelegate? { get set }
     
 }
