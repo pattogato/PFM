@@ -14,42 +14,43 @@ protocol UserManagerProtocol {
     var loggedInUser: UserModel? { get }
     
     func loginUser(email: String, password: String) -> Promise<UserModel>
-    func loginWithFacebook() -> Promise<UserModel>
+    func login(facebookToken: String) -> Promise<UserModel>
     func logoutUser()
     func updateUser(user: UserModel) -> Promise<UserModel>
     func signupUser(email: String, password: String) -> Promise<UserModel>
 
 }
 
-final class DummyUserManager: UserManagerProtocol {
+final class UserManager: UserManagerProtocol {
+    
+    private let authService: AuthServiceProtocol!
+    
+    init(authService: AuthServiceProtocol) {
+        self.authService = authService
+    }
     
     var loggedInUser: UserModel?
     
     func loginUser(email: String, password: String) -> Promise<UserModel> {
-        return after(interval: 1.5).then(execute: { () -> Promise<UserModel> in
-            return Promise(value: self.createDummyUser()).then(execute: { (userModel) -> Promise<UserModel> in
-                self.loggedInUser = userModel
-                return Promise(value: userModel)
-            })
-        })
+        let promise = authService.login(email: email, password: password)
+        return handleLoginPromise(promise: promise)
     }
     
-    func loginWithFacebook() -> Promise<UserModel> {
-        return after(interval: 1.5).then(execute: { () -> Promise<UserModel> in
-            return Promise(value: self.createDummyUser()).then(execute: { (userModel) -> Promise<UserModel> in
-                self.loggedInUser = userModel
-                return Promise(value: userModel)
-            })
-        })
+    func login(facebookToken: String) -> Promise<UserModel> {
+        let promise = authService.login(facebookToken: facebookToken)
+        return handleLoginPromise(promise: promise)
     }
     
     func signupUser(email: String, password: String) -> Promise<UserModel> {
-        return after(interval: 1.5).then(execute: { () -> Promise<UserModel> in
-            return Promise(value: self.createDummyUser()).then(execute: { (userModel) -> Promise<UserModel> in
-                self.loggedInUser = userModel
-                return Promise(value: userModel)
-            })
-        })
+        let promise = authService.register(email: email, password: password)
+        return handleLoginPromise(promise: promise)
+    }
+    
+    private func handleLoginPromise(promise: Promise<UserModel>) -> Promise<UserModel> {
+        return promise.then { (userModel) -> UserModel in
+            self.loggedInUser = userModel
+            return userModel
+        }
     }
     
     func logoutUser() {

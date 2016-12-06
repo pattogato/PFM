@@ -45,6 +45,10 @@ extension PFMServerMethod {
 }
 
 struct API {
+    
+    static let baseUrlString = "http://pfm2016.azurewebsites.net/"
+    static var baseUrl: URL { return URL(string: baseUrlString)! }
+    
     struct Method {
         
         enum Auth: PFMServerMethod {
@@ -53,12 +57,12 @@ struct API {
             case forgotPassword
             
             var additionalPath: String? {
-                return "auth"
+                return nil
             }
             
             var lastPath: String? {
                 switch self {
-                case .login: return "login"
+                case .login: return "token"
                 case .register: return "register"
                 case .forgotPassword: return "forgotPassword"
                 }
@@ -67,13 +71,17 @@ struct API {
             var needsAuthentication: Bool {
                 return false
             }
+            
+            var parameterEncoding: ParameterEncoding {
+                return URLEncoding.default
+            }
         }
         
         enum User: PFMServerMethod {
             case edit
             
             var additionalPath: String? {
-                return "user"
+                return "api/user"
             }
             
             var lastPath: String? {
@@ -87,7 +95,7 @@ struct API {
             case get
             
             var additionalPath: String? {
-                return "categories"
+                return "api/categories"
             }
         }
         
@@ -98,7 +106,7 @@ struct API {
             case delete
             
             var additionalPath: String? {
-                return "transactions"
+                return "api/transactions"
             }
             
             var httpMethod: HTTPMethod {

@@ -12,9 +12,9 @@ import PromiseKit
 import ObjectMapper
 
 protocol AuthServiceProtocol {
-    func login(email: String, password: String) -> Promise<EmptyNetworkResponseModel>
-    func login(facebookToken: String) -> Promise<EmptyNetworkResponseModel>
-    func register(email: String, password: String) -> Promise<EmptyNetworkResponseModel>
+    func login(email: String, password: String) -> Promise<UserModel>
+    func login(facebookToken: String) -> Promise<UserModel>
+    func register(email: String, password: String) -> Promise<UserModel>
     func forgotPassword(email: String) -> Promise<EmptyNetworkResponseModel>
 }
 
@@ -26,7 +26,7 @@ final class AuthService: AuthServiceProtocol {
         self.apiClient = apiClient
     }
     
-    func login(email: String, password: String) -> Promise<EmptyNetworkResponseModel> {
+    func login(email: String, password: String) -> Promise<UserModel> {
         return apiClient.mappedServerMethod(
             method: API.Method.Auth.login,
             object: EmailLoginModel(
@@ -35,7 +35,7 @@ final class AuthService: AuthServiceProtocol {
         )
     }
     
-    func login(facebookToken: String) -> Promise<EmptyNetworkResponseModel> {
+    func login(facebookToken: String) -> Promise<UserModel> {
         return apiClient.mappedServerMethod(
             method: API.Method.Auth.login,
             object: FacebookLoginModel(
@@ -44,9 +44,9 @@ final class AuthService: AuthServiceProtocol {
         )
     }
     
-    func register(email: String, password: String) -> Promise<EmptyNetworkResponseModel> {
+    func register(email: String, password: String) -> Promise<UserModel> {
         return apiClient.mappedServerMethod(
-            method: API.Method.Auth.login,
+            method: API.Method.Auth.register,
             object: RegistrationModel(
                 email: email, password: password
             )
@@ -55,7 +55,7 @@ final class AuthService: AuthServiceProtocol {
     
     func forgotPassword(email: String) -> Promise<EmptyNetworkResponseModel> {
         return apiClient.mappedServerMethod(
-            method: API.Method.Auth.login,
+            method: API.Method.Auth.forgotPassword,
             object: ForgotPasswordModel(
                 email: email
             )
@@ -71,6 +71,9 @@ fileprivate struct EmailLoginModel: BaseMappable {
     mutating func mapping(map: Map) {
         email <- map["email"]
         password <- map["password"]
+        
+        var grantType = "password"
+        grantType <- map["grant_type"]
     }
 }
 

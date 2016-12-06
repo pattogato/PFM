@@ -23,3 +23,8 @@ protocol LoginPresenterProtocol {
     func dismiss()
     func cancelLogin()
 }
+
+enum LoginError: Swift.Error {
+    case userCancelled
+    case networkError
+}

@@ -37,13 +37,24 @@ final class ManagersAssembly: AssemblyType {
         
         // User Manager
         container.register(UserManagerProtocol.self) { r in
-            return DummyUserManager()
+            return UserManager(
+                authService: r.resolve(AuthServiceProtocol.self)!
+            )
         }.inObjectScope(.container)
         
         // Facebook manager
         // Facebook
         container.register(FacebookManagerProtocol.self) { r in
             return FacebookManager()
+        }.inObjectScope(.container)
+        
+        // API Client
+        container.register(RESTAPIClientProtocol.self) { r in
+            return RESTAPIClient(
+                baseUrl: API.baseUrl,
+                errorType: nil, // TODO: Custom API error
+                networkActivityIndicatorEnabled: true
+            )
         }.inObjectScope(.container)
     }
     

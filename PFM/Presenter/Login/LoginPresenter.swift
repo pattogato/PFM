@@ -9,11 +9,6 @@
 import Foundation
 import PromiseKit
 
-enum LoginError: Swift.Error {
-    case userCancelled
-    case networkError
-}
-
 final class LoginPresenter: LoginPresenterProtocol {
     
     let view: LoginViewProtocol
@@ -49,43 +44,47 @@ final class LoginPresenter: LoginPresenterProtocol {
     
     func loginWith(email: String, password: String) -> Promise<UserModel> {
         self.view.showLoadingAnimation()
-        return userManager.loginUser(email: email, password: password).then { (userModel) -> Promise<UserModel> in
-            self.dismiss()
-            self.responseBlock?.fulfill(userModel)
-            return Promise(value: userModel)
-        }.catch { error in
-            self.responseBlock?.reject(error)
-        }.always {
-            self.view.hideLoadingAnimation()
-        }
-    }
-    
-    func signupWith(email: String, password: String) -> Promise<UserModel> {
-        self.view.showLoadingAnimation()
-        return userManager.signupUser(email: email, password: password).then { (userModel) -> Promise<UserModel> in
-            self.dismiss()
-            self.responseBlock?.fulfill(userModel)
-            return Promise(value: userModel)
-        }.catch{ error in
-            self.responseBlock?.reject(error)
-        }.always {
-                self.view.hideLoadingAnimation()
-        }
-    }
-    
-    func loginWithFacebook() -> Promise<UserModel> {
-        return facebookManager.getFacebookUserData(viewController: self.view as! UIViewController).then { (socialUserData) -> Promise<UserModel> in
-            
-            self.view.showLoadingAnimation()
-            return self.userManager.loginWithFacebook().then { (userModel) -> Promise<UserModel> in
+        return userManager.loginUser(email: email, password: password)
+            .then { (userModel) -> Promise<UserModel> in
                 self.dismiss()
                 self.responseBlock?.fulfill(userModel)
                 return Promise(value: userModel)
             }.catch { error in
                 self.responseBlock?.reject(error)
             }.always {
-                    self.view.hideLoadingAnimation()
-            }
+                self.view.hideLoadingAnimation()
+        }
+    }
+    
+    func signupWith(email: String, password: String) -> Promise<UserModel> {
+        self.view.showLoadingAnimation()
+        return userManager.signupUser(email: email, password: password)
+            .then { (userModel) -> Promise<UserModel> in
+                self.dismiss()
+                self.responseBlock?.fulfill(userModel)
+                return Promise(value: userModel)
+            }.catch{ error in
+                self.responseBlock?.reject(error)
+            }.always {
+                self.view.hideLoadingAnimation()
+        }
+    }
+    
+    func loginWithFacebook() -> Promise<UserModel> {
+        self.view.showLoadingAnimation()
+        return facebookManager.getFacebookUserData(
+            viewController: self.view as! UIViewController)
+            .then { (socialUserData) -> Promise<UserModel> in
+                return self.userManager.login(facebookToken: socialUserData.accessToken)
+                    .then { (userModel) -> Promise<UserModel> in
+                        self.dismiss()
+                        self.responseBlock?.fulfill(userModel)
+                        return Promise(value: userModel)
+                    }.catch { error in
+                        self.responseBlock?.reject(error)
+                    }
+            }.always {
+                self.view.hideLoadingAnimation()
         }
     }
     
