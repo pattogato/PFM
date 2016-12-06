@@ -27,6 +27,12 @@ class ChartsViewController: UIViewController, PresentableView {
     @IBOutlet weak var lastFewDaysBarChartView: BarChartView!
     @IBOutlet weak var lastFewMonthBarChartView: BarChartView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupChartAppearances()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -50,6 +56,11 @@ class ChartsViewController: UIViewController, PresentableView {
             let month2 = (-1.months).fromNow() {
             self.lastFewMonthBarChartView.data = dataProvider.getLastMonthsBarChartData(months: [month1, month2, Date()])
         }
+    }
+    
+    func setupChartAppearances() {
+        // TODO - Dani: design
+        // storyboardban kurva sok mindent be lehet állítani, lehet elég onnan is 8==D ~~~ :-)
     }
 }
 
