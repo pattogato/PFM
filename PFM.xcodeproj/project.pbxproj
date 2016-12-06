@@ -75,7 +75,6 @@
 		B1783C051CB3059800056895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C041CB3059800056895 /* Constants.swift */; };
 		B1783C071CB3073F00056895 /* InputViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C061CB3073F00056895 /* InputViewPresenter.swift */; };
 		B1783C091CB30A1000056895 /* PresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C081CB30A1000056895 /* PresentableView.swift */; };
-		B1783C0C1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C0B1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift */; };
 		B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C0E1CB3981B00056895 /* NavigationViewProtocol.swift */; };
 		B1783C1A1CB3B26C00056895 /* ChartsViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C191CB3B26C00056895 /* ChartsViewPresenterProtocol.swift */; };
 		B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C1D1CB3B44000056895 /* ChartsViewProtocol.swift */; };
@@ -101,6 +100,7 @@
 		B18EC8561DF085340069A722 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC8551DF085340069A722 /* NoteViewController.swift */; };
 		B19C33D11DF6C0E700C432DC /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D01DF6C0E700C432DC /* FacebookManager.swift */; };
 		B19C33D41DF6E7D700C432DC /* ChartsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D31DF6E7D700C432DC /* ChartsDataProvider.swift */; };
+		B19C33D91DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D81DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
@@ -261,7 +261,6 @@
 		B1783C041CB3059800056895 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utils/Constants.swift; sourceTree = "<group>"; };
 		B1783C061CB3073F00056895 /* InputViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputViewPresenter.swift; path = Presenter/Input/InputViewPresenter.swift; sourceTree = "<group>"; };
 		B1783C081CB30A1000056895 /* PresentableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentableView.swift; path = Presenter/PresentableView.swift; sourceTree = "<group>"; };
-		B1783C0B1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeNavigationPresenterProtocol.swift; path = Presenter/Navigation/SwipeNavigationPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1783C0E1CB3981B00056895 /* NavigationViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationViewProtocol.swift; path = View/Navigation/NavigationViewProtocol.swift; sourceTree = "<group>"; };
 		B1783C191CB3B26C00056895 /* ChartsViewPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewPresenterProtocol.swift; path = Presenter/Charts/ChartsViewPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1783C1D1CB3B44000056895 /* ChartsViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewProtocol.swift; path = View/Charts/ChartsViewProtocol.swift; sourceTree = "<group>"; };
@@ -291,6 +290,7 @@
 		B19C33D01DF6C0E700C432DC /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		B19C33D21DF6D4CA00C432DC /* PFM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PFM.entitlements; sourceTree = "<group>"; };
 		B19C33D31DF6E7D700C432DC /* ChartsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsDataProvider.swift; path = DAL/Interactors/ChartsDataProvider.swift; sourceTree = "<group>"; };
+		B19C33D81DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeNavigationPresenterProtocol.swift; path = Presenter/Navigation/SwipeNavigationPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenter.swift; path = Presenter/Input/LocationPickerPresenter.swift; sourceTree = "<group>"; };
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
@@ -599,6 +599,7 @@
 				B120CA851CCCFDC100E9985B /* Extensions.swift */,
 				B12655A91DBEB48D00AEDED5 /* UserDefaults.swift */,
 				014E2DCD1DD23100004175EF /* RealmExtensions.swift */,
+				B10B2ECE1DD1D1F70089E848 /* Extensions+UIApplication.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -606,8 +607,8 @@
 		B1783C0A1CB3971900056895 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				B19C33D81DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift */,
 				B10B2EC81DD079210089E848 /* SwipeNavigationPresenter.swift */,
-				B1783C0B1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -1190,6 +1191,7 @@
 				B1783C221CB3B6B500056895 /* ChartsViewController.swift in Sources */,
 				014E2DC51DD21F45004175EF /* CategoryService.swift in Sources */,
 				014E2DCE1DD23100004175EF /* RealmExtensions.swift in Sources */,
+				B1157DE71DF63A5C00954671 /* LoginViewController.swift in Sources */,
 				B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */,
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
 				B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */,
@@ -1201,6 +1203,7 @@
 				B19C33D11DF6C0E700C432DC /* FacebookManager.swift in Sources */,
 				B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */,
 				015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */,
+				B10B2ED61DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift in Sources */,
 				B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */,
 				B1783C021CB3039500056895 /* InputViewController.swift in Sources */,
 				B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */,
@@ -1220,7 +1223,6 @@
 				B1783C091CB30A1000056895 /* PresentableView.swift in Sources */,
 				B1783C001CB2FDF100056895 /* InputViewProtocol.swift in Sources */,
 				B1783BFB1CB2FCB600056895 /* InputViewPresenterProtocol.swift in Sources */,
-				B1783C0C1CB3978900056895 /* NavigationPresenterProtocol.swift in Sources */,
 				014E2DCA1DD22086004175EF /* BaseModels.swift in Sources */,
 				B120CA861CCCFDC100E9985B /* Extensions.swift in Sources */,
 				B164F9721DCB45F70090CF08 /* ServicesAssembly.swift in Sources */,
@@ -1238,6 +1240,7 @@
 				B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */,
 				B1650D491DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift in Sources */,
 				B12655B01DBEB9E500AEDED5 /* LoaderProtocol.swift in Sources */,
+				B19C33D91DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift in Sources */,
 				B120CA8E1CCD142B00E9985B /* InputContentViewProtocol.swift in Sources */,
 				E26D7E711CCE4AF900454C08 /* CategoriesViewProtocol.swift in Sources */,
 				B12655AC1DBEB57600AEDED5 /* AlertProtocol.swift in Sources */,
@@ -1259,6 +1262,9 @@
 				E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */,
 				E2D55DE41CF47BA4002343BD /* HistoryCollectionViewCell.swift in Sources */,
 				014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */,
+				B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */,
+				B18EC8561DF085340069A722 /* NoteViewController.swift in Sources */,
+				B10B2ECF1DD1D1F70089E848 /* Extensions+UIApplication.swift in Sources */,
 				E2D55DEA1CF48491002343BD /* HistoryTransition.swift in Sources */,
 				B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */,
 				B139CAC81DDB484C00DF1965 /* InputContentSelectorImageViewController.swift in Sources */,

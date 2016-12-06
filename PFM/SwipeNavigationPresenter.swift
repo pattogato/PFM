@@ -3,7 +3,7 @@
 //  EZSwipeController
 //
 //  Created by Bence Pattogato on 19/09/16.
-//  Copyright © 2016 Goktug Yilmaz. All rights reserved.
+//  Copyright © 2016 Pinup. All rights reserved.
 //
 
 /*

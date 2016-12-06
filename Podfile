@@ -24,6 +24,11 @@ target 'PFM' do
     pod 'Swinject', '~> 2.0.0-beta.2' # DI Tool
     pod 'SwinjectStoryboard', '~> 1.0.0-beta.2' # DI Tool for storyboards
     
+    # Facebook
+    pod 'FacebookCore', '~> 0.2.0'
+    pod 'FacebookLogin', '~> 0.2.0'
+    pod 'FacebookShare', '~> 0.2.0’
+    
     # Networking
     pod 'Alamofire', '~> 4.0.0' # Networking
     pod 'AlamofireObjectMapper', '~> 4.0.0' # Network object mapping

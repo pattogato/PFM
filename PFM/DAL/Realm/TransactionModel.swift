@@ -7,6 +7,8 @@
 //
 
 import ObjectMapper
+import UIKit
+import RealmSwift
 
 final class TransactionModel: MappableModelObject {
 
@@ -25,6 +27,8 @@ final class TransactionModel: MappableModelObject {
     dynamic var venue: String = ""
     dynamic var tag: String = ""
     
+    var image: UIImage?
+    
     override func mapping(map: Map) {
         super.mapping(map: map)
         
@@ -36,6 +40,10 @@ final class TransactionModel: MappableModelObject {
         currency <- map["currency"]
         desc <- map["desc"]
         categoryId <- map["categoryId"]
+    }
+    
+    override class func ignoredProperties() -> [String] {
+        return ["image"]
     }
     
     override func updateRelationships() {

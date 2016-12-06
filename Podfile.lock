@@ -9,6 +9,16 @@ PODS:
   - AlamofireObjectMapper (4.0.0):
     - Alamofire (~> 4.0)
     - ObjectMapper (~> 2.0)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - Charts/Core (3.0.1)
+  - Charts/Realm (3.0.1):
+    - Charts/Core
+    - RealmSwift (~> 1.1)
   - EZSwipeController (0.5)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
@@ -33,25 +43,25 @@ PODS:
   - LocationPickerViewController (2.0.0)
   - Locksmith (3.0.0)
   - MBPullDownController (1.1.1)
-  - ObjectMapper (2.2.0)
-  - PromiseKit (4.0.4):
-    - PromiseKit/Foundation (= 4.0.4)
-    - PromiseKit/QuartzCore (= 4.0.4)
-    - PromiseKit/UIKit (= 4.0.4)
-  - PromiseKit/CorePromise (4.0.4)
-  - PromiseKit/Foundation (4.0.4):
+  - ObjectMapper (2.2.1)
+  - PromiseKit (4.0.5):
+    - PromiseKit/Foundation (= 4.0.5)
+    - PromiseKit/QuartzCore (= 4.0.5)
+    - PromiseKit/UIKit (= 4.0.5)
+  - PromiseKit/CorePromise (4.0.5)
+  - PromiseKit/Foundation (4.0.5):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.0.4):
+  - PromiseKit/QuartzCore (4.0.5):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.0.4):
+  - PromiseKit/UIKit (4.0.5):
     - PromiseKit/CorePromise
   - Realm (1.1.0):
     - Realm/Headers (= 1.1.0)
   - Realm/Headers (1.1.0)
   - RealmSwift (1.1.0):
     - Realm (= 1.1.0)
-  - SVProgressHUD (2.0.3)
-  - SwiftDate (4.0.6)
+  - SVProgressHUD (2.0.4)
+  - SwiftDate (4.0.7)
   - Swinject (2.0.0-beta.2)
   - SwinjectStoryboard (1.0.0-beta.2):
     - Swinject (= 2.0.0-beta.2)
@@ -62,6 +72,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 3.0.0)
   - AlamofireNetworkActivityIndicator
   - AlamofireObjectMapper (~> 4.0.0)
+  - Charts/Realm
   - EZSwipeController (from `https://github.com/pattogato/EZSwipeController`, branch `bugfix/swift-3-fixes`)
   - FacebookCore (~> 0.2.0)
   - FacebookLogin (~> 0.2.0)
@@ -90,7 +101,7 @@ CHECKOUT OPTIONS:
     :commit: cf664c0f678b3df3fb11be1e74d6e4bbeba2bbb2
     :git: https://github.com/pattogato/EZSwipeController
   LocationPickerViewController:
-    :commit: 70a4473a21caa8d88e4b8f2b544e99a771bc6536
+    :commit: 22d3be44339e2ac7022ba1d169cea470fc1719e1
     :git: https://github.com/JeromeTan1997/LocationPicker
 
 SPEC CHECKSUMS:
@@ -99,6 +110,8 @@ SPEC CHECKSUMS:
   AlamofireImage: 6594aa1139a67dcd36cde6da79ea4e5b318e60fb
   AlamofireNetworkActivityIndicator: 3e55069ada3e1ff7703665156429eedcdfea0bc1
   AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   EZSwipeController: 01cc43b319e133b6dbfb25bfdc78617a1560e952
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
@@ -110,15 +123,15 @@ SPEC CHECKSUMS:
   LocationPickerViewController: 600d08aba48879a920dbaf1c12d19a2292f2bbed
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   MBPullDownController: 6e5ee6fa099f2283cc207b3d2fa5c4867c652258
-  ObjectMapper: 4060d739febae11ab0c6af8d786f98667c82e1bd
-  PromiseKit: 8e8ee39d33ff199d92a1a883b5396f6285be6c91
+  ObjectMapper: 41e43e1a89f8060ef5ea5d04ba852e269a621d68
+  PromiseKit: 593b5e24ded6cbb1ebc708bc2c3428a8a5632d91
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  SwiftDate: 549729eaa54bd9f64fd80abfd12ddd3d44ff5098
+  SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
+  SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
   Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
   SwinjectStoryboard: b52b45821a50386ef604c3cd098f8029a50a268d
 
-PODFILE CHECKSUM: 45a7aac3af84ab346ab8d0cca66552c6a933cd00
+PODFILE CHECKSUM: 1a9070bc8aeee6147618ec0573181014dcdc1bd5
 
 COCOAPODS: 1.1.1
