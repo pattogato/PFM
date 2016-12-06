@@ -1,7 +1,7 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
-def shared_pods
+target 'PFM' do
     #DB
     pod 'RealmSwift', '~> 1.1.0' # Local database
     
@@ -28,15 +28,19 @@ def shared_pods
     pod 'FacebookCore', '~> 0.2.0'
     pod 'FacebookLogin', '~> 0.2.0'
     pod 'FacebookShare', '~> 0.2.0’
-end
-
-
-target 'PFM' do
-    shared_pods
-end
-
-target 'PFMTests' do
-    shared_pods
+    
+    # Networking
+    pod 'Alamofire', '~> 4.0.0' # Networking
+    pod 'AlamofireObjectMapper', '~> 4.0.0' # Network object mapping
+    pod 'AlamofireActivityLogger', '~> 2.0.0' # Network loggin
+    pod 'AlamofireImage', '~> 3.0.0' # Image loader
+    pod 'AlamofireNetworkActivityIndicator' # Network Activity indicator
+    
+    target 'PFMTests' do
+        inherit! :search_paths
+        # Additional Pods
+    end
+    
 end
 
 

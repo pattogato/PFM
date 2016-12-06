@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DBD1DD21A28004175EF /* APIResources.swift */; };
+		014E2DC11DD21F27004175EF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC01DD21F27004175EF /* AuthService.swift */; };
+		014E2DC31DD21F2E004175EF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC21DD21F2E004175EF /* UserService.swift */; };
+		014E2DC51DD21F45004175EF /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC41DD21F45004175EF /* CategoryService.swift */; };
+		014E2DC71DD21F4F004175EF /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC61DD21F4F004175EF /* TransactionService.swift */; };
+		014E2DCA1DD22086004175EF /* BaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC91DD22086004175EF /* BaseModels.swift */; };
+		014E2DCC1DD22F0E004175EF /* MappableModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DCB1DD22F0E004175EF /* MappableModelObject.swift */; };
+		014E2DCE1DD23100004175EF /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DCD1DD23100004175EF /* RealmExtensions.swift */; };
+		015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */; };
+		015A56131DD1CA6500D1D7F9 /* RESTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */; };
+		21B83D47BDC881371BD59FA5 /* Pods_PFM_TOOL_PFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085360B1D3C1E73F2D3F13D6 /* Pods_PFM_TOOL_PFMTests.framework */; };
 		664F8F5F6E4C799A07F1FC75 /* Pods_PFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7091C38F41F13C9AAB4AEDAA /* Pods_PFMTests.framework */; };
 		B10B2EC71DCF5EAE0089E848 /* PresenterAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2EC61DCF5EAE0089E848 /* PresenterAssemly.swift */; };
 		B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2EC81DD079210089E848 /* SwipeNavigationPresenter.swift */; };
@@ -64,7 +75,6 @@
 		B1783C051CB3059800056895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C041CB3059800056895 /* Constants.swift */; };
 		B1783C071CB3073F00056895 /* InputViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C061CB3073F00056895 /* InputViewPresenter.swift */; };
 		B1783C091CB30A1000056895 /* PresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C081CB30A1000056895 /* PresentableView.swift */; };
-		B1783C0C1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C0B1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift */; };
 		B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C0E1CB3981B00056895 /* NavigationViewProtocol.swift */; };
 		B1783C1A1CB3B26C00056895 /* ChartsViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C191CB3B26C00056895 /* ChartsViewPresenterProtocol.swift */; };
 		B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C1D1CB3B44000056895 /* ChartsViewProtocol.swift */; };
@@ -90,10 +100,12 @@
 		B18EC8561DF085340069A722 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC8551DF085340069A722 /* NoteViewController.swift */; };
 		B19C33D11DF6C0E700C432DC /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D01DF6C0E700C432DC /* FacebookManager.swift */; };
 		B19C33D41DF6E7D700C432DC /* ChartsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D31DF6E7D700C432DC /* ChartsDataProvider.swift */; };
+		B19C33D91DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D81DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
 		B1DA8A761CEA80E500C51E85 /* PLocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A741CEA80E500C51E85 /* PLocationPickerViewController.swift */; };
+		DAFA5C79C1A4053489D8A193 /* Pods_PFM_TOOL_PFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7207444461AEBB24E65704E8 /* Pods_PFM_TOOL_PFM.framework */; };
 		E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D7E6B1CCE49F000454C08 /* PresentingTransitionAnimator.swift */; };
 		E26D7E6E1CCE4A4100454C08 /* CategoriesTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D7E6D1CCE4A4100454C08 /* CategoriesTransition.swift */; };
 		E26D7E711CCE4AF900454C08 /* CategoriesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D7E701CCE4AF900454C08 /* CategoriesViewProtocol.swift */; };
@@ -169,8 +181,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		014E2DBD1DD21A28004175EF /* APIResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResources.swift; sourceTree = "<group>"; };
+		014E2DC01DD21F27004175EF /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		014E2DC21DD21F2E004175EF /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		014E2DC41DD21F45004175EF /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		014E2DC61DD21F4F004175EF /* TransactionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
+		014E2DC91DD22086004175EF /* BaseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModels.swift; sourceTree = "<group>"; };
+		014E2DCB1DD22F0E004175EF /* MappableModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MappableModelObject.swift; path = DAL/Realm/MappableModelObject.swift; sourceTree = "<group>"; };
+		014E2DCD1DD23100004175EF /* RealmExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmExtensions.swift; path = Utils/RealmExtensions.swift; sourceTree = "<group>"; };
+		015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClientProtocol.swift; sourceTree = "<group>"; };
+		015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClient.swift; sourceTree = "<group>"; };
+		085360B1D3C1E73F2D3F13D6 /* Pods_PFM_TOOL_PFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFM_TOOL_PFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1359B6E9B337E6FA799FC61F /* Pods-PFM_TOOL-PFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM_TOOL-PFM.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM_TOOL-PFM/Pods-PFM_TOOL-PFM.release.xcconfig"; sourceTree = "<group>"; };
+		3BCE875F308D5DCDC845F850 /* Pods-PFM_TOOL-PFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM_TOOL-PFM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFM_TOOL-PFM/Pods-PFM_TOOL-PFM.debug.xcconfig"; sourceTree = "<group>"; };
+		6594A12FEC9458A285E4CEAF /* Pods-PFM_TOOL-PFMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM_TOOL-PFMTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFM_TOOL-PFMTests/Pods-PFM_TOOL-PFMTests.debug.xcconfig"; sourceTree = "<group>"; };
 		68A320BA307D58FB7683BFA2 /* Pods-PFMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFMTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFMTests/Pods-PFMTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7091C38F41F13C9AAB4AEDAA /* Pods_PFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7207444461AEBB24E65704E8 /* Pods_PFM_TOOL_PFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFM_TOOL_PFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		984963EEF1421C9ADFADB024 /* Pods-PFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFM/Pods-PFM.debug.xcconfig"; sourceTree = "<group>"; };
 		9C5782FE39953D33BC631016 /* Pods-PFMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFMTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFMTests/Pods-PFMTests.release.xcconfig"; sourceTree = "<group>"; };
 		B10B2EC61DCF5EAE0089E848 /* PresenterAssemly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterAssemly.swift; sourceTree = "<group>"; };
@@ -234,7 +261,6 @@
 		B1783C041CB3059800056895 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utils/Constants.swift; sourceTree = "<group>"; };
 		B1783C061CB3073F00056895 /* InputViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputViewPresenter.swift; path = Presenter/Input/InputViewPresenter.swift; sourceTree = "<group>"; };
 		B1783C081CB30A1000056895 /* PresentableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentableView.swift; path = Presenter/PresentableView.swift; sourceTree = "<group>"; };
-		B1783C0B1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeNavigationPresenterProtocol.swift; path = Presenter/Navigation/SwipeNavigationPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1783C0E1CB3981B00056895 /* NavigationViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationViewProtocol.swift; path = View/Navigation/NavigationViewProtocol.swift; sourceTree = "<group>"; };
 		B1783C191CB3B26C00056895 /* ChartsViewPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewPresenterProtocol.swift; path = Presenter/Charts/ChartsViewPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1783C1D1CB3B44000056895 /* ChartsViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewProtocol.swift; path = View/Charts/ChartsViewProtocol.swift; sourceTree = "<group>"; };
@@ -264,6 +290,7 @@
 		B19C33D01DF6C0E700C432DC /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		B19C33D21DF6D4CA00C432DC /* PFM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PFM.entitlements; sourceTree = "<group>"; };
 		B19C33D31DF6E7D700C432DC /* ChartsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsDataProvider.swift; path = DAL/Interactors/ChartsDataProvider.swift; sourceTree = "<group>"; };
+		B19C33D81DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeNavigationPresenterProtocol.swift; path = Presenter/Navigation/SwipeNavigationPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenter.swift; path = Presenter/Input/LocationPickerPresenter.swift; sourceTree = "<group>"; };
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
@@ -283,6 +310,7 @@
 		E2DEB6851CE1CCA800843D99 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.otf"; path = "SupportingFiles/Fonts/Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		E2DEB6871CE1CCB400843D99 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.otf"; path = "SupportingFiles/Fonts/Montserrat-Light.otf"; sourceTree = "<group>"; };
 		E2DEB6881CE1CCB400843D99 /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-UltraLight.otf"; path = "SupportingFiles/Fonts/Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		F873CFCC3C1E5B6D99696D3A /* Pods-PFM_TOOL-PFMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM_TOOL-PFMTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM_TOOL-PFMTests/Pods-PFM_TOOL-PFMTests.release.xcconfig"; sourceTree = "<group>"; };
 		FAAE10BAECD01C0AE59F68FA /* Pods-PFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM/Pods-PFM.release.xcconfig"; sourceTree = "<group>"; };
 		FCB30EA42510CFE7C728A926 /* Pods_PFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -314,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E16E6B4AC6369341EC3306 /* Pods_PFM.framework in Frameworks */,
+				DAFA5C79C1A4053489D8A193 /* Pods_PFM_TOOL_PFM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,12 +351,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				664F8F5F6E4C799A07F1FC75 /* Pods_PFMTests.framework in Frameworks */,
+				21B83D47BDC881371BD59FA5 /* Pods_PFM_TOOL_PFMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014E2DBF1DD21F1F004175EF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				014E2DC01DD21F27004175EF /* AuthService.swift */,
+				014E2DC21DD21F2E004175EF /* UserService.swift */,
+				014E2DC41DD21F45004175EF /* CategoryService.swift */,
+				014E2DC61DD21F4F004175EF /* TransactionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		014E2DC81DD2207D004175EF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				014E2DC91DD22086004175EF /* BaseModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		015A560F1DD1C3A100D1D7F9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */,
+				015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */,
+				014E2DBD1DD21A28004175EF /* APIResources.swift */,
+				014E2DBF1DD21F1F004175EF /* Services */,
+				014E2DC81DD2207D004175EF /* Models */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		A7CC2DEF8669AB3A82BAE3F8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +396,10 @@
 				FAAE10BAECD01C0AE59F68FA /* Pods-PFM.release.xcconfig */,
 				68A320BA307D58FB7683BFA2 /* Pods-PFMTests.debug.xcconfig */,
 				9C5782FE39953D33BC631016 /* Pods-PFMTests.release.xcconfig */,
+				3BCE875F308D5DCDC845F850 /* Pods-PFM_TOOL-PFM.debug.xcconfig */,
+				1359B6E9B337E6FA799FC61F /* Pods-PFM_TOOL-PFM.release.xcconfig */,
+				6594A12FEC9458A285E4CEAF /* Pods-PFM_TOOL-PFMTests.debug.xcconfig */,
+				F873CFCC3C1E5B6D99696D3A /* Pods-PFM_TOOL-PFMTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -533,6 +598,7 @@
 				B1783C041CB3059800056895 /* Constants.swift */,
 				B120CA851CCCFDC100E9985B /* Extensions.swift */,
 				B12655A91DBEB48D00AEDED5 /* UserDefaults.swift */,
+				014E2DCD1DD23100004175EF /* RealmExtensions.swift */,
 				B10B2ECE1DD1D1F70089E848 /* Extensions+UIApplication.swift */,
 			);
 			name = Utils;
@@ -541,8 +607,8 @@
 		B1783C0A1CB3971900056895 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				B19C33D81DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift */,
 				B10B2EC81DD079210089E848 /* SwipeNavigationPresenter.swift */,
-				B1783C0B1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -638,6 +704,7 @@
 				B164F96B1DCB45D10090CF08 /* Assemblies */,
 				E26D7E691CCE496100454C08 /* CustomControls */,
 				B1783BF41CB2FA6900056895 /* Model */,
+				015A560F1DD1C3A100D1D7F9 /* Network */,
 				B1783BF61CB2FA7A00056895 /* Presenter */,
 				B1783BF51CB2FA7600056895 /* View */,
 				B1783C031CB3058300056895 /* Utils */,
@@ -659,9 +726,10 @@
 		B18785CD1CA991EE00DD18E9 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				B18785D71CA99AE000DD18E9 /* ModelObject.swift */,
+				014E2DCB1DD22F0E004175EF /* MappableModelObject.swift */,
 				B18785D31CA9928500DD18E9 /* CategoryModel.swift */,
 				B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */,
-				B18785D71CA99AE000DD18E9 /* ModelObject.swift */,
 				B18785DC1CA99CDA00DD18E9 /* UserModel.swift */,
 			);
 			name = Realm;
@@ -700,6 +768,8 @@
 			children = (
 				FCB30EA42510CFE7C728A926 /* Pods_PFM.framework */,
 				7091C38F41F13C9AAB4AEDAA /* Pods_PFMTests.framework */,
+				7207444461AEBB24E65704E8 /* Pods_PFM_TOOL_PFM.framework */,
+				085360B1D3C1E73F2D3F13D6 /* Pods_PFM_TOOL_PFMTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1119,6 +1189,8 @@
 				B1783BF81CB2FAA200056895 /* Router.swift in Sources */,
 				B164F9741DCB45F70090CF08 /* StoragesAssembly.swift in Sources */,
 				B1783C221CB3B6B500056895 /* ChartsViewController.swift in Sources */,
+				014E2DC51DD21F45004175EF /* CategoryService.swift in Sources */,
+				014E2DCE1DD23100004175EF /* RealmExtensions.swift in Sources */,
 				B1157DE71DF63A5C00954671 /* LoginViewController.swift in Sources */,
 				B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */,
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
@@ -1126,9 +1198,11 @@
 				B1783BEB1CB1A34B00056895 /* CategoryDataProvider.swift in Sources */,
 				B164F9751DCB45F70090CF08 /* DataProvidersAssembly.swift in Sources */,
 				B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */,
+				014E2DC71DD21F4F004175EF /* TransactionService.swift in Sources */,
 				B164F9711DCB45F70090CF08 /* ApplicationAssembly.swift in Sources */,
 				B19C33D11DF6C0E700C432DC /* FacebookManager.swift in Sources */,
 				B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */,
+				015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */,
 				B10B2ED61DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift in Sources */,
 				B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */,
 				B1783C021CB3039500056895 /* InputViewController.swift in Sources */,
@@ -1140,6 +1214,7 @@
 				B1783C051CB3059800056895 /* Constants.swift in Sources */,
 				B10B2ED41DD228610089E848 /* InputContentSelectorDateViewController.swift in Sources */,
 				B1783C071CB3073F00056895 /* InputViewPresenter.swift in Sources */,
+				014E2DCC1DD22F0E004175EF /* MappableModelObject.swift in Sources */,
 				B1DA8A761CEA80E500C51E85 /* PLocationPickerViewController.swift in Sources */,
 				B10B2EC71DCF5EAE0089E848 /* PresenterAssemly.swift in Sources */,
 				B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */,
@@ -1148,13 +1223,14 @@
 				B1783C091CB30A1000056895 /* PresentableView.swift in Sources */,
 				B1783C001CB2FDF100056895 /* InputViewProtocol.swift in Sources */,
 				B1783BFB1CB2FCB600056895 /* InputViewPresenterProtocol.swift in Sources */,
-				B1783C0C1CB3978900056895 /* SwipeNavigationPresenterProtocol.swift in Sources */,
+				014E2DCA1DD22086004175EF /* BaseModels.swift in Sources */,
 				B120CA861CCCFDC100E9985B /* Extensions.swift in Sources */,
 				B164F9721DCB45F70090CF08 /* ServicesAssembly.swift in Sources */,
 				B1783C1E1CB3B44000056895 /* ChartsViewProtocol.swift in Sources */,
 				B18EC8521DF085100069A722 /* NoteViewPresenterProtocol.swift in Sources */,
 				B18B5E9D1CF48229008427C0 /* CurrentTransactionDataProvider.swift in Sources */,
 				B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */,
+				014E2DC11DD21F27004175EF /* AuthService.swift in Sources */,
 				B1783BE41CB186A400056895 /* DALHelper.swift in Sources */,
 				B19C33D41DF6E7D700C432DC /* ChartsDataProvider.swift in Sources */,
 				E2D55DE11CF47A56002343BD /* HistoryViewController.swift in Sources */,
@@ -1164,11 +1240,13 @@
 				B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */,
 				B1650D491DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift in Sources */,
 				B12655B01DBEB9E500AEDED5 /* LoaderProtocol.swift in Sources */,
+				B19C33D91DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift in Sources */,
 				B120CA8E1CCD142B00E9985B /* InputContentViewProtocol.swift in Sources */,
 				E26D7E711CCE4AF900454C08 /* CategoriesViewProtocol.swift in Sources */,
 				B12655AC1DBEB57600AEDED5 /* AlertProtocol.swift in Sources */,
 				B1157DEE1DF63B0F00954671 /* LoginPresenter.swift in Sources */,
 				B1783C2C1CB3CA6A00056895 /* SettingsViewController.swift in Sources */,
+				014E2DC31DD21F2E004175EF /* UserService.swift in Sources */,
 				B18785D41CA9928500DD18E9 /* CategoryModel.swift in Sources */,
 				B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */,
 				B1157DEC1DF63B0700954671 /* LoginPresenterProtocol.swift in Sources */,
@@ -1179,9 +1257,11 @@
 				B10B2ED11DD1DEF80089E848 /* ViewsAssembly.swift in Sources */,
 				B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */,
 				B12655AA1DBEB48D00AEDED5 /* UserDefaults.swift in Sources */,
+				015A56131DD1CA6500D1D7F9 /* RESTAPIClient.swift in Sources */,
 				B120CA901CCD157000E9985B /* InputContentPresenter.swift in Sources */,
 				E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */,
 				E2D55DE41CF47BA4002343BD /* HistoryCollectionViewCell.swift in Sources */,
+				014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */,
 				B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */,
 				B18EC8561DF085340069A722 /* NoteViewController.swift in Sources */,
 				B10B2ECF1DD1D1F70089E848 /* Extensions+UIApplication.swift in Sources */,
