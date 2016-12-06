@@ -35,6 +35,7 @@ class LoginViewController: UIViewController, LoginViewProtocol, LoaderProtocol {
     }
     
     @IBAction func facebookButtonTouched(_ sender: Any) {
+        self.presenter.loginWithFacebook()
     }
     
 

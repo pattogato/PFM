@@ -16,10 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var router: RouterProtocol!
     let assembler = Assembler(container: SwinjectStoryboard.defaultContainer)
+    let managersAssemby = ManagersAssembly()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let managersAssemby = ManagersAssembly()
+        
         
         // Register assemblys
         assembler.apply(assemblies: [
@@ -39,6 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         router.start()
         
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return managersAssemby.application(app, open: url, options: options)
     }
 
 

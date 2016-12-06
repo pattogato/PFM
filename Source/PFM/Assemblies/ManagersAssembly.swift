@@ -51,4 +51,10 @@ final class ManagersAssembly: AssemblyType {
         let resolver = assembler.resolver
         resolver.resolve(FacebookManagerProtocol.self)!.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        // Try to parse facebook url
+        let resolver = assembler.resolver
+        return resolver.resolve(FacebookManagerProtocol.self)!.application(app, open: url, options: options)
+    }
 }
