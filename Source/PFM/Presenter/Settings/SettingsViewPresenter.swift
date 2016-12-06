@@ -14,12 +14,18 @@ class SettingsViewPresenter: SettingsViewPresenterProtocol, RouterDependentProto
     unowned let view: SettingsViewProtocol
     
     var router: RouterProtocol!
+    var loggedInUser: UserModel? {
+        return userManager.loggedInUser
+    }
     
     let loginPresenter: LoginPresenterProtocol
+    let userManager: UserManagerProtocol
     
-    required init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol) {
+    required init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol) {
         self.view = view
         self.loginPresenter = loginPresenter
+        self.userManager = userManager
+        
     }
     
     func navigateToInputScreen() {
@@ -31,6 +37,10 @@ class SettingsViewPresenter: SettingsViewPresenterProtocol, RouterDependentProto
             self.view.showGreetingMessage(user: userModel)
             return Promise(value: userModel)
         })
+    }
+    
+    func logout() {
+        self.userManager.logoutUser()
     }
     
 }

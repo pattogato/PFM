@@ -11,19 +11,38 @@ import UIKit
 class SettingsViewController: UIViewController, PresentableView, AlertProtocol {
     
     var presenter: SettingsViewPresenterProtocol!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupUserLoggedInRelatedUI()
+    }
+    
+    func setupUserLoggedInRelatedUI() {
+        let loggedIn = self.presenter.loggedInUser != nil
+        self.loginButton.setTitle(loggedIn ? "Logout" : "Login", for: .normal)
+        self.welcomeLabel.isHidden = loggedIn
+        self.descriptionLabel.isHidden = loggedIn
     }
     
     @IBAction func navigateToInputScreenTouched(_ sender: AnyObject) {
         self.presenter?.navigateToInputScreen()
     }
 
-    @IBAction func loginButtonTouched(_ sender: Any) {
-        _ = self.presenter.login(from: self)
+    @IBAction func loginOutButtonTouched(_ sender: Any) {
+        if presenter.loggedInUser == nil {
+            _ = self.presenter.login(from: self).then(execute: { (user) -> Void in
+                self.setupUserLoggedInRelatedUI()
+            })
+        } else {
+            self.presenter.logout()
+            setupUserLoggedInRelatedUI()
+        }
     }
     
 

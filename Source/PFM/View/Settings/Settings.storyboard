@@ -30,14 +30,28 @@
                                     <action selector="navigateToInputScreenTouched:" destination="tg1-kx-AiW" eventType="touchUpInside" id="0nG-uX-EVb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome, dear User!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2O-Tf-SIr">
+                                <rect key="frame" x="107" y="28" width="160" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="If you want to get your data stored and passed between your devices, tap on the login button below!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbI-t2-hkd">
+                                <rect key="frame" x="47" y="65" width="280" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yR-av-4rb">
-                                <rect key="frame" x="161" y="242" width="38" height="30"/>
+                                <rect key="frame" x="168" y="205" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButtonTouched:" destination="tg1-kx-AiW" eventType="touchUpInside" id="Dvg-Vo-RS9"/>
+                                    <action selector="loginOutButtonTouched:" destination="tg1-kx-AiW" eventType="touchUpInside" id="LRB-gc-0vW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -47,10 +61,15 @@
                             <constraint firstItem="E2Z-Sa-Dbr" firstAttribute="leading" secondItem="hLO-fj-5RQ" secondAttribute="leading" constant="20" id="Jea-LX-eeW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="KbI-t2-hkd" id="fLm-SN-0st"/>
+                        <outlet property="loginButton" destination="0yR-av-4rb" id="zna-cc-AtT"/>
+                        <outlet property="welcomeLabel" destination="c2O-Tf-SIr" id="h25-4v-Zt7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Kg-et-6lc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1689" y="-489"/>
+            <point key="canvasLocation" x="1688.8" y="-489.80509745127438"/>
         </scene>
     </scenes>
 </document>

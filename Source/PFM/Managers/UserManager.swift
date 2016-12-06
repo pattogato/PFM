@@ -25,7 +25,12 @@ final class DummyUserManager: UserManagerProtocol {
     var loggedInUser: UserModel?
     
     func loginUser(email: String, password: String) -> Promise<UserModel> {
-        return Promise(value: self.createDummyUser())
+        return after(interval: 1.5).then(execute: { () -> Promise<UserModel> in
+            return Promise(value: self.createDummyUser()).then(execute: { (userModel) -> Promise<UserModel> in
+                self.loggedInUser = userModel
+                return Promise(value: userModel)
+            })
+        })
     }
     
     func loginWithFacebook() -> Promise<UserModel> {
