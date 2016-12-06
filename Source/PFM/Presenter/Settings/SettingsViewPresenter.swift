@@ -30,8 +30,6 @@ class SettingsViewPresenter: SettingsViewPresenterProtocol, RouterDependentProto
         return loginPresenter.loginUserIfNeeded(from: from).then(execute: { (userModel) -> Promise<UserModel> in
             self.view.showGreetingMessage(user: userModel)
             return Promise(value: userModel)
-        }).catch(execute: { (error) in
-            self.view.showErrorMessage(error: error)
         })
     }
     

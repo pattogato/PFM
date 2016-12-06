@@ -39,7 +39,4 @@ extension SettingsViewController: SettingsViewProtocol {
         self.showAlert(message: "Welcome to pfm, dear \(user.name)")
     }
     
-    func showErrorMessage(error: Error) {
-        self.showError(error)
-    }
 }

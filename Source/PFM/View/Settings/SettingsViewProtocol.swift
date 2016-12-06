@@ -16,5 +16,4 @@ protocol SettingsViewProtocol: class {
     func loadUserSettings()
     
     func showGreetingMessage(user: UserModel)
-    func showErrorMessage(error: Error)
 }
