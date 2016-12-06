@@ -53,7 +53,7 @@ final class LoginPresenter: LoginPresenterProtocol {
             self.responseBlock?.fulfill(userModel)
             return Promise(value: userModel)
         }.catch { error in
-                self.responseBlock?.reject(error)
+            self.responseBlock?.reject(error)
         }
     }
     
@@ -64,8 +64,8 @@ final class LoginPresenter: LoginPresenterProtocol {
                 self.dismiss()
                 self.responseBlock?.fulfill(userModel)
                 return Promise(value: userModel)
-                }.catch { error in
-                    self.responseBlock?.reject(error)
+            }.catch { error in
+                self.responseBlock?.reject(error)
             }
         }
     }

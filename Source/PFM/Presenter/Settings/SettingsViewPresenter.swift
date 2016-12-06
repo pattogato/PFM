@@ -9,23 +9,23 @@
 import UIKit
 import PromiseKit
 
-class SettingsViewPresenter: SettingsViewPresenterProtocol, RouterDependentProtocol {
+class SettingsViewPresenter: SettingsViewPresenterProtocol {
 
     unowned let view: SettingsViewProtocol
     
-    var router: RouterProtocol!
     var loggedInUser: UserModel? {
         return userManager.loggedInUser
     }
     
+    let router: RouterProtocol
     let loginPresenter: LoginPresenterProtocol
     let userManager: UserManagerProtocol
     
-    required init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol) {
+    required init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol, router: RouterProtocol) {
         self.view = view
         self.loginPresenter = loginPresenter
         self.userManager = userManager
-        
+        self.router = router
     }
     
     func navigateToInputScreen() {

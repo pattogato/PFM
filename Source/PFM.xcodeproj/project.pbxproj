@@ -261,6 +261,7 @@
 		B18EC8531DF085220069A722 /* NoteViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewPresenter.swift; path = Presenter/Note/NoteViewPresenter.swift; sourceTree = "<group>"; };
 		B18EC8551DF085340069A722 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		B19C33D01DF6C0E700C432DC /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
+		B19C33D21DF6D4CA00C432DC /* PFM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PFM.entitlements; sourceTree = "<group>"; };
 		B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenter.swift; path = Presenter/Input/LocationPickerPresenter.swift; sourceTree = "<group>"; };
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
@@ -625,6 +626,7 @@
 		B187859D1CA98E6A00DD18E9 /* PFM */ = {
 			isa = PBXGroup;
 			children = (
+				B19C33D21DF6D4CA00C432DC /* PFM.entitlements */,
 				B187859E1CA98E6A00DD18E9 /* AppDelegate.swift */,
 				B18785A21CA98E6A00DD18E9 /* Main.storyboard */,
 				B18785A71CA98E6A00DD18E9 /* LaunchScreen.storyboard */,
@@ -904,6 +906,11 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 837W344MF8;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					B18785AE1CA98E6A00DD18E9 = {
 						CreatedOnToolsVersion = 7.3;
@@ -1451,6 +1458,7 @@
 			baseConfigurationReference = 984963EEF1421C9ADFADB024 /* Pods-PFM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PFM/PFM.entitlements;
 				DEVELOPMENT_TEAM = 837W344MF8;
 				INFOPLIST_FILE = PFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1466,6 +1474,7 @@
 			baseConfigurationReference = FAAE10BAECD01C0AE59F68FA /* Pods-PFM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PFM/PFM.entitlements;
 				DEVELOPMENT_TEAM = 837W344MF8;
 				INFOPLIST_FILE = PFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

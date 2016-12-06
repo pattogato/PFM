@@ -11,7 +11,7 @@ import PromiseKit
 
 protocol SettingsViewPresenterProtocol {
     
-    init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol)
+    init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol, router: RouterProtocol)
     
     /**
         Navgigates to the input screen (eg. Swipe right)

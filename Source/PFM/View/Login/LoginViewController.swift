@@ -35,7 +35,10 @@ class LoginViewController: UIViewController, LoginViewProtocol, LoaderProtocol {
     }
     
     @IBAction func facebookButtonTouched(_ sender: Any) {
-        self.presenter.loginWithFacebook()
+        self.showLoader()
+        _ = self.presenter.loginWithFacebook().always {
+            self.dismissLoader()
+        }
     }
     
 

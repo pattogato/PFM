@@ -51,7 +51,7 @@ final class FacebookManager: FacebookManagerProtocol {
                            viewController: viewController) { (loginResult) in
                             
                             switch loginResult {
-                            case .failed(_):
+                            case .failed(let error):
                                 self.responseBlock?.reject(SocialLoginError.LoginFailed)
                             case .cancelled:
                                 self.responseBlock?.reject(SocialLoginError.LoginCancelled)

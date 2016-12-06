@@ -44,7 +44,8 @@ final class PresenterAssembly: AssemblyType {
             return SettingsViewPresenter(
                 view: view,
                 loginPresenter: r.resolve(LoginPresenterProtocol.self)!,
-                userManager: r.resolve(UserManagerProtocol.self)!
+                userManager: r.resolve(UserManagerProtocol.self)!,
+                router: r.resolve(RouterProtocol.self)!
             )
         }
         
