@@ -164,6 +164,7 @@ extension InputViewPresenter: InputContentSelectorDelegate {
         switch type {
         case .currencyPicker:
             print(value)
+            self.showContent(type: .defaultType)
         case .datePicker:
             print(value)
         case .numericKeyboard:
