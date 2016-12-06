@@ -32,29 +32,45 @@ class LoginViewController: UIViewController, LoginViewProtocol, LoaderProtocol {
     }
 
     @IBAction func signupButtonTouched(_ sender: Any) {
+        let inputs = validateInputs()
+        if let error = inputs.error {
+            showValidationError(error: error)
+        } else {
+            _ = self.presenter.signupWith(email: inputs.email, password: inputs.password)
+        }
+        
+        
     }
     
     @IBAction func facebookButtonTouched(_ sender: Any) {
-        self.showLoader()
-        _ = self.presenter.loginWithFacebook().always {
-            self.dismissLoader()
-        }
+        _ = self.presenter.loginWithFacebook()
     }
     
 
     @IBAction func loginButtonTouched(_ sender: Any) {
-        guard let email = emailTextfield.text,
-            let password = passwordTextField.text,
-            email.characters.count > 0,
-            password.characters.count > 0 else {
-                // Show error
-                return
-        }
-        self.showLoader()
-        _ = self.presenter.loginWith(email: email, password: password).always {
-            self.dismissLoader()
+        let inputs = validateInputs()
+        if let error = inputs.error {
+            showValidationError(error: error)
+        } else {
+            _ = self.presenter.loginWith(email: inputs.email, password: inputs.password)
         }
     }
     
+    func showValidationError(error: String) {
+        // TODO - Dani: show input validation error
+    }
+    
+    func validateInputs() -> (email: String, password: String, error: String?) {
+        // TODO - Dani: validate pswd, email, return error = nil if input is okay and not empty
+        return (email: emailTextfield.text ?? "", password: passwordTextField.text ?? "", error: nil)
+    }
+    
+    func showLoadingAnimation() {
+        self.showLoader()
+    }
+    
+    func hideLoadingAnimation() {
+        self.dismissLoader()
+    }
     
 }

@@ -18,6 +18,7 @@ protocol LoginPresenterProtocol {
     
     func loginUserIfNeeded(from presenterViewController: UIViewController) -> Promise<UserModel>
     func loginWith(email: String, password: String) -> Promise<UserModel>
+    func signupWith(email: String, password: String) -> Promise<UserModel>
     func loginWithFacebook() -> Promise<UserModel>
     func dismiss()
     func cancelLogin()

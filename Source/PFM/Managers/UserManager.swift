@@ -17,6 +17,7 @@ protocol UserManagerProtocol {
     func loginWithFacebook() -> Promise<UserModel>
     func logoutUser()
     func updateUser(user: UserModel) -> Promise<UserModel>
+    func signupUser(email: String, password: String) -> Promise<UserModel>
 
 }
 
@@ -34,6 +35,15 @@ final class DummyUserManager: UserManagerProtocol {
     }
     
     func loginWithFacebook() -> Promise<UserModel> {
+        return after(interval: 1.5).then(execute: { () -> Promise<UserModel> in
+            return Promise(value: self.createDummyUser()).then(execute: { (userModel) -> Promise<UserModel> in
+                self.loggedInUser = userModel
+                return Promise(value: userModel)
+            })
+        })
+    }
+    
+    func signupUser(email: String, password: String) -> Promise<UserModel> {
         return after(interval: 1.5).then(execute: { () -> Promise<UserModel> in
             return Promise(value: self.createDummyUser()).then(execute: { (userModel) -> Promise<UserModel> in
                 self.loggedInUser = userModel

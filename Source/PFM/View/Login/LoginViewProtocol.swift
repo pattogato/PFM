@@ -13,4 +13,7 @@ protocol LoginViewProtocol: class {
     var presenter: LoginPresenterProtocol! { get set }
     
     func dismissView()
+    
+    func showLoadingAnimation()
+    func hideLoadingAnimation()
 }
