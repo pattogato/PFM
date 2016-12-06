@@ -8,8 +8,11 @@
 
 import Foundation
 import Swinject
+import SwinjectStoryboard
 
 final class ManagersAssembly: AssemblyType {
+    
+    fileprivate let assembler = Assembler(container: SwinjectStoryboard.defaultContainer)
     
     func assemble(container: Container) {
         
@@ -23,17 +26,29 @@ final class ManagersAssembly: AssemblyType {
             return Router(
                 window: r.resolve(UIWindow.self)!,
                 storyboards: storyboards)
-            }.inObjectScope(.container)
+        }.inObjectScope(.container)
         
         container.register(DALHelperProtocol.self) { r in
             return DALHelper(
                 encrypted: false,
                 schemaVersion: 1,
                 migrationBlock: nil)
-            }.inObjectScope(.container)
+        }.inObjectScope(.container)
         
+        // User Manager
         container.register(UserManagerProtocol.self) { r in
             return DummyUserManager()
-            }.inObjectScope(.container)
+        }.inObjectScope(.container)
+        
+        // Facebook manager
+        // Facebook
+        container.register(FacebookManagerProtocol.self) { r in
+            return FacebookManager()
+        }.inObjectScope(.container)
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        let resolver = assembler.resolver
+        resolver.resolve(FacebookManagerProtocol.self)!.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 }

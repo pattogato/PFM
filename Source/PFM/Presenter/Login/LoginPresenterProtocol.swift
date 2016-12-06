@@ -14,7 +14,7 @@ typealias LoginResponseBlock = (fulfill: (UserModel) -> Void, reject: (Error) ->
 protocol LoginPresenterProtocol {
     var responseBlock: LoginResponseBlock? { get set }
     
-    init(view: LoginViewProtocol, userManager: UserManagerProtocol, router: RouterProtocol)
+    init(view: LoginViewProtocol, userManager: UserManagerProtocol, router: RouterProtocol, facebookManager: FacebookManagerProtocol)
     
     func loginUserIfNeeded(from presenterViewController: UIViewController) -> Promise<UserModel>
     func loginWith(email: String, password: String) -> Promise<UserModel>

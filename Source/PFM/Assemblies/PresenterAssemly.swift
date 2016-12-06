@@ -85,7 +85,8 @@ final class PresenterAssembly: AssemblyType {
             return LoginPresenter(
                 view: r.resolve(LoginViewProtocol.self)!,
                 userManager: r.resolve(UserManagerProtocol.self)!,
-                router: r.resolve(RouterProtocol.self)!
+                router: r.resolve(RouterProtocol.self)!,
+                facebookManager: r.resolve(FacebookManagerProtocol.self)!
             )
         }
     }

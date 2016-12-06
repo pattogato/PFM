@@ -19,13 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        let managersAssemby = ManagersAssembly()
         
         // Register assemblys
         assembler.apply(assemblies: [
             ApplicationAssembly(),
             ServicesAssembly(),
-            ManagersAssembly(),
+            managersAssemby,
             StoragesAssembly(),
             DataProvidersAssembly(),
             PresenterAssembly(),
@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ])
         
         ApplicationAssembly.resolveAppDelegateDependencies(appDelegate: self)
+        
+        managersAssemby.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         router.start()
         

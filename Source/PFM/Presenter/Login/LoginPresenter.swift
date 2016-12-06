@@ -22,11 +22,13 @@ final class LoginPresenter: LoginPresenterProtocol {
     
     let userManager: UserManagerProtocol
     let router: RouterProtocol
+    let facebookManager: FacebookManagerProtocol
     
-    init(view: LoginViewProtocol, userManager: UserManagerProtocol, router: RouterProtocol) {
+    init(view: LoginViewProtocol, userManager: UserManagerProtocol, router: RouterProtocol, facebookManager: FacebookManagerProtocol) {
         self.view = view
         self.userManager = userManager
         self.router = router
+        self.facebookManager = facebookManager
     }
     
     func loginUserIfNeeded(from presenterViewController: UIViewController) -> Promise<UserModel> {
@@ -56,12 +58,15 @@ final class LoginPresenter: LoginPresenterProtocol {
     }
     
     func loginWithFacebook() -> Promise<UserModel> {
-        return userManager.loginWithFacebook().then { (userModel) -> Promise<UserModel> in
-            self.dismiss()
-            self.responseBlock?.fulfill(userModel)
-            return Promise(value: userModel)
-        }.catch { error in
-                self.responseBlock?.reject(error)
+        return facebookManager.getFacebookUserData(viewController: self.view as! UIViewController).then { (socialUserData) -> Promise<UserModel> in
+            
+            return self.userManager.loginWithFacebook().then { (userModel) -> Promise<UserModel> in
+                self.dismiss()
+                self.responseBlock?.fulfill(userModel)
+                return Promise(value: userModel)
+                }.catch { error in
+                    self.responseBlock?.reject(error)
+            }
         }
     }
     
