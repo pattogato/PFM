@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, PresentableView {
+class SettingsViewController: UIViewController, PresentableView, AlertProtocol {
     
     var presenter: SettingsViewPresenterProtocol?
 
@@ -17,25 +17,14 @@ class SettingsViewController: UIViewController, PresentableView {
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func navigateToInputScreenTouched(_ sender: AnyObject) {
         self.presenter?.navigateToInputScreen()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginButtonTouched(_ sender: Any) {
     }
-    */
+    
 
 }
 
@@ -45,4 +34,7 @@ extension SettingsViewController: SettingsViewProtocol {
         print("load user settings")
     }
     
+    func showGreetingMessage() {
+        self.showAlert(message: "Welcome to pfm, dear user")
+    }
 }

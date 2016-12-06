@@ -32,5 +32,8 @@ final class ManagersAssembly: AssemblyType {
                 migrationBlock: nil)
             }.inObjectScope(.container)
         
+        container.register(UserManagerProtocol.self) { r in
+            return DummyUserManager()
+            }.inObjectScope(.container)
     }
 }

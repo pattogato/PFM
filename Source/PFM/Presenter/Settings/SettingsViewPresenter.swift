@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class SettingsViewPresenter: SettingsViewPresenterProtocol, RouterDependentProtocol {
 
@@ -14,12 +15,19 @@ class SettingsViewPresenter: SettingsViewPresenterProtocol, RouterDependentProto
     
     var router: RouterProtocol!
     
-    required init(view: SettingsViewProtocol) {
+    let loginPresenter: LoginPresenterProtocol
+    
+    required init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol) {
         self.view = view
+        self.loginPresenter = loginPresenter
     }
     
     func navigateToInputScreen() {
         router.showPage(page: .middle, animated: true)
+    }
+    
+    func login(from: UIViewController) -> Promise<UserModel> {
+        return loginPresenter.loginUserIfNeeded(from: from)
     }
     
 }

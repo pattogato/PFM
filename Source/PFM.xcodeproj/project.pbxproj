@@ -15,6 +15,13 @@
 		B10B2ED11DD1DEF80089E848 /* ViewsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2ED01DD1DEF80089E848 /* ViewsAssembly.swift */; };
 		B10B2ED41DD228610089E848 /* InputContentSelectorDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2ED31DD228610089E848 /* InputContentSelectorDateViewController.swift */; };
 		B10B2ED61DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2ED51DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift */; };
+		B1157DE51DF639E900954671 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1157DE41DF639E900954671 /* Login.storyboard */; };
+		B1157DE71DF63A5C00954671 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1157DE61DF63A5C00954671 /* LoginViewController.swift */; };
+		B1157DE91DF63A6700954671 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1157DE81DF63A6700954671 /* RegisterViewController.swift */; };
+		B1157DEC1DF63B0700954671 /* LoginPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1157DEB1DF63B0700954671 /* LoginPresenterProtocol.swift */; };
+		B1157DEE1DF63B0F00954671 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1157DED1DF63B0F00954671 /* LoginPresenter.swift */; };
+		B1157DF01DF63B1B00954671 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1157DEF1DF63B1B00954671 /* LoginViewProtocol.swift */; };
+		B1157DF31DF63D7C00954671 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1157DF21DF63D7C00954671 /* UserManager.swift */; };
 		B120CA7B1CCBC64900E9985B /* Input.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B120CA7A1CCBC64900E9985B /* Input.storyboard */; };
 		B120CA7D1CCBC65B00E9985B /* Charts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B120CA7C1CCBC65B00E9985B /* Charts.storyboard */; };
 		B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120CA811CCBC93500E9985B /* NumpadViewController.swift */; };
@@ -171,6 +178,13 @@
 		B10B2ED01DD1DEF80089E848 /* ViewsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewsAssembly.swift; sourceTree = "<group>"; };
 		B10B2ED31DD228610089E848 /* InputContentSelectorDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputContentSelectorDateViewController.swift; sourceTree = "<group>"; };
 		B10B2ED51DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputContentSelectorCurrencyViewController.swift; sourceTree = "<group>"; };
+		B1157DE41DF639E900954671 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B1157DE61DF63A5C00954671 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B1157DE81DF63A6700954671 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B1157DEB1DF63B0700954671 /* LoginPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenterProtocol.swift; sourceTree = "<group>"; };
+		B1157DED1DF63B0F00954671 /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		B1157DEF1DF63B1B00954671 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
+		B1157DF21DF63D7C00954671 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		B120CA7A1CCBC64900E9985B /* Input.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Input.storyboard; path = View/Input/Input.storyboard; sourceTree = "<group>"; };
 		B120CA7C1CCBC65B00E9985B /* Charts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Charts.storyboard; path = View/Charts/Charts.storyboard; sourceTree = "<group>"; };
 		B120CA811CCBC93500E9985B /* NumpadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumpadViewController.swift; path = View/Numpad/NumpadViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +346,36 @@
 			path = View/Input/InputContentSelectors;
 			sourceTree = "<group>";
 		};
+		B1157DE31DF639DF00954671 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B1157DEF1DF63B1B00954671 /* LoginViewProtocol.swift */,
+				B1157DE41DF639E900954671 /* Login.storyboard */,
+				B1157DE61DF63A5C00954671 /* LoginViewController.swift */,
+				B1157DE81DF63A6700954671 /* RegisterViewController.swift */,
+			);
+			name = Login;
+			path = View/Login;
+			sourceTree = "<group>";
+		};
+		B1157DEA1DF63AF100954671 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B1157DEB1DF63B0700954671 /* LoginPresenterProtocol.swift */,
+				B1157DED1DF63B0F00954671 /* LoginPresenter.swift */,
+			);
+			name = Login;
+			path = Presenter/Login;
+			sourceTree = "<group>";
+		};
+		B1157DF11DF63D7500954671 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B1157DF21DF63D7C00954671 /* UserManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		B120CA801CCBC8F500E9985B /* Numberpad */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +461,7 @@
 		B1783BF51CB2FA7600056895 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B1157DE31DF639DF00954671 /* Login */,
 				B120CA801CCBC8F500E9985B /* Numberpad */,
 				B1783C151CB3A81B00056895 /* General */,
 				B1783C0D1CB397C400056895 /* Navigation */,
@@ -433,6 +478,7 @@
 		B1783BF61CB2FA7A00056895 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				B1157DEA1DF63AF100954671 /* Login */,
 				B18EC8501DF084CC0069A722 /* Note */,
 				B1783C081CB30A1000056895 /* PresentableView.swift */,
 				B1783C0A1CB3971900056895 /* Navigation */,
@@ -580,6 +626,7 @@
 				B18785A21CA98E6A00DD18E9 /* Main.storyboard */,
 				B18785A71CA98E6A00DD18E9 /* LaunchScreen.storyboard */,
 				B18785A51CA98E6A00DD18E9 /* Assets.xcassets */,
+				B1157DF11DF63D7500954671 /* Managers */,
 				B164F96B1DCB45D10090CF08 /* Assemblies */,
 				E26D7E691CCE496100454C08 /* CustomControls */,
 				B1783BF41CB2FA6900056895 /* Model */,
@@ -922,6 +969,7 @@
 				E2DEB6861CE1CCA800843D99 /* Montserrat-Regular.otf in Resources */,
 				B18785A61CA98E6A00DD18E9 /* Assets.xcassets in Resources */,
 				B120CA7B1CCBC64900E9985B /* Input.storyboard in Resources */,
+				B1157DE51DF639E900954671 /* Login.storyboard in Resources */,
 				B120CA841CCBC93500E9985B /* NumpadViewController.xib in Resources */,
 				E26D7E791CCE5B8600454C08 /* CategoryCollectionViewCell.xib in Resources */,
 				B120CA7D1CCBC65B00E9985B /* Charts.storyboard in Resources */,
@@ -1054,9 +1102,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1157DF01DF63B1B00954671 /* LoginViewProtocol.swift in Sources */,
 				B1783BF81CB2FAA200056895 /* Router.swift in Sources */,
 				B164F9741DCB45F70090CF08 /* StoragesAssembly.swift in Sources */,
 				B1783C221CB3B6B500056895 /* ChartsViewController.swift in Sources */,
+				B1157DE71DF63A5C00954671 /* LoginViewController.swift in Sources */,
 				B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */,
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
 				B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */,
@@ -1070,6 +1120,7 @@
 				B1783C021CB3039500056895 /* InputViewController.swift in Sources */,
 				B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */,
 				B1783C251CB3C73600056895 /* SettingsViewPresenterProtocol.swift in Sources */,
+				B1157DF31DF63D7C00954671 /* UserManager.swift in Sources */,
 				B120CA8C1CCD13F100E9985B /* InputContentPresenterProtocol.swift in Sources */,
 				B1783C1A1CB3B26C00056895 /* ChartsViewPresenterProtocol.swift in Sources */,
 				B1783C051CB3059800056895 /* Constants.swift in Sources */,
@@ -1101,9 +1152,12 @@
 				B120CA8E1CCD142B00E9985B /* InputContentViewProtocol.swift in Sources */,
 				E26D7E711CCE4AF900454C08 /* CategoriesViewProtocol.swift in Sources */,
 				B12655AC1DBEB57600AEDED5 /* AlertProtocol.swift in Sources */,
+				B1157DEE1DF63B0F00954671 /* LoginPresenter.swift in Sources */,
 				B1783C2C1CB3CA6A00056895 /* SettingsViewController.swift in Sources */,
 				B18785D41CA9928500DD18E9 /* CategoryModel.swift in Sources */,
 				B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */,
+				B1157DEC1DF63B0700954671 /* LoginPresenterProtocol.swift in Sources */,
+				B1157DE91DF63A6700954671 /* RegisterViewController.swift in Sources */,
 				E26D7E6E1CCE4A4100454C08 /* CategoriesTransition.swift in Sources */,
 				B164F9771DCC81320090CF08 /* SecureProperty.swift in Sources */,
 				B1783BE91CB18A2400056895 /* TransactionDataProvider.swift in Sources */,

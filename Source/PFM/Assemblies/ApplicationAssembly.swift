@@ -64,6 +64,7 @@ enum Storyboards {
     case charts
     case history
     case settings
+    case login
     
     static func all() -> [Storyboards] {
         return [
@@ -73,6 +74,7 @@ enum Storyboards {
             charts,
             history,
             settings,
+            login
         ]
     }
     
@@ -84,6 +86,7 @@ enum Storyboards {
         case .charts: return "Charts"
         case .history: return "History"
         case .settings: return "Settings"
+        case .login: return "Login"
         }
     }
 }
@@ -93,7 +96,7 @@ enum ViewControllers {
     case charts
     case history
     case settings
-    
+    case login
     
     var storyboard: Storyboards {
         switch self {
@@ -101,6 +104,7 @@ enum ViewControllers {
         case .charts: return .charts
         case .history: return .history
         case .settings: return .settings
+        case .login: return .login
         }
     }
     
@@ -110,6 +114,7 @@ enum ViewControllers {
         case .charts: return "ChartsViewControllerStoryboardID"
         case .history: return "HistoryViewControllerStoryboardID"
         case .settings: return "SettingsViewControllerStoryboardID"
+        case .login: return "LoginViewControllerStoryboardID"
         }
     }
 }

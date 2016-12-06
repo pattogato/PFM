@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
+final class InputViewPresenter: InputViewPresenterProtocol {
 
     // MARK: - Dependencies
     
@@ -17,7 +17,7 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     let currentTransactionDataProvider: CurrentTransactionDataProviderProtocol!
     let transactionDataProvider: TransactionDataProviderProtocol!
     var inputContentPresenter: InputContentPresenterProtocol!
-    var router: RouterProtocol!
+    let router: RouterProtocol
     
     unowned let view: InputViewProtocol
     
@@ -26,12 +26,14 @@ class InputViewPresenter: InputViewPresenterProtocol, RouterDependentProtocol {
     init(view: InputViewProtocol,
          dalHelper: DALHelperProtocol,
          currentTransactionDataProvider: CurrentTransactionDataProviderProtocol,
-         transactionDataProvider: TransactionDataProviderProtocol) {
+         transactionDataProvider: TransactionDataProviderProtocol,
+         router: RouterProtocol) {
         
         self.view = view
         self.dalHelper = dalHelper
         self.currentTransactionDataProvider = currentTransactionDataProvider
         self.transactionDataProvider = transactionDataProvider
+        self.router = router
     }
     
     func presentInputScreen() {

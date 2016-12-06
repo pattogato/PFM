@@ -14,4 +14,6 @@ protocol SettingsViewProtocol: class {
         Loads the users saved settings
      */
     func loadUserSettings()
+    
+    func showGreetingMessage()
 }
