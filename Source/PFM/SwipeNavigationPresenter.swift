@@ -125,7 +125,7 @@ extension SwipeNavigationPresenter: EZSwipeControllerDataSource {
     }
     
     func setupFinished() {
-        enableBounce(false)
+        enableBounce(true)
     }
     
     func indexOfStartingPage() -> Int {

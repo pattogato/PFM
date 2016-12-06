@@ -16,9 +16,9 @@ final class PresenterAssembly: AssemblyType {
          Input presenter
          */
         container.register(InputViewPresenterProtocol.self) {
-            (r, a: InputViewProtocol) in
+            (r, view: InputViewProtocol) in
             return InputViewPresenter(
-                view: a,
+                view: view,
                 dalHelper: r.resolve(DALHelperProtocol.self)!,
                 currentTransactionDataProvider: r.resolve(CurrentTransactionDataProviderProtocol.self)!,
                 transactionDataProvider: r.resolve(TransactionDataProviderProtocol.self)!,
@@ -80,10 +80,9 @@ final class PresenterAssembly: AssemblyType {
         /**
          Input content presenter
          */
-        container.register(LoginPresenterProtocol.self) {
-            (r, view: LoginViewProtocol) in
+        container.register(LoginPresenterProtocol.self) { r in
             return LoginPresenter(
-                view: view,
+                view: r.resolve(LoginViewProtocol.self)!,
                 userManager: r.resolve(UserManagerProtocol.self)!,
                 router: r.resolve(RouterProtocol.self)!
             )

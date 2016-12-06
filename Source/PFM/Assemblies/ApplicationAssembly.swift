@@ -97,6 +97,7 @@ enum ViewControllers {
     case history
     case settings
     case login
+    case loginNavigation
     
     var storyboard: Storyboards {
         switch self {
@@ -105,6 +106,7 @@ enum ViewControllers {
         case .history: return .history
         case .settings: return .settings
         case .login: return .login
+        case .loginNavigation: return .login
         }
     }
     
@@ -115,6 +117,7 @@ enum ViewControllers {
         case .history: return "HistoryViewControllerStoryboardID"
         case .settings: return "SettingsViewControllerStoryboardID"
         case .login: return "LoginViewControllerStoryboardID"
+        case .loginNavigation: return "LoginNavigationViewControllerID"
         }
     }
 }

@@ -23,14 +23,20 @@ class LoginViewController: UIViewController, LoginViewProtocol, LoaderProtocol {
     }
     
     func dismissView() {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // IBActions
-    
-    @IBAction func closeButtonTouched(_ sender: Any) {
-        self.presenter.dismiss()
+    @IBAction func closeLoginButtonTouched(_ sender: Any) {
+        self.presenter.cancelLogin()
     }
+
+    @IBAction func signupButtonTouched(_ sender: Any) {
+    }
+    
+    @IBAction func facebookButtonTouched(_ sender: Any) {
+    }
+    
 
     @IBAction func loginButtonTouched(_ sender: Any) {
         guard let email = emailTextfield.text,

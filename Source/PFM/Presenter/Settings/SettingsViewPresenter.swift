@@ -27,7 +27,12 @@ class SettingsViewPresenter: SettingsViewPresenterProtocol, RouterDependentProto
     }
     
     func login(from: UIViewController) -> Promise<UserModel> {
-        return loginPresenter.loginUserIfNeeded(from: from)
+        return loginPresenter.loginUserIfNeeded(from: from).then(execute: { (userModel) -> Promise<UserModel> in
+            self.view.showGreetingMessage(user: userModel)
+            return Promise(value: userModel)
+        }).catch(execute: { (error) in
+            self.view.showErrorMessage(error: error)
+        })
     }
     
 }

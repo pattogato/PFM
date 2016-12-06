@@ -9,9 +9,14 @@
 import Foundation
 import PromiseKit
 
+enum LoginError: Swift.Error {
+    case userCancelled
+    case networkError
+}
+
 final class LoginPresenter: LoginPresenterProtocol {
     
-    unowned let view: LoginViewProtocol
+    let view: LoginViewProtocol
     
     var responseBlock: LoginResponseBlock?
     
@@ -29,9 +34,9 @@ final class LoginPresenter: LoginPresenterProtocol {
             return Promise(value: loggedInUser)
         }
         
-        let loginNavVC = router.viewController(ofType: .login)
+        let loginVC = view as! UIViewController
         
-        presenterViewController.present(loginNavVC, animated: true, completion: nil)
+        presenterViewController.present(loginVC, animated: true, completion: nil)
         
         return Promise {
             fulfill, reject in
@@ -41,20 +46,31 @@ final class LoginPresenter: LoginPresenterProtocol {
     }
     
     func loginWith(email: String, password: String) -> Promise<UserModel> {
-        return userManager.loginUser(email: email, password: password).then(execute: { (userModel) -> Promise<UserModel> in
+        return userManager.loginUser(email: email, password: password).then { (userModel) -> Promise<UserModel> in
             self.dismiss()
+            self.responseBlock?.fulfill(userModel)
             return Promise(value: userModel)
-        })
+        }.catch { error in
+                self.responseBlock?.reject(error)
+        }
     }
     
     func loginWithFacebook() -> Promise<UserModel> {
-        return userManager.loginWithFacebook().then(execute: { (userModel) -> Promise<UserModel> in
+        return userManager.loginWithFacebook().then { (userModel) -> Promise<UserModel> in
             self.dismiss()
+            self.responseBlock?.fulfill(userModel)
             return Promise(value: userModel)
-        })
+        }.catch { error in
+                self.responseBlock?.reject(error)
+        }
     }
     
     func dismiss() {
         self.view.dismissView()
+    }
+    
+    func cancelLogin() {
+        self.dismiss()
+        self.responseBlock?.reject(LoginError.userCancelled)
     }
 }

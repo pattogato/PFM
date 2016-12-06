@@ -20,4 +20,5 @@ protocol LoginPresenterProtocol {
     func loginWith(email: String, password: String) -> Promise<UserModel>
     func loginWithFacebook() -> Promise<UserModel>
     func dismiss()
+    func cancelLogin()
 }

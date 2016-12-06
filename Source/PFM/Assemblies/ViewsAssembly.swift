@@ -28,6 +28,7 @@ final class ViewsAssembly: AssemblyType {
             )
         }
         
+        // Note
         container.registerForStoryboardProject(controllerType: NoteViewController.self) { (r, c) in
             c.presenter = r.resolve(
                 NoteViewPresenterProtocol.self,
@@ -35,6 +36,23 @@ final class ViewsAssembly: AssemblyType {
             )
         }
         
+        // Settings
+        container.registerForStoryboardProject(controllerType: SettingsViewController.self) { (r, c) in
+            c.presenter = r.resolve(
+                SettingsViewPresenterProtocol.self,
+                argument: c as SettingsViewProtocol
+            )
+        }
+        
+        container.registerForStoryboardProject(controllerType: LoginViewController.self) { (r, c) in
+            c.presenter = r.resolve(LoginPresenterProtocol.self)
+        }
+        
+        // Login
+        container.register(LoginViewProtocol.self, factory: { (r) in
+            return r.resolve(RouterProtocol.self)!.viewController(ofType: .login) as! LoginViewProtocol
+        }).inObjectScope(.container)
+
     }
     
     

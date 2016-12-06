@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController, PresentableView, AlertProtocol {
     
-    var presenter: SettingsViewPresenterProtocol?
+    var presenter: SettingsViewPresenterProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class SettingsViewController: UIViewController, PresentableView, AlertProtocol {
     }
 
     @IBAction func loginButtonTouched(_ sender: Any) {
+        _ = self.presenter.login(from: self)
     }
     
 
@@ -34,7 +35,11 @@ extension SettingsViewController: SettingsViewProtocol {
         print("load user settings")
     }
     
-    func showGreetingMessage() {
-        self.showAlert(message: "Welcome to pfm, dear user")
+    func showGreetingMessage(user: UserModel) {
+        self.showAlert(message: "Welcome to pfm, dear \(user.name)")
+    }
+    
+    func showErrorMessage(error: Error) {
+        self.showError(error)
     }
 }
