@@ -53,6 +53,15 @@ final class ViewsAssembly: AssemblyType {
             return r.resolve(RouterProtocol.self)!.viewController(ofType: .login) as! LoginViewProtocol
         }).inObjectScope(.container)
 
+        // Charts
+        container.registerForStoryboardProject(controllerType: ChartsViewController.self) { (r, c) in
+            c.presenter = r.resolve(
+                ChartsViewPresenterProtocol.self,
+                argument: c as ChartsViewProtocol
+            )
+            c.dataProvider = r.resolve(ChartsDataProviderProtocol.self)
+        }
+        
     }
     
     

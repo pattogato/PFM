@@ -8,14 +8,15 @@
 
 import UIKit
 
-class ChartsViewPresenter: ChartsViewPresenterProtocol, RouterDependentProtocol {
+class ChartsViewPresenter: ChartsViewPresenterProtocol {
 
-    var router: RouterProtocol!
+    let router: RouterProtocol
     
     unowned let view: ChartsViewProtocol
     
-    required init(view: ChartsViewProtocol) {
+    required init(view: ChartsViewProtocol, router: RouterProtocol) {
         self.view = view
+        self.router = router
     }
     
     func openChart() {

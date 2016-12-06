@@ -24,6 +24,11 @@ final class DataProvidersAssembly: AssemblyType {
             )
         })
         
+        // Charts
+        container.register(ChartsDataProviderProtocol.self, factory: {
+            r in
+            return DummyChartsDataProvider()
+        })
     }
     
 }

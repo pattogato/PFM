@@ -55,7 +55,8 @@ final class PresenterAssembly: AssemblyType {
         container.register(ChartsViewPresenterProtocol.self) {
             (r, view: ChartsViewProtocol) in
             return ChartsViewPresenter(
-                view: view
+                view: view,
+                router: r.resolve(RouterProtocol.self)!
             )
         }
 
