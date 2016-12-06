@@ -55,11 +55,20 @@ final class ManagersAssembly: AssemblyType {
                 errorType: nil, // TODO: Custom API error
                 networkActivityIndicatorEnabled: true
             )
-        }.inObjectScope(.container)
+        }.inObjectScope(.container).initCompleted { (r, c) in
+            guard let c = c as? RESTAPIClient else { return }
+            c.authenticationDelegate = r.resolve(RESTAPIAuthenticationDelegate.self)
+        }
         
         container.register(CategoriesManagerProtocol.self) { r in
             return CategoriesManager(
                 categoryService: r.resolve(CategoryServiceProtocol.self)!
+            )
+        }
+        
+        container.register(RESTAPIAuthenticationDelegate.self) { r in
+            return RESTAPIAuthenticationManager(
+                userManager: r.resolve(UserManagerProtocol.self)!
             )
         }
     }

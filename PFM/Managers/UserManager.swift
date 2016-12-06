@@ -9,16 +9,22 @@
 import Foundation
 import PromiseKit
 
+enum UserManagerError: Swift.Error {
+    case NoStoredCredentials
+}
+
 protocol UserManagerProtocol {
     
     var loggedInUser: UserModel? { get }
+    var accessToken: String? { get }
     
     func loginUser(email: String, password: String) -> Promise<UserModel>
     func login(facebookToken: String) -> Promise<UserModel>
     func logoutUser()
     func updateUser(user: UserModel) -> Promise<UserModel>
     func signupUser(email: String, password: String) -> Promise<UserModel>
-
+    
+    func silentLogin() -> Promise<Void>
 }
 
 final class UserManager: UserManagerProtocol {
@@ -30,6 +36,11 @@ final class UserManager: UserManagerProtocol {
     }
     
     var loggedInUser: UserModel?
+    private(set) var accessToken: String?
+    
+    private var email: String?
+    private var password: String?
+    private var facebookToken: String?
     
     func loginUser(email: String, password: String) -> Promise<UserModel> {
         let promise = authService.login(email: email, password: password)
@@ -46,9 +57,41 @@ final class UserManager: UserManagerProtocol {
         return handleLoginPromise(promise: promise)
     }
     
-    private func handleLoginPromise(promise: Promise<UserModel>) -> Promise<UserModel> {
-        return promise.then { (userModel) -> UserModel in
+    func silentLogin() -> Promise<Void> {
+        return silentLoginCredentials()
+            .recover { (_error) -> Promise<UserModel> in
+                guard let error = _error as? UserManagerError,
+                    error == .NoStoredCredentials else {
+                    return Promise(error: _error)
+                }
+                
+                return self.silentLoginFacebook()
+            }.asVoid()
+    }
+    
+    private func silentLoginCredentials() -> Promise<UserModel> {
+        guard let email = self.email, let password = self.password else {
+            return Promise(error: UserManagerError.NoStoredCredentials)
+        }
+        
+        return loginUser(email: email, password: password)
+    }
+    
+    private func silentLoginFacebook() -> Promise<UserModel> {
+        guard let facebookToken = self.facebookToken else {
+            return Promise(error: UserManagerError.NoStoredCredentials)
+        }
+        
+        return login(facebookToken: facebookToken)
+    }
+    
+    private func handleLoginPromise(
+        promise: Promise<LoginResponseModel>) -> Promise<UserModel> {
+        return promise.then { (login) -> UserModel in
+            let userModel = UserModel()
+            userModel.name = login.userName
             self.loggedInUser = userModel
+            self.accessToken = login.accessToken
             return userModel
         }
     }

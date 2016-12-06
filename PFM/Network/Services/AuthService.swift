@@ -12,9 +12,9 @@ import PromiseKit
 import ObjectMapper
 
 protocol AuthServiceProtocol {
-    func login(email: String, password: String) -> Promise<UserModel>
-    func login(facebookToken: String) -> Promise<UserModel>
-    func register(email: String, password: String) -> Promise<UserModel>
+    func login(email: String, password: String) -> Promise<LoginResponseModel>
+    func login(facebookToken: String) -> Promise<LoginResponseModel>
+    func register(email: String, password: String) -> Promise<LoginResponseModel>
     func forgotPassword(email: String) -> Promise<EmptyNetworkResponseModel>
 }
 
@@ -26,7 +26,7 @@ final class AuthService: AuthServiceProtocol {
         self.apiClient = apiClient
     }
     
-    func login(email: String, password: String) -> Promise<UserModel> {
+    func login(email: String, password: String) -> Promise<LoginResponseModel> {
         return apiClient.mappedServerMethod(
             method: API.Method.Auth.login,
             object: EmailLoginModel(
@@ -35,7 +35,7 @@ final class AuthService: AuthServiceProtocol {
         )
     }
     
-    func login(facebookToken: String) -> Promise<UserModel> {
+    func login(facebookToken: String) -> Promise<LoginResponseModel> {
         return apiClient.mappedServerMethod(
             method: API.Method.Auth.login,
             object: FacebookLoginModel(
@@ -44,7 +44,7 @@ final class AuthService: AuthServiceProtocol {
         )
     }
     
-    func register(email: String, password: String) -> Promise<UserModel> {
+    func register(email: String, password: String) -> Promise<LoginResponseModel> {
         return apiClient.mappedServerMethod(
             method: API.Method.Auth.register,
             object: RegistrationModel(
@@ -69,7 +69,7 @@ fileprivate struct EmailLoginModel: BaseMappable {
     var password: String
     
     mutating func mapping(map: Map) {
-        email <- map["email"]
+        email <- map["username"]
         password <- map["password"]
         
         var grantType = "password"
@@ -82,6 +82,9 @@ fileprivate struct FacebookLoginModel: BaseMappable {
     
     mutating func mapping(map: Map) {
         facebookToken <- map["fbToken"]
+        
+        var grantType = "facebook"
+        grantType <- map["grant_type"]
     }
 }
 
@@ -100,5 +103,16 @@ fileprivate struct ForgotPasswordModel: BaseMappable {
     
     mutating func mapping(map: Map) {
         email <- map["email"]
+    }
+}
+
+final class LoginResponseModel: Mappable {
+    var userName: String!
+    var accessToken: String!
+    
+    init?(map: Map) { }
+    func mapping(map: Map) {
+        userName <- map["userName"]
+        accessToken <- map["access_token"]
     }
 }

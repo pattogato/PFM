@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0106058A1DF76EB3000A2707 /* CategoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605891DF76EB3000A2707 /* CategoriesManager.swift */; };
 		0106058D1DF770A9000A2707 /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106058C1DF770A9000A2707 /* CategoriesPresenter.swift */; };
+		0106058F1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */; };
 		014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DBD1DD21A28004175EF /* APIResources.swift */; };
 		014E2DC11DD21F27004175EF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC01DD21F27004175EF /* AuthService.swift */; };
 		014E2DC31DD21F2E004175EF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC21DD21F2E004175EF /* UserService.swift */; };
@@ -183,6 +184,7 @@
 /* Begin PBXFileReference section */
 		010605891DF76EB3000A2707 /* CategoriesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesManager.swift; sourceTree = "<group>"; };
 		0106058C1DF770A9000A2707 /* CategoriesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
+		0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIAuthenticationManager.swift; sourceTree = "<group>"; };
 		014E2DBD1DD21A28004175EF /* APIResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResources.swift; sourceTree = "<group>"; };
 		014E2DC01DD21F27004175EF /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		014E2DC21DD21F2E004175EF /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				B19C33D01DF6C0E700C432DC /* FacebookManager.swift */,
 				B1157DF21DF63D7C00954671 /* UserManager.swift */,
 				010605891DF76EB3000A2707 /* CategoriesManager.swift */,
+				0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1219,6 +1222,7 @@
 				B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */,
 				B18EC84F1DF084C50069A722 /* NoteViewProtocol.swift in Sources */,
 				E26D7E781CCE5B8600454C08 /* CategoryCollectionViewCell.swift in Sources */,
+				0106058F1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift in Sources */,
 				B1783C091CB30A1000056895 /* PresentableView.swift in Sources */,
 				B1783C001CB2FDF100056895 /* InputViewProtocol.swift in Sources */,
 				B1783BFB1CB2FCB600056895 /* InputViewPresenterProtocol.swift in Sources */,

@@ -97,6 +97,10 @@ struct API {
             var additionalPath: String? {
                 return "api/categories"
             }
+            
+            var httpMethod: HTTPMethod {
+                return .get
+            }
         }
         
         enum Transactions: PFMServerMethod {
