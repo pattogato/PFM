@@ -88,6 +88,7 @@
 		B18EC8521DF085100069A722 /* NoteViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC8511DF085100069A722 /* NoteViewPresenterProtocol.swift */; };
 		B18EC8541DF085220069A722 /* NoteViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC8531DF085220069A722 /* NoteViewPresenter.swift */; };
 		B18EC8561DF085340069A722 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC8551DF085340069A722 /* NoteViewController.swift */; };
+		B19C33D11DF6C0E700C432DC /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D01DF6C0E700C432DC /* FacebookManager.swift */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
@@ -259,6 +260,7 @@
 		B18EC8511DF085100069A722 /* NoteViewPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewPresenterProtocol.swift; path = Presenter/Note/NoteViewPresenterProtocol.swift; sourceTree = "<group>"; };
 		B18EC8531DF085220069A722 /* NoteViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewPresenter.swift; path = Presenter/Note/NoteViewPresenter.swift; sourceTree = "<group>"; };
 		B18EC8551DF085340069A722 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		B19C33D01DF6C0E700C432DC /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenter.swift; path = Presenter/Input/LocationPickerPresenter.swift; sourceTree = "<group>"; };
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 		B1157DF11DF63D7500954671 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B19C33D01DF6C0E700C432DC /* FacebookManager.swift */,
 				B1157DF21DF63D7C00954671 /* UserManager.swift */,
 			);
 			path = Managers;
@@ -1114,6 +1117,7 @@
 				B164F9751DCB45F70090CF08 /* DataProvidersAssembly.swift in Sources */,
 				B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */,
 				B164F9711DCB45F70090CF08 /* ApplicationAssembly.swift in Sources */,
+				B19C33D11DF6C0E700C432DC /* FacebookManager.swift in Sources */,
 				B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */,
 				B10B2ED61DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift in Sources */,
 				B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */,
