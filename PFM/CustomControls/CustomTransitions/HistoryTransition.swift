@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EZSwipeController
 
 final class HistoryTransition: PresentingTransitionAnimator {
     
@@ -27,7 +28,9 @@ final class HistoryTransition: PresentingTransitionAnimator {
     
     fileprivate func presentingAnimation( _ context : UIViewControllerContextTransitioning ) {
         
-        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? HistoryViewController {
+        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? HistoryViewController,
+            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? EZSwipeController,
+            let inputVc = swipeNavigation.stackVC[swipeNavigation.currentVCIndex] as? InputViewController {
             
             // Add 'toView' to context view
             
@@ -41,8 +44,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
             historyView?.transform = CGAffineTransform(translationX: 0, y: -(historyView?.bounds.size.height)!)
             
             // TODO betenni
-//            historyVc.cashLabel.text = inputVc.amountLabel.text
-            historyVc.cashLabel.text = "todo"
+            historyVc.cashLabel.text = inputVc.amountLabel.text
             
             
             // Animate
