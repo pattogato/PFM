@@ -18,6 +18,7 @@ final class InputViewPresenter: InputViewPresenterProtocol {
     let transactionDataProvider: TransactionDataProviderProtocol!
     var inputContentPresenter: InputContentPresenterProtocol!
     let router: RouterProtocol
+    let syncManager: SyncManagerProtocol
     
     unowned let view: InputViewProtocol
     
@@ -27,13 +28,15 @@ final class InputViewPresenter: InputViewPresenterProtocol {
          dalHelper: DALHelperProtocol,
          currentTransactionDataProvider: CurrentTransactionDataProviderProtocol,
          transactionDataProvider: TransactionDataProviderProtocol,
-         router: RouterProtocol) {
+         router: RouterProtocol,
+         syncManager: SyncManagerProtocol) {
         
         self.view = view
         self.dalHelper = dalHelper
         self.currentTransactionDataProvider = currentTransactionDataProvider
         self.transactionDataProvider = transactionDataProvider
         self.router = router
+        self.syncManager = syncManager
     }
     
     func presentInputScreen() {
@@ -185,6 +188,8 @@ extension InputViewPresenter: InputContentSelectorDelegate {
                     } else if let currentTransaction = currentTransactionDataProvider.getTransaction() {
                         transactionDataProvider.addTransaction(nil, transaction: currentTransaction)
                         self.view.resetUI()
+                        syncManager.syncTransactions()
+                        currentTransactionDataProvider.resetTransaction()
                     }
                 case .number(let number):
                     enterDigit(number)

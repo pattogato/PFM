@@ -22,7 +22,8 @@ final class PresenterAssembly: AssemblyType {
                 dalHelper: r.resolve(DALHelperProtocol.self)!,
                 currentTransactionDataProvider: r.resolve(CurrentTransactionDataProviderProtocol.self)!,
                 transactionDataProvider: r.resolve(TransactionDataProviderProtocol.self)!,
-                router: r.resolve(RouterProtocol.self)!
+                router: r.resolve(RouterProtocol.self)!,
+                syncManager: r.resolve(SyncManagerProtocol.self)!
             )
         }
         

@@ -72,6 +72,13 @@ final class ManagersAssembly: AssemblyType {
                 userManager: r.resolve(UserManagerProtocol.self)!
             )
         }
+        
+        // Sync manager
+        container.register(SyncManagerProtocol.self) { r in
+            return SyncManager(
+                transactionDataProvider: r.resolve(TransactionDataProviderProtocol.self)!
+            )
+        }
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
