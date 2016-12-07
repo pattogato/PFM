@@ -2,7 +2,7 @@
 //  SecureProperty.swift
 //  hero2
 //
-//  Created by Andras Kadar on 19/09/16.
+//  Created by Bence Pattogato on 19/09/16.
 //  Copyright © 2016 Inceptech. All rights reserved.
 //
 

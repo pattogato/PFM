@@ -106,7 +106,8 @@
 		B19C33D11DF6C0E700C432DC /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D01DF6C0E700C432DC /* FacebookManager.swift */; };
 		B19C33D41DF6E7D700C432DC /* ChartsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D31DF6E7D700C432DC /* ChartsDataProvider.swift */; };
 		B19C33D91DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33D81DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift */; };
-		B19C33DB1DF7437200C432DC /* CategoriesInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33DA1DF7437200C432DC /* CategoriesInteractionController.swift */; };
+		B19C33DD1DF79B3100C432DC /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33DC1DF79B3100C432DC /* SyncManager.swift */; };
+		B19C33DF1DF7A82B00C432DC /* CategoriesInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33DE1DF7A82B00C432DC /* CategoriesInteractionController.swift */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
@@ -298,7 +299,8 @@
 		B19C33D21DF6D4CA00C432DC /* PFM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PFM.entitlements; sourceTree = "<group>"; };
 		B19C33D31DF6E7D700C432DC /* ChartsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsDataProvider.swift; path = DAL/Interactors/ChartsDataProvider.swift; sourceTree = "<group>"; };
 		B19C33D81DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeNavigationPresenterProtocol.swift; path = Presenter/Navigation/SwipeNavigationPresenterProtocol.swift; sourceTree = "<group>"; };
-		B19C33DA1DF7437200C432DC /* CategoriesInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesInteractionController.swift; sourceTree = "<group>"; };
+		B19C33DC1DF79B3100C432DC /* SyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
+		B19C33DE1DF7A82B00C432DC /* CategoriesInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesInteractionController.swift; sourceTree = "<group>"; };
 		B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenter.swift; path = Presenter/Input/LocationPickerPresenter.swift; sourceTree = "<group>"; };
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
@@ -356,7 +358,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00BE47EB91D8A00D1CE68173 /* Pods_PFMTests.framework in Frameworks */,
+				6425ABBEFF147F75200D599E /* Pods_PFMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +472,7 @@
 				B1157DF21DF63D7C00954671 /* UserManager.swift */,
 				010605891DF76EB3000A2707 /* CategoriesManager.swift */,
 				0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */,
+				B19C33DC1DF79B3100C432DC /* SyncManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -815,7 +818,7 @@
 		E26D7E6A1CCE497100454C08 /* CustomTransitions */ = {
 			isa = PBXGroup;
 			children = (
-				B19C33DA1DF7437200C432DC /* CategoriesInteractionController.swift */,
+				B19C33DE1DF7A82B00C432DC /* CategoriesInteractionController.swift */,
 				E26D7E6B1CCE49F000454C08 /* PresentingTransitionAnimator.swift */,
 				E26D7E6D1CCE4A4100454C08 /* CategoriesTransition.swift */,
 				E2D55DE91CF48491002343BD /* HistoryTransition.swift */,
@@ -1233,6 +1236,7 @@
 				014E2DC71DD21F4F004175EF /* TransactionService.swift in Sources */,
 				B164F9711DCB45F70090CF08 /* ApplicationAssembly.swift in Sources */,
 				B19C33D11DF6C0E700C432DC /* FacebookManager.swift in Sources */,
+				B19C33DF1DF7A82B00C432DC /* CategoriesInteractionController.swift in Sources */,
 				B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */,
 				015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */,
 				B10B2ED61DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift in Sources */,
@@ -1249,7 +1253,6 @@
 				014E2DCC1DD22F0E004175EF /* MappableModelObject.swift in Sources */,
 				B1DA8A761CEA80E500C51E85 /* PLocationPickerViewController.swift in Sources */,
 				B10B2EC71DCF5EAE0089E848 /* PresenterAssemly.swift in Sources */,
-				B19C33DB1DF7437200C432DC /* CategoriesInteractionController.swift in Sources */,
 				B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */,
 				B18EC84F1DF084C50069A722 /* NoteViewProtocol.swift in Sources */,
 				E26D7E781CCE5B8600454C08 /* CategoryCollectionViewCell.swift in Sources */,
@@ -1297,6 +1300,7 @@
 				015A56131DD1CA6500D1D7F9 /* RESTAPIClient.swift in Sources */,
 				B120CA901CCD157000E9985B /* InputContentPresenter.swift in Sources */,
 				E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */,
+				B19C33DD1DF79B3100C432DC /* SyncManager.swift in Sources */,
 				E2D55DE41CF47BA4002343BD /* HistoryCollectionViewCell.swift in Sources */,
 				014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */,
 				B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */,

@@ -39,4 +39,6 @@ protocol InputViewProtocol: class, LocationPickerDelegate {
     
     func appendAmountComa()
     
+    func showNoAmountError()
+    
 }

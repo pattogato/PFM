@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
@@ -14,7 +15,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     var category: CategoryModel? {
         didSet {
-            
+            self.setupUI()
         }
     }
     
@@ -37,4 +38,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 25
     }
 
+    func setupUI() {
+        if let category = self.category {
+            self.titleLabel.text = category.name
+            if let imageUrl = URL(string: category.imageUri) {
+                self.categoryImageView.af_setImage(withURL: imageUrl,
+                                                   placeholderImage: #imageLiteral(resourceName: "categoryFun"))
+            }
+            
+        }
+    }
+    
 }

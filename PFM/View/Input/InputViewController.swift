@@ -32,7 +32,6 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol, RouterDependentProtocol, CategoriesInteractionControllerProtocol {
 
-    
     // MARK: Dependencies
     var presenter: InputViewPresenterProtocol!
     var router: RouterProtocol!
@@ -137,6 +136,10 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     func setupPulldownController() {
         
+    }
+    
+    func showNoAmountError() {
+        self.showAlert(title: "No amount", message: "Please enter an amount to save", cancel: "Understood")
     }
 
     

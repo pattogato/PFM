@@ -107,7 +107,7 @@
                                 <rect key="frame" x="0.0" y="300" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70V-TF-x8B" userLabel="Place">
-                                        <rect key="frame" x="98" y="0.0" width="81.5" height="50"/>
+                                        <rect key="frame" x="98" y="0.0" width="82" height="50"/>
                                         <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonPlace"/>
                                         <connections>
@@ -115,7 +115,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ua-xU-r8c" userLabel="Note">
-                                        <rect key="frame" x="195.5" y="0.0" width="82" height="50"/>
+                                        <rect key="frame" x="196" y="0.0" width="81" height="50"/>
                                         <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonNote"/>
                                         <connections>
@@ -123,7 +123,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUk-Y8-Hwi" userLabel="Date">
-                                        <rect key="frame" x="293.5" y="0.0" width="81.5" height="50"/>
+                                        <rect key="frame" x="293" y="0.0" width="82" height="50"/>
                                         <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonDate"/>
                                         <state key="selected">
@@ -635,22 +635,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="l83-He-CnN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="l83-He-CnN">
+                                <rect key="frame" x="0.0" y="0.0" width="285" height="220"/>
                                 <date key="date" timeIntervalSinceReferenceDate="483205628.27166402">
                                     <!--2016-04-24 15:47:08 +0000-->
                                 </date>
-                                <connections>
-                                    <action selector="dateSelected:" destination="7QE-Ya-VUj" eventType="valueChanged" id="yqi-ix-8xk"/>
-                                </connections>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iey-d3-Hcm">
+                                <rect key="frame" x="285" y="110" width="90" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="qfm-hD-smb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneTouched:" destination="7QE-Ya-VUj" eventType="touchUpInside" id="6Fq-E1-Lxw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vem-EE-Git">
+                                <rect key="frame" x="285" y="0.0" width="90" height="110"/>
+                                <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelTouched:" destination="7QE-Ya-VUj" eventType="touchUpInside" id="aWp-T3-BQu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iey-d3-Hcm" secondAttribute="trailing" id="2lQ-We-wEd"/>
                             <constraint firstItem="l83-He-CnN" firstAttribute="top" secondItem="MjM-Ea-OyO" secondAttribute="top" id="6h7-Sc-woO"/>
-                            <constraint firstAttribute="trailing" secondItem="l83-He-CnN" secondAttribute="trailing" id="If7-6s-X5y"/>
+                            <constraint firstItem="iey-d3-Hcm" firstAttribute="top" secondItem="Vem-EE-Git" secondAttribute="bottom" id="I6I-Hc-Rv0"/>
                             <constraint firstItem="l83-He-CnN" firstAttribute="leading" secondItem="MjM-Ea-OyO" secondAttribute="leading" id="Xbf-2n-wwG"/>
+                            <constraint firstItem="iey-d3-Hcm" firstAttribute="leading" secondItem="l83-He-CnN" secondAttribute="trailing" id="aXw-cv-1k1"/>
+                            <constraint firstItem="Vem-EE-Git" firstAttribute="top" secondItem="5PD-ez-qVM" secondAttribute="bottom" id="g1N-PW-IRh"/>
+                            <constraint firstAttribute="trailing" secondItem="Vem-EE-Git" secondAttribute="trailing" id="lV1-2v-UkX"/>
+                            <constraint firstItem="Vem-EE-Git" firstAttribute="leading" secondItem="l83-He-CnN" secondAttribute="trailing" id="nXv-LZ-gTA"/>
+                            <constraint firstItem="iey-d3-Hcm" firstAttribute="top" secondItem="Vem-EE-Git" secondAttribute="bottom" id="sEP-qm-asm"/>
+                            <constraint firstItem="bTw-wj-jfO" firstAttribute="top" secondItem="iey-d3-Hcm" secondAttribute="bottom" id="twZ-1e-bEN"/>
+                            <constraint firstItem="iey-d3-Hcm" firstAttribute="top" secondItem="Vem-EE-Git" secondAttribute="bottom" id="uqN-N5-eiC"/>
                             <constraint firstAttribute="bottom" secondItem="l83-He-CnN" secondAttribute="bottom" id="v0m-F6-lvr"/>
+                            <constraint firstItem="Vem-EE-Git" firstAttribute="height" secondItem="iey-d3-Hcm" secondAttribute="height" id="wd5-Tq-Zch"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="1X1-jf-U9u"/>
@@ -661,7 +690,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZs-mZ-WpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3908" y="-1882"/>
+            <point key="canvasLocation" x="3908" y="-1882.7586206896553"/>
         </scene>
         <!--Input Content View Controller-->
         <scene sceneID="p2a-kN-1pl">
@@ -706,7 +735,7 @@
             <objects>
                 <navigationController storyboardIdentifier="InputNavigationControllerStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="Lmu-xf-Pnh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M2D-pN-77b">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2D-pN-77b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
