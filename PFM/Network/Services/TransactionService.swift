@@ -39,9 +39,9 @@ extension TransactionRequestModelProtocol {
 
 protocol TransactionServiceProtocol {
     func getTransactions(from date: Date) -> Promise<[TransactionModel]>
-    func uploadTransactions(transactions: [TransactionRequestModelProtocol])
+    func uploadTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]>
-    func editTransactions(transactions: [TransactionRequestModelProtocol])
+    func editTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]>
     func deleteTransactions(ids: [String]) -> Promise<EmptyNetworkResponseModel>
 }
@@ -63,7 +63,7 @@ final class TransactionService: TransactionServiceProtocol {
         )
     }
     
-    func uploadTransactions(transactions: [TransactionRequestModelProtocol])
+    func uploadTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]> {
             return apiClient.mappedServerMethod(
                 method: API.Method.Transactions.post,
@@ -73,7 +73,7 @@ final class TransactionService: TransactionServiceProtocol {
             )
     }
     
-    func editTransactions(transactions: [TransactionRequestModelProtocol])
+    func editTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]> {
             return apiClient.mappedServerMethod(
                 method: API.Method.Transactions.put,
@@ -103,7 +103,7 @@ fileprivate struct GetTransactionsRequestModel: BaseMappable {
 }
 
 fileprivate struct TransactionUploadRequestModel: BaseMappable {
-    var transactions: [TransactionRequestModelProtocol]
+    var transactions: [TransactionRequestModel]
     
     mutating func mapping(map: Map) {
         transactions <- map["transactions"]

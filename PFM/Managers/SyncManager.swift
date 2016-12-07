@@ -41,7 +41,7 @@ final class SyncManager: SyncManagerProtocol {
     
 }
 
-fileprivate struct TransactionRequestModel: TransactionRequestModelProtocol {
+struct TransactionRequestModel: TransactionRequestModelProtocol {
     
     var localId: String
     var serverId: String
