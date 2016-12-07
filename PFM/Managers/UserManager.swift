@@ -67,8 +67,12 @@ final class UserManager: UserManagerProtocol {
     }
     
     func signupUser(email: String, password: String) -> Promise<UserModel> {
-        let promise = authService.register(email: email, password: password)
-        return handleLoginPromise(promise: promise)
+        return authService
+            .register(email: email, password: password)
+            .then { (_) -> Promise<UserModel> in
+                // Then immediately log in (if success)
+                return self.loginUser(email: email, password: password)
+        }
     }
     
     func silentLogin() -> Promise<Void> {

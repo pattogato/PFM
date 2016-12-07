@@ -35,7 +35,7 @@ final class UserService: UserServiceProtocol {
     
     func edit(user: UserProtocol) -> Promise<EmptyNetworkResponseModel> {
         return apiClient.mappedServerMethod(
-            method: API.Method.User.edit,
+            method: API.Method.Users.edit,
             object: user
         )
     }
