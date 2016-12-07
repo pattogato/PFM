@@ -9,19 +9,20 @@
 import UIKit
 
 class InputContentSelectorDateViewController: UIViewController, InputContentSelectorProtocol {
+    
+    private var selectedDate = Date()
 
     var contentDelegate: InputContentSelectorDelegate?
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    @IBAction func dateSelected(_ sender: AnyObject) {
+    @IBAction func doneTouched(_ sender: Any) {
         contentDelegate?.valueSelected(type: .datePicker, value: datePicker.date)
     }
+    
+    @IBAction func cancelTouched(_ sender: Any) {
+        contentDelegate?.selectorCancelled()
+    }
+    
 
 }

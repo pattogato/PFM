@@ -125,6 +125,7 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: kCategoryCellIdentifier,
             for: indexPath) as! CategoryCollectionViewCell
+        cell.category = categories[indexPath.row]
         return cell
     }
     
