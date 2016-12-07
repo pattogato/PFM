@@ -2,7 +2,7 @@
 //  CategoriesStorage.swift
 //  PFM
 //
-//  Created by Andras Kadar on 2016. 12. 07..
+//  Created by Bence Pattogato on 2016. 12. 07..
 //  Copyright © 2016. Pinup. All rights reserved.
 //
 

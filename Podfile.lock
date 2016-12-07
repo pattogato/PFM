@@ -86,7 +86,7 @@ DEPENDENCIES:
   - RealmSwift (~> 1.1.0)
   - SVProgressHUD (~> 2.0)
   - SwiftDate (~> 4.0)
-  - SwiftyUserDefaults
+  - SwiftyUserDefaults (~> 3.0.0)
   - Swinject (~> 2.0.0-beta.2)
   - SwinjectStoryboard (~> 1.0.0-beta.2)
 
@@ -135,6 +135,6 @@ SPEC CHECKSUMS:
   Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
   SwinjectStoryboard: b52b45821a50386ef604c3cd098f8029a50a268d
 
-PODFILE CHECKSUM: e77fed151dea442864ff10fbf42eebe8de799dc4
+PODFILE CHECKSUM: 1f70c30ccdc0aac67ba8d217ba4ff6c8f3cbf74d
 
 COCOAPODS: 1.1.1
