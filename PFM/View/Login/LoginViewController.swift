@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, LoginViewProtocol, LoaderProtocol {
+final class LoginViewController: UIViewController, LoginViewProtocol, LoaderProtocol {
     
     var presenter: LoginPresenterProtocol!
     
@@ -38,15 +38,12 @@ class LoginViewController: UIViewController, LoginViewProtocol, LoaderProtocol {
         } else {
             _ = self.presenter.signupWith(email: inputs.email, password: inputs.password)
         }
-        
-        
     }
     
     @IBAction func facebookButtonTouched(_ sender: Any) {
         _ = self.presenter.loginWithFacebook()
     }
     
-
     @IBAction func loginButtonTouched(_ sender: Any) {
         let inputs = validateInputs()
         if let error = inputs.error {

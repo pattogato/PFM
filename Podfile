@@ -8,6 +8,7 @@ target 'PFM' do
     # Utils
     pod 'SwiftDate', '~> 4.0' # Date helper
     pod 'Locksmith', '~> 3.0.0' # Keychain wrapper
+    pod 'SwiftyUserDefaults', '~> 3.0.0' # User defaults wrapper
     
     # Async handling
     pod 'PromiseKit'

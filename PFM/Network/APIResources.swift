@@ -45,21 +45,23 @@ extension PFMServerMethod {
 }
 
 struct API {
+    
+    static let baseUrlString = "http://pfm2016.azurewebsites.net/"
+    static var baseUrl: URL { return URL(string: baseUrlString)! }
+    
     struct Method {
         
         enum Auth: PFMServerMethod {
             case login
-            case register
             case forgotPassword
             
             var additionalPath: String? {
-                return "auth"
+                return nil
             }
             
             var lastPath: String? {
                 switch self {
-                case .login: return "login"
-                case .register: return "register"
+                case .login: return "token"
                 case .forgotPassword: return "forgotPassword"
                 }
             }
@@ -67,18 +69,24 @@ struct API {
             var needsAuthentication: Bool {
                 return false
             }
+            
+            var parameterEncoding: ParameterEncoding {
+                return URLEncoding.default
+            }
         }
         
-        enum User: PFMServerMethod {
+        enum Users: PFMServerMethod {
+            case register
             case edit
             
             var additionalPath: String? {
-                return "user"
+                return "api/users"
             }
             
             var lastPath: String? {
                 switch self {
                 case .edit: return "edit"
+                case .register: return "register"
                 }
             }
         }
@@ -87,7 +95,11 @@ struct API {
             case get
             
             var additionalPath: String? {
-                return "categories"
+                return "api/categories"
+            }
+            
+            var httpMethod: HTTPMethod {
+                return .get
             }
         }
         
@@ -98,7 +110,7 @@ struct API {
             case delete
             
             var additionalPath: String? {
-                return "transactions"
+                return "api/transactions"
             }
             
             var httpMethod: HTTPMethod {

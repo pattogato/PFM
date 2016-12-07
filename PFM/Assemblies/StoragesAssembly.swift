@@ -11,8 +11,17 @@ import Swinject
 final class StoragesAssembly: AssemblyType {
     
     func assemble(container: Container) {
+        container.register(CategoriesStorageProtocol.self) { r in
+            return CategoriesStorage(
+                dalHelper: r.resolve(DALHelperProtocol.self)!
+            )
+        }
         
-        
+        container.register(UserStorageProtocol.self) { r in
+            return UserStorage(
+                dalHelper: r.resolve(DALHelperProtocol.self)!
+            )
+        }
     }
     
 }

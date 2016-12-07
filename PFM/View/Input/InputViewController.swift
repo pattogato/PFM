@@ -100,7 +100,11 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupUI()
         setupPulldownController()
         
-        categories = MockDAL.mockCategories()
+        _ = UIApplication.resolve(service: CategoriesManagerProtocol.self)
+            .getCategories().then { (categories) -> Void in
+                self.categories = categories
+        }
+        
         presenter.openNumberPad()
         
         collectionView.register(

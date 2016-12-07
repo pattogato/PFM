@@ -10,11 +10,13 @@ import UIKit
 
 // TODO: PROTOKOLLOK
 
-import UIKit
+protocol CategoriesViewProtocol: class {
+    var categories: [CategoryModel] { get set }
+}
 
-// TODO: PROTOKOLLOK
-
-final class CategoriesViewController: UIViewController, CategoriesInteractionControllerProtocol {
+final class CategoriesViewController: UIViewController, CategoriesViewProtocol, CategoriesInteractionControllerProtocol {
+    
+    var presenter: CategoriesPresenterProtocol!
     
     // MARK: - Constants
     
@@ -71,7 +73,13 @@ final class CategoriesViewController: UIViewController, CategoriesInteractionCon
         
         // Do any additional setup after loading the view.
         
-        //        categories = MockDAL.mockCategories()
+        // TODO: Not very nice (should load from sb)
+        if presenter == nil {
+            presenter = UIApplication.resolve(
+                CategoriesPresenterProtocol.self,
+                argument: self as CategoriesViewProtocol
+            )
+        }
         
         let cellNib = UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main)
         collectionView.register(cellNib, forCellWithReuseIdentifier: kCategoryCellIdentifier)

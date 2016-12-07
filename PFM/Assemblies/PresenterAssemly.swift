@@ -91,5 +91,13 @@ final class PresenterAssembly: AssemblyType {
                 facebookManager: r.resolve(FacebookManagerProtocol.self)!
             )
         }
+        
+        container.register(CategoriesPresenterProtocol.self) {
+            (r, view: CategoriesViewProtocol) in
+            return CategoriesPresenter(
+                view: view,
+                categoriesManager: r.resolve(CategoriesManagerProtocol.self)!
+            )
+        }
     }
 }
