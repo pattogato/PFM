@@ -70,6 +70,10 @@ final class ViewsAssembly: AssemblyType {
             )
         }
         
+        container.registerForStoryboardProject(controllerType: HistoryViewController.self) { (r, c) in
+            c.dataProvider = r.resolve(TransactionDataProviderProtocol.self)
+        }
+        
     }
     
     
