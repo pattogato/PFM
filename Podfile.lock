@@ -68,11 +68,11 @@ PODS:
     - Swinject (= 2.0.0-beta.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0.0)
+  - Alamofire
   - AlamofireActivityLogger (~> 2.0.0)
   - AlamofireImage (~> 3.0.0)
   - AlamofireNetworkActivityIndicator
-  - AlamofireObjectMapper (~> 4.0.0)
+  - AlamofireObjectMapper
   - Charts/Realm
   - EZSwipeController (from `https://github.com/pattogato/EZSwipeController`, branch `bugfix/swift-3-fixes`)
   - FacebookCore (~> 0.2.0)
@@ -135,6 +135,6 @@ SPEC CHECKSUMS:
   Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
   SwinjectStoryboard: b52b45821a50386ef604c3cd098f8029a50a268d
 
-PODFILE CHECKSUM: 1f70c30ccdc0aac67ba8d217ba4ff6c8f3cbf74d
+PODFILE CHECKSUM: 979c3fe64d142e20b02e95962617cc85d32ec989
 
 COCOAPODS: 1.1.1

@@ -10,12 +10,12 @@ import PromiseKit
 import ObjectMapper
 
 protocol TransactionRequestModelProtocol: BaseMappable {
-    var localId: String? { get set }
-    var serverId: String? { get set }
+    var localId: String { get set }
+    var serverId: String { get set }
     var date: Date { get set }
     var latitude: Double { get set }
     var longitude: Double { get set }
-    var imageUrl: String? { get set }
+    var imageUrl: String { get set }
     var amount: Double { get set }
     var currency: String { get set }
     var descriptionText: String { get set }
@@ -26,7 +26,7 @@ extension TransactionRequestModelProtocol {
     mutating func mapping(map: Map) {
         localId <- map["localId"]
         serverId <- map["uuid"]
-        date <- map["date"]
+        date <- (map["date"],PFMDateFormatterTransform())
         latitude <- map["latitude"]
         longitude <- map["longitude"]
         imageUrl <- map["imageUrl"]

@@ -22,6 +22,16 @@ public class APIErrorObject: Mappable, Error, LocalizedError {
     public var errorDescription: String? { return nil }
 }
 
+public final class PFMDateFormatterTransform: DateFormatterTransform {
+    
+    init() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        super.init(dateFormatter: dateFormatter)
+    }
+}
+
 // MARK: - API Client
 public final class RESTAPIClient: RESTAPIClientProtocol {
     
