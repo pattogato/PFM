@@ -25,13 +25,14 @@ final class SyncManager: SyncManagerProtocol {
     }
     
     func syncTransactions() {
-        let transactionsToSync = getUnsycedTransactions()
-        _ = transactionService.uploadTransactions(transactions: transactionsToSync.map({ TransactionRequestModel.init(modelObject: $0) })).then(execute: { (models) -> Void in
-            // Update local models
-            for model in models {
-                self.transactionDataProvider.addOrUpdateTransaction(newModel: model, realm: nil)
-            }
-        })
+        // Visszatenni
+//        let transactionsToSync = getUnsycedTransactions()
+//        _ = transactionService.uploadTransactions(transactions: transactionsToSync.map({ TransactionRequestModel.init(modelObject: $0) })).then(execute: { (models) -> Void in
+//            // Update local models
+//            for model in models {
+//                self.transactionDataProvider.addOrUpdateTransaction(newModel: model, realm: nil)
+//            }
+//        })
     }
     
     private func getUnsycedTransactions() -> [TransactionModel] {
