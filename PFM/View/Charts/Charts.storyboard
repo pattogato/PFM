@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Charts View Controller-->
         <scene sceneID="7b2-1e-r4S">
@@ -25,66 +30,66 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAC-q7-QKi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="730"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="952"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November by category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10O-Dh-w7L">
-                                                <rect key="frame" x="100" y="16" width="175" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="87" y="16" width="202.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                                <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEY-5V-tyE" customClass="PieChartView" customModule="Charts">
-                                                <rect key="frame" x="80" y="53" width="215" height="160"/>
+                                                <rect key="frame" x="20" y="68" width="335" height="240"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="160" id="813-Fi-msJ"/>
+                                                    <constraint firstAttribute="height" constant="240" id="813-Fi-msJ"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last few days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9go-bd-1oL">
-                                                <rect key="frame" x="135" y="229" width="105" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="129" y="338" width="118" height="22"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                                <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEN-Fm-hWN" customClass="BarChartView" customModule="Charts">
-                                                <rect key="frame" x="80" y="266" width="215" height="160"/>
+                                                <rect key="frame" x="20" y="390" width="335" height="240"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="160" id="GCI-sU-sHb"/>
+                                                    <constraint firstAttribute="height" constant="240" id="GCI-sU-sHb"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last few months" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBX-Xb-pVG">
-                                                <rect key="frame" x="124" y="442" width="127" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="114" y="660" width="147.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                                <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlP-c1-F7z" customClass="BarChartView" customModule="Charts">
-                                                <rect key="frame" x="80" y="479" width="215" height="160"/>
+                                                <rect key="frame" x="20" y="712" width="335" height="240"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="160" id="acx-ia-ecF"/>
+                                                    <constraint firstAttribute="height" constant="240" id="acx-ia-ecF"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="gBX-Xb-pVG" firstAttribute="top" secondItem="bEN-Fm-hWN" secondAttribute="bottom" constant="16" id="4wq-v4-YtT"/>
-                                            <constraint firstAttribute="height" constant="730" id="8yL-Rv-ZLL"/>
+                                            <constraint firstItem="gBX-Xb-pVG" firstAttribute="top" secondItem="bEN-Fm-hWN" secondAttribute="bottom" constant="30" id="4wq-v4-YtT"/>
                                             <constraint firstItem="gBX-Xb-pVG" firstAttribute="centerX" secondItem="RAC-q7-QKi" secondAttribute="centerX" id="92q-us-tWf"/>
-                                            <constraint firstItem="tlP-c1-F7z" firstAttribute="top" secondItem="gBX-Xb-pVG" secondAttribute="bottom" constant="16" id="Bwx-qV-JgF"/>
-                                            <constraint firstAttribute="trailing" secondItem="lEY-5V-tyE" secondAttribute="trailing" constant="80" id="GBK-8V-6K9"/>
-                                            <constraint firstItem="bEN-Fm-hWN" firstAttribute="top" secondItem="9go-bd-1oL" secondAttribute="bottom" constant="16" id="I1r-X5-jbH"/>
+                                            <constraint firstItem="tlP-c1-F7z" firstAttribute="top" secondItem="gBX-Xb-pVG" secondAttribute="bottom" constant="30" id="Bwx-qV-JgF"/>
+                                            <constraint firstAttribute="trailing" secondItem="lEY-5V-tyE" secondAttribute="trailing" constant="20" id="GBK-8V-6K9"/>
+                                            <constraint firstItem="bEN-Fm-hWN" firstAttribute="top" secondItem="9go-bd-1oL" secondAttribute="bottom" constant="30" id="I1r-X5-jbH"/>
                                             <constraint firstItem="9go-bd-1oL" firstAttribute="centerX" secondItem="RAC-q7-QKi" secondAttribute="centerX" id="OBJ-k9-UZj"/>
-                                            <constraint firstItem="lEY-5V-tyE" firstAttribute="top" secondItem="10O-Dh-w7L" secondAttribute="bottom" constant="16" id="PIh-TI-T2w"/>
-                                            <constraint firstItem="lEY-5V-tyE" firstAttribute="leading" secondItem="RAC-q7-QKi" secondAttribute="leading" constant="80" id="afN-dy-UcU"/>
-                                            <constraint firstItem="tlP-c1-F7z" firstAttribute="leading" secondItem="RAC-q7-QKi" secondAttribute="leading" constant="80" id="c5Y-cq-vWO"/>
-                                            <constraint firstItem="bEN-Fm-hWN" firstAttribute="leading" secondItem="RAC-q7-QKi" secondAttribute="leading" constant="80" id="cfN-qe-yxm"/>
+                                            <constraint firstItem="lEY-5V-tyE" firstAttribute="top" secondItem="10O-Dh-w7L" secondAttribute="bottom" constant="30" id="PIh-TI-T2w"/>
+                                            <constraint firstAttribute="bottom" secondItem="tlP-c1-F7z" secondAttribute="bottom" id="UiF-GK-2AK"/>
+                                            <constraint firstItem="lEY-5V-tyE" firstAttribute="leading" secondItem="RAC-q7-QKi" secondAttribute="leading" constant="20" id="afN-dy-UcU"/>
+                                            <constraint firstItem="tlP-c1-F7z" firstAttribute="leading" secondItem="RAC-q7-QKi" secondAttribute="leading" constant="20" id="c5Y-cq-vWO"/>
+                                            <constraint firstItem="bEN-Fm-hWN" firstAttribute="leading" secondItem="RAC-q7-QKi" secondAttribute="leading" constant="20" id="cfN-qe-yxm"/>
                                             <constraint firstItem="10O-Dh-w7L" firstAttribute="top" secondItem="RAC-q7-QKi" secondAttribute="top" constant="16" id="ePe-ck-n0Z"/>
-                                            <constraint firstAttribute="trailing" secondItem="tlP-c1-F7z" secondAttribute="trailing" constant="80" id="p2q-cv-Wvc"/>
-                                            <constraint firstItem="9go-bd-1oL" firstAttribute="top" secondItem="lEY-5V-tyE" secondAttribute="bottom" constant="16" id="vf5-OA-vCf"/>
+                                            <constraint firstAttribute="trailing" secondItem="tlP-c1-F7z" secondAttribute="trailing" constant="20" id="p2q-cv-Wvc"/>
+                                            <constraint firstItem="9go-bd-1oL" firstAttribute="top" secondItem="lEY-5V-tyE" secondAttribute="bottom" constant="30" id="vf5-OA-vCf"/>
                                             <constraint firstItem="10O-Dh-w7L" firstAttribute="centerX" secondItem="RAC-q7-QKi" secondAttribute="centerX" id="xnb-C2-Ga6"/>
-                                            <constraint firstAttribute="trailing" secondItem="bEN-Fm-hWN" secondAttribute="trailing" constant="80" id="y5d-IW-DVr"/>
+                                            <constraint firstAttribute="trailing" secondItem="bEN-Fm-hWN" secondAttribute="trailing" constant="20" id="y5d-IW-DVr"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -95,10 +100,15 @@
                                     <constraint firstItem="RAC-q7-QKi" firstAttribute="top" secondItem="N3L-CA-msi" secondAttribute="top" id="o44-Nm-3zE"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-78-WAV">
-                                <rect key="frame" x="320" y="20" width="35" height="30"/>
-                                <state key="normal" title="Input">
-                                    <color key="titleColor" red="0.086274509799999996" green="0.36470588240000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-78-WAV">
+                                <rect key="frame" x="327" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="UT4-aL-mBX"/>
+                                    <constraint firstAttribute="width" constant="40" id="lvI-cV-t2S"/>
+                                </constraints>
+                                <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="iconInput">
+                                    <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="navigateToInputButtonTouched:" destination="u5G-UI-hB4" eventType="touchUpInside" id="kFu-1K-t2t"/>
@@ -108,7 +118,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="N3L-CA-msi" firstAttribute="leading" secondItem="tJq-8b-17f" secondAttribute="leading" id="HW4-8x-nA0"/>
-                            <constraint firstAttribute="trailing" secondItem="jOy-78-WAV" secondAttribute="trailing" constant="20" id="P9Q-Sd-cKe"/>
+                            <constraint firstAttribute="trailing" secondItem="jOy-78-WAV" secondAttribute="trailing" constant="8" id="P9Q-Sd-cKe"/>
                             <constraint firstItem="N3L-CA-msi" firstAttribute="top" secondItem="tJq-8b-17f" secondAttribute="top" id="Tul-sX-k69"/>
                             <constraint firstItem="RAC-q7-QKi" firstAttribute="width" secondItem="tJq-8b-17f" secondAttribute="width" id="UNk-tN-3lB"/>
                             <constraint firstAttribute="trailing" secondItem="N3L-CA-msi" secondAttribute="trailing" id="Ulf-GN-HW6"/>
@@ -127,4 +137,7 @@
             <point key="canvasLocation" x="268" y="-489.80509745127438"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconInput" width="25" height="25"/>
+    </resources>
 </document>

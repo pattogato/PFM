@@ -25,12 +25,23 @@ final class DummyChartsDataProvider: ChartsDataProviderProtocol {
             dataEntries.append(dataEntry)
         }
         
-        // TODO - Dani: design
-        let colors = [UIColor.red, UIColor.blue, UIColor.green]
+        let colors = [
+            UIColor(netHex: 0xFDE3A7),
+            UIColor(netHex: 0xF5D76E),
+            UIColor(netHex: 0xF5AB35),
+            UIColor(netHex: 0xF39C12),
+            UIColor(netHex: 0xE87E04)
+        ]
         let chartDataSet = PieChartDataSet(values: dataEntries, label: "")
         let chartData = PieChartData(dataSet: chartDataSet)
         
         chartDataSet.colors = colors
+        chartDataSet.formLineWidth = 8
+        chartDataSet.valueFont = NSUIFont.montserratLight(12)
+        
+        chartDataSet.entryLabelFont = NSUIFont.montserratLight(12)
+        chartDataSet.sliceSpace = 1
+        chartDataSet.selectionShift = 2
         
         return chartData
     }
@@ -42,9 +53,18 @@ final class DummyChartsDataProvider: ChartsDataProviderProtocol {
             let dataEntry = BarChartDataEntry(x: Double(index), y: getSumCostForDate(date: day))
             dataEntries.append(dataEntry)
         }
-        // TODO - Dani: design
+
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Ez a felirat hova megy?")
         let chartData = BarChartData(dataSet: chartDataSet)
+        
+        chartDataSet.highlightColor = UIColor(netHex: 0xB4831F)
+        chartDataSet.colors = [UIColor(netHex: 0xFDE3A7),
+                               UIColor(netHex: 0xF5D76E),
+                               UIColor(netHex: 0xF5AB35),
+                               UIColor(netHex: 0xF39C12),
+                               UIColor(netHex: 0xE87E04)]
+        chartDataSet.valueFont = NSUIFont.montserratLight(12)
+        chartDataSet.formLineWidth = 0
         
         return chartData
     }
@@ -56,9 +76,17 @@ final class DummyChartsDataProvider: ChartsDataProviderProtocol {
             let dataEntry = BarChartDataEntry(x: Double(index), y: getSumCostForMonth(month: month))
             dataEntries.append(dataEntry)
         }
-        // TODO - Dani: design
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Ez a felirat hova megy?")
         let chartData = BarChartData(dataSet: chartDataSet)
+        
+        chartDataSet.highlightColor = UIColor(netHex: 0xB4831F)
+        chartDataSet.colors = [UIColor(netHex: 0xFDE3A7),
+                               UIColor(netHex: 0xF5D76E),
+                               UIColor(netHex: 0xF5AB35),
+                               UIColor(netHex: 0xF39C12),
+                               UIColor(netHex: 0xE87E04)]
+        chartDataSet.valueFont = NSUIFont.montserratLight(12)
+        chartDataSet.formLineWidth = 0
         
         return chartData
     }
