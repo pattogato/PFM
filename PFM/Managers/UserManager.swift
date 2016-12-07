@@ -20,7 +20,9 @@ protocol UserManagerProtocol {
     var accessToken: String? { get }
     
     func loginUser(email: String, password: String) -> Promise<UserModel>
-    func login(facebookToken: String) -> Promise<UserModel>
+    // TODO: HACK
+    func login(facebookData: SocialUserData) -> Promise<UserModel>
+//    func login(facebookToken: String) -> Promise<UserModel>
     func logoutUser()
     func updateUser(user: UserModel) -> Promise<UserModel>
     func signupUser(email: String, password: String) -> Promise<UserModel>
@@ -57,6 +59,17 @@ final class UserManager: UserManagerProtocol {
         return handleLoginPromise(promise: promise)
     }
     
+    func login(facebookData: SocialUserData) -> Promise<UserModel> {
+        guard let email = facebookData.email, let p = facebookData.userId else {
+            return Promise(error: UserManagerError.NoStoredCredentials)
+        }
+        let password = p + "Abcd1234."
+        
+        return loginUser(email: email, password: password)
+            .recover { (_) -> Promise<UserModel> in
+                return self.signupUser(email: email, password: password)
+        }
+    }
     func login(facebookToken: String) -> Promise<UserModel> {
         let promise = authService.login(facebookToken: facebookToken)
             .then { (login) -> LoginResponseModel in
