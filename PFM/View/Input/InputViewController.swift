@@ -30,7 +30,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol, RouterDependentProtocol {
+final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol, RouterDependentProtocol, CategoriesInteractionControllerProtocol {
 
     
     // MARK: Dependencies
@@ -100,7 +100,11 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupUI()
         setupPulldownController()
         
-        categories = MockDAL.mockCategories()
+        _ = UIApplication.resolve(service: CategoriesManagerProtocol.self)
+            .getCategories().then { (categories) -> Void in
+                self.categories = categories
+        }
+        
         presenter.openNumberPad()
         
         collectionView.register(
@@ -214,6 +218,15 @@ extension InputViewController {
     
     @IBAction func handleCategoryPan(_ sender: AnyObject) {
         
+    }
+    
+    var panView: UIView {
+        return categoriesContainerView
+    }
+    
+    func toggleCategories(open: Bool) {
+        guard open else { return }
+        openCategories()
     }
 
 }

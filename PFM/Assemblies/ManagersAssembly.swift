@@ -37,7 +37,10 @@ final class ManagersAssembly: AssemblyType {
         
         // User Manager
         container.register(UserManagerProtocol.self) { r in
-            return DummyUserManager()
+            return UserManager(
+                authService: r.resolve(AuthServiceProtocol.self)!,
+                userStorage: r.resolve(UserStorageProtocol.self)!
+            )
         }.inObjectScope(.container)
         
         // Facebook manager
@@ -45,6 +48,31 @@ final class ManagersAssembly: AssemblyType {
         container.register(FacebookManagerProtocol.self) { r in
             return FacebookManager()
         }.inObjectScope(.container)
+        
+        // API Client
+        container.register(RESTAPIClientProtocol.self) { r in
+            return RESTAPIClient(
+                baseUrl: API.baseUrl,
+                errorType: nil, // TODO: Custom API error
+                networkActivityIndicatorEnabled: true
+            )
+        }.inObjectScope(.container).initCompleted { (r, c) in
+            guard let c = c as? RESTAPIClient else { return }
+            c.authenticationDelegate = r.resolve(RESTAPIAuthenticationDelegate.self)
+        }
+        
+        container.register(CategoriesManagerProtocol.self) { r in
+            return CategoriesManager(
+                service: r.resolve(CategoryServiceProtocol.self)!,
+                storage: r.resolve(CategoriesStorageProtocol.self)!
+            )
+        }
+        
+        container.register(RESTAPIAuthenticationDelegate.self) { r in
+            return RESTAPIAuthenticationManager(
+                userManager: r.resolve(UserManagerProtocol.self)!
+            )
+        }
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {

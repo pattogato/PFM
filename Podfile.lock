@@ -63,6 +63,7 @@ PODS:
   - SnapKit (3.0.2)
   - SVProgressHUD (2.0.4)
   - SwiftDate (4.0.7)
+  - SwiftyUserDefaults (3.0.0)
   - Swinject (2.0.0-beta.2)
   - SwinjectStoryboard (1.0.0-beta.2):
     - Swinject (= 2.0.0-beta.2)
@@ -87,6 +88,7 @@ DEPENDENCIES:
   - SnapKit (~> 3.0)
   - SVProgressHUD (~> 2.0)
   - SwiftDate (~> 4.0)
+  - SwiftyUserDefaults
   - Swinject (~> 2.0.0-beta.2)
   - SwinjectStoryboard (~> 1.0.0-beta.2)
 
@@ -132,6 +134,7 @@ SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
   SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
   SwinjectStoryboard: b52b45821a50386ef604c3cd098f8029a50a268d
 

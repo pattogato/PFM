@@ -46,7 +46,6 @@ final class LoginViewController: UIViewController, LoginViewProtocol, LoaderProt
         _ = self.presenter.loginWithFacebook()
     }
     
-
     @IBAction func loginButtonTouched(_ sender: Any) {
         view.endEditing(true)
         let inputs = validateInputs()

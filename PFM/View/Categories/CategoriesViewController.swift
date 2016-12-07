@@ -10,19 +10,33 @@ import UIKit
 
 // TODO: PROTOKOLLOK
 
-final class CategoriesViewController: UIViewController {
+protocol CategoriesViewProtocol: class {
+    var categories: [CategoryModel] { get set }
+}
+
+final class CategoriesViewController: UIViewController, CategoriesViewProtocol, CategoriesInteractionControllerProtocol {
+    
+    var presenter: CategoriesPresenterProtocol!
     
     // MARK: - Constants
     
     static let kNibName: String = "CategoriesViewController"
     
     fileprivate let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
-        
+    
     fileprivate let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsets(top: 26, left: 20, bottom: 0, right: 20)
     
     fileprivate let kCategoryCellIdentifier: String = "CategoryCollectionViewCell"
-        
+    
     // MARK: - Properties
+    
+    var snapshot: UIView? {
+        didSet {
+            oldValue?.removeFromSuperview()
+            guard let new = snapshot else { return }
+            view.insertSubview(new, at: 0)
+        }
+    }
     
     var categories = [CategoryModel]() {
         didSet {
@@ -41,7 +55,7 @@ final class CategoriesViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var categoriesContainerView: UIView!
-        
+    
     // MARK: - General Methods
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -53,13 +67,19 @@ final class CategoriesViewController: UIViewController {
         super.init(coder: aDecoder)
         self.modalPresentationStyle = .overFullScreen
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
-//        categories = MockDAL.mockCategories()
+        // TODO: Not very nice (should load from sb)
+        if presenter == nil {
+            presenter = UIApplication.resolve(
+                CategoriesPresenterProtocol.self,
+                argument: self as CategoriesViewProtocol
+            )
+        }
         
         let cellNib = UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main)
         collectionView.register(cellNib, forCellWithReuseIdentifier: kCategoryCellIdentifier)
@@ -67,28 +87,25 @@ final class CategoriesViewController: UIViewController {
         categoriesContainerView.layer.cornerRadius = 16
         self.collectionView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     //  MARK: - IBActions
     
     @IBAction func amountLabelTapped(_ sender: AnyObject) {
+        close()
+    }
+    
+    var panView: UIView {
+        return cashLabel
+    }
+    
+    func toggleCategories(open: Bool) {
+        guard !open else { return }
+        close()
+    }
+    
+    private func close() {
         dismiss(animated: true, completion: nil)
     }
-
 }
 
 // MARK: - CollectionView DataSource & Delegate Methods
@@ -104,11 +121,10 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: kCategoryCellIdentifier,
             for: indexPath) as! CategoryCollectionViewCell
-        
         return cell
     }
     
@@ -122,8 +138,6 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
+        // TODO: -- Handle
     }
-    
 }
