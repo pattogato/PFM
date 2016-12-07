@@ -15,15 +15,24 @@ protocol CategoriesManagerProtocol {
 
 final class CategoriesManager: CategoriesManagerProtocol {
     
-    private let categoryService: CategoryServiceProtocol
+    private let service: CategoryServiceProtocol
+    private let storage: CategoriesStorageProtocol
     
-    init(categoryService: CategoryServiceProtocol) {
-        self.categoryService = categoryService
+    init(service: CategoryServiceProtocol,
+         storage: CategoriesStorageProtocol) {
+        self.service = service
+        self.storage = storage
     }
     
     func getCategories() -> Promise<[CategoryModel]> {
-        // TODO: Save for offline usage
-        return categoryService.getCategories()
+        return service.getCategories()
+            .then { (categories) -> [CategoryModel] in
+                self.storage.saveCategories(categories: categories)
+                return categories
+            }.recover { (_) -> [CategoryModel] in
+                // If failed to load from network, load local data
+                return self.storage.getCategories()
+        }
     }
     
 }

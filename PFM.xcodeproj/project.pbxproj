@@ -10,6 +10,7 @@
 		0106058A1DF76EB3000A2707 /* CategoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605891DF76EB3000A2707 /* CategoriesManager.swift */; };
 		0106058D1DF770A9000A2707 /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106058C1DF770A9000A2707 /* CategoriesPresenter.swift */; };
 		0106058F1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */; };
+		010605921DF78716000A2707 /* CategoriesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605911DF78716000A2707 /* CategoriesStorage.swift */; };
 		014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DBD1DD21A28004175EF /* APIResources.swift */; };
 		014E2DC11DD21F27004175EF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC01DD21F27004175EF /* AuthService.swift */; };
 		014E2DC31DD21F2E004175EF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC21DD21F2E004175EF /* UserService.swift */; };
@@ -185,6 +186,7 @@
 		010605891DF76EB3000A2707 /* CategoriesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesManager.swift; sourceTree = "<group>"; };
 		0106058C1DF770A9000A2707 /* CategoriesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
 		0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIAuthenticationManager.swift; sourceTree = "<group>"; };
+		010605911DF78716000A2707 /* CategoriesStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesStorage.swift; sourceTree = "<group>"; };
 		014E2DBD1DD21A28004175EF /* APIResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResources.swift; sourceTree = "<group>"; };
 		014E2DC01DD21F27004175EF /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		014E2DC21DD21F2E004175EF /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -361,6 +363,14 @@
 			);
 			name = Categories;
 			path = Presenter/Categories;
+			sourceTree = "<group>";
+		};
+		010605901DF78709000A2707 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				010605911DF78716000A2707 /* CategoriesStorage.swift */,
+			);
+			path = Storages;
 			sourceTree = "<group>";
 		};
 		014E2DBF1DD21F1F004175EF /* Services */ = {
@@ -708,6 +718,7 @@
 				B164F96B1DCB45D10090CF08 /* Assemblies */,
 				E26D7E691CCE496100454C08 /* CustomControls */,
 				B1783BF41CB2FA6900056895 /* Model */,
+				010605901DF78709000A2707 /* Storages */,
 				015A560F1DD1C3A100D1D7F9 /* Network */,
 				B1783BF61CB2FA7A00056895 /* Presenter */,
 				B1783BF51CB2FA7600056895 /* View */,
@@ -1198,6 +1209,7 @@
 				B1783BF01CB1A8C600056895 /* MockDAL.swift in Sources */,
 				B1783C0F1CB3981B00056895 /* NavigationViewProtocol.swift in Sources */,
 				B1783BEB1CB1A34B00056895 /* CategoryDataProvider.swift in Sources */,
+				010605921DF78716000A2707 /* CategoriesStorage.swift in Sources */,
 				B164F9751DCB45F70090CF08 /* DataProvidersAssembly.swift in Sources */,
 				B1783C201CB3B50600056895 /* ChartsViewPresenter.swift in Sources */,
 				014E2DC71DD21F4F004175EF /* TransactionService.swift in Sources */,

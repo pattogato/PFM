@@ -62,7 +62,8 @@ final class ManagersAssembly: AssemblyType {
         
         container.register(CategoriesManagerProtocol.self) { r in
             return CategoriesManager(
-                categoryService: r.resolve(CategoryServiceProtocol.self)!
+                service: r.resolve(CategoryServiceProtocol.self)!,
+                storage: r.resolve(CategoriesStorageProtocol.self)!
             )
         }
         

@@ -100,7 +100,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupUI()
         setupPulldownController()
         
-        _ = UIApplication.resolve(service: CategoryServiceProtocol.self)
+        _ = UIApplication.resolve(service: CategoriesManagerProtocol.self)
             .getCategories().then { (categories) -> Void in
                 self.categories = categories
         }
