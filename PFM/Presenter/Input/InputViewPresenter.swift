@@ -163,10 +163,15 @@ extension InputViewPresenter: InputContentSelectorDelegate {
     func valueSelected(type: InputContentType, value: Any) {
         switch type {
         case .currencyPicker:
-            print(value)
+            if let currency = value as? String {
+                self.currentTransactionDataProvider.saveCurrency(currency)
+            }
             self.showContent(type: .defaultType)
         case .datePicker:
-            print(value)
+            if let date = value as? Date {
+                currentTransactionDataProvider.saveDate(date)
+            }
+            self.showContent(type: .defaultType)
         case .numericKeyboard:
             if let enumValue = value as? NumberPadContentValue {
                 switch enumValue {
@@ -175,7 +180,12 @@ extension InputViewPresenter: InputContentSelectorDelegate {
                 case .delete:
                     deleteDigit()
                 case .ok:
-                    print("ok")
+                    if currentTransactionDataProvider.getTransaction()?.amount ?? 0.0 == 0.0 {
+                        self.view.showNoAmountError()
+                    } else if let currentTransaction = currentTransactionDataProvider.getTransaction() {
+                        transactionDataProvider.addTransaction(nil, transaction: currentTransaction)
+                        self.view.resetUI()
+                    }
                 case .number(let number):
                     enterDigit(number)
                 }
@@ -183,7 +193,9 @@ extension InputViewPresenter: InputContentSelectorDelegate {
         case .image:
             print("image selected")
         case .note:
-            print(value as! String)
+            if let desc = value as? String {
+                currentTransactionDataProvider.saveDescription(desc)
+            }
         }
     }
     
@@ -200,6 +212,7 @@ extension InputViewPresenter: InputContentSelectorDelegate {
             deleteImage()
         }
     }
+    
     
     //    func currencySelected(_ string: String) {
     //        currencyButton.setTitle(string, for: UIControlState())

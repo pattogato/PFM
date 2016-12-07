@@ -71,6 +71,10 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     
     func getTransaction() -> TransactionModel? {
         
+        if self.currentTransaction.currency.isEmpty {
+            currentTransaction.currency = "HUF"
+        }
+        
         return self.currentTransaction
     }
     
