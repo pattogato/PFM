@@ -76,7 +76,8 @@ final class ManagersAssembly: AssemblyType {
         // Sync manager
         container.register(SyncManagerProtocol.self) { r in
             return SyncManager(
-                transactionDataProvider: r.resolve(TransactionDataProviderProtocol.self)!
+                transactionDataProvider: r.resolve(TransactionDataProviderProtocol.self)!,
+                transactionService: r.resolve(TransactionServiceProtocol.self)!
             )
         }
     }

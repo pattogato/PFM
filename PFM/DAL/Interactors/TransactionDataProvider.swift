@@ -22,6 +22,7 @@ protocol TransactionDataProviderProtocol {
     func updateTransactionDescription(_ transaction: TransactionModel, description: String, realm: Realm?)
     func updateTransactionTag(_ transaction: TransactionModel, tag: String, realm: Realm?)
     func updateTransactionCategory(_ transaction: TransactionModel, category: CategoryModel, realm: Realm?)
+    func addOrUpdateTransaction(newModel: TransactionModel, realm: Realm?)
     func deleteTransaction(_ transaction: TransactionModel, realm: Realm?)
 }
 
@@ -162,6 +163,12 @@ class TransactionDataProvider: TransactionDataProviderProtocol {
             realm.delete(transaction)
         }
     }
-    
+
+    func addOrUpdateTransaction(newModel: TransactionModel, realm: Realm?) {
+        let realm = realm ?? dalHelper.newRealm()
+        dalHelper.writeInRealm(realm: realm) { (realm) in
+            realm.add(newModel, update: true)
+        }
+    }
     
 }
