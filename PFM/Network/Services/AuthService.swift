@@ -14,7 +14,7 @@ import ObjectMapper
 protocol AuthServiceProtocol {
     func login(email: String, password: String) -> Promise<LoginResponseModel>
     func login(facebookToken: String) -> Promise<LoginResponseModel>
-    func register(email: String, password: String) -> Promise<LoginResponseModel>
+    func register(email: String, password: String) -> Promise<EmptyNetworkResponseModel>
     func forgotPassword(email: String) -> Promise<EmptyNetworkResponseModel>
 }
 
@@ -44,13 +44,20 @@ final class AuthService: AuthServiceProtocol {
         )
     }
     
-    func register(email: String, password: String) -> Promise<LoginResponseModel> {
+    func register(email: String, password: String) -> Promise<EmptyNetworkResponseModel> {
         return apiClient.mappedServerMethod(
-            method: API.Method.Auth.register,
+            method: API.Method.Users.register,
             object: RegistrationModel(
                 email: email, password: password
             )
-        )
+            ).recover { (error) -> EmptyNetworkResponseModel in
+                // TODO: Hack
+                let error = error as NSError
+                guard error.domain == "com.alamofireobjectmapper.error" else {
+                    throw error
+                }
+                return EmptyNetworkResponseModel()
+        }
     }
     
     func forgotPassword(email: String) -> Promise<EmptyNetworkResponseModel> {
@@ -95,6 +102,8 @@ fileprivate struct RegistrationModel: BaseMappable {
     mutating func mapping(map: Map) {
         email <- map["email"]
         password <- map["password"]
+        var confirmPassword = password
+        confirmPassword <- map["confirmPassword"]
     }
 }
 

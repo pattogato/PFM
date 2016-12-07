@@ -14,7 +14,7 @@ protocol CategoriesViewProtocol: class {
     var categories: [CategoryModel] { get set }
 }
 
-final class CategoriesViewController: UIViewController, CategoriesViewProtocol {
+final class CategoriesViewController: UIViewController, CategoriesViewProtocol, CategoriesInteractionControllerProtocol {
     
     var presenter: CategoriesPresenterProtocol!
     
@@ -23,12 +23,20 @@ final class CategoriesViewController: UIViewController, CategoriesViewProtocol {
     static let kNibName: String = "CategoriesViewController"
     
     fileprivate let kCategoryCollectionViewCellSize: CGSize = CGSize(width: 64, height: 80)
-        
+    
     fileprivate let kCategoryCollectionInsets: UIEdgeInsets = UIEdgeInsets(top: 26, left: 20, bottom: 0, right: 20)
     
     fileprivate let kCategoryCellIdentifier: String = "CategoryCollectionViewCell"
-        
+    
     // MARK: - Properties
+    
+    var snapshot: UIView? {
+        didSet {
+            oldValue?.removeFromSuperview()
+            guard let new = snapshot else { return }
+            view.insertSubview(new, at: 0)
+        }
+    }
     
     var categories = [CategoryModel]() {
         didSet {
@@ -47,7 +55,7 @@ final class CategoriesViewController: UIViewController, CategoriesViewProtocol {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var categoriesContainerView: UIView!
-        
+    
     // MARK: - General Methods
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -59,10 +67,10 @@ final class CategoriesViewController: UIViewController, CategoriesViewProtocol {
         super.init(coder: aDecoder)
         self.modalPresentationStyle = .overFullScreen
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         // TODO: Not very nice (should load from sb)
@@ -83,9 +91,21 @@ final class CategoriesViewController: UIViewController, CategoriesViewProtocol {
     //  MARK: - IBActions
     
     @IBAction func amountLabelTapped(_ sender: AnyObject) {
+        close()
+    }
+    
+    var panView: UIView {
+        return cashLabel
+    }
+    
+    func toggleCategories(open: Bool) {
+        guard !open else { return }
+        close()
+    }
+    
+    private func close() {
         dismiss(animated: true, completion: nil)
     }
-
 }
 
 // MARK: - CollectionView DataSource & Delegate Methods
@@ -101,11 +121,10 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: kCategoryCellIdentifier,
             for: indexPath) as! CategoryCollectionViewCell
-        
         return cell
     }
     
@@ -119,8 +138,6 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
+        // TODO: -- Handle
     }
-    
 }

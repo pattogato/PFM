@@ -38,7 +38,8 @@ final class ManagersAssembly: AssemblyType {
         // User Manager
         container.register(UserManagerProtocol.self) { r in
             return UserManager(
-                authService: r.resolve(AuthServiceProtocol.self)!
+                authService: r.resolve(AuthServiceProtocol.self)!,
+                userStorage: r.resolve(UserStorageProtocol.self)!
             )
         }.inObjectScope(.container)
         

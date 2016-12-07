@@ -53,7 +53,6 @@ struct API {
         
         enum Auth: PFMServerMethod {
             case login
-            case register
             case forgotPassword
             
             var additionalPath: String? {
@@ -63,7 +62,6 @@ struct API {
             var lastPath: String? {
                 switch self {
                 case .login: return "token"
-                case .register: return "register"
                 case .forgotPassword: return "forgotPassword"
                 }
             }
@@ -77,16 +75,18 @@ struct API {
             }
         }
         
-        enum User: PFMServerMethod {
+        enum Users: PFMServerMethod {
+            case register
             case edit
             
             var additionalPath: String? {
-                return "api/user"
+                return "api/users"
             }
             
             var lastPath: String? {
                 switch self {
                 case .edit: return "edit"
+                case .register: return "register"
                 }
             }
         }

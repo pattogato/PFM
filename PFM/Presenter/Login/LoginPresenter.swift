@@ -75,7 +75,7 @@ final class LoginPresenter: LoginPresenterProtocol {
         return facebookManager.getFacebookUserData(
             viewController: self.view as! UIViewController)
             .then { (socialUserData) -> Promise<UserModel> in
-                return self.userManager.login(facebookToken: socialUserData.accessToken)
+                return self.userManager.login(facebookData: socialUserData)
                     .then { (userModel) -> Promise<UserModel> in
                         self.dismiss()
                         self.responseBlock?.fulfill(userModel)
