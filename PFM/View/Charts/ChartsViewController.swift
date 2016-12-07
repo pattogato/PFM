@@ -59,8 +59,31 @@ class ChartsViewController: UIViewController, PresentableView {
     }
     
     func setupChartAppearances() {
-        // TODO - Dani: design
-        // storyboardban kurva sok mindent be lehet állítani, lehet elég onnan is 8==D ~~~ :-)
+
+        setupBarView(lastFewDaysBarChartView)
+        setupBarView(lastFewMonthBarChartView)
+    }
+    
+    private func setupBarView(_ barView: BarChartView) {
+        
+        barView.xAxis.drawGridLinesEnabled = false
+        barView.xAxis.drawLabelsEnabled = false
+        barView.xAxis.drawLimitLinesBehindDataEnabled = false
+        barView.xAxis.drawAxisLineEnabled = false
+        barView.rightAxis.drawLabelsEnabled = false
+        barView.borderLineWidth = 0
+        barView.drawBordersEnabled = false
+        barView.drawGridBackgroundEnabled = false
+        barView.borderColor = UIColor.clear
+        barView.leftAxis.drawAxisLineEnabled = false
+        barView.leftAxis.drawTopYLabelEntryEnabled = false
+        barView.leftAxis.drawZeroLineEnabled = false
+        barView.leftAxis.drawLimitLinesBehindDataEnabled = false
+        barView.rightAxis.drawAxisLineEnabled = false
+        barView.rightAxis.drawTopYLabelEntryEnabled = false
+        barView.rightAxis.drawZeroLineEnabled = false
+        barView.rightAxis.drawLimitLinesBehindDataEnabled = false
+        
     }
 }
 

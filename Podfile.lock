@@ -60,6 +60,7 @@ PODS:
   - Realm/Headers (1.1.0)
   - RealmSwift (1.1.0):
     - Realm (= 1.1.0)
+  - SnapKit (3.0.2)
   - SVProgressHUD (2.0.4)
   - SwiftDate (4.0.7)
   - Swinject (2.0.0-beta.2)
@@ -83,6 +84,7 @@ DEPENDENCIES:
   - MBPullDownController (~> 1.0)
   - PromiseKit
   - RealmSwift (~> 1.1.0)
+  - SnapKit (~> 3.0)
   - SVProgressHUD (~> 2.0)
   - SwiftDate (~> 4.0)
   - Swinject (~> 2.0.0-beta.2)
@@ -127,11 +129,12 @@ SPEC CHECKSUMS:
   PromiseKit: 593b5e24ded6cbb1ebc708bc2c3428a8a5632d91
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
   SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
   Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
   SwinjectStoryboard: b52b45821a50386ef604c3cd098f8029a50a268d
 
-PODFILE CHECKSUM: 1a9070bc8aeee6147618ec0573181014dcdc1bd5
+PODFILE CHECKSUM: 825d9ef9a5137b2eb27a343e595dde197165c9c9
 
 COCOAPODS: 1.1.1

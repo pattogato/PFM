@@ -17,6 +17,7 @@
 		014E2DCE1DD23100004175EF /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DCD1DD23100004175EF /* RealmExtensions.swift */; };
 		015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */; };
 		015A56131DD1CA6500D1D7F9 /* RESTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */; };
+		33ABE6351DF7EA5100FE608E /* PfmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE6341DF7EA5100FE608E /* PfmTextField.swift */; };
 		7CE880D044A912809F69079E /* Pods_PFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BA98FF1CE41B38E1F638DE /* Pods_PFMTests.framework */; };
 		B10B2EC71DCF5EAE0089E848 /* PresenterAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2EC61DCF5EAE0089E848 /* PresenterAssemly.swift */; };
 		B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2EC81DD079210089E848 /* SwipeNavigationPresenter.swift */; };
@@ -189,6 +190,7 @@
 		014E2DCD1DD23100004175EF /* RealmExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmExtensions.swift; path = Utils/RealmExtensions.swift; sourceTree = "<group>"; };
 		015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClientProtocol.swift; sourceTree = "<group>"; };
 		015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClient.swift; sourceTree = "<group>"; };
+		33ABE6341DF7EA5100FE608E /* PfmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PfmTextField.swift; path = CustomElements/PfmTextField.swift; sourceTree = "<group>"; };
 		36BA98FF1CE41B38E1F638DE /* Pods_PFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA9881475C5E70935A8FD85 /* Pods-PFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFM/Pods-PFM.debug.xcconfig"; sourceTree = "<group>"; };
 		705CAF44D46F4BC3818919CC /* Pods-PFMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFMTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFMTests/Pods-PFMTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -388,6 +390,14 @@
 				AA8F5956E220066013C7C6F0 /* Pods-PFMTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		33ABE6331DF7EA1900FE608E /* Custom elements */ = {
+			isa = PBXGroup;
+			children = (
+				33ABE6341DF7EA5100FE608E /* PfmTextField.swift */,
+			);
+			name = "Custom elements";
 			sourceTree = "<group>";
 		};
 		B10B2ED21DD228360089E848 /* InputContentSelectors */ = {
@@ -761,6 +771,7 @@
 		E26D7E691CCE496100454C08 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				33ABE6331DF7EA1900FE608E /* Custom elements */,
 				E26D7E6A1CCE497100454C08 /* CustomTransitions */,
 			);
 			name = CustomControls;
@@ -1251,6 +1262,7 @@
 				B10B2ECF1DD1D1F70089E848 /* Extensions+UIApplication.swift in Sources */,
 				E2D55DEA1CF48491002343BD /* HistoryTransition.swift in Sources */,
 				B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */,
+				33ABE6351DF7EA5100FE608E /* PfmTextField.swift in Sources */,
 				B139CAC81DDB484C00DF1965 /* InputContentSelectorImageViewController.swift in Sources */,
 				B187859F1CA98E6A00DD18E9 /* AppDelegate.swift in Sources */,
 				E26D7E741CCE4B1D00454C08 /* CategoriesViewController.swift in Sources */,

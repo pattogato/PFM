@@ -19,6 +19,7 @@ target 'PFM' do
     pod 'MBPullDownController', '~> 1.0'
     pod 'Charts/Realm' # Presenting beautifil charts
     pod 'KMPlaceholderTextView', '~> 1.3.0' # UITextField with placeholder
+    pod 'SnapKit', '~> 3.0' # Constraints handling
     
     # Dependency indejction
     pod 'Swinject', '~> 2.0.0-beta.2' # DI Tool
