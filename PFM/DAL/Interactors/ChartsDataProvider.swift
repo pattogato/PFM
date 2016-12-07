@@ -8,6 +8,8 @@
 
 import Foundation
 import Charts
+import RealmSwift
+import SwiftDate
 
 protocol ChartsDataProviderProtocol {
     func getMonthPieChartData(toMonth: Date) -> PieChartData
@@ -16,6 +18,12 @@ protocol ChartsDataProviderProtocol {
 }
 
 final class DummyChartsDataProvider: ChartsDataProviderProtocol {
+    
+    let transactionDataProvider: TransactionDataProviderProtocol
+    
+    init(transactionDataProvider: TransactionDataProviderProtocol) {
+        self.transactionDataProvider = transactionDataProvider
+    }
     
     func getMonthPieChartData(toMonth: Date) -> PieChartData {
         var dataEntries: [PieChartDataEntry] = []
@@ -96,23 +104,62 @@ final class DummyChartsDataProvider: ChartsDataProviderProtocol {
         let category2 = CategoryModel()
         let category3 = CategoryModel()
         
-        category1.name = "cat1"
-        category2.name = "cat2"
-        category3.name = "cat3"
+        category1.name = "Food"
+        category2.name = "Health"
+        category3.name = "Car"
         
         return [
-            (category: category1, cost: 15000),
-            (category: category2, cost: 15000),
-            (category: category3, cost: 15000)
+            (category: category1, cost: 23500),
+            (category: category2, cost: 11000),
+            (category: category3, cost: 95000)
         ]
+        
+        // TODO: befejezni ha lesz már kategória
+//        let dateStart = date.startOfDay
+//        let dateEnd = date.endOfDay
+//        let transactions = self.transactionDataProvider.getAllTransactions(nil).filter("date BETWEEN %@", [dateStart, dateEnd])
+//        
+//        var retVal = [(category: CategoryModel, cost: Double)]()
+//        
+//        
+//        
+//        transactions.forEach { (transaction) in
+//            retVal.forEach({ (category: CategoryModel, cost: Double) in
+//                if category == transaction.category {
+//                    transaction.
+//                }
+//            })
+//        }
+//        
+//        return retVal
     }
     
+    
     func getSumCostForDate(date: Date) -> Double {
-        return [1000,2000,3000,4000,5000][Int(arc4random()%5)]
+//        return [1000,2000,3000,4000,5000][Int(arc4random()%5)]
+        let dateStart = date.startOfDay
+        let dateEnd = date.endOfDay
+        let transactions = self.transactionDataProvider.getAllTransactions(nil).filter("date BETWEEN %@", [dateStart, dateEnd])
+        
+        var sum: Double = 0
+        transactions.forEach { (transaction) in
+            sum += transaction.amount
+        }
+        
+        return sum
     }
     
     func getSumCostForMonth(month: Date) -> Double {
-        return [100000,200000,150000,175000,90000][Int(arc4random()%5)]
+        let dateStart = month.startOf(component: .month)
+        let dateEnd = month.endOf(component: .month)
+        let transactions = self.transactionDataProvider.getAllTransactions(nil).filter("date BETWEEN %@", [dateStart, dateEnd])
+        
+        var sum: Double = 0
+        transactions.forEach { (transaction) in
+            sum += transaction.amount
+        }
+        
+        return sum
     }
     
 }
