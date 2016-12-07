@@ -30,7 +30,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol, RouterDependentProtocol {
+final class InputViewController: UIViewController, PresentableView, InputViewProtocol, AlertProtocol, RouterDependentProtocol, CategoriesInteractionControllerProtocol {
 
     
     // MARK: Dependencies
@@ -214,6 +214,15 @@ extension InputViewController {
     
     @IBAction func handleCategoryPan(_ sender: AnyObject) {
         
+    }
+    
+    var panView: UIView {
+        return categoriesContainerView
+    }
+    
+    func toggleCategories(open: Bool) {
+        guard open else { return }
+        openCategories()
     }
 
 }

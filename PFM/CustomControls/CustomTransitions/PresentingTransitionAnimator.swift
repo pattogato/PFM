@@ -9,12 +9,12 @@
 import UIKit
 
 class PresentingTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-        
+    
     // MARK: - Properties
-        
+    
     var animationDuration : TimeInterval {
         get {
-            return 0.5
+            return 0.3
         }
     }
     
@@ -47,13 +47,5 @@ class PresentingTransitionAnimator: NSObject, UIViewControllerAnimatedTransition
         
     }
     
-    
-//    override func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-//        
-//        if let context = storedContext {
-//            context.completeTransition(!context.transitionWasCancelled)
-//        }
-//        storedContext = nil
-//    }
-//    
 }
+

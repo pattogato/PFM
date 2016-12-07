@@ -66,6 +66,7 @@ final class DummyUserManager: UserManagerProtocol {
     private func createDummyUser() -> UserModel {
         let user = UserModel()
         user.name = "Dummy user"
+        
         return user
     }
     
