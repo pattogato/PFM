@@ -11,6 +11,7 @@
 		0106058D1DF770A9000A2707 /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106058C1DF770A9000A2707 /* CategoriesPresenter.swift */; };
 		0106058F1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */; };
 		010605921DF78716000A2707 /* CategoriesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605911DF78716000A2707 /* CategoriesStorage.swift */; };
+		010605941DF78D45000A2707 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605931DF78D45000A2707 /* UserStorage.swift */; };
 		014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DBD1DD21A28004175EF /* APIResources.swift */; };
 		014E2DC11DD21F27004175EF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC01DD21F27004175EF /* AuthService.swift */; };
 		014E2DC31DD21F2E004175EF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC21DD21F2E004175EF /* UserService.swift */; };
@@ -187,6 +188,7 @@
 		0106058C1DF770A9000A2707 /* CategoriesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
 		0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIAuthenticationManager.swift; sourceTree = "<group>"; };
 		010605911DF78716000A2707 /* CategoriesStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesStorage.swift; sourceTree = "<group>"; };
+		010605931DF78D45000A2707 /* UserStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		014E2DBD1DD21A28004175EF /* APIResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResources.swift; sourceTree = "<group>"; };
 		014E2DC01DD21F27004175EF /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		014E2DC21DD21F2E004175EF /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				010605911DF78716000A2707 /* CategoriesStorage.swift */,
+				010605931DF78D45000A2707 /* UserStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -1251,6 +1254,7 @@
 				E2D55DE11CF47A56002343BD /* HistoryViewController.swift in Sources */,
 				B120CA921CCD15F700E9985B /* InputContentViewController.swift in Sources */,
 				0106058D1DF770A9000A2707 /* CategoriesPresenter.swift in Sources */,
+				010605941DF78D45000A2707 /* UserStorage.swift in Sources */,
 				E2D55DE81CF47DE3002343BD /* HistoryHeaderCollectionReusableView.swift in Sources */,
 				B18EC8541DF085220069A722 /* NoteViewPresenter.swift in Sources */,
 				B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */,

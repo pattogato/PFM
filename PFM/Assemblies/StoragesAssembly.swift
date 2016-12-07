@@ -16,6 +16,12 @@ final class StoragesAssembly: AssemblyType {
                 dalHelper: r.resolve(DALHelperProtocol.self)!
             )
         }
+        
+        container.register(UserStorageProtocol.self) { r in
+            return UserStorage(
+                dalHelper: r.resolve(DALHelperProtocol.self)!
+            )
+        }
     }
     
 }
