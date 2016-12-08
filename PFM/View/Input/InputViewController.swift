@@ -34,6 +34,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
 
     // MARK: Dependencies
     var presenter: InputViewPresenterProtocol!
+    var categoriesManager: CategoriesManagerProtocol!
     var router: RouterProtocol!
     
     // MARK: - Constants
@@ -366,7 +367,9 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCategoryCellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCategoryCellIdentifier, for: indexPath) as! CategoryCollectionViewCell
+        
+        cell.category = categories[indexPath.row]
         
         return cell
     }

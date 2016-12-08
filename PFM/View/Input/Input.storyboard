@@ -30,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uXj-pR-h1t" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
-                                <rect key="frame" x="8" y="72" width="359" height="365"/>
+                                <rect key="frame" x="8" y="73" width="359" height="364"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="25"/>
@@ -40,7 +40,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKg-06-iLq">
-                                <rect key="frame" x="0.0" y="28" width="144" height="36"/>
+                                <rect key="frame" x="0.0" y="28" width="144" height="37"/>
                                 <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAL-no-E78">
-                                <rect key="frame" x="231" y="28" width="144" height="36"/>
+                                <rect key="frame" x="231" y="28" width="144" height="37"/>
                                 <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -107,7 +107,7 @@
                                 <rect key="frame" x="0.0" y="300" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70V-TF-x8B" userLabel="Place">
-                                        <rect key="frame" x="98" y="0.0" width="82" height="50"/>
+                                        <rect key="frame" x="98" y="0.0" width="81.5" height="50"/>
                                         <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonPlace"/>
                                         <connections>
@@ -115,7 +115,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ua-xU-r8c" userLabel="Note">
-                                        <rect key="frame" x="196" y="0.0" width="81" height="50"/>
+                                        <rect key="frame" x="195.5" y="0.0" width="82" height="50"/>
                                         <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonNote"/>
                                         <connections>
@@ -123,7 +123,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUk-Y8-Hwi" userLabel="Date">
-                                        <rect key="frame" x="293" y="0.0" width="82" height="50"/>
+                                        <rect key="frame" x="293.5" y="0.0" width="81.5" height="50"/>
                                         <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonDate"/>
                                         <state key="selected">
@@ -208,7 +208,6 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="q23-w9-F99" appends="YES" id="n2i-u5-wqj"/>
                                             <outletCollection property="gestureRecognizers" destination="szQ-yo-9bi" appends="YES" id="hYa-aI-5mB"/>
                                         </connections>
                                     </view>
@@ -268,7 +267,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENCY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24s-Pe-Qjq">
-                                <rect key="frame" x="159.5" y="244" width="57" height="12"/>
+                                <rect key="frame" x="160" y="244" width="57" height="12"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                 <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -344,7 +343,6 @@
                         <outlet property="categoriesContainerView" destination="NhV-3g-KeM" id="7bg-JB-L1O"/>
                         <outlet property="categoriesPullIndicator" destination="raf-1c-bIF" id="ZU3-8u-Z8j"/>
                         <outlet property="categoryPanGestureRecognizer" destination="szQ-yo-9bi" id="6E3-uy-VVG"/>
-                        <outlet property="categoryTapGestureRecognizer" destination="q23-w9-F99" id="i5v-Y7-rgA"/>
                         <outlet property="collectionView" destination="CDy-mo-YER" id="eFn-Qb-E4m"/>
                         <outlet property="currencyButton" destination="2FO-4O-7A4" id="7dM-r2-dqs"/>
                         <outlet property="inputContentContainerView" destination="9k5-cw-uNb" id="j79-kQ-8mB"/>
@@ -361,11 +359,6 @@
                         <action selector="handleCategoryPan:" destination="nPq-tj-Veb" id="yln-YO-AAN"/>
                     </connections>
                 </panGestureRecognizer>
-                <tapGestureRecognizer id="q23-w9-F99">
-                    <connections>
-                        <action selector="handleCategoryTap:" destination="nPq-tj-Veb" id="uF8-d5-mHj"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1703" y="-436"/>
         </scene>
@@ -735,7 +728,7 @@
             <objects>
                 <navigationController storyboardIdentifier="InputNavigationControllerStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="Lmu-xf-Pnh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2D-pN-77b">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M2D-pN-77b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

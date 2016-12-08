@@ -105,7 +105,7 @@ extension SettingsViewController: SettingsViewProtocol {
     }
     
     func showNotLoggedInAlert() {
-        self.showAlert(title: "Synchronization", message: "To synchronize your data, you need to log in. To do so, tap on the Login or Signup button", cancel: "general.ok".localized)
+        self.showAlert(title: "Synchronization", message: "To synchronize your data, you need to log in. To do so, tap on the Login or Signup button", cancel: "general.alert.ok".localized)
     }
     
 }
