@@ -15,6 +15,8 @@ final class HistoryViewController: UIViewController {
     // TODO: View protocol, presenter, adatok kiszervezése
     
     // MARK: - Constants
+    
+    var dataProvider: TransactionDataProviderProtocol!
 
     fileprivate struct Constants {
     
@@ -45,7 +47,14 @@ final class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.transactions = Array(dataProvider.getAllTransactions(nil).sorted(byProperty: "date"))
+        
         if transactions.count > 0 {
             collectionView.scrollToItem(
                 at: IndexPath(item: transactions.count-1, section: 0),

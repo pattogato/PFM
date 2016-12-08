@@ -60,6 +60,7 @@ PODS:
   - Realm/Headers (1.1.0)
   - RealmSwift (1.1.0):
     - Realm (= 1.1.0)
+  - SnapKit (3.0.2)
   - SVProgressHUD (2.0.4)
   - SwiftDate (4.0.7)
   - SwiftyUserDefaults (3.0.0)
@@ -84,6 +85,7 @@ DEPENDENCIES:
   - MBPullDownController (~> 1.0)
   - PromiseKit
   - RealmSwift (~> 1.1.0)
+  - SnapKit (~> 3.0)
   - SVProgressHUD (~> 2.0)
   - SwiftDate (~> 4.0)
   - SwiftyUserDefaults (~> 3.0.0)
@@ -129,6 +131,7 @@ SPEC CHECKSUMS:
   PromiseKit: 593b5e24ded6cbb1ebc708bc2c3428a8a5632d91
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
   SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
