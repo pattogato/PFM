@@ -46,7 +46,8 @@ final class PresenterAssembly: AssemblyType {
                 view: view,
                 loginPresenter: r.resolve(LoginPresenterProtocol.self)!,
                 userManager: r.resolve(UserManagerProtocol.self)!,
-                router: r.resolve(RouterProtocol.self)!
+                router: r.resolve(RouterProtocol.self)!,
+                syncManager: r.resolve(SyncManagerProtocol.self)!
             )
         }
         

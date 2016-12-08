@@ -11,7 +11,7 @@ import PromiseKit
 
 protocol SettingsViewPresenterProtocol {
     
-    init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol, router: RouterProtocol)
+    init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol, router: RouterProtocol, syncManager: SyncManagerProtocol)
     
     /**
         Navgigates to the input screen (eg. Swipe right)
@@ -20,6 +20,8 @@ protocol SettingsViewPresenterProtocol {
     
     func login(from: UIViewController) -> Promise<UserModel>
     func logout()
+    func syncButtonTouched(button: UIButton)
     
     var loggedInUser: UserModel? { get }
+    
 }

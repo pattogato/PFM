@@ -16,4 +16,9 @@ protocol SettingsViewProtocol: class {
     func loadUserSettings()
     
     func showGreetingMessage(user: UserModel)
+    func enableSyncButton(enable: Bool)
+    
+    func showLoadingAnimation()
+    func stopLoadingAnimation()
+    func showNotLoggedInAlert()
 }
