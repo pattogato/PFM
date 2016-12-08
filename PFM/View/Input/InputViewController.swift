@@ -401,7 +401,8 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.saveCategory(categories[(indexPath as NSIndexPath).item])
+        presenter.saveCategory(categories[indexPath.item])
+        collectionView.reloadData()
     }
     
 }

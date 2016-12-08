@@ -16,6 +16,8 @@ final class CategoryModel: MappableModelObject {
     dynamic var name: String = ""
     dynamic var imageUri: String = ""
     
+    var selected: Bool = false
+    
     override func mapping(map: Map) {
         super.mapping(map: map)
         
@@ -32,6 +34,10 @@ final class CategoryModel: MappableModelObject {
             type: CategoryModel.self,
             serverId: parentId
         )
+    }
+    
+    override class func ignoredProperties() -> [String] {
+        return super.ignoredProperties() + ["selected"]
     }
     
 }

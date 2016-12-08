@@ -11,11 +11,13 @@ import RealmSwift
 
 protocol CategoryDataProviderProtocol {
     func getCategory(byServerId serverId: String, existingRealm: Realm?) -> CategoryModel?
-    func getCategory(byLocalId localId: String, realm: Realm?) -> CategoryModel?
+    func getCategory(byLocalId localId: String, existingRealm: Realm?) -> CategoryModel?
     func getAllCategories(_ realm: Realm?) -> Results<CategoryModel>
     func getAllMainCategories(_ realm: Realm?) -> Results<CategoryModel>
     func getAllSelectableCategories(_ realm: Realm?) -> Results<CategoryModel>
-    func createOrUpdateCategory(_ serverId: String, name: String, order: Int, imageUri: String?, realm: Realm) -> CategoryModel
+    func createOrUpdateCategory(_ serverId: String, name: String, order: Int, imageUri: String?, existingRealm: Realm?) -> CategoryModel
+    func selectCategory(_ realm: Realm?, category: CategoryModel, select: Bool)
+    func deselectAllCategories()
     func updateCategory(category: CategoryModel,
                         serverId: String?,
                         imageUri: String?,
@@ -24,7 +26,7 @@ protocol CategoryDataProviderProtocol {
     func deleteCategory(_ category: CategoryModel, existingRealm: Realm?)
 }
 
-class CategoryDataProvider {
+final class CategoryDataProvider: CategoryDataProviderProtocol {
 
     var dalHelper: DALHelperProtocol!
     
@@ -118,6 +120,19 @@ class CategoryDataProvider {
             if let parentId = parentId {
                 category.parentId = parentId
             }
+        }
+    }
+    
+    func selectCategory(_ realm: Realm?, category: CategoryModel, select: Bool) {
+        let realm = (realm ?? category.realm) ?? dalHelper.newRealm()
+        dalHelper.writeInRealm(realm: realm) { realm in
+            category.selected = select
+        }
+    }
+    
+    func deselectAllCategories() {
+        dalHelper.writeInMainRealm { (_) in
+            self.getAllCategories(nil).forEach({ $0.selected = false })
         }
     }
 

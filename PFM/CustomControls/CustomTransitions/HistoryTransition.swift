@@ -43,10 +43,6 @@ final class HistoryTransition: PresentingTransitionAnimator {
             
             historyView?.transform = CGAffineTransform(translationX: 0, y: -(historyView?.bounds.size.height)!)
             
-            // TODO betenni
-            historyVc.cashLabel.text = inputVc.amountLabel.text
-            
-            
             // Animate
             
             UIView.animate(

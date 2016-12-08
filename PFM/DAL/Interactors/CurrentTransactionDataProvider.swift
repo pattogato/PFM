@@ -24,9 +24,16 @@ protocol CurrentTransactionDataProviderProtocol {
 
 class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     
+    let categoryDataProvider: CategoryDataProviderProtocol
+    
+    init(categoryDataProvider: CategoryDataProviderProtocol) {
+        self.categoryDataProvider = categoryDataProvider
+    }
+    
     fileprivate var currentTransaction: TransactionModel = TransactionModel()
     
     func resetTransaction() {
+        categoryDataProvider.deselectAllCategories()
         self.currentTransaction = TransactionModel()
     }
     
@@ -37,6 +44,8 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     func saveCategory(_ category: CategoryModel) {
         currentTransaction.category = category
         currentTransaction.categoryId = category.id
+        categoryDataProvider.deselectAllCategories()
+        categoryDataProvider.selectCategory(nil, category: category, select: true)
     }
     
     func saveLocation(_ lat: Double, lng: Double, venue: String? = nil) {

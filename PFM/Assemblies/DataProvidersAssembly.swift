@@ -14,7 +14,9 @@ final class DataProvidersAssembly: AssemblyType {
         
         container.register(CurrentTransactionDataProviderProtocol.self, factory: {
             r in
-            return CurrentTransactionDataProvider()
+            return CurrentTransactionDataProvider(
+                categoryDataProvider: r.resolve(CategoryDataProviderProtocol.self)!
+            )
         })
         
         container.register(TransactionDataProviderProtocol.self, factory: {
@@ -29,6 +31,12 @@ final class DataProvidersAssembly: AssemblyType {
             r in
             return DummyChartsDataProvider(transactionDataProvider: r.resolve(TransactionDataProviderProtocol.self)!)
         })
+        
+        container.register(CategoryDataProviderProtocol.self, factory: {
+            r in
+            return CategoryDataProvider()
+        })
+        
     }
     
 }
