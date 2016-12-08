@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import PromiseKit
 
 protocol SettingsViewPresenterProtocol {
     
-    init(view: SettingsViewProtocol)
+    init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol, router: RouterProtocol)
     
     /**
         Navgigates to the input screen (eg. Swipe right)
      */
     func navigateToInputScreen()
+    
+    func login(from: UIViewController) -> Promise<UserModel>
+    func logout()
+    
+    var loggedInUser: UserModel? { get }
 }

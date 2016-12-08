@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var router: RouterProtocol!
     let assembler = Assembler(container: SwinjectStoryboard.defaultContainer)
+    let managersAssemby = ManagersAssembly()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -25,16 +26,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         assembler.apply(assemblies: [
             ApplicationAssembly(),
             ServicesAssembly(),
-            ManagersAssembly(),
+            managersAssemby,
             StoragesAssembly(),
-            DataProvidersAssembly()
+            DataProvidersAssembly(),
+            PresenterAssembly(),
+            ViewsAssembly()
             ])
         
         ApplicationAssembly.resolveAppDelegateDependencies(appDelegate: self)
         
-        router.setSwipeControllerToRoot(&window)
+        managersAssemby.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        router.start()
         
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return managersAssemby.application(app, open: url, options: options)
     }
 
 

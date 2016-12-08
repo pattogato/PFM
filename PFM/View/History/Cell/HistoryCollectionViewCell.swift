@@ -54,7 +54,7 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
         if transaction?.name.characters.count > 0 {
             titleLabel.text = transaction?.name
         } else {
-            timeLabel.text = "Unnamed item"
+            titleLabel.text = "Unnamed item"
         }
         timeLabel.text = transaction?.date.string(custom: "hh : mm")
         if let amount = transaction?.amount {

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ChartsViewPresenterProtocol: class{
-    init(view: ChartsViewProtocol)
+    init(view: ChartsViewProtocol, router: RouterProtocol)
     
     /**
         Opens the given chart's detailed view

@@ -2,13 +2,14 @@
 //  DALHelper.swift
 //  hero2
 //
-//  Created by Bence Pattogató on 19/09/16.
+//  Created by Bence Pattogato on 19/09/16.
 //  Copyright © 2016 Inceptech. All rights reserved.
 //
 
 import RealmSwift
 
 public typealias RealmBlock = (Realm) -> Void
+public typealias InMemoryConfiguration = (inMemoryIdentifier: String, types: [Object.Type])
 
 public protocol DALHelperProtocol {
     var realmConfiguration: Realm.Configuration! { get }
@@ -60,30 +61,40 @@ public protocol DALHelperProtocol {
      - parameter: realm: Existing realm instance
      */
     func clearDatabase(in realm: Realm)
+    
+    func createInMemoryDatabaseConfiguration(configuration: InMemoryConfiguration) -> Realm.Configuration
 }
 
 public final class DALHelper: DALHelperProtocol {
     
+    fileprivate var inMemoryConfigurations: [InMemoryConfiguration] = []
     let realm: Realm!
     public let realmConfiguration: Realm.Configuration!
-    static let sharedInstance = DALHelper(schemaVersion: 1)
     
     /**
      Configuration method that should be called from the Main Thread.
      
      - parameter encrypted:      Indicator wether the database should be encrypted
-     - parameter schemaVersion:  Optional schema version of the database
+     - parameter schema0ion:  Optional schema version of the database
      - parameter migrationBlock: Optional migration block
      */
-    public init(schemaVersion: UInt64,
+    public init(encrypted: Bool,
+                schemaVersion: UInt64,
                 migrationBlock: MigrationBlock? = nil) {
         
         assert(Thread.isMainThread, "DALHelper should only be initialized from the main thread.")
         
+        let encryptionKey: Data?
+        if encrypted {
+            encryptionKey = DALHelper.loadEncryptionKey()
+        } else {
+            encryptionKey = nil
+        }
+        
         realmConfiguration = Realm.Configuration(
             fileURL: URL.realmUrl(),
             inMemoryIdentifier: nil,
-            encryptionKey: nil,
+            encryptionKey: encryptionKey,
             readOnly: false,
             schemaVersion: schemaVersion,
             migrationBlock: migrationBlock,
@@ -98,17 +109,37 @@ public final class DALHelper: DALHelperProtocol {
             fatalError("Error opening realm: \(error) TRY TO DELETE APP FROM DEVICE")
         }
     }
-
+    
+    /**
+     Load the encryption key
+     - if one exists, return it
+     - if none exists, generate and save new one
+     */
+    private class func loadEncryptionKey() -> Data {
+        let storedKey = SecureProperty<Data>(propertyName: "realmEncryptionKey")
+        
+        // Check if the key is available in the keychain
+        if let key = storedKey.value {
+            print("[REALM] Key loaded: \(key.hexadecimalString)")
+            return key
+        } else {
+            // If no key is set up yet
+            
+            // Generate a random encryption key
+            var key = Data(count: 64)
+            _ = key.withUnsafeMutableBytes { bytes in
+                SecRandomCopyBytes(kSecRandomDefault, 64, bytes)
+            }
+            storedKey.value = key
+            
+            print("[REALM] Key generated: \(key.hexadecimalString)")
+            return key
+        }
+    }
     
 }
 
 public extension DALHelper {
-    
-    public static func writeInRealm(realm: Realm, block: (Realm) -> Void) {
-        DALHelper.sharedInstance.writeInRealm(realm: realm) { (realm) in
-            block(realm)
-        }
-    }
     
     public func writeInMainRealm(_ block: RealmBlock) {
         assert(Thread.isMainThread, "The main realm is only accessible from the main thread.")
@@ -141,8 +172,20 @@ public extension DALHelper {
     }
     
     public func clearDatabase() {
+        // Delete default realm data
         writeInRealm { (realm) in
             realm.deleteAll()
+        }
+        
+        for inMemoryConfigDescriptor in inMemoryConfigurations {
+            let config = createInMemoryDatabaseConfiguration(configuration: inMemoryConfigDescriptor)
+            guard let inMemoryRealm = try? Realm(configuration: config) else {
+                continue
+            }
+            
+            writeInRealm(realm: inMemoryRealm, block: { (realm) in
+                realm.deleteAll()
+            })
         }
     }
     
@@ -150,6 +193,18 @@ public extension DALHelper {
         writeInRealm(realm: realm) { (realm) in
             realm.deleteAll()
         }
+    }
+    
+    public func createInMemoryDatabaseConfiguration(configuration: InMemoryConfiguration) -> Realm.Configuration {
+        
+        let config = Realm.Configuration(inMemoryIdentifier: configuration.inMemoryIdentifier, objectTypes: configuration.types)
+        
+        if inMemoryConfigurations.contains(where: { $0.inMemoryIdentifier == configuration.inMemoryIdentifier }) {
+            return config
+        }
+        
+        inMemoryConfigurations.append(configuration)
+        return config
     }
 }
 

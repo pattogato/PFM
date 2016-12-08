@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import EZSwipeController
 
 final class HistoryTransition: PresentingTransitionAnimator {
-
+    
     //  MARK: - Constants
     
     
@@ -28,8 +29,8 @@ final class HistoryTransition: PresentingTransitionAnimator {
     fileprivate func presentingAnimation( _ context : UIViewControllerContextTransitioning ) {
         
         if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? HistoryViewController,
-            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? SwipeNavigationController,
-            let inputVc = swipeNavigation.inputVc {
+            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? EZSwipeController,
+            let inputVc = swipeNavigation.stackVC[swipeNavigation.currentVCIndex] as? InputViewController {
             
             // Add 'toView' to context view
             
@@ -42,8 +43,9 @@ final class HistoryTransition: PresentingTransitionAnimator {
             
             historyView?.transform = CGAffineTransform(translationX: 0, y: -(historyView?.bounds.size.height)!)
             
+            // TODO betenni
             historyVc.cashLabel.text = inputVc.amountLabel.text
-
+            
             
             // Animate
             
@@ -57,7 +59,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
                     
                     historyView?.transform = CGAffineTransform.identity
                     
-                },
+            },
                 completion: { (completed) -> Void in
                     context.completeTransition(true)
             })
@@ -68,9 +70,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
     
     fileprivate func dismissAnimation( _ context : UIViewControllerContextTransitioning ) {
         
-        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? HistoryViewController,
-            let swipeNavigation = context.viewController(forKey: UITransitionContextViewControllerKey.to) as? SwipeNavigationController,
-            let inputVc = swipeNavigation.inputVc {
+        if let historyVc = context.viewController(forKey: UITransitionContextViewControllerKey.from) as? HistoryViewController {
             
             let historyView = historyVc.view
             
@@ -89,7 +89,7 @@ final class HistoryTransition: PresentingTransitionAnimator {
                     
                     historyView?.transform = CGAffineTransform(translationX: 0, y: -(historyView?.bounds.size.height ?? 0))
                     
-                },
+            },
                 completion: { (completed) -> Void in
                     
                     context.completeTransition(true)
@@ -100,3 +100,4 @@ final class HistoryTransition: PresentingTransitionAnimator {
     }
     
 }
+

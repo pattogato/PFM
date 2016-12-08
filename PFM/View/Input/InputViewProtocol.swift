@@ -13,10 +13,9 @@ enum KeyboardType {
     case notes
 }
 
-protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDelegate, LocationPickerDelegate {
+protocol InputViewProtocol: class, LocationPickerDelegate {
     
     weak var amountLabel: UILabel! { get set }
-    weak var inputContentPresenter: InputContentPresenterProtocol? { get set }
     
     /**
         Sets up the input screen with a given Transaction Model
@@ -30,6 +29,8 @@ protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDel
     
     func openLocationPicker()
     
+    func openNoteScreen()
+    
     func resetUI()
     
     func appendAmountDigit(_ digit: Character)
@@ -37,5 +38,7 @@ protocol InputViewProtocol: class, SwipeableViewControllerProtocol, NumberPadDel
     func deleteAmountDigit()
     
     func appendAmountComa()
+    
+    func showNoAmountError()
     
 }

@@ -9,26 +9,46 @@
 import UIKit
 import RealmSwift
 
-class CategoryDataProvider: NSObject {
+protocol CategoryDataProviderProtocol {
+    func getCategory(byServerId serverId: String, existingRealm: Realm?) -> CategoryModel?
+    func getCategory(byLocalId localId: String, realm: Realm?) -> CategoryModel?
+    func getAllCategories(_ realm: Realm?) -> Results<CategoryModel>
+    func getAllMainCategories(_ realm: Realm?) -> Results<CategoryModel>
+    func getAllSelectableCategories(_ realm: Realm?) -> Results<CategoryModel>
+    func createOrUpdateCategory(_ serverId: String, name: String, order: Int, imageUri: String?, realm: Realm) -> CategoryModel
+    func updateCategory(category: CategoryModel,
+                        serverId: String?,
+                        imageUri: String?,
+                        name: String?,
+                        parentId: String?)
+    func deleteCategory(_ category: CategoryModel, existingRealm: Realm?)
+}
 
+class CategoryDataProvider {
+
+    var dalHelper: DALHelperProtocol!
+    
     /**
         Returns the CategoryModel with the given server ID
      */
-    class func getCategory(byServerId serverId: String, realm: Realm = DALHelper.sharedInstance.realm) -> CategoryModel? {
+    func getCategory(byServerId serverId: String, existingRealm: Realm?) -> CategoryModel? {
+        let realm = existingRealm ?? dalHelper.newRealm()
         return realm.objects(CategoryModel.self).filter("serverId == '\(serverId)'").first
     }
     
     /**
         Returns the CategoryModel with the given local ID
      */
-    class func getCategory(byLocalId localId: String, realm: Realm = DALHelper.sharedInstance.realm) -> CategoryModel? {
+    func getCategory(byLocalId localId: String, existingRealm: Realm?) -> CategoryModel? {
+        let realm = existingRealm ?? dalHelper.newRealm()
         return realm.objects(CategoryModel.self).filter("id == \(localId)").first
     }
     
     /**
         Return all the Transacion Models from the DB
      */
-    class func getAllCategories(_ realm: Realm = DALHelper.sharedInstance.realm) -> Results<CategoryModel> {
+    func getAllCategories(_ existingRealm: Realm?) -> Results<CategoryModel> {
+        let realm = existingRealm ?? dalHelper.newRealm()
         return realm.objects(CategoryModel.self)
     }
     
@@ -36,14 +56,16 @@ class CategoryDataProvider: NSObject {
     /**
         Returns all the main categories ordered by order parameter
      */
-    class func getAllMainCategories(_ realm: Realm = DALHelper.sharedInstance.realm) -> Results<CategoryModel> {
+    func getAllMainCategories(_ existingRealm: Realm?) -> Results<CategoryModel> {
+        let realm = existingRealm ?? dalHelper.newRealm()
         return realm.objects(CategoryModel.self).filter("parentId != ''").sorted(byProperty: "order", ascending: true)
     }
     
     /**
      Returns all the non-main aka. "selectable" (those that the user can see) categories ordered by order parameter
      */
-    class func getAllSelectableCategories(_ realm: Realm = DALHelper.sharedInstance.realm) -> Results<CategoryModel> {
+    func getAllSelectableCategories(_ existingRealm: Realm?) -> Results<CategoryModel> {
+        let realm = existingRealm ?? dalHelper.newRealm()
         return realm.objects(CategoryModel.self).filter("parentId == ''").sorted(byProperty: "order", ascending: true)
     }
     
@@ -52,14 +74,15 @@ class CategoryDataProvider: NSObject {
      
      - Returns: The created Category Model with uniqe ID
      */
-    class func createOrUpdateCategory(_ serverId: String, name: String, order: Int, imageUri: String? = nil, realm: Realm = DALHelper.sharedInstance.realm) -> CategoryModel {
-        var category = CategoryDataProvider.getCategory(byServerId: serverId)
+    func createOrUpdateCategory(_ serverId: String, name: String, order: Int, imageUri: String? = nil, existingRealm: Realm?) -> CategoryModel {
+        let realm = existingRealm ?? dalHelper.newRealm()
+        var category = self.getCategory(byServerId: serverId, existingRealm: nil)
         
         if category == nil {
             category = CategoryModel()
         }
         
-        DALHelper.writeInRealm(realm: realm) { (realm) in
+        dalHelper.writeInRealm(realm: realm) { (realm) in
             category?.serverId = serverId
             category?.name = name
             category?.order = order
@@ -69,60 +92,45 @@ class CategoryDataProvider: NSObject {
         return category!
     }
     
-    /**
-     Updates a Category's serverID
-     */
-    class func updateCategoryServerID(_ category: CategoryModel, serverId: String, realm: Realm = DALHelper.sharedInstance.realm) {
-        DALHelper.writeInRealm(realm: realm) { (realm) in
-            category.serverId = serverId
+    func updateCategory(category: CategoryModel,
+                        serverId: String?,
+                        imageUri: String?,
+                        name: String?,
+                        parentId: String?) {
+        
+        var realm: Realm!
+        if category.realm != nil {
+            realm = category.realm
+        } else {
+            realm = dalHelper.newRealm()
         }
-    }
-    
-    /**
-     Updates a Category's imageUri
-     */
-    class func updateCategoryImageUri(_ category: CategoryModel, imageUri: String, realm: Realm = DALHelper.sharedInstance.realm) {
-        DALHelper.writeInRealm(realm: realm) { (realm) in
-            category.imageUri = imageUri
-        }
-    }
-    
-    /**
-     Updates a Category's name
-     */
-    class func updateCategoryName(_ category: CategoryModel, name: String, realm: Realm = DALHelper.sharedInstance.realm) {
-        DALHelper.writeInRealm(realm: realm) { (realm) in
-            category.name = name
-        }
-    }
-
-    /**
-     Updates a Category's parentId
-     */
-    class func updateCategoryParentId(_ category: CategoryModel, parentId: String, realm: Realm = DALHelper.sharedInstance.realm) {
-        DALHelper.writeInRealm(realm: realm) { (realm) in
-            category.parentId = parentId
+        
+        dalHelper.writeInRealm(realm: realm) { (realm) in
+            if let serverId = serverId {
+                category.serverId = serverId
+            }
+            if let imageUri = imageUri {
+                category.imageUri = imageUri
+            }
+            if let name = name {
+                category.name = name
+            }
+            if let parentId = parentId {
+                category.parentId = parentId
+            }
         }
     }
 
-    
     /**
      Deletes a Category
      */
-    class func deleteCategory(_ category: CategoryModel, realm: Realm = DALHelper.sharedInstance.realm) {
-        DALHelper.writeInRealm(realm: realm) { (realm) in
+    func deleteCategory(_ category: CategoryModel, existingRealm: Realm?) {
+        let realm = existingRealm ?? dalHelper.newRealm()
+        dalHelper.writeInRealm(realm: realm) { (realm) in
             realm.delete(category)
         }
     }
-    
-    /**
-     Deletes all categories
-     */
-    class func deleteAllCategories(_ realm: Realm = DALHelper.sharedInstance.realm) {
-        DALHelper.writeInRealm(realm: realm) { (realm) in
-            realm.delete(DALHelper.sharedInstance.realm.objects(CategoryModel.self))
-        }
-    }
+
     
     
 }

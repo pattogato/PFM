@@ -8,36 +8,43 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, PresentableView {
+class SettingsViewController: UIViewController, PresentableView, AlertProtocol {
     
-    var presenter: SettingsViewPresenterProtocol?
+    var presenter: SettingsViewPresenterProtocol!
     
-    weak var delegate: SwipeViewControllerProtocol?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupUserLoggedInRelatedUI()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setupUserLoggedInRelatedUI() {
+        let loggedIn = self.presenter.loggedInUser != nil
+        self.loginButton.setTitle(loggedIn ? "Logout" : "Login", for: .normal)
+        self.welcomeLabel.isHidden = loggedIn
+        self.descriptionLabel.isHidden = loggedIn
     }
     
     @IBAction func navigateToInputScreenTouched(_ sender: AnyObject) {
         self.presenter?.navigateToInputScreen()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginOutButtonTouched(_ sender: Any) {
+        if presenter.loggedInUser == nil {
+            _ = self.presenter.login(from: self).then(execute: { (user) -> Void in
+                self.setupUserLoggedInRelatedUI()
+            })
+        } else {
+            self.presenter.logout()
+            setupUserLoggedInRelatedUI()
+        }
     }
-    */
+    
 
 }
 
@@ -45,6 +52,10 @@ extension SettingsViewController: SettingsViewProtocol {
     
     func loadUserSettings() {
         print("load user settings")
+    }
+    
+    func showGreetingMessage(user: UserModel) {
+        self.showAlert(message: "Welcome to pfm, dear \(user.name)")
     }
     
 }

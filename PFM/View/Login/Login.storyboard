@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Light.otf">
+            <string>Montserrat-Light</string>
+        </array>
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="r2g-yC-KxE">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewControllerStoryboardID" id="BDa-pn-cNa" customClass="LoginViewController" customModule="PFM" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iLk-yh-Yph"/>
+                        <viewControllerLayoutGuide type="bottom" id="KE3-4t-YX2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xC9-EI-c2P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UaT-dE-et2" customClass="PfmTextField" customModule="PFM" customModuleProvider="target">
+                                <rect key="frame" x="50" y="142" width="275" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="49U-ZB-oDw"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekm-NW-teQ">
+                                <rect key="frame" x="50" y="202" width="44" height="32"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonTouched:" destination="BDa-pn-cNa" eventType="touchUpInside" id="MPX-js-Wgr"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vVC-GL-rTy" customClass="PfmTextField" customModule="PFM" customModuleProvider="target">
+                                <rect key="frame" x="50" y="82" width="275" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8Ia-C5-3K1"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYC-73-mrf">
+                                <rect key="frame" x="8" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="9Av-Mx-a2t"/>
+                                    <constraint firstAttribute="height" constant="40" id="kiq-Ud-AW5"/>
+                                </constraints>
+                                <color key="tintColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="iconClose"/>
+                                <connections>
+                                    <action selector="closeLoginButtonTouched:" destination="BDa-pn-cNa" eventType="touchUpInside" id="Q67-ly-et8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5d5-lc-IMJ">
+                                <rect key="frame" x="268" y="202" width="57" height="32"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                <state key="normal" title="Signup">
+                                    <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signupButtonTouched:" destination="BDa-pn-cNa" eventType="touchUpInside" id="uxT-wS-aQx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xq-hu-Ubx">
+                                <rect key="frame" x="160" y="28" width="55" height="24"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiB-IE-XGS">
+                                <rect key="frame" x="149" y="254" width="78" height="32"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                <state key="normal" title="Facebook">
+                                    <color key="titleColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookButtonTouched:" destination="BDa-pn-cNa" eventType="touchUpInside" id="o0r-cQ-0oc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="PiB-IE-XGS" firstAttribute="top" secondItem="ekm-NW-teQ" secondAttribute="bottom" constant="20" id="4GO-Pg-3h9"/>
+                            <constraint firstItem="aYC-73-mrf" firstAttribute="top" secondItem="iLk-yh-Yph" secondAttribute="bottom" id="5Ha-Zn-7hA"/>
+                            <constraint firstItem="ekm-NW-teQ" firstAttribute="top" secondItem="UaT-dE-et2" secondAttribute="bottom" constant="20" id="8LC-8V-r5C"/>
+                            <constraint firstItem="vVC-GL-rTy" firstAttribute="top" secondItem="1xq-hu-Ubx" secondAttribute="bottom" constant="30" id="9Hb-0c-yMC"/>
+                            <constraint firstItem="UaT-dE-et2" firstAttribute="trailing" secondItem="vVC-GL-rTy" secondAttribute="trailing" id="AQr-uZ-jG1"/>
+                            <constraint firstItem="1xq-hu-Ubx" firstAttribute="centerY" secondItem="aYC-73-mrf" secondAttribute="centerY" id="Gge-Jb-etx"/>
+                            <constraint firstItem="5d5-lc-IMJ" firstAttribute="trailing" secondItem="UaT-dE-et2" secondAttribute="trailing" id="K7d-eZ-tfZ"/>
+                            <constraint firstItem="vVC-GL-rTy" firstAttribute="leading" secondItem="xC9-EI-c2P" secondAttribute="leading" constant="50" id="L7P-G6-L0m"/>
+                            <constraint firstItem="aYC-73-mrf" firstAttribute="leading" secondItem="xC9-EI-c2P" secondAttribute="leading" constant="8" id="Qjh-2v-O6H"/>
+                            <constraint firstItem="UaT-dE-et2" firstAttribute="leading" secondItem="vVC-GL-rTy" secondAttribute="leading" id="Roj-AI-q4G"/>
+                            <constraint firstAttribute="trailing" secondItem="vVC-GL-rTy" secondAttribute="trailing" constant="50" id="abz-U9-StE"/>
+                            <constraint firstItem="5d5-lc-IMJ" firstAttribute="centerY" secondItem="ekm-NW-teQ" secondAttribute="centerY" id="gOa-Ht-T5j"/>
+                            <constraint firstItem="UaT-dE-et2" firstAttribute="top" secondItem="vVC-GL-rTy" secondAttribute="bottom" constant="20" id="hAt-kS-Er9"/>
+                            <constraint firstItem="ekm-NW-teQ" firstAttribute="leading" secondItem="UaT-dE-et2" secondAttribute="leading" id="tai-HL-Yco"/>
+                            <constraint firstItem="1xq-hu-Ubx" firstAttribute="centerX" secondItem="xC9-EI-c2P" secondAttribute="centerX" id="tuW-Gg-voi"/>
+                            <constraint firstItem="PiB-IE-XGS" firstAttribute="centerX" secondItem="xC9-EI-c2P" secondAttribute="centerX" id="u42-eb-jRa"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="z34-Rk-jPb" appends="YES" id="VtJ-ex-Yn7"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextfield" destination="vVC-GL-rTy" id="Cfg-iW-CUe"/>
+                        <outlet property="passwordTextField" destination="UaT-dE-et2" id="UCb-R8-jfW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pXK-do-G7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="z34-Rk-jPb">
+                    <connections>
+                        <action selector="handleTap:" destination="BDa-pn-cNa" id="3kv-eE-EBv"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="892" y="118.29085457271366"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="iconClose" width="16" height="16"/>
+    </resources>
+</document>

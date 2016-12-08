@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ChartsViewProtocol: class, SwipeableViewControllerProtocol {
+protocol ChartsViewProtocol: class {
     
     func setCharts()
 }

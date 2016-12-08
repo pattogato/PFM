@@ -8,93 +8,85 @@
 
 import Foundation
 
-class CurrentTransactionDataProvider {
+protocol CurrentTransactionDataProviderProtocol {
+    func resetTransaction()
+    func saveAmount(_ amount: Double)
+    func saveCategory(_ category: CategoryModel)
+    func saveLocation(_ lat: Double, lng: Double, venue: String?)
+    func saveName(_ name: String)
+    func saveDate(_ date: Date)
+    func saveCurrency(_ currency: String)
+    func saveDescription(_ desc: String)
+    func saveImage(_ image: UIImage)
+    func deleteImage()
+    func getTransaction() -> TransactionModel?
+}
+
+class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     
-    static let sharedInstance = CurrentTransactionDataProvider()
-    
-    init() {
-        self.currentTransaction = TransactionModel()
-    }
-    
-    fileprivate var currentTransaction: TransactionModel?
+    fileprivate var currentTransaction: TransactionModel = TransactionModel()
     
     func resetTransaction() {
         self.currentTransaction = TransactionModel()
     }
     
     func saveAmount(_ amount: Double) {
-        guard let transaction = self.currentTransaction else {
-            assertionFailure("Current transaction not initialized")
-            return
-        }
-        transaction.amount = amount
+        currentTransaction.amount = amount
     }
     
     func saveCategory(_ category: CategoryModel) {
-        guard let transaction = self.currentTransaction else {
-            assertionFailure("Current transaction not initialized")
-            return
-        }
-        transaction.category = category
-        transaction.categoryId = category.id
+        currentTransaction.category = category
+        currentTransaction.categoryId = category.id
     }
     
     func saveLocation(_ lat: Double, lng: Double, venue: String? = nil) {
-        guard let transaction = self.currentTransaction else {
-            assertionFailure("Current transaction not initialized")
-            return
-        }
-        transaction.latitude = lat
-        transaction.longitude = lng
-        transaction.venue = venue ?? "Unknow place"
+        currentTransaction.latitude = lat
+        currentTransaction.longitude = lng
+        currentTransaction.venue = venue ?? "Unknow place"
     }
     
     func saveName(_ name: String) {
-        guard let transaction = self.currentTransaction else {
-            assertionFailure("Current transaction not initialized")
-            return
-        }
-        transaction.name = name
+        currentTransaction.name = name
     }
     
     func saveDate(_ date: Date) {
-        guard let transaction = self.currentTransaction else {
-            assertionFailure("Current transaction not initialized")
-            return
-        }
-        transaction.date = date
+        currentTransaction.date = date
     }
     
     func saveCurrency(_ currency: String) {
-        guard let transaction = self.currentTransaction else {
-            assertionFailure("Current transaction not initialized")
-            return
-        }
-        transaction.currency = currency
+        currentTransaction.currency = currency
     }
     
     func saveDescription(_ desc: String) {
-        guard let transaction = self.currentTransaction else {
-            assertionFailure("Current transaction not initialized")
-            return
-        }
-        transaction.desc = desc
+        currentTransaction.desc = desc
+    }
+    
+    func saveImage(_ image: UIImage) {
+        currentTransaction.image = image
+    }
+    
+    func deleteImage() {
+        currentTransaction.image = nil
     }
     
     func getTransaction() -> TransactionModel? {
+        
+        if self.currentTransaction.currency.isEmpty {
+            currentTransaction.currency = "HUF"
+        }
         
         return self.currentTransaction
     }
     
     fileprivate func setDefaultValues() {
-        if let transaction = self.currentTransaction {
-            if transaction.name == "" {
-                transaction.name = "Unnamed transaction"
-            }
-            if transaction.currency == "" {
-                transaction.currency = "HUF"
-            }
+        
+        if currentTransaction.name == "" {
+            currentTransaction.name = "Unnamed transaction"
         }
+        if currentTransaction.currency == "" {
+            currentTransaction.currency = "HUF"
+        }
+        
     }
     
 }

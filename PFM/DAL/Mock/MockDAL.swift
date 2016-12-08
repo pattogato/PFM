@@ -40,10 +40,15 @@ class MockDAL: NSObject {
         
         var categories = [CategoryModel]()
         
-        for i in 0...numberOfCategories-1 {
-            let category = CategoryDataProvider.createOrUpdateCategory("sample_server_id\(i)", name: "category name \(i)", order: i, imageUri: "http://google.com")
-            categories.append(category)
+        
+        _ = UIApplication.resolve(service: CategoryServiceProtocol.self)
+            .getCategories().then { (categories) -> Void in
+                print(categories)
         }
+//        for i in 0...numberOfCategories-1 {
+//            let category = CategoryDataProvider.createOrUpdateCategory("sample_server_id\(i)", name: "category name \(i)", order: i, imageUri: "http://google.com")
+//            categories.append(category)
+//        }
         
         return categories
     }
