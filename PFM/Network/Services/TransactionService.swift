@@ -10,12 +10,12 @@ import PromiseKit
 import ObjectMapper
 
 protocol TransactionRequestModelProtocol: BaseMappable {
-    var localId: String? { get set }
-    var serverId: String? { get set }
+    var localId: String { get set }
+    var serverId: String { get set }
     var date: Date { get set }
     var latitude: Double { get set }
     var longitude: Double { get set }
-    var imageUrl: String? { get set }
+    var imageUrl: String { get set }
     var amount: Double { get set }
     var currency: String { get set }
     var descriptionText: String { get set }
@@ -26,7 +26,7 @@ extension TransactionRequestModelProtocol {
     mutating func mapping(map: Map) {
         localId <- map["localId"]
         serverId <- map["uuid"]
-        date <- map["date"]
+        date <- (map["date"],PFMDateFormatterTransform())
         latitude <- map["latitude"]
         longitude <- map["longitude"]
         imageUrl <- map["imageUrl"]
@@ -39,9 +39,9 @@ extension TransactionRequestModelProtocol {
 
 protocol TransactionServiceProtocol {
     func getTransactions(from date: Date) -> Promise<[TransactionModel]>
-    func uploadTransactions(transactions: [TransactionRequestModelProtocol])
+    func uploadTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]>
-    func editTransactions(transactions: [TransactionRequestModelProtocol])
+    func editTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]>
     func deleteTransactions(ids: [String]) -> Promise<EmptyNetworkResponseModel>
 }
@@ -63,7 +63,7 @@ final class TransactionService: TransactionServiceProtocol {
         )
     }
     
-    func uploadTransactions(transactions: [TransactionRequestModelProtocol])
+    func uploadTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]> {
             return apiClient.mappedServerMethod(
                 method: API.Method.Transactions.post,
@@ -73,7 +73,7 @@ final class TransactionService: TransactionServiceProtocol {
             )
     }
     
-    func editTransactions(transactions: [TransactionRequestModelProtocol])
+    func editTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]> {
             return apiClient.mappedServerMethod(
                 method: API.Method.Transactions.put,
@@ -103,7 +103,7 @@ fileprivate struct GetTransactionsRequestModel: BaseMappable {
 }
 
 fileprivate struct TransactionUploadRequestModel: BaseMappable {
-    var transactions: [TransactionRequestModelProtocol]
+    var transactions: [TransactionRequestModel]
     
     mutating func mapping(map: Map) {
         transactions <- map["transactions"]

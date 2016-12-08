@@ -25,14 +25,14 @@ final class SyncManager: SyncManagerProtocol {
     }
     
     func syncTransactions() {
-        // Visszatenni
-//        let transactionsToSync = getUnsycedTransactions()
-//        _ = transactionService.uploadTransactions(transactions: transactionsToSync.map({ TransactionRequestModel.init(modelObject: $0) })).then(execute: { (models) -> Void in
-//            // Update local models
-//            for model in models {
-//                self.transactionDataProvider.addOrUpdateTransaction(newModel: model, realm: nil)
-//            }
-//        })
+        let transactionsToSync = getUnsycedTransactions().map({ TransactionRequestModel.init(modelObject: $0) })
+        
+        _ = transactionService.uploadTransactions(transactions: transactionsToSync).then(execute: { (models) -> Void in
+            // Update local models
+            for model in models {
+                self.transactionDataProvider.addOrUpdateTransaction(newModel: model, realm: nil)
+            }
+        })
     }
     
     private func getUnsycedTransactions() -> [TransactionModel] {
@@ -41,14 +41,14 @@ final class SyncManager: SyncManagerProtocol {
     
 }
 
-fileprivate struct TransactionRequestModel: TransactionRequestModelProtocol {
+struct TransactionRequestModel: TransactionRequestModelProtocol {
     
-    var localId: String?
-    var serverId: String?
+    var localId: String
+    var serverId: String
     var date: Date
     var latitude: Double
     var longitude: Double
-    var imageUrl: String?
+    var imageUrl: String
     var amount: Double
     var currency: String
     var descriptionText: String

@@ -23,7 +23,7 @@
 		015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */; };
 		015A56131DD1CA6500D1D7F9 /* RESTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */; };
 		33ABE6351DF7EA5100FE608E /* PfmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE6341DF7EA5100FE608E /* PfmTextField.swift */; };
-		6425ABBEFF147F75200D599E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		6425ABBEFF147F75200D599E /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8439207E4B616D9E209FFBAF /* Pods_PFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4F4B085D8223986B746CA /* Pods_PFMTests.framework */; };
 		B10B2EC71DCF5EAE0089E848 /* PresenterAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2EC61DCF5EAE0089E848 /* PresenterAssemly.swift */; };
 		B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2EC81DD079210089E848 /* SwipeNavigationPresenter.swift */; };
@@ -90,6 +90,7 @@
 		B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C271CB3C78000056895 /* SettingsViewProtocol.swift */; };
 		B1783C2A1CB3C83500056895 /* SettingsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C291CB3C83500056895 /* SettingsViewPresenter.swift */; };
 		B1783C2C1CB3CA6A00056895 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783C2B1CB3CA6A00056895 /* SettingsViewController.swift */; };
+		B185AA581DF81CD1009AC3FD /* HistoryDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185AA571DF81CD1009AC3FD /* HistoryDataProvider.swift */; };
 		B187859F1CA98E6A00DD18E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187859E1CA98E6A00DD18E9 /* AppDelegate.swift */; };
 		B18785A41CA98E6A00DD18E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18785A21CA98E6A00DD18E9 /* Main.storyboard */; };
 		B18785A61CA98E6A00DD18E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B18785A51CA98E6A00DD18E9 /* Assets.xcassets */; };
@@ -276,6 +277,7 @@
 		B1783C271CB3C78000056895 /* SettingsViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewProtocol.swift; path = View/Settings/SettingsViewProtocol.swift; sourceTree = "<group>"; };
 		B1783C291CB3C83500056895 /* SettingsViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewPresenter.swift; path = Presenter/Settings/SettingsViewPresenter.swift; sourceTree = "<group>"; };
 		B1783C2B1CB3CA6A00056895 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = View/Settings/SettingsViewController.swift; sourceTree = "<group>"; };
+		B185AA571DF81CD1009AC3FD /* HistoryDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryDataProvider.swift; path = DAL/Interactors/HistoryDataProvider.swift; sourceTree = "<group>"; };
 		B187859B1CA98E6A00DD18E9 /* PFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B187859E1CA98E6A00DD18E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B18785A31CA98E6A00DD18E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -358,7 +360,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6425ABBEFF147F75200D599E /* BuildFile in Frameworks */,
+				6425ABBEFF147F75200D599E /* (null) in Frameworks */,
 				8439207E4B616D9E209FFBAF /* Pods_PFMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +539,7 @@
 				B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */,
 				B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */,
 				B18B5E9C1CF48229008427C0 /* CurrentTransactionDataProvider.swift */,
+				B185AA571DF81CD1009AC3FD /* HistoryDataProvider.swift */,
 			);
 			name = DataProviders;
 			sourceTree = "<group>";
@@ -1288,6 +1291,7 @@
 				B1157DEE1DF63B0F00954671 /* LoginPresenter.swift in Sources */,
 				B1783C2C1CB3CA6A00056895 /* SettingsViewController.swift in Sources */,
 				014E2DC31DD21F2E004175EF /* UserService.swift in Sources */,
+				B185AA581DF81CD1009AC3FD /* HistoryDataProvider.swift in Sources */,
 				B18785D41CA9928500DD18E9 /* CategoryModel.swift in Sources */,
 				B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */,
 				B1157DEC1DF63B0700954671 /* LoginPresenterProtocol.swift in Sources */,

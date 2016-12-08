@@ -32,8 +32,8 @@ target 'PFM' do
     pod 'FacebookShare', '~> 0.2.0’
     
     # Networking
-    pod 'Alamofire', '~> 4.0.0' # Networking
-    pod 'AlamofireObjectMapper', '~> 4.0.0' # Network object mapping
+    pod 'Alamofire' # Networking
+    pod 'AlamofireObjectMapper' # Network object mapping
     pod 'AlamofireActivityLogger', '~> 2.0.0' # Network loggin
     pod 'AlamofireImage', '~> 3.0.0' # Image loader
     pod 'AlamofireNetworkActivityIndicator' # Network Activity indicator
