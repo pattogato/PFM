@@ -207,9 +207,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="szQ-yo-9bi" appends="YES" id="hYa-aI-5mB"/>
-                                        </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raf-1c-bIF">
                                         <rect key="frame" x="168" y="12" width="40" height="4"/>
@@ -267,7 +264,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENCY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24s-Pe-Qjq">
-                                <rect key="frame" x="160" y="244" width="57" height="12"/>
+                                <rect key="frame" x="159" y="244" width="57" height="12"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                 <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -342,7 +339,6 @@
                         <outlet property="amountLabel" destination="5jP-h4-sGU" id="lH0-Yk-rOp"/>
                         <outlet property="categoriesContainerView" destination="NhV-3g-KeM" id="7bg-JB-L1O"/>
                         <outlet property="categoriesPullIndicator" destination="raf-1c-bIF" id="ZU3-8u-Z8j"/>
-                        <outlet property="categoryPanGestureRecognizer" destination="szQ-yo-9bi" id="6E3-uy-VVG"/>
                         <outlet property="collectionView" destination="CDy-mo-YER" id="eFn-Qb-E4m"/>
                         <outlet property="currencyButton" destination="2FO-4O-7A4" id="7dM-r2-dqs"/>
                         <outlet property="inputContentContainerView" destination="9k5-cw-uNb" id="j79-kQ-8mB"/>
@@ -354,11 +350,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fl9-W0-BwW" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="szQ-yo-9bi">
-                    <connections>
-                        <action selector="handleCategoryPan:" destination="nPq-tj-Veb" id="yln-YO-AAN"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1703" y="-436"/>
         </scene>

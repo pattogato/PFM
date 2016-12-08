@@ -91,6 +91,10 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     fileprivate var imageHelper: ImageHelper?
     
+    fileprivate let openCategoriesInteractionController = CategoriesInteractionController()
+    
+    fileprivate let closeCategoriesInteractionController = CategoriesInteractionController()
+    
     // MARK: - General methods
     
     override func viewDidLoad() {
@@ -115,6 +119,9 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         categoriesPullIndicator.layer.cornerRadius = 2
         
         self.navigationController?.isNavigationBarHidden = true
+        
+        openCategoriesInteractionController.wire(to: self)
+        closeCategoriesInteractionController.open = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -352,6 +359,16 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
         }
         return nil
         
+    }
+    
+    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        
+        return openCategoriesInteractionController.interactionInProgress ? openCategoriesInteractionController : nil
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        
+        return closeCategoriesInteractionController.interactionInProgress ? closeCategoriesInteractionController : nil
     }
 }
 

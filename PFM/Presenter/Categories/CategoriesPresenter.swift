@@ -27,7 +27,7 @@ final class CategoriesPresenter: CategoriesPresenterProtocol {
     private func reloadCategories() {
         _ = categoriesManager.getCategories()
             .then { (categories) -> Void in
-                self.view.categories = categories
+                self.view?.categories = categories
         }
     }
     

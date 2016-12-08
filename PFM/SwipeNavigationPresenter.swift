@@ -71,6 +71,7 @@ final class SwipeNavigationPresenter: NSObject, SwipeNavigationPresenterProtocol
         swipeController.datasource = self
         swipeController.navigationBarShouldNotExist = true
         swipeController.cancelStandardButtonEvents = false
+        
     }
     
     func setAsRootWindow(window: UIWindow) {
@@ -126,6 +127,7 @@ extension SwipeNavigationPresenter: EZSwipeControllerDataSource {
     
     func setupFinished() {
         enableBounce(true)
+        swipeController.pageViewController.view.backgroundColor = UIColor.white
     }
     
     func indexOfStartingPage() -> Int {
