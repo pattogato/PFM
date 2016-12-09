@@ -104,11 +104,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupUI()
         setupPulldownController()
         
-        _ = UIApplication.resolve(service: CategoriesManagerProtocol.self)
-            .getCategories().then { (categories) -> Void in
-                self.categories = categories
-        }
-        
+        self.presenter.refreshCategories()
         presenter.openNumberPad()
         
         collectionView.register(
@@ -352,6 +348,7 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
         if dismissed is CategoriesViewController {
         
             categoriesTransition.presenting = false
+            self.presenter.refreshCategories()
             return categoriesTransition
         
         }
@@ -391,6 +388,7 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCategoryCellIdentifier, for: indexPath) as! CategoryCollectionViewCell
         
         cell.category = categories[indexPath.row]
+        cell.isSelected = (cell.category == presenter.selectedCategory)
         
         return cell
     }

@@ -24,7 +24,8 @@ final class PresenterAssembly: AssemblyType {
                 transactionDataProvider: r.resolve(TransactionDataProviderProtocol.self)!,
                 router: r.resolve(RouterProtocol.self)!,
                 syncManager: r.resolve(SyncManagerProtocol.self)!,
-                userManager: r.resolve(UserManagerProtocol.self)!
+                userManager: r.resolve(UserManagerProtocol.self)!,
+                categoriesManager: r.resolve(CategoriesManagerProtocol.self)!
             )
         }
         
@@ -100,7 +101,7 @@ final class PresenterAssembly: AssemblyType {
             return CategoriesPresenter(
                 view: view,
                 categoriesManager: r.resolve(CategoriesManagerProtocol.self)!,
-                currentTransactionDataProvider: r.resolve(CurrentTransactionDataProvider.self)!
+                currentTransactionDataProvider: r.resolve(CurrentTransactionDataProviderProtocol.self)!
             )
         }
     }

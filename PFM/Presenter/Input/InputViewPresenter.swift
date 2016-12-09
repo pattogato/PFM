@@ -20,10 +20,15 @@ final class InputViewPresenter: InputViewPresenterProtocol {
     let router: RouterProtocol
     let syncManager: SyncManagerProtocol
     let userManager: UserManagerProtocol
+    let categoriesManager: CategoriesManagerProtocol
     
     unowned let view: InputViewProtocol
     
     private (set) var presentedContent = InputContentType.numericKeyboard
+    
+    var selectedCategory: CategoryModel? {
+        return currentTransactionDataProvider.selectedCategory
+    }
     
     init(view: InputViewProtocol,
          dalHelper: DALHelperProtocol,
@@ -31,7 +36,8 @@ final class InputViewPresenter: InputViewPresenterProtocol {
          transactionDataProvider: TransactionDataProviderProtocol,
          router: RouterProtocol,
          syncManager: SyncManagerProtocol,
-         userManager: UserManagerProtocol) {
+         userManager: UserManagerProtocol,
+         categoriesManager: CategoriesManagerProtocol) {
         
         self.view = view
         self.dalHelper = dalHelper
@@ -40,6 +46,7 @@ final class InputViewPresenter: InputViewPresenterProtocol {
         self.router = router
         self.syncManager = syncManager
         self.userManager = userManager
+        self.categoriesManager = categoriesManager
     }
     
     func presentInputScreen() {
@@ -108,6 +115,12 @@ final class InputViewPresenter: InputViewPresenterProtocol {
         self.showContent(type: .numericKeyboard)
     }
     
+    func refreshCategories() {
+        _ = categoriesManager.getCategories().then { (categories) -> Void in
+            self.view.categories = categories
+        }
+    }
+    
     // MARK: - Navigation methods
     
     func navigateToCharts() {
@@ -143,7 +156,7 @@ final class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func saveCategory(_ category: CategoryModel) {
-        currentTransactionDataProvider.saveCategory(category)
+        currentTransactionDataProvider.selectedCategory = category
     }
     
     func saveName(_ name: String) {

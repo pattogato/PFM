@@ -8,10 +8,9 @@
 
 import Foundation
 
-protocol CurrentTransactionDataProviderProtocol {
+protocol CurrentTransactionDataProviderProtocol: class {
     func resetTransaction()
     func saveAmount(_ amount: Double)
-    func saveCategory(_ category: CategoryModel)
     func saveLocation(_ lat: Double, lng: Double, venue: String?)
     func saveName(_ name: String)
     func saveDate(_ date: Date)
@@ -20,9 +19,13 @@ protocol CurrentTransactionDataProviderProtocol {
     func saveImage(_ image: UIImage)
     func deleteImage()
     func getTransaction() -> TransactionModel?
+    
+    var selectedCategory: CategoryModel? { get set }
 }
 
 class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
+    
+    var selectedCategory: CategoryModel?
     
     let categoryDataProvider: CategoryDataProviderProtocol
     let userManager: UserManagerProtocol
@@ -36,7 +39,7 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     fileprivate var currentTransaction: TransactionModel = TransactionModel()
     
     func resetTransaction() {
-        categoryDataProvider.deselectAllCategories()
+//        categoryDataProvider.deselectAllCategories()
         currentTransaction = TransactionModel()
         currentTransaction.currency = userManager.loadLastUsedCurrency()
     }
@@ -45,12 +48,12 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
         currentTransaction.amount = amount
     }
     
-    func saveCategory(_ category: CategoryModel) {
-        currentTransaction.category = category
-        currentTransaction.categoryId = category.id
-        categoryDataProvider.deselectAllCategories()
-        categoryDataProvider.selectCategory(nil, category: category, select: true)
-    }
+//    func saveCategory(_ category: CategoryModel) {
+//        currentTransaction.category = category
+//        currentTransaction.categoryId = category.id
+//        categoryDataProvider.deselectAllCategories()
+//        categoryDataProvider.selectCategory(nil, category: category, select: true)
+//    }
     
     func saveLocation(_ lat: Double, lng: Double, venue: String? = nil) {
         currentTransaction.latitude = lat

@@ -66,7 +66,7 @@ final class ManagersAssembly: AssemblyType {
                 service: r.resolve(CategoryServiceProtocol.self)!,
                 storage: r.resolve(CategoriesStorageProtocol.self)!
             )
-        }
+        }.inObjectScope(.container)
         
         container.register(RESTAPIAuthenticationDelegate.self) { r in
             return RESTAPIAuthenticationManager(

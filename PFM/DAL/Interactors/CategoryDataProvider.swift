@@ -16,8 +16,8 @@ protocol CategoryDataProviderProtocol {
     func getAllMainCategories(_ realm: Realm?) -> Results<CategoryModel>
     func getAllSelectableCategories(_ realm: Realm?) -> Results<CategoryModel>
     func createOrUpdateCategory(_ serverId: String, name: String, order: Int, imageUri: String?, existingRealm: Realm?) -> CategoryModel
-    func selectCategory(_ realm: Realm?, category: CategoryModel, select: Bool)
-    func deselectAllCategories()
+//    func selectCategory(_ realm: Realm?, category: CategoryModel, select: Bool)
+//    func deselectAllCategories()
     func updateCategory(category: CategoryModel,
                         serverId: String?,
                         imageUri: String?,
@@ -126,19 +126,19 @@ final class CategoryDataProvider: CategoryDataProviderProtocol {
             }
         }
     }
-    
-    func selectCategory(_ realm: Realm?, category: CategoryModel, select: Bool) {
-        let realm = (realm ?? category.realm) ?? dalHelper.newRealm()
-        dalHelper.writeInRealm(realm: realm) { realm in
-            category.selected = select
-        }
-    }
-    
-    func deselectAllCategories() {
-        dalHelper.writeInMainRealm { (_) in
-            self.getAllCategories(nil).forEach({ $0.selected = false })
-        }
-    }
+//    
+//    func selectCategory(_ realm: Realm?, category: CategoryModel, select: Bool) {
+//        let realm = (realm ?? category.realm) ?? dalHelper.newRealm()
+//        dalHelper.writeInRealm(realm: realm) { realm in
+//            category.selected = select
+//        }
+//    }
+//    
+//    func deselectAllCategories() {
+//        dalHelper.writeInMainRealm { (_) in
+//            self.getAllCategories(nil).forEach({ $0.selected = false })
+//        }
+//    }
 
     /**
      Deletes a Category

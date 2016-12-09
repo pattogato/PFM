@@ -51,7 +51,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
                 self.categoryImageView.af_setImage(withURL: imageUrl,
                                                    placeholderImage: #imageLiteral(resourceName: "categoryFun"))
             }
-            
         }
     }
     

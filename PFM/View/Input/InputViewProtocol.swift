@@ -17,6 +17,8 @@ protocol InputViewProtocol: class, LocationPickerDelegate {
     
     weak var amountLabel: UILabel! { get set }
     
+    var categories: [CategoryModel] { get set }
+    
     /**
         Sets up the input screen with a given Transaction Model
      
