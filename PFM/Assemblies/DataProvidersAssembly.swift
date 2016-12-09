@@ -18,7 +18,7 @@ final class DataProvidersAssembly: AssemblyType {
                 categoryDataProvider: r.resolve(CategoryDataProviderProtocol.self)!,
                 userManager: r.resolve(UserManagerProtocol.self)!
             )
-        })
+        }).inObjectScope(.container)
         
         container.register(TransactionDataProviderProtocol.self, factory: {
             r in

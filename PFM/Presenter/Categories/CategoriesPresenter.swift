@@ -9,17 +9,21 @@
 import Foundation
 
 protocol CategoriesPresenterProtocol {
+    func categorySelected(category: CategoryModel)
 }
 
 final class CategoriesPresenter: CategoriesPresenterProtocol {
     
     private weak var view: CategoriesViewProtocol!
     private let categoriesManager: CategoriesManagerProtocol
+    private let currentTransactionDataProvider: CurrentTransactionDataProvider
     
     init(view: CategoriesViewProtocol,
-         categoriesManager: CategoriesManagerProtocol) {
+         categoriesManager: CategoriesManagerProtocol,
+         currentTransactionDataProvider: CurrentTransactionDataProvider) {
         self.view = view
         self.categoriesManager = categoriesManager
+        self.currentTransactionDataProvider = currentTransactionDataProvider
         
         reloadCategories()
     }
@@ -29,6 +33,10 @@ final class CategoriesPresenter: CategoriesPresenterProtocol {
             .then { (categories) -> Void in
                 self.view?.categories = categories
         }
+    }
+    
+    func categorySelected(category: CategoryModel) {
+        currentTransactionDataProvider.saveCategory(category)
     }
     
 }

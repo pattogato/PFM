@@ -99,7 +99,8 @@ final class PresenterAssembly: AssemblyType {
             (r, view: CategoriesViewProtocol) in
             return CategoriesPresenter(
                 view: view,
-                categoriesManager: r.resolve(CategoriesManagerProtocol.self)!
+                categoriesManager: r.resolve(CategoriesManagerProtocol.self)!,
+                currentTransactionDataProvider: r.resolve(CurrentTransactionDataProvider.self)!
             )
         }
     }
