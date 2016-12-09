@@ -28,7 +28,11 @@ protocol CategoryDataProviderProtocol {
 
 final class CategoryDataProvider: CategoryDataProviderProtocol {
 
-    var dalHelper: DALHelperProtocol!
+    let dalHelper: DALHelperProtocol
+    
+    init(dalHelper: DALHelperProtocol) {
+        self.dalHelper = dalHelper
+    }
     
     /**
         Returns the CategoryModel with the given server ID

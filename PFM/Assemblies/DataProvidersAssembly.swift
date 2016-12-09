@@ -34,7 +34,9 @@ final class DataProvidersAssembly: AssemblyType {
         
         container.register(CategoryDataProviderProtocol.self, factory: {
             r in
-            return CategoryDataProvider()
+            return CategoryDataProvider(
+                dalHelper: r.resolve(DALHelperProtocol.self)!
+                )
         })
         
     }

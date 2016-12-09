@@ -112,14 +112,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rts-EK-7aB">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" alpha="0.29999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="500" text="Touch to return" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="Ixv-VR-nnq" userLabel="cashLabel">
+                                    <label opaque="NO" alpha="0.29999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="500" text="Tap to return" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="Ixv-VR-nnq" userLabel="cashLabel">
                                         <rect key="frame" x="20" y="5" width="335" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="lg2-oN-Eeg"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="32"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="30"/>
                                         <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
