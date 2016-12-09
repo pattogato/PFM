@@ -100,38 +100,46 @@ final class DummyChartsDataProvider: ChartsDataProviderProtocol {
     }
     
     func getCostsByCategoryForDate(date: Date) -> [(category: CategoryModel, cost: Double)] {
-        let category1 = CategoryModel()
-        let category2 = CategoryModel()
-        let category3 = CategoryModel()
+//        let category1 = CategoryModel()
+//        let category2 = CategoryModel()
+//        let category3 = CategoryModel()
+//        
+//        category1.name = "Food"
+//        category2.name = "Health"
+//        category3.name = "Car"
+//        
+//        return [
+//            (category: category1, cost: 23500),
+//            (category: category2, cost: 11000),
+//            (category: category3, cost: 95000)
+//        ]
         
-        category1.name = "Food"
-        category2.name = "Health"
-        category3.name = "Car"
+        let dateStart = date.startOfDay
+        let dateEnd = date.endOfDay
+        let transactions = self.transactionDataProvider.getAllTransactions(nil).filter("date BETWEEN %@", [dateStart, dateEnd])
         
-        return [
-            (category: category1, cost: 23500),
-            (category: category2, cost: 11000),
-            (category: category3, cost: 95000)
-        ]
+        var retVal = [(category: CategoryModel, cost: Double)]()
+        var dict = [CategoryModel : Double]()
+        var nonCategorizedAmount: Double = 0
         
-        // TODO: befejezni ha lesz már kategória
-//        let dateStart = date.startOfDay
-//        let dateEnd = date.endOfDay
-//        let transactions = self.transactionDataProvider.getAllTransactions(nil).filter("date BETWEEN %@", [dateStart, dateEnd])
-//        
-//        var retVal = [(category: CategoryModel, cost: Double)]()
-//        
-//        
-//        
-//        transactions.forEach { (transaction) in
-//            retVal.forEach({ (category: CategoryModel, cost: Double) in
-//                if category == transaction.category {
-//                    transaction.
-//                }
-//            })
-//        }
-//        
-//        return retVal
+        transactions.forEach { (transaction) in
+            if let category = transaction.category {
+                let lastAmount = dict[category] ?? 0
+                dict.updateValue(lastAmount + transaction.amount, forKey: category)
+            } else {
+                nonCategorizedAmount.add(transaction.amount)
+            }
+        }
+        
+        for category in dict.keys {
+            retVal.append((category: category, cost: dict[category] ?? 0))
+        }
+        
+        let noCategoryModel = CategoryModel()
+        noCategoryModel.name = "Not categorized"
+        retVal.append((category: noCategoryModel, cost: nonCategorizedAmount))
+        
+        return retVal
     }
     
     

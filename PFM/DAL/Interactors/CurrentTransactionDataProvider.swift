@@ -97,6 +97,8 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
             currentTransaction.currency = userManager.loadLastUsedCurrency()
         }
         
+        self.currentTransaction.category = selectedCategory
+        
         return self.currentTransaction
     }
     
