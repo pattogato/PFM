@@ -39,9 +39,9 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     fileprivate var currentTransaction: TransactionModel = TransactionModel()
     
     func resetTransaction() {
-//        categoryDataProvider.deselectAllCategories()
         currentTransaction = TransactionModel()
         currentTransaction.currency = userManager.loadLastUsedCurrency()
+        selectedCategory = nil
     }
     
     func saveAmount(_ amount: Double) {

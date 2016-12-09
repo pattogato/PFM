@@ -263,6 +263,7 @@ extension InputViewController {
     func resetUI() {
         self.amountLabel.text = "0"
         self.nameTextField.text = ""
+        self.collectionView.reloadData()
     }
     
     func appendAmountComa() {
