@@ -85,6 +85,14 @@ final class PresenterAssembly: AssemblyType {
         }
         
         /**
+         Map presenter
+         */
+        container.register(MapViewPresenterProtocol.self) {
+            (r, view: MapViewProtocol) in
+            return MapViewPresener(view: view)
+        }
+        
+        /**
          Input content presenter
          */
         container.register(LoginPresenterProtocol.self) { r in

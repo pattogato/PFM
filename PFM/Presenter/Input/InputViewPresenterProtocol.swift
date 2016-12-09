@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     
@@ -102,5 +103,7 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     var inputContentPresenter: InputContentPresenterProtocol! { get set }
     
     var selectedCategory: CategoryModel? { get }
+    
+    var selectedLocation: CLLocationCoordinate2D? { get }
 }
 

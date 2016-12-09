@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class InputViewPresenter: InputViewPresenterProtocol {
 
@@ -28,6 +29,10 @@ final class InputViewPresenter: InputViewPresenterProtocol {
     
     var selectedCategory: CategoryModel? {
         return currentTransactionDataProvider.selectedCategory
+    }
+    
+    var selectedLocation: CLLocationCoordinate2D? {
+        return currentTransactionDataProvider?.getTransaction()?.coordinates
     }
     
     init(view: InputViewProtocol,
@@ -213,11 +218,17 @@ extension InputViewPresenter: InputContentSelectorDelegate {
                     enterDigit(number)
                 }
             }
-        case .image:
-            print("image selected")
+        case .image(let image):
+            if let image = image {
+                currentTransactionDataProvider.saveImage(image)
+            }
         case .note:
             if let desc = value as? String {
                 currentTransactionDataProvider.saveDescription(desc)
+            }
+        case .map:
+            if let coordinate = value as? CLLocationCoordinate2D {
+                currentTransactionDataProvider.saveLocation(coordinate.latitude, lng: coordinate.longitude, venue: nil)
             }
         }
     }

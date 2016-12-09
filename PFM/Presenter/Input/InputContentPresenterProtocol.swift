@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 enum InputContentType: Equatable {
     case numericKeyboard
@@ -14,6 +15,7 @@ enum InputContentType: Equatable {
     case currencyPicker
     case image(image: UIImage?)
     case note
+    case map
     
     static var defaultType: InputContentType {
         return .numericKeyboard
@@ -27,6 +29,7 @@ func ==(lhs: InputContentType, rhs: InputContentType) -> Bool {
     case (.datePicker, .datePicker): return true
     case (.currencyPicker, .currencyPicker): return true
     case (.note, .note): return true
+    case (.map, .map): return true
     default: return false
     }
 }

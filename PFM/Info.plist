@@ -71,9 +71,12 @@
 		<string>fbapi</string>
 		<string>fbauth2</string>
 	</array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key><true/>
-    </dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>PFM would like to use your location, to make it easier to select the coordinates</string>
 </dict>
 </plist>

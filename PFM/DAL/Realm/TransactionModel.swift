@@ -9,12 +9,15 @@
 import ObjectMapper
 import UIKit
 import RealmSwift
+import CoreLocation
 
 final class TransactionModel: MappableModelObject {
 
+    static let naCordinateValue: Double = -1234556
+    
     dynamic var date: Date = Date()
-    dynamic var latitude: Double = 0.0
-    dynamic var longitude: Double = 0.0
+    dynamic var latitude: Double = TransactionModel.naCordinateValue
+    dynamic var longitude: Double = TransactionModel.naCordinateValue
     dynamic var imageUri: String = ""
     dynamic var amount: Double = 0.0
     dynamic var currency: String = ""
@@ -53,6 +56,16 @@ final class TransactionModel: MappableModelObject {
             type: CategoryModel.self,
             serverId: categoryId
         )
+    }
+    
+    var coordinates: CLLocationCoordinate2D? {
+        let coord = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        if !CLLocationCoordinate2DIsValid(coord) {
+            return nil
+        } else {
+            return coord
+        }
+        
     }
     
 }

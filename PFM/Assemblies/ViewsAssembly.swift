@@ -36,6 +36,14 @@ final class ViewsAssembly: AssemblyType {
             )
         }
         
+        // Map
+        container.registerForStoryboardProject(controllerType: MapViewController.self) { (r, c) in
+            c.presenter = r.resolve(
+                MapViewPresenterProtocol.self,
+                argument: c as MapViewProtocol
+            )
+        }
+        
         // Settings
         container.registerForStoryboardProject(controllerType: SettingsViewController.self) { (r, c) in
             c.presenter = r.resolve(

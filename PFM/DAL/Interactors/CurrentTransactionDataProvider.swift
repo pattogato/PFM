@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 protocol CurrentTransactionDataProviderProtocol: class {
     func resetTransaction()
@@ -19,6 +20,7 @@ protocol CurrentTransactionDataProviderProtocol: class {
     func saveImage(_ image: UIImage)
     func deleteImage()
     func getTransaction() -> TransactionModel?
+    func getLocation() -> CLLocationCoordinate2D?
     
     var selectedCategory: CategoryModel? { get set }
 }
@@ -83,6 +85,10 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     
     func deleteImage() {
         currentTransaction.image = nil
+    }
+    
+    func getLocation() -> CLLocationCoordinate2D? {
+        return currentTransaction.coordinates
     }
     
     func getTransaction() -> TransactionModel? {

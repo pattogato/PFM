@@ -8,6 +8,7 @@
 
 import UIKit
 import MBPullDownController
+import CoreLocation
 
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
@@ -161,6 +162,11 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
             if let text = sender as? String {
                 noteView.showText(text)
             }
+        } else if let mapVC = segue.destination as? MapViewProtocol {
+            mapVC.presenter.delegate = self.presenter
+            if let coord = sender as? CLLocationCoordinate2D {
+                mapVC.addAnnotation(coordinate: coord)
+            }
         }
     }
     
@@ -199,7 +205,8 @@ extension InputViewController {
     }
     
     @IBAction func locationButtonTouched(_ sender: AnyObject) {
-        self.presenter.openLocationScreen()
+        
+        self.performSegue(withIdentifier: "ToMapSegue", sender: self.presenter?.selectedLocation)
     }
     
     @IBAction func noteButtonTouched(_ sender: AnyObject) {

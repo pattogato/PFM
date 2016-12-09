@@ -114,6 +114,9 @@
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
 		B1DA8A761CEA80E500C51E85 /* PLocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A741CEA80E500C51E85 /* PLocationPickerViewController.swift */; };
+		B1FFEEB81DFB1F9100DE74EA /* MapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFEEB71DFB1F9100DE74EA /* MapViewProtocol.swift */; };
+		B1FFEEBA1DFB1F9A00DE74EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFEEB91DFB1F9A00DE74EA /* MapViewController.swift */; };
+		B1FFEEBD1DFB1FBF00DE74EA /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFEEBC1DFB1FBF00DE74EA /* MapViewPresenter.swift */; };
 		C8D367490C2636F146D6801D /* Pods_PFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08F854272ED5F3916C151D0 /* Pods_PFM.framework */; };
 		E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D7E6B1CCE49F000454C08 /* PresentingTransitionAnimator.swift */; };
 		E26D7E6E1CCE4A4100454C08 /* CategoriesTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D7E6D1CCE4A4100454C08 /* CategoriesTransition.swift */; };
@@ -305,6 +308,9 @@
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A741CEA80E500C51E85 /* PLocationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PLocationPickerViewController.swift; path = View/Input/LocationPicker/PLocationPickerViewController.swift; sourceTree = "<group>"; };
+		B1FFEEB71DFB1F9100DE74EA /* MapViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewProtocol.swift; sourceTree = "<group>"; };
+		B1FFEEB91DFB1F9A00DE74EA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B1FFEEBC1DFB1FBF00DE74EA /* MapViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		B5A46246D594E709E51F5695 /* Pods-PFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM/Pods-PFM.release.xcconfig"; sourceTree = "<group>"; };
 		C08F854272ED5F3916C151D0 /* Pods_PFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DBE7DB68D8E68A713008C4 /* Pods-PFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFM/Pods-PFM.debug.xcconfig"; sourceTree = "<group>"; };
@@ -567,6 +573,7 @@
 		B1783BF51CB2FA7600056895 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B1FFEEB61DFB1F8900DE74EA /* Map */,
 				B1157DE31DF639DF00954671 /* Login */,
 				B120CA801CCBC8F500E9985B /* Numberpad */,
 				B1783C151CB3A81B00056895 /* General */,
@@ -584,6 +591,7 @@
 		B1783BF61CB2FA7A00056895 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				B1FFEEBB1DFB1FB600DE74EA /* Map */,
 				B1157DEA1DF63AF100954671 /* Login */,
 				B18EC8501DF084CC0069A722 /* Note */,
 				B1783C081CB30A1000056895 /* PresentableView.swift */,
@@ -797,6 +805,25 @@
 				B1DA8A741CEA80E500C51E85 /* PLocationPickerViewController.swift */,
 			);
 			name = LocationPicker;
+			sourceTree = "<group>";
+		};
+		B1FFEEB61DFB1F8900DE74EA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B1FFEEB71DFB1F9100DE74EA /* MapViewProtocol.swift */,
+				B1FFEEB91DFB1F9A00DE74EA /* MapViewController.swift */,
+			);
+			name = Map;
+			path = View/Map;
+			sourceTree = "<group>";
+		};
+		B1FFEEBB1DFB1FB600DE74EA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B1FFEEBC1DFB1FBF00DE74EA /* MapViewPresenter.swift */,
+			);
+			name = Map;
+			path = Presenter/Map;
 			sourceTree = "<group>";
 		};
 		C3CB5A5C79ADEF8BB06C5180 /* Pods */ = {
@@ -1245,6 +1272,7 @@
 				015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */,
 				B10B2ED61DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift in Sources */,
 				B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */,
+				B1FFEEBD1DFB1FBF00DE74EA /* MapViewPresenter.swift in Sources */,
 				B1783C021CB3039500056895 /* InputViewController.swift in Sources */,
 				B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */,
 				B1783C251CB3C73600056895 /* SettingsViewPresenterProtocol.swift in Sources */,
@@ -1259,6 +1287,7 @@
 				B10B2EC71DCF5EAE0089E848 /* PresenterAssemly.swift in Sources */,
 				B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */,
 				B18EC84F1DF084C50069A722 /* NoteViewProtocol.swift in Sources */,
+				B1FFEEBA1DFB1F9A00DE74EA /* MapViewController.swift in Sources */,
 				E26D7E781CCE5B8600454C08 /* CategoryCollectionViewCell.swift in Sources */,
 				0106058F1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift in Sources */,
 				B1783C091CB30A1000056895 /* PresentableView.swift in Sources */,
@@ -1282,6 +1311,7 @@
 				B18EC8541DF085220069A722 /* NoteViewPresenter.swift in Sources */,
 				B164F9731DCB45F70090CF08 /* ManagersAssembly.swift in Sources */,
 				0106058A1DF76EB3000A2707 /* CategoriesManager.swift in Sources */,
+				B1FFEEB81DFB1F9100DE74EA /* MapViewProtocol.swift in Sources */,
 				B1650D491DDB1C62009108ED /* InputContentSelectorNumpadViewController.swift in Sources */,
 				B12655B01DBEB9E500AEDED5 /* LoaderProtocol.swift in Sources */,
 				B19C33D91DF7284500C432DC /* SwipeNavigationPresenterProtocol.swift in Sources */,
