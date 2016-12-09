@@ -107,7 +107,7 @@ final class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func openNoteScreen() {
-        self.view.openNoteScreen()
+        self.view.openNoteScreen(text: self.currentTransactionDataProvider.getTransaction()?.desc)
     }
     
     func deleteImage() {

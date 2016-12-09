@@ -16,14 +16,17 @@ final class NoteViewController: UIViewController, NoteViewProtocol, AlertProtoco
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var textView: KMPlaceholderTextView!
     
+    var textToShow: String?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.textView.becomeFirstResponder()
+        textView.text = textToShow
     }
     
     func showText(_ text: String) {
-        textView.text = text
+        self.textToShow = text
     }
     
     func dismissView(completionHandler: (() -> Void)?) {
@@ -37,9 +40,11 @@ final class NoteViewController: UIViewController, NoteViewProtocol, AlertProtoco
                       otherActions: createAction(title: "Delete",
                                                  style: .destructive,
                                                  handler: { _ in
+                                                    self.presenter.saveText("")
                                                     self.dismissView(completionHandler: nil)
                       }))
         } else {
+            self.presenter.saveText("")
             self.dismissView(completionHandler: nil)
         }
         

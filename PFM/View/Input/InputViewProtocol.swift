@@ -31,7 +31,7 @@ protocol InputViewProtocol: class, LocationPickerDelegate {
     
     func openLocationPicker()
     
-    func openNoteScreen()
+    func openNoteScreen(text: String?)
     
     func resetUI()
     

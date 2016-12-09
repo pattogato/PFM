@@ -158,6 +158,9 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
             historyVc.transitioningDelegate = self
         } else if let noteView = segue.destination as? NoteViewProtocol {
             noteView.presenter.delegate = self.presenter
+            if let text = sender as? String {
+                noteView.showText(text)
+            }
         }
     }
     
@@ -251,8 +254,8 @@ extension InputViewController {
         })
     }
     
-    func openNoteScreen() {
-        self.performSegue(withIdentifier: "toNotesSegue", sender: nil)
+    func openNoteScreen(text: String?) {
+        self.performSegue(withIdentifier: "toNotesSegue", sender: text)
     }
     
     func openLocationPicker() {
