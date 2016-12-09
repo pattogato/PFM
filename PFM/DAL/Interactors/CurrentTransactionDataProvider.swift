@@ -25,16 +25,20 @@ protocol CurrentTransactionDataProviderProtocol {
 class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     
     let categoryDataProvider: CategoryDataProviderProtocol
+    let userManager: UserManagerProtocol
     
-    init(categoryDataProvider: CategoryDataProviderProtocol) {
+    init(categoryDataProvider: CategoryDataProviderProtocol,
+         userManager: UserManagerProtocol) {
         self.categoryDataProvider = categoryDataProvider
+        self.userManager = userManager
     }
     
     fileprivate var currentTransaction: TransactionModel = TransactionModel()
     
     func resetTransaction() {
         categoryDataProvider.deselectAllCategories()
-        self.currentTransaction = TransactionModel()
+        currentTransaction = TransactionModel()
+        currentTransaction.currency = userManager.loadLastUsedCurrency()
     }
     
     func saveAmount(_ amount: Double) {
@@ -81,7 +85,7 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
     func getTransaction() -> TransactionModel? {
         
         if self.currentTransaction.currency.isEmpty {
-            currentTransaction.currency = "HUF"
+            currentTransaction.currency = userManager.loadLastUsedCurrency()
         }
         
         return self.currentTransaction

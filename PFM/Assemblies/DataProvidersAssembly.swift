@@ -15,7 +15,8 @@ final class DataProvidersAssembly: AssemblyType {
         container.register(CurrentTransactionDataProviderProtocol.self, factory: {
             r in
             return CurrentTransactionDataProvider(
-                categoryDataProvider: r.resolve(CategoryDataProviderProtocol.self)!
+                categoryDataProvider: r.resolve(CategoryDataProviderProtocol.self)!,
+                userManager: r.resolve(UserManagerProtocol.self)!
             )
         })
         

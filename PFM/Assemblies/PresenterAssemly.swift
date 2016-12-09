@@ -23,7 +23,8 @@ final class PresenterAssembly: AssemblyType {
                 currentTransactionDataProvider: r.resolve(CurrentTransactionDataProviderProtocol.self)!,
                 transactionDataProvider: r.resolve(TransactionDataProviderProtocol.self)!,
                 router: r.resolve(RouterProtocol.self)!,
-                syncManager: r.resolve(SyncManagerProtocol.self)!
+                syncManager: r.resolve(SyncManagerProtocol.self)!,
+                userManager: r.resolve(UserManagerProtocol.self)!
             )
         }
         

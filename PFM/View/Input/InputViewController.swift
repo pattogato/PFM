@@ -303,6 +303,10 @@ extension InputViewController {
             }
         }
     }
+    
+    func presentCurrency(_ currency: String) {
+        self.currencyButton.setTitle(currency, for: .normal)
+    }
 }
 
 // MARK: - Categories Open

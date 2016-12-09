@@ -19,6 +19,7 @@ final class InputViewPresenter: InputViewPresenterProtocol {
     var inputContentPresenter: InputContentPresenterProtocol!
     let router: RouterProtocol
     let syncManager: SyncManagerProtocol
+    let userManager: UserManagerProtocol
     
     unowned let view: InputViewProtocol
     
@@ -29,7 +30,8 @@ final class InputViewPresenter: InputViewPresenterProtocol {
          currentTransactionDataProvider: CurrentTransactionDataProviderProtocol,
          transactionDataProvider: TransactionDataProviderProtocol,
          router: RouterProtocol,
-         syncManager: SyncManagerProtocol) {
+         syncManager: SyncManagerProtocol,
+         userManager: UserManagerProtocol) {
         
         self.view = view
         self.dalHelper = dalHelper
@@ -37,6 +39,7 @@ final class InputViewPresenter: InputViewPresenterProtocol {
         self.transactionDataProvider = transactionDataProvider
         self.router = router
         self.syncManager = syncManager
+        self.userManager = userManager
     }
     
     func presentInputScreen() {
@@ -168,6 +171,8 @@ extension InputViewPresenter: InputContentSelectorDelegate {
         case .currencyPicker:
             if let currency = value as? String {
                 self.currentTransactionDataProvider.saveCurrency(currency)
+                self.view.presentCurrency(currency)
+                self.userManager.saveLastUsedCurrency(currency: currency)
             }
             self.showContent(type: .defaultType)
         case .datePicker:
@@ -188,7 +193,7 @@ extension InputViewPresenter: InputContentSelectorDelegate {
                     } else if let currentTransaction = currentTransactionDataProvider.getTransaction() {
                         transactionDataProvider.addTransaction(nil, transaction: currentTransaction)
                         self.view.resetUI()
-                        syncManager.syncTransactions()
+                        _ = syncManager.syncTransactions()
                         currentTransactionDataProvider.resetTransaction()
                     }
                 case .number(let number):
