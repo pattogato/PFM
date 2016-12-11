@@ -44,6 +44,8 @@ protocol InputViewProtocol: class, LocationPickerDelegate {
     
     func showNoAmountError()
     
+    func showNoCategoryError()
+    
     func presentCurrency(_ currency: String)
     
 }

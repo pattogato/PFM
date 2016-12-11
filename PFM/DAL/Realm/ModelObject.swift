@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class ModelObject: Object {
-    dynamic var id: String = UUID().uuidString
+    dynamic var id: String = UUID().uuidString.lowercased()
     dynamic var serverId: String = ""
     
     override class func primaryKey() -> String? {

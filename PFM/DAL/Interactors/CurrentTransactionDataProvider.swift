@@ -99,7 +99,7 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
         }
         
         self.currentTransaction.category = selectedCategory
-        self.currentTransaction.categoryId = selectedCategory?.id
+        self.currentTransaction.categoryId = selectedCategory?.serverId
         
         return self.currentTransaction
     }
