@@ -36,7 +36,7 @@ final class CategoriesTransition: PresentingTransitionAnimator {
             else { return }
         
         inputVc.categoriesContainerView.isHidden = true
-        guard let snapshot = inputVc.view.snapshotView(afterScreenUpdates: true) else { return }
+        guard let snapshot = inputVc.view.snapshotView() else { return }
         
         // Add 'toView' to context view
         
@@ -124,7 +124,7 @@ final class CategoriesTransition: PresentingTransitionAnimator {
                 
                 guard context.transitionWasCancelled else { return }
                 inputVc.view.alpha = 1
-                categoriesVc.snapshot = nil
+//                categoriesVc.snapshot = nil
                 inputVc.categoriesContainerView.isHidden = false
                 inputVc.categoriesViewController = nil
         })
@@ -204,4 +204,21 @@ final class CategoriesTransition: PresentingTransitionAnimator {
         
     }
     
+}
+
+fileprivate extension UIView {
+    func snapshotView() -> UIView? {
+        guard let image = snapshotImage() else { return nil }
+        return UIImageView(image: image)
+    }
+    
+    func snapshotImage() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(
+            bounds.size, isOpaque, 0)
+        defer { UIGraphicsEndImageContext() }
+        
+        drawHierarchy(in: bounds, afterScreenUpdates: false)
+        
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 }
