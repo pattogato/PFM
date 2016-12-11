@@ -144,7 +144,11 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     }
     
     func showNoAmountError() {
-        self.showAlert(title: "No amount", message: "Please enter an amount to save", cancel: "Understood")
+        self.showAlert(title: "No amount", message: "Please enter an amount to save", cancel: "OK")
+    }
+    
+    func showNoCategoryError() {
+        self.showAlert(title: "No category", message: "Please select a category to save the transaction", cancel: "OK")
     }
 
     

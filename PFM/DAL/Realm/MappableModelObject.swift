@@ -13,7 +13,7 @@ import ObjectMapper
 class MappableModelObject: ModelObject, Mappable {
     required init?(map: Map) { super.init() }
     func mapping(map: Map) {
-        id <- map["id"]
+        id <- map["localId"]
         serverId <- map["id"]
     }
     

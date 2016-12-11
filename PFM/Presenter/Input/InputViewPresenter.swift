@@ -227,6 +227,10 @@ extension InputViewPresenter: InputContentSelectorDelegate {
     }
     
     func saveTransaction() {
+        if currentTransactionDataProvider.getTransaction()?.category == nil {
+            self.view.showNoCategoryError()
+            return
+        }
         saveName()
         if currentTransactionDataProvider.getTransaction()?.amount ?? 0.0 == 0.0 {
             self.view.showNoAmountError()

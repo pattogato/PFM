@@ -6,6 +6,7 @@
 //  Copyright © 2016 Pinup. All rights reserved.
 //
 
+import UIKit
 import Foundation
 import CoreLocation
 
@@ -98,6 +99,7 @@ class CurrentTransactionDataProvider: CurrentTransactionDataProviderProtocol {
         }
         
         self.currentTransaction.category = selectedCategory
+        self.currentTransaction.categoryId = selectedCategory?.serverId
         
         return self.currentTransaction
     }
