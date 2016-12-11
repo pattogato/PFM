@@ -143,6 +143,15 @@ final class DaysValueFormatter: NSObject, IAxisValueFormatter {
 
 final class MonthsValueFormatter: NSObject, IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        if let axis = axis {
+            let max = Int(axis.axisMaximum)
+            let value = Int(value)
+            
+            if let minDate = max.months.ago(),
+                let valueDate = value.months.from(date: minDate) {
+                return valueDate.monthName
+            }
+        }
         return "\(value) m"
     }
 }
