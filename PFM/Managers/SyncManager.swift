@@ -65,7 +65,7 @@ struct TransactionRequestModel: TransactionRequestModelProtocol {
         self.amount = modelObject.amount
         self.currency = modelObject.currency
         self.descriptionText = modelObject.desc
-        self.categoryId = modelObject.categoryId ?? "-1"
+        self.categoryId = modelObject.categoryId ?? ""
     }
     
 }

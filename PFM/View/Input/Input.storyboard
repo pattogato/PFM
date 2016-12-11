@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbs-OC-f8N">
-                                <rect key="frame" x="0.0" y="28" width="144" height="37"/>
+                                <rect key="frame" x="0.0" y="28" width="144" height="36"/>
                                 <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,7 +114,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlm-vm-kQp">
-                                <rect key="frame" x="231" y="28" width="144" height="37"/>
+                                <rect key="frame" x="231" y="28" width="144" height="36"/>
                                 <fontDescription key="fontDescription" name="Montserrat-UltraLight" family="Montserrat" pointSize="20"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -124,7 +124,7 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jld-cZ-5PD">
-                                <rect key="frame" x="0.0" y="73" width="375" height="594"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -322,7 +322,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENCY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24s-Pe-Qjq">
-                                <rect key="frame" x="159" y="244" width="57" height="12"/>
+                                <rect key="frame" x="159.5" y="244" width="57" height="12"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                 <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -778,7 +778,7 @@
             <objects>
                 <navigationController storyboardIdentifier="InputNavigationControllerStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="Lmu-xf-Pnh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M2D-pN-77b">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2D-pN-77b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
