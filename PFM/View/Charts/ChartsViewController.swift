@@ -83,7 +83,16 @@ class ChartsViewController: UIViewController, PresentableView {
         barView.rightAxis.drawTopYLabelEntryEnabled = false
         barView.rightAxis.drawZeroLineEnabled = false
         barView.rightAxis.drawLimitLinesBehindDataEnabled = false
+        barView.chartDescription?.enabled = false
+        barView.leftAxis.axisMinimum = 0.0
+        barView.pinchZoomEnabled = false
+        barView.doubleTapToZoomEnabled = false
         
+        barView.leftAxis.gridColor = UIColor.clear
+    }
+    
+    private func setupPieChart(_ pieChart: PieChartView) {
+        pieChart.chartDescription?.text = ""
     }
 }
 
@@ -95,4 +104,9 @@ extension ChartsViewController: ChartsViewProtocol {
     
 }
 
+extension ChartsViewController: IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        return "-\(value). nap"
+    }
+}
 

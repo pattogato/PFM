@@ -16,6 +16,7 @@ enum KeyboardType {
 protocol InputViewProtocol: class, LocationPickerDelegate {
     
     weak var amountLabel: UILabel! { get set }
+    weak var nameTextField: UITextField! { get set }
     
     var categories: [CategoryModel] { get set }
     

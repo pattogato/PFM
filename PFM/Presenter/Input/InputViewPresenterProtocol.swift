@@ -90,7 +90,7 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     
     func saveDate(_ date: Date)
     
-    func saveName(_ name: String)
+    func saveName()
     
     func saveLocation(lat: Double, lng: Double, venue: String?)
     

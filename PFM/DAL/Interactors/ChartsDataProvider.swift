@@ -46,10 +46,12 @@ final class DummyChartsDataProvider: ChartsDataProviderProtocol {
         chartDataSet.colors = colors
         chartDataSet.formLineWidth = 8
         chartDataSet.valueFont = NSUIFont.montserratLight(12)
+        chartDataSet.valueTextColor = UIColor.black
         
         chartDataSet.entryLabelFont = NSUIFont.montserratLight(12)
+        chartDataSet.entryLabelColor = UIColor.clear
         chartDataSet.sliceSpace = 1
-        chartDataSet.selectionShift = 2
+        chartDataSet.selectionShift = 5
         
         return chartData
     }
@@ -100,22 +102,8 @@ final class DummyChartsDataProvider: ChartsDataProviderProtocol {
     }
     
     func getCostsByCategoryForDate(date: Date) -> [(category: CategoryModel, cost: Double)] {
-//        let category1 = CategoryModel()
-//        let category2 = CategoryModel()
-//        let category3 = CategoryModel()
-//        
-//        category1.name = "Food"
-//        category2.name = "Health"
-//        category3.name = "Car"
-//        
-//        return [
-//            (category: category1, cost: 23500),
-//            (category: category2, cost: 11000),
-//            (category: category3, cost: 95000)
-//        ]
-        
-        let dateStart = date.startOfDay
-        let dateEnd = date.endOfDay
+        let dateStart = date.startOf(component: .month)
+        let dateEnd = date.endOf(component: .month) 
         let transactions = self.transactionDataProvider.getAllTransactions(nil).filter("date BETWEEN %@", [dateStart, dateEnd])
         
         var retVal = [(category: CategoryModel, cost: Double)]()
@@ -143,7 +131,7 @@ final class DummyChartsDataProvider: ChartsDataProviderProtocol {
     }
     
     
-    func getSumCostForDate(date: Date) -> Double {
+    private func getSumCostForDate(date: Date) -> Double {
 //        return [1000,2000,3000,4000,5000][Int(arc4random()%5)]
         let dateStart = date.startOfDay
         let dateEnd = date.endOfDay
@@ -157,7 +145,7 @@ final class DummyChartsDataProvider: ChartsDataProviderProtocol {
         return sum
     }
     
-    func getSumCostForMonth(month: Date) -> Double {
+    private func getSumCostForMonth(month: Date) -> Double {
         let dateStart = month.startOf(component: .month)
         let dateEnd = month.endOf(component: .month)
         let transactions = self.transactionDataProvider.getAllTransactions(nil).filter("date BETWEEN %@", [dateStart, dateEnd])

@@ -436,7 +436,7 @@ extension InputViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         keyboardHideTapGestureRecognizer?.isEnabled = false
-        self.presenter.saveName(textField.text ?? "")
+        self.presenter.saveName()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
