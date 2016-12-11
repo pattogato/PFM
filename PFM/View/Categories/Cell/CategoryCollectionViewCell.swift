@@ -37,6 +37,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         containerView.layer.borderWidth = 1
         containerView.layer.cornerRadius = 25
     }
+    
+    override var isSelected: Bool {
+        didSet {
+            self.containerView.layer.borderWidth = isSelected ? 5 : 1
+        }
+    }
 
     func setupUI() {
         if let category = self.category {
@@ -45,7 +51,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
                 self.categoryImageView.af_setImage(withURL: imageUrl,
                                                    placeholderImage: #imageLiteral(resourceName: "categoryFun"))
             }
-            
         }
     }
     

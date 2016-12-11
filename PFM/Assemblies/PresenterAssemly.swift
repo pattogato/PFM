@@ -23,7 +23,9 @@ final class PresenterAssembly: AssemblyType {
                 currentTransactionDataProvider: r.resolve(CurrentTransactionDataProviderProtocol.self)!,
                 transactionDataProvider: r.resolve(TransactionDataProviderProtocol.self)!,
                 router: r.resolve(RouterProtocol.self)!,
-                syncManager: r.resolve(SyncManagerProtocol.self)!
+                syncManager: r.resolve(SyncManagerProtocol.self)!,
+                userManager: r.resolve(UserManagerProtocol.self)!,
+                categoriesManager: r.resolve(CategoriesManagerProtocol.self)!
             )
         }
         
@@ -46,7 +48,8 @@ final class PresenterAssembly: AssemblyType {
                 view: view,
                 loginPresenter: r.resolve(LoginPresenterProtocol.self)!,
                 userManager: r.resolve(UserManagerProtocol.self)!,
-                router: r.resolve(RouterProtocol.self)!
+                router: r.resolve(RouterProtocol.self)!,
+                syncManager: r.resolve(SyncManagerProtocol.self)!
             )
         }
         
@@ -82,6 +85,14 @@ final class PresenterAssembly: AssemblyType {
         }
         
         /**
+         Map presenter
+         */
+        container.register(MapViewPresenterProtocol.self) {
+            (r, view: MapViewProtocol) in
+            return MapViewPresener(view: view)
+        }
+        
+        /**
          Input content presenter
          */
         container.register(LoginPresenterProtocol.self) { r in
@@ -97,7 +108,8 @@ final class PresenterAssembly: AssemblyType {
             (r, view: CategoriesViewProtocol) in
             return CategoriesPresenter(
                 view: view,
-                categoriesManager: r.resolve(CategoriesManagerProtocol.self)!
+                categoriesManager: r.resolve(CategoriesManagerProtocol.self)!,
+                currentTransactionDataProvider: r.resolve(CurrentTransactionDataProviderProtocol.self)!
             )
         }
     }

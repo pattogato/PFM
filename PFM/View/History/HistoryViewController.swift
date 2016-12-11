@@ -38,8 +38,6 @@ final class HistoryViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var cashLabel: UILabel!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - General Methods

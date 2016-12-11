@@ -62,7 +62,6 @@ final class CategoriesTransition: PresentingTransitionAnimator {
         let deltaAmountY = amountLabelY - categoriesVc.cashLabel.frame.origin.y
         let amountTranslate = CGAffineTransform(translationX: 0, y: -84) //deltaAmountY)
         
-        categoriesVc.cashLabel.text = inputVc.amountLabel.text
         categoriesVc.cashLabel.transform = amountTranslate
         
         // Categories label

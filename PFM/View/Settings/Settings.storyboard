@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yR-av-4rb">
-                                <rect key="frame" x="163.5" y="357" width="47" height="33"/>
+                                <rect key="frame" x="164" y="357" width="47" height="33"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,13 +66,26 @@
                                     <action selector="loginOutButtonTouched:" destination="tg1-kx-AiW" eventType="touchUpInside" id="LRB-gc-0vW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CA4-et-if5">
+                                <rect key="frame" x="328" y="22.5" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="MFU-Zm-NJj"/>
+                                    <constraint firstAttribute="height" constant="35" id="eER-gh-Tr1"/>
+                                </constraints>
+                                <state key="normal" image="iconSync"/>
+                                <connections>
+                                    <action selector="syncButtonTouched:" destination="tg1-kx-AiW" eventType="touchUpInside" id="aWO-Qd-3OO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="E2Z-Sa-Dbr" firstAttribute="top" secondItem="Jrm-Yj-CkN" secondAttribute="bottom" id="4dL-KN-1fi"/>
                             <constraint firstItem="0yR-av-4rb" firstAttribute="centerX" secondItem="hLO-fj-5RQ" secondAttribute="centerX" id="9ea-0V-6YM"/>
+                            <constraint firstAttribute="trailing" secondItem="CA4-et-if5" secondAttribute="trailing" constant="12" id="JPr-MU-TQK"/>
                             <constraint firstItem="E2Z-Sa-Dbr" firstAttribute="leading" secondItem="hLO-fj-5RQ" secondAttribute="leading" constant="8" id="Jea-LX-eeW"/>
                             <constraint firstItem="KbI-t2-hkd" firstAttribute="leading" secondItem="hLO-fj-5RQ" secondAttribute="leading" constant="40" id="L7I-Wx-UBa"/>
+                            <constraint firstItem="CA4-et-if5" firstAttribute="centerY" secondItem="c2O-Tf-SIr" secondAttribute="centerY" id="UZo-65-38p"/>
                             <constraint firstItem="c2O-Tf-SIr" firstAttribute="centerX" secondItem="hLO-fj-5RQ" secondAttribute="centerX" id="UuW-Fv-ugk"/>
                             <constraint firstItem="0yR-av-4rb" firstAttribute="top" secondItem="KbI-t2-hkd" secondAttribute="bottom" constant="20" id="Zd4-hd-NQv"/>
                             <constraint firstItem="KbI-t2-hkd" firstAttribute="baseline" secondItem="hLO-fj-5RQ" secondAttribute="centerY" id="nYp-Gg-6cD"/>
@@ -83,6 +96,7 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="KbI-t2-hkd" id="fLm-SN-0st"/>
                         <outlet property="loginButton" destination="0yR-av-4rb" id="zna-cc-AtT"/>
+                        <outlet property="syncButton" destination="CA4-et-if5" id="fuA-Mq-akc"/>
                         <outlet property="welcomeLabel" destination="c2O-Tf-SIr" id="h25-4v-Zt7"/>
                     </connections>
                 </viewController>
@@ -93,5 +107,6 @@
     </scenes>
     <resources>
         <image name="iconInput" width="25" height="25"/>
+        <image name="iconSync" width="50" height="50"/>
     </resources>
 </document>

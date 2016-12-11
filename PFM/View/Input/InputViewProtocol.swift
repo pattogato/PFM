@@ -16,6 +16,9 @@ enum KeyboardType {
 protocol InputViewProtocol: class, LocationPickerDelegate {
     
     weak var amountLabel: UILabel! { get set }
+    weak var nameTextField: UITextField! { get set }
+    
+    var categories: [CategoryModel] { get set }
     
     /**
         Sets up the input screen with a given Transaction Model
@@ -29,7 +32,7 @@ protocol InputViewProtocol: class, LocationPickerDelegate {
     
     func openLocationPicker()
     
-    func openNoteScreen()
+    func openNoteScreen(text: String?)
     
     func resetUI()
     
@@ -40,5 +43,7 @@ protocol InputViewProtocol: class, LocationPickerDelegate {
     func appendAmountComa()
     
     func showNoAmountError()
+    
+    func presentCurrency(_ currency: String)
     
 }

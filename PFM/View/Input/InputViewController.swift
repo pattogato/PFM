@@ -8,6 +8,7 @@
 
 import UIKit
 import MBPullDownController
+import CoreLocation
 
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
@@ -34,6 +35,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
 
     // MARK: Dependencies
     var presenter: InputViewPresenterProtocol!
+    var categoriesManager: CategoriesManagerProtocol!
     var router: RouterProtocol!
     
     // MARK: - Constants
@@ -90,6 +92,10 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
     
     fileprivate var imageHelper: ImageHelper?
     
+    fileprivate let openCategoriesInteractionController = CategoriesInteractionController()
+    
+    fileprivate let closeCategoriesInteractionController = CategoriesInteractionController()
+    
     // MARK: - General methods
     
     override func viewDidLoad() {
@@ -99,11 +105,7 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         setupUI()
         setupPulldownController()
         
-        _ = UIApplication.resolve(service: CategoriesManagerProtocol.self)
-            .getCategories().then { (categories) -> Void in
-                self.categories = categories
-        }
-        
+        self.presenter.refreshCategories()
         presenter.openNumberPad()
         
         collectionView.register(
@@ -114,6 +116,9 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
         categoriesPullIndicator.layer.cornerRadius = 2
         
         self.navigationController?.isNavigationBarHidden = true
+        
+        openCategoriesInteractionController.wire(to: self)
+        closeCategoriesInteractionController.open = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -154,6 +159,14 @@ final class InputViewController: UIViewController, PresentableView, InputViewPro
             historyVc.transitioningDelegate = self
         } else if let noteView = segue.destination as? NoteViewProtocol {
             noteView.presenter.delegate = self.presenter
+            if let text = sender as? String {
+                noteView.showText(text)
+            }
+        } else if let mapVC = segue.destination as? MapViewProtocol {
+            mapVC.presenter.delegate = self.presenter
+            if let coord = sender as? CLLocationCoordinate2D {
+                mapVC.addAnnotation(coordinate: coord)
+            }
         }
     }
     
@@ -192,7 +205,8 @@ extension InputViewController {
     }
     
     @IBAction func locationButtonTouched(_ sender: AnyObject) {
-        self.presenter.openLocationScreen()
+        
+        self.performSegue(withIdentifier: "ToMapSegue", sender: self.presenter?.selectedLocation)
     }
     
     @IBAction func noteButtonTouched(_ sender: AnyObject) {
@@ -247,8 +261,8 @@ extension InputViewController {
         })
     }
     
-    func openNoteScreen() {
-        self.performSegue(withIdentifier: "toNotesSegue", sender: nil)
+    func openNoteScreen(text: String?) {
+        self.performSegue(withIdentifier: "toNotesSegue", sender: text)
     }
     
     func openLocationPicker() {
@@ -259,6 +273,7 @@ extension InputViewController {
     func resetUI() {
         self.amountLabel.text = "0"
         self.nameTextField.text = ""
+        self.collectionView.reloadData()
     }
     
     func appendAmountComa() {
@@ -294,6 +309,10 @@ extension InputViewController {
                 self.amountLabel.text = String(text.characters.dropLast())
             }
         }
+    }
+    
+    func presentCurrency(_ currency: String) {
+        self.currencyButton.setTitle(currency, for: .normal)
     }
 }
 
@@ -340,6 +359,7 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
         if dismissed is CategoriesViewController {
         
             categoriesTransition.presenting = false
+            self.presenter.refreshCategories()
             return categoriesTransition
         
         }
@@ -351,6 +371,16 @@ extension InputViewController: UIViewControllerTransitioningDelegate {
         }
         return nil
         
+    }
+    
+    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        
+        return openCategoriesInteractionController.interactionInProgress ? openCategoriesInteractionController : nil
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        
+        return closeCategoriesInteractionController.interactionInProgress ? closeCategoriesInteractionController : nil
     }
 }
 
@@ -366,7 +396,10 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCategoryCellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCategoryCellIdentifier, for: indexPath) as! CategoryCollectionViewCell
+        
+        cell.category = categories[indexPath.row]
+        cell.isSelected = (cell.category == presenter.selectedCategory)
         
         return cell
     }
@@ -381,7 +414,8 @@ extension InputViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.saveCategory(categories[(indexPath as NSIndexPath).item])
+        presenter.saveCategory(categories[indexPath.item])
+        collectionView.reloadData()
     }
     
 }
@@ -402,7 +436,7 @@ extension InputViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         keyboardHideTapGestureRecognizer?.isEnabled = false
-        self.presenter.saveName(textField.text ?? "")
+        self.presenter.saveName()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -20,12 +20,14 @@ class SettingsViewPresenter: SettingsViewPresenterProtocol {
     let router: RouterProtocol
     let loginPresenter: LoginPresenterProtocol
     let userManager: UserManagerProtocol
+    let syncManager: SyncManagerProtocol
     
-    required init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol, router: RouterProtocol) {
+    required init(view: SettingsViewProtocol, loginPresenter: LoginPresenterProtocol, userManager: UserManagerProtocol, router: RouterProtocol, syncManager: SyncManagerProtocol) {
         self.view = view
         self.loginPresenter = loginPresenter
         self.userManager = userManager
         self.router = router
+        self.syncManager = syncManager
     }
     
     func navigateToInputScreen() {
@@ -41,6 +43,19 @@ class SettingsViewPresenter: SettingsViewPresenterProtocol {
     
     func logout() {
         self.userManager.logoutUser()
+    }
+    
+    func syncButtonTouched(button: UIButton) {
+        if self.loggedInUser == nil {
+            self.view.showNotLoggedInAlert()
+        } else {
+            self.view.enableSyncButton(enable: false)
+            self.view.showLoadingAnimation()
+            _ = self.syncManager.syncTransactions().always {
+                self.view.stopLoadingAnimation()
+                self.view.enableSyncButton(enable: true)
+            }
+        }
     }
     
 }

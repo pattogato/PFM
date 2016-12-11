@@ -28,6 +28,9 @@ protocol UserManagerProtocol {
     func signupUser(email: String, password: String) -> Promise<UserModel>
     
     func silentLogin() -> Promise<Void>
+    
+    func saveLastUsedCurrency(currency: String)
+    func loadLastUsedCurrency() -> String
 }
 
 final class UserManager: UserManagerProtocol {
@@ -48,6 +51,7 @@ final class UserManager: UserManagerProtocol {
     private var email = Defaults[.email]
     private var password = Defaults[.password]
     private var facebookToken = Defaults[.facebookToken]
+    private var lastUsedCurrency = Defaults[.lastUsedCurrency]
     
     func loginUser(email: String, password: String) -> Promise<UserModel> {
         let promise = authService.login(email: email, password: password)
@@ -100,6 +104,14 @@ final class UserManager: UserManagerProtocol {
             }.asVoid()
     }
     
+    func saveLastUsedCurrency(currency: String) {
+        self.lastUsedCurrency = currency
+    }
+    
+    func loadLastUsedCurrency() -> String {
+        return self.lastUsedCurrency ?? "HUF"
+    }
+    
     private func silentLoginCredentials() -> Promise<UserModel> {
         guard let email = self.email, let password = self.password else {
             return Promise(error: UserManagerError.NoStoredCredentials)
@@ -149,4 +161,5 @@ fileprivate extension DefaultsKeys {
     static let email = DefaultsKey<String?>("username")
     static let password = DefaultsKey<String?>("password")
     static let facebookToken = DefaultsKey<String?>("facebookToken")
+    static let lastUsedCurrency = DefaultsKey<String?>("lastUsedCurrency")
 }

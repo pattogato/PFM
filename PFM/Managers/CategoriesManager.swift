@@ -25,13 +25,14 @@ final class CategoriesManager: CategoriesManagerProtocol {
     }
     
     func getCategories() -> Promise<[CategoryModel]> {
-        return service.getCategories()
-            .then { (categories) -> [CategoryModel] in
+        let storedCategories = self.storage.getCategories()
+        if storedCategories.count > 0 {
+            return Promise(value: storedCategories)
+        } else {
+            return service.getCategories().then { (categories) -> [CategoryModel] in
                 self.storage.saveCategories(categories: categories)
                 return categories
-            }.recover { (_) -> [CategoryModel] in
-                // If failed to load from network, load local data
-                return self.storage.getCategories()
+            }
         }
     }
     

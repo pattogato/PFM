@@ -8,9 +8,10 @@
 
 import Foundation
 import RealmSwift
+import PromiseKit
 
 protocol SyncManagerProtocol {
-    func syncTransactions()
+    func syncTransactions() -> Promise<Void>
 }
 
 final class SyncManager: SyncManagerProtocol {
@@ -24,15 +25,15 @@ final class SyncManager: SyncManagerProtocol {
         self.transactionService = transactionService
     }
     
-    func syncTransactions() {
+    func syncTransactions() -> Promise<Void> {
         let transactionsToSync = getUnsycedTransactions().map({ TransactionRequestModel.init(modelObject: $0) })
         
-        _ = transactionService.uploadTransactions(transactions: transactionsToSync).then(execute: { (models) -> Void in
+        return transactionService.uploadTransactions(transactions: transactionsToSync).then(execute: { (models) -> Void in
             // Update local models
             for model in models {
                 self.transactionDataProvider.addOrUpdateTransaction(newModel: model, realm: nil)
             }
-        })
+        }).asVoid()
     }
     
     private func getUnsycedTransactions() -> [TransactionModel] {

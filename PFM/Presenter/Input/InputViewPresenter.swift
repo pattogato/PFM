@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class InputViewPresenter: InputViewPresenterProtocol {
 
@@ -19,17 +20,29 @@ final class InputViewPresenter: InputViewPresenterProtocol {
     var inputContentPresenter: InputContentPresenterProtocol!
     let router: RouterProtocol
     let syncManager: SyncManagerProtocol
+    let userManager: UserManagerProtocol
+    let categoriesManager: CategoriesManagerProtocol
     
     unowned let view: InputViewProtocol
     
     private (set) var presentedContent = InputContentType.numericKeyboard
+    
+    var selectedCategory: CategoryModel? {
+        return currentTransactionDataProvider.selectedCategory
+    }
+    
+    var selectedLocation: CLLocationCoordinate2D? {
+        return currentTransactionDataProvider?.getTransaction()?.coordinates
+    }
     
     init(view: InputViewProtocol,
          dalHelper: DALHelperProtocol,
          currentTransactionDataProvider: CurrentTransactionDataProviderProtocol,
          transactionDataProvider: TransactionDataProviderProtocol,
          router: RouterProtocol,
-         syncManager: SyncManagerProtocol) {
+         syncManager: SyncManagerProtocol,
+         userManager: UserManagerProtocol,
+         categoriesManager: CategoriesManagerProtocol) {
         
         self.view = view
         self.dalHelper = dalHelper
@@ -37,6 +50,8 @@ final class InputViewPresenter: InputViewPresenterProtocol {
         self.transactionDataProvider = transactionDataProvider
         self.router = router
         self.syncManager = syncManager
+        self.userManager = userManager
+        self.categoriesManager = categoriesManager
     }
     
     func presentInputScreen() {
@@ -97,12 +112,18 @@ final class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func openNoteScreen() {
-        self.view.openNoteScreen()
+        self.view.openNoteScreen(text: self.currentTransactionDataProvider.getTransaction()?.desc)
     }
     
     func deleteImage() {
         self.currentTransactionDataProvider.deleteImage()
         self.showContent(type: .numericKeyboard)
+    }
+    
+    func refreshCategories() {
+        _ = categoriesManager.getCategories().then { (categories) -> Void in
+            self.view.categories = categories
+        }
     }
     
     // MARK: - Navigation methods
@@ -125,13 +146,13 @@ final class InputViewPresenter: InputViewPresenterProtocol {
         self.currentTransactionDataProvider.saveCurrency(currency)
     }
     
-    func saveTransaction() {
-        if let transaction = currentTransactionDataProvider.getTransaction() {
-            transactionDataProvider.addTransaction(nil, transaction: transaction)
-            
-            self.view.resetUI()
-        }
-    }
+//    func saveTransaction() {
+//        if let transaction = currentTransactionDataProvider.getTransaction() {
+//            transactionDataProvider.addTransaction(nil, transaction: transaction)
+//            
+//            self.view.resetUI()
+//        }
+//    }
     
     fileprivate func saveAmount() {
         if let amount = Double(self.view.amountLabel.text ?? "0") {
@@ -140,11 +161,11 @@ final class InputViewPresenter: InputViewPresenterProtocol {
     }
     
     func saveCategory(_ category: CategoryModel) {
-        currentTransactionDataProvider.saveCategory(category)
+        currentTransactionDataProvider.selectedCategory = category
     }
     
-    func saveName(_ name: String) {
-        currentTransactionDataProvider.saveName(name)
+    func saveName() {
+        currentTransactionDataProvider.saveName(view.nameTextField.text ?? "")
     }
     
     func saveLocation(lat: Double, lng: Double, venue: String?) {
@@ -168,6 +189,8 @@ extension InputViewPresenter: InputContentSelectorDelegate {
         case .currencyPicker:
             if let currency = value as? String {
                 self.currentTransactionDataProvider.saveCurrency(currency)
+                self.view.presentCurrency(currency)
+                self.userManager.saveLastUsedCurrency(currency: currency)
             }
             self.showContent(type: .defaultType)
         case .datePicker:
@@ -183,24 +206,35 @@ extension InputViewPresenter: InputContentSelectorDelegate {
                 case .delete:
                     deleteDigit()
                 case .ok:
-                    if currentTransactionDataProvider.getTransaction()?.amount ?? 0.0 == 0.0 {
-                        self.view.showNoAmountError()
-                    } else if let currentTransaction = currentTransactionDataProvider.getTransaction() {
-                        transactionDataProvider.addTransaction(nil, transaction: currentTransaction)
-                        self.view.resetUI()
-                        syncManager.syncTransactions()
-                        currentTransactionDataProvider.resetTransaction()
-                    }
+                    saveTransaction()
                 case .number(let number):
                     enterDigit(number)
                 }
             }
-        case .image:
-            print("image selected")
+        case .image(let image):
+            if let image = image {
+                currentTransactionDataProvider.saveImage(image)
+            }
         case .note:
             if let desc = value as? String {
                 currentTransactionDataProvider.saveDescription(desc)
             }
+        case .map:
+            if let coordinate = value as? CLLocationCoordinate2D {
+                currentTransactionDataProvider.saveLocation(coordinate.latitude, lng: coordinate.longitude, venue: nil)
+            }
+        }
+    }
+    
+    func saveTransaction() {
+        saveName()
+        if currentTransactionDataProvider.getTransaction()?.amount ?? 0.0 == 0.0 {
+            self.view.showNoAmountError()
+        } else if let currentTransaction = currentTransactionDataProvider.getTransaction() {
+            transactionDataProvider.addTransaction(nil, transaction: currentTransaction)
+            self.view.resetUI()
+            _ = syncManager.syncTransactions()
+            currentTransactionDataProvider.resetTransaction()
         }
     }
     

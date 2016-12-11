@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     
@@ -78,6 +79,8 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
      */
     func navigateToCharts()
     
+    func refreshCategories()
+    
     /**
      Navigates the view to the Settings screen (eg. swipe to right)
      */
@@ -87,7 +90,7 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     
     func saveDate(_ date: Date)
     
-    func saveName(_ name: String)
+    func saveName()
     
     func saveLocation(lat: Double, lng: Double, venue: String?)
     
@@ -98,5 +101,9 @@ protocol InputViewPresenterProtocol: InputContentSelectorDelegate {
     var presentedContent: InputContentType { get }
     
     var inputContentPresenter: InputContentPresenterProtocol! { get set }
+    
+    var selectedCategory: CategoryModel? { get }
+    
+    var selectedLocation: CLLocationCoordinate2D? { get }
 }
 

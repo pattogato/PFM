@@ -15,7 +15,7 @@ protocol CategoriesInteractionControllerProtocol: class {
     func toggleCategories(open: Bool)
 }
 
-final class CategoriesInteractionController: UIPercentDrivenInteractiveTransition {
+final class CategoriesInteractionController: UIPercentDrivenInteractiveTransition, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
     
@@ -40,7 +40,12 @@ final class CategoriesInteractionController: UIPercentDrivenInteractiveTransitio
     
     private func prepareGestureRecognizer(in view: UIView) {
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(gestureRecognizer:)))
+//        let tapGesture = UITapGestureRecognizer(target: self, action: nil)
+//        tapGesture.delegate = self
+//        tapGesture.cancelsTouchesInView = false
+        
         view.addGestureRecognizer(gesture)
+//        view.addGestureRecognizer(tapGesture)
     }
     
     func handleGesture(gestureRecognizer: UIPanGestureRecognizer) {
@@ -78,4 +83,11 @@ final class CategoriesInteractionController: UIPercentDrivenInteractiveTransitio
         }
     }
     
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
 }

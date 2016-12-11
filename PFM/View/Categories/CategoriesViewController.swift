@@ -85,6 +85,7 @@ final class CategoriesViewController: UIViewController, CategoriesViewProtocol, 
         collectionView.register(cellNib, forCellWithReuseIdentifier: kCategoryCellIdentifier)
         
         categoriesContainerView.layer.cornerRadius = 16
+
         self.collectionView.reloadData()
     }
     
@@ -126,6 +127,7 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
             withReuseIdentifier: kCategoryCellIdentifier,
             for: indexPath) as! CategoryCollectionViewCell
         cell.category = categories[indexPath.row]
+        cell.isSelected = (cell.category == self.presenter.selectedCategory)
         return cell
     }
     
@@ -139,6 +141,6 @@ extension CategoriesViewController : UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: -- Handle
+        self.presenter.categorySelected(category: categories[indexPath.item])
     }
 }
