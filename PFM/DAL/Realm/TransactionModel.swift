@@ -36,7 +36,7 @@ final class TransactionModel: MappableModelObject {
         super.mapping(map: map)
         
         date <- map["date"]
-        if let coordinates = self.coordinates {
+        if coordinates != nil {
             latitude <- map["latitude"]
             longitude <- map["longitude"]
         }
@@ -46,6 +46,7 @@ final class TransactionModel: MappableModelObject {
         desc <- map["desc"]
         categoryId <- map["categoryId"]
         name <- map["name"]
+        
     }
     
     override class func ignoredProperties() -> [String] {
