@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -261,11 +261,6 @@
                                             <outlet property="delegate" destination="nPq-tj-Veb" id="Cz7-br-JDK"/>
                                         </connections>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1w-Iz-GD2" userLabel="GestureView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <gestureRecognizers/>
-                                    </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raf-1c-bIF">
                                         <rect key="frame" x="168" y="12" width="40" height="4"/>
                                         <color key="backgroundColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
@@ -278,13 +273,9 @@
                                 <color key="backgroundColor" red="0.8784313725490196" green="0.81568627450980391" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="CDy-mo-YER" firstAttribute="top" secondItem="NhV-3g-KeM" secondAttribute="top" id="1wc-AQ-kNY"/>
-                                    <constraint firstAttribute="bottom" secondItem="y1w-Iz-GD2" secondAttribute="bottom" id="3uw-gC-WoP"/>
-                                    <constraint firstAttribute="trailing" secondItem="y1w-Iz-GD2" secondAttribute="trailing" id="Mfi-bT-YtA"/>
-                                    <constraint firstItem="y1w-Iz-GD2" firstAttribute="leading" secondItem="NhV-3g-KeM" secondAttribute="leading" id="WpT-9S-YvS"/>
                                     <constraint firstItem="raf-1c-bIF" firstAttribute="top" secondItem="NhV-3g-KeM" secondAttribute="top" constant="12" id="gIY-Cc-3mD"/>
                                     <constraint firstAttribute="trailing" secondItem="CDy-mo-YER" secondAttribute="trailing" id="mMw-fF-byd"/>
                                     <constraint firstItem="CDy-mo-YER" firstAttribute="leading" secondItem="NhV-3g-KeM" secondAttribute="leading" id="qb6-6j-bXy"/>
-                                    <constraint firstItem="y1w-Iz-GD2" firstAttribute="top" secondItem="NhV-3g-KeM" secondAttribute="top" id="shw-tF-gXC"/>
                                     <constraint firstAttribute="height" constant="116" id="tat-5E-hEd"/>
                                     <constraint firstAttribute="bottom" secondItem="CDy-mo-YER" secondAttribute="bottom" id="wnG-Vb-Pqr"/>
                                     <constraint firstItem="raf-1c-bIF" firstAttribute="centerX" secondItem="NhV-3g-KeM" secondAttribute="centerX" id="zl1-IM-fgi"/>
@@ -322,7 +313,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENCY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24s-Pe-Qjq">
-                                <rect key="frame" x="159" y="244" width="57" height="12"/>
+                                <rect key="frame" x="159.5" y="244" width="57" height="12"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                 <color key="textColor" red="0.70588235290000001" green="0.51372549020000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
