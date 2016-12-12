@@ -23,8 +23,10 @@
 		015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */; };
 		015A56131DD1CA6500D1D7F9 /* RESTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */; };
 		33ABE6351DF7EA5100FE608E /* PfmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE6341DF7EA5100FE608E /* PfmTextField.swift */; };
-		6425ABBEFF147F75200D599E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		6425ABBEFF147F75200D599E /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8439207E4B616D9E209FFBAF /* Pods_PFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4F4B085D8223986B746CA /* Pods_PFMTests.framework */; };
+		B10576C81DFEB4AD00DABE39 /* WatchDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10576C71DFEB4AD00DABE39 /* WatchDataStorage.swift */; };
+		B10576C91DFEB59400DABE39 /* WatchDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10576C71DFEB4AD00DABE39 /* WatchDataStorage.swift */; };
 		B10B2EC71DCF5EAE0089E848 /* PresenterAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2EC61DCF5EAE0089E848 /* PresenterAssemly.swift */; };
 		B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2EC81DD079210089E848 /* SwipeNavigationPresenter.swift */; };
 		B10B2ECB1DD1CFB20089E848 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B10B2ECA1DD1CFB20089E848 /* Settings.storyboard */; };
@@ -99,6 +101,8 @@
 		B18785D81CA99AE000DD18E9 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D71CA99AE000DD18E9 /* ModelObject.swift */; };
 		B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */; };
 		B18785DD1CA99CDA00DD18E9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DC1CA99CDA00DD18E9 /* UserModel.swift */; };
+		B18A84951DFED32C007B5B88 /* SecureProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F9761DCC81320090CF08 /* SecureProperty.swift */; };
+		B18A84971DFED6B1007B5B88 /* Extensions+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2ECE1DD1D1F70089E848 /* Extensions+UIApplication.swift */; };
 		B18B5E9D1CF48229008427C0 /* CurrentTransactionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B5E9C1CF48229008427C0 /* CurrentTransactionDataProvider.swift */; };
 		B18E82CA1DC93E4500143C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12655CD1DBEBE4500AEDED5 /* Assets.xcassets */; };
 		B18EC84F1DF084C50069A722 /* NoteViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EC84E1DF084C50069A722 /* NoteViewProtocol.swift */; };
@@ -111,14 +115,29 @@
 		B19C33DD1DF79B3100C432DC /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33DC1DF79B3100C432DC /* SyncManager.swift */; };
 		B19C33DF1DF7A82B00C432DC /* CategoriesInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33DE1DF7A82B00C432DC /* CategoriesInteractionController.swift */; };
 		B1AEA8C31DFDA53C0036F8FF /* WatchDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AEA8C21DFDA53C0036F8FF /* WatchDataProvider.swift */; };
+		B1B21A121DFEC8DE00F467E4 /* CategoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605891DF76EB3000A2707 /* CategoriesManager.swift */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
 		B1DA8A761CEA80E500C51E85 /* PLocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A741CEA80E500C51E85 /* PLocationPickerViewController.swift */; };
+		B1DEDFB91DFECA9000F439E3 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D31CA9928500DD18E9 /* CategoryModel.swift */; };
+		B1DEDFBA1DFECB8300F439E3 /* MappableModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DCB1DD22F0E004175EF /* MappableModelObject.swift */; };
+		B1FB5E8E1DFED0C500A9E2CC /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FB5E8C1DFED0C500A9E2CC /* Realm.framework */; };
+		B1FB5E8F1DFED0C500A9E2CC /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1FB5E8C1DFED0C500A9E2CC /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1FB5E901DFED0C500A9E2CC /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FB5E8D1DFED0C500A9E2CC /* RealmSwift.framework */; };
+		B1FB5E911DFED0C500A9E2CC /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1FB5E8D1DFED0C500A9E2CC /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1FB5E931DFED0EB00A9E2CC /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785D71CA99AE000DD18E9 /* ModelObject.swift */; };
+		B1FB5E941DFED19600A9E2CC /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DCD1DD23100004175EF /* RealmExtensions.swift */; };
+		B1FB5E951DFED1BC00A9E2CC /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC41DD21F45004175EF /* CategoryService.swift */; };
+		B1FB5E961DFED1C100A9E2CC /* CategoriesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605911DF78716000A2707 /* CategoriesStorage.swift */; };
+		B1FB5E971DFED1C900A9E2CC /* RESTAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */; };
+		B1FB5E981DFED1F600A9E2CC /* APIResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DBD1DD21A28004175EF /* APIResources.swift */; };
+		B1FB5E991DFED21000A9E2CC /* DALHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE31CB186A400056895 /* DALHelper.swift */; };
 		B1FFEEB81DFB1F9100DE74EA /* MapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFEEB71DFB1F9100DE74EA /* MapViewProtocol.swift */; };
 		B1FFEEBA1DFB1F9A00DE74EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFEEB91DFB1F9A00DE74EA /* MapViewController.swift */; };
 		B1FFEEBD1DFB1FBF00DE74EA /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFEEBC1DFB1FBF00DE74EA /* MapViewPresenter.swift */; };
 		C8D367490C2636F146D6801D /* Pods_PFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08F854272ED5F3916C151D0 /* Pods_PFM.framework */; };
+		CBB8FB0DDCF279CA087BB94F /* Pods_PFM_watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9E4145321C6F0031FBAAC7 /* Pods_PFM_watch_Extension.framework */; };
 		E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D7E6B1CCE49F000454C08 /* PresentingTransitionAnimator.swift */; };
 		E26D7E6E1CCE4A4100454C08 /* CategoriesTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D7E6D1CCE4A4100454C08 /* CategoriesTransition.swift */; };
 		E26D7E711CCE4AF900454C08 /* CategoriesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D7E701CCE4AF900454C08 /* CategoriesViewProtocol.swift */; };
@@ -190,6 +209,18 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B1FB5E921DFED0C600A9E2CC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B1FB5E911DFED0C500A9E2CC /* RealmSwift.framework in Embed Frameworks */,
+				B1FB5E8F1DFED0C500A9E2CC /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -208,9 +239,13 @@
 		014E2DCD1DD23100004175EF /* RealmExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmExtensions.swift; path = Utils/RealmExtensions.swift; sourceTree = "<group>"; };
 		015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClientProtocol.swift; sourceTree = "<group>"; };
 		015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClient.swift; sourceTree = "<group>"; };
+		0852298A43EA809741B58E46 /* Pods-PFM-PFM_watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM-PFM_watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM-PFM_watch Extension/Pods-PFM-PFM_watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		33ABE6341DF7EA5100FE608E /* PfmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PfmTextField.swift; path = CustomElements/PfmTextField.swift; sourceTree = "<group>"; };
 		6DF4F4B085D8223986B746CA /* Pods_PFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		905F174B1E7E615F43FD1B03 /* Pods-PFM_watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM_watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM_watch Extension/Pods-PFM_watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		91BBAEC29E9F4F8649BC626C /* Pods-PFMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFMTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFMTests/Pods-PFMTests.release.xcconfig"; sourceTree = "<group>"; };
+		9CC407F92E29C354882D79C5 /* Pods-PFM_watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM_watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFM_watch Extension/Pods-PFM_watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		B10576C71DFEB4AD00DABE39 /* WatchDataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchDataStorage.swift; path = ../Managers/WatchDataStorage.swift; sourceTree = "<group>"; };
 		B10B2EC61DCF5EAE0089E848 /* PresenterAssemly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterAssemly.swift; sourceTree = "<group>"; };
 		B10B2EC81DD079210089E848 /* SwipeNavigationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeNavigationPresenter.swift; sourceTree = "<group>"; };
 		B10B2ECA1DD1CFB20089E848 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = View/Settings/Settings.storyboard; sourceTree = "<group>"; };
@@ -310,13 +345,17 @@
 		B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerPresenterProtocol.swift; path = Presenter/Input/LocationPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPickerViewProtocol.swift; path = View/Input/LocationPicker/LocationPickerViewProtocol.swift; sourceTree = "<group>"; };
 		B1DA8A741CEA80E500C51E85 /* PLocationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PLocationPickerViewController.swift; path = View/Input/LocationPicker/PLocationPickerViewController.swift; sourceTree = "<group>"; };
+		B1FB5E8C1DFED0C500A9E2CC /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		B1FB5E8D1DFED0C500A9E2CC /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		B1FFEEB71DFB1F9100DE74EA /* MapViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewProtocol.swift; sourceTree = "<group>"; };
 		B1FFEEB91DFB1F9A00DE74EA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B1FFEEBC1DFB1FBF00DE74EA /* MapViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
+		B553ED13E7EDCC945DFFD3A1 /* Pods_PFM_PFM_watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFM_PFM_watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A46246D594E709E51F5695 /* Pods-PFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM/Pods-PFM.release.xcconfig"; sourceTree = "<group>"; };
 		C08F854272ED5F3916C151D0 /* Pods_PFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DBE7DB68D8E68A713008C4 /* Pods-PFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFM/Pods-PFM.debug.xcconfig"; sourceTree = "<group>"; };
 		DA9E4145321C6F0031FBAAC7 /* Pods_PFM_watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFM_watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDB783A4D6FBB2394134CB4B /* Pods-PFM-PFM_watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM-PFM_watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PFM-PFM_watch Extension/Pods-PFM-PFM_watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		E26D7E6B1CCE49F000454C08 /* PresentingTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentingTransitionAnimator.swift; path = CustomControls/CustomTransitions/PresentingTransitionAnimator.swift; sourceTree = "<group>"; };
 		E26D7E6D1CCE4A4100454C08 /* CategoriesTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesTransition.swift; path = CustomControls/CustomTransitions/CategoriesTransition.swift; sourceTree = "<group>"; };
 		E26D7E701CCE4AF900454C08 /* CategoriesViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesViewProtocol.swift; path = View/Categories/CategoriesViewProtocol.swift; sourceTree = "<group>"; };
@@ -347,6 +386,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FB5E8E1DFED0C500A9E2CC /* Realm.framework in Frameworks */,
+				CBB8FB0DDCF279CA087BB94F /* Pods_PFM_watch_Extension.framework in Frameworks */,
+				B1FB5E901DFED0C500A9E2CC /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +411,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6425ABBEFF147F75200D599E /* BuildFile in Frameworks */,
+				6425ABBEFF147F75200D599E /* (null) in Frameworks */,
 				8439207E4B616D9E209FFBAF /* Pods_PFMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +431,7 @@
 		010605901DF78709000A2707 /* Storages */ = {
 			isa = PBXGroup;
 			children = (
+				B10576C71DFEB4AD00DABE39 /* WatchDataStorage.swift */,
 				010605911DF78716000A2707 /* CategoriesStorage.swift */,
 				010605931DF78D45000A2707 /* UserStorage.swift */,
 			);
@@ -440,6 +483,7 @@
 				C08F854272ED5F3916C151D0 /* Pods_PFM.framework */,
 				6DF4F4B085D8223986B746CA /* Pods_PFMTests.framework */,
 				DA9E4145321C6F0031FBAAC7 /* Pods_PFM_watch_Extension.framework */,
+				B553ED13E7EDCC945DFFD3A1 /* Pods_PFM_PFM_watch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -717,6 +761,8 @@
 		B18785921CA98E6A00DD18E9 = {
 			isa = PBXGroup;
 			children = (
+				B1FB5E8C1DFED0C500A9E2CC /* Realm.framework */,
+				B1FB5E8D1DFED0C500A9E2CC /* RealmSwift.framework */,
 				B187859D1CA98E6A00DD18E9 /* PFM */,
 				B18785B21CA98E6A00DD18E9 /* PFMTests */,
 				B1308C3C1CF45529002965EA /* PFMUITests */,
@@ -838,6 +884,10 @@
 				B5A46246D594E709E51F5695 /* Pods-PFM.release.xcconfig */,
 				E8BDE42BBF7C21E022839689 /* Pods-PFMTests.debug.xcconfig */,
 				91BBAEC29E9F4F8649BC626C /* Pods-PFMTests.release.xcconfig */,
+				DDB783A4D6FBB2394134CB4B /* Pods-PFM-PFM_watch Extension.debug.xcconfig */,
+				0852298A43EA809741B58E46 /* Pods-PFM-PFM_watch Extension.release.xcconfig */,
+				9CC407F92E29C354882D79C5 /* Pods-PFM_watch Extension.debug.xcconfig */,
+				905F174B1E7E615F43FD1B03 /* Pods-PFM_watch Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -947,9 +997,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B12655D31DBEBE4500AEDED5 /* Build configuration list for PBXNativeTarget "PFM_watch Extension" */;
 			buildPhases = (
+				2378C3448C69EA76939DC26E /* [CP] Check Pods Manifest.lock */,
 				B12655C01DBEBE4500AEDED5 /* Sources */,
 				B12655C11DBEBE4500AEDED5 /* Frameworks */,
 				B12655C21DBEBE4500AEDED5 /* Resources */,
+				30BDDDCBB5A679C7716305CB /* [CP] Embed Pods Frameworks */,
+				DCCB58A51E7A2CB8529E21CB /* [CP] Copy Pods Resources */,
+				B1FB5E921DFED0C600A9E2CC /* Embed Frameworks */,
+				B1FB5E8B1DFECFE100A9E2CC /* Watch pod script */,
 			);
 			buildRules = (
 			);
@@ -1050,6 +1105,9 @@
 						DevelopmentTeam = 837W344MF8;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -1172,6 +1230,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		2378C3448C69EA76939DC26E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		30BDDDCBB5A679C7716305CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PFM_watch Extension/Pods-PFM_watch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8541478A10E6B95F102AA5C6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1187,6 +1275,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PFMTests/Pods-PFMTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B1FB5E8B1DFECFE100A9E2CC /* Watch pod script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Watch pod script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
 		D62A6D06ACE2CF84EA87B287 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1200,6 +1302,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PFM/Pods-PFM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCCB58A51E7A2CB8529E21CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PFM_watch Extension/Pods-PFM_watch Extension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E243A62749E4996709ECD9B5 /* [CP] Check Pods Manifest.lock */ = {
@@ -1240,7 +1357,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B12655DC1DBEC1DE00AEDED5 /* InputInterfaceController.swift in Sources */,
+				B1FB5E961DFED1C100A9E2CC /* CategoriesStorage.swift in Sources */,
+				B1FB5E941DFED19600A9E2CC /* RealmExtensions.swift in Sources */,
+				B1FB5E931DFED0EB00A9E2CC /* ModelObject.swift in Sources */,
+				B1FB5E951DFED1BC00A9E2CC /* CategoryService.swift in Sources */,
 				B12655CC1DBEBE4500AEDED5 /* ExtensionDelegate.swift in Sources */,
+				B1FB5E981DFED1F600A9E2CC /* APIResources.swift in Sources */,
+				B10576C91DFEB59400DABE39 /* WatchDataStorage.swift in Sources */,
+				B1DEDFB91DFECA9000F439E3 /* CategoryModel.swift in Sources */,
+				B18A84971DFED6B1007B5B88 /* Extensions+UIApplication.swift in Sources */,
+				B1FB5E991DFED21000A9E2CC /* DALHelper.swift in Sources */,
+				B1FB5E971DFED1C900A9E2CC /* RESTAPIClientProtocol.swift in Sources */,
+				B18A84951DFED32C007B5B88 /* SecureProperty.swift in Sources */,
+				B1DEDFBA1DFECB8300F439E3 /* MappableModelObject.swift in Sources */,
+				B1B21A121DFEC8DE00F467E4 /* CategoriesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1278,6 +1408,7 @@
 				B10B2ED61DD22E810089E848 /* InputContentSelectorCurrencyViewController.swift in Sources */,
 				B120CA831CCBC93500E9985B /* NumpadViewController.swift in Sources */,
 				B1FFEEBD1DFB1FBF00DE74EA /* MapViewPresenter.swift in Sources */,
+				B10576C81DFEB4AD00DABE39 /* WatchDataStorage.swift in Sources */,
 				B1783C021CB3039500056895 /* InputViewController.swift in Sources */,
 				B18785DB1CA99B4800DD18E9 /* TransactionModel.swift in Sources */,
 				B1783C251CB3C73600056895 /* SettingsViewPresenterProtocol.swift in Sources */,
@@ -1429,12 +1560,17 @@
 /* Begin XCBuildConfiguration section */
 		B12655D41DBEBE4500AEDED5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CC407F92E29C354882D79C5 /* Pods-PFM_watch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEVELOPMENT_TEAM = 837W344MF8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "PFM_watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.pinup.PFM.watchkitapp.watchkitextension;
@@ -1450,12 +1586,17 @@
 		};
 		B12655D51DBEBE4500AEDED5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 905F174B1E7E615F43FD1B03 /* Pods-PFM_watch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEVELOPMENT_TEAM = 837W344MF8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "PFM_watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.pinup.PFM.watchkitapp.watchkitextension;

@@ -8,10 +8,12 @@
 
 import WatchKit
 import Foundation
-
+import Swinject
 
 class InputInterfaceController: WKInterfaceController {
-
+    
+    var categoriesManager: CategoriesManagerProtocol!
+    
     @IBOutlet weak var categoryPicker: WKInterfacePicker!
     @IBOutlet weak var amountPicker: WKInterfacePicker!
     
@@ -21,11 +23,22 @@ class InputInterfaceController: WKInterfaceController {
         // Configure interface objects here.
         setupCategoryPicker()
         setupAmountPicker()
+    }
+    
+    func setupDependencies() {
         
+        let categoryService = UIApplication.resolve(
+            service: CategoryServiceProtocol.self
+        )
+        let categoryStorage = UIApplication.resolve(
+            service: CategoriesStorageProtocol.self
+        )
+        self.categoriesManager = CategoriesManager(service: categoryService, storage: categoryStorage)
     }
     
     func setupCategoryPicker() {
-        loadDummyCategoryData()
+//        loadDummyCategoryData()
+        loadCategories()
     }
     
     func setupAmountPicker() {
@@ -47,6 +60,23 @@ class InputInterfaceController: WKInterfaceController {
         }
         
         self.amountPicker.setItems(items)
+    }
+    
+    func loadCategories() {
+        var items = [WKPickerItem]()
+        
+        func addItem(imageUrl: String, caption: String) {
+            let item = WKPickerItem()
+            item.caption = caption
+            getImageFromUrl(url: imageUrl) { image in
+                item.contentImage = image
+            }
+            items.append(item)
+        }
+        
+//        for category in categories {
+//            addItem(imageUrl: category.imageUrl, caption: category.title)
+//        }
     }
     
     func loadDummyCategoryData() {
@@ -79,7 +109,7 @@ class InputInterfaceController: WKInterfaceController {
         
         self.categoryPicker.setItems(items)
     }
-
+    
     @IBAction func didTouchSaveButton() {
         print("save")
     }
@@ -89,10 +119,24 @@ class InputInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
-
+    
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
+    func getImageFromUrl(url:String, scale: CGFloat = 1.0, completionHandler: @escaping ((_ image: WKImage) -> Void)) {
+        URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
+            if (data != nil && error == nil) {
+                
+                DispatchQueue.main.async {
+                    if let image = UIImage(data: data!, scale: scale) {
+                        completionHandler(WKImage(image: image))
+                    }
+                }
+            }
+            }.resume()
+    }
+    
 }
+

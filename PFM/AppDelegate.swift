@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var router: RouterProtocol!
     let assembler = Assembler(container: SwinjectStoryboard.defaultContainer)
     let managersAssemby = ManagersAssembly()
+    var watchDataProvider: WatchDataProvider!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -38,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         managersAssemby.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         router.start()
+        
+        // Load watch data
+        watchDataProvider = WatchDataProvider()
+        watchDataProvider.loadCategoriesToStorage()
         
         return true
     }

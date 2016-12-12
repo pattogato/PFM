@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import Foundation
 
 public typealias RealmBlock = (Realm) -> Void
 public typealias InMemoryConfiguration = (inMemoryIdentifier: String, types: [Object.Type])

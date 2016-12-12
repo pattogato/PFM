@@ -1,9 +1,10 @@
-platform :ios, '9.0'
 use_frameworks!
 
 target 'PFM' do
+platform :ios, '9.0'
+
     #DB
-    pod 'RealmSwift', '~> 1.1.0' # Local database
+    pod 'RealmSwift' # Local database
     
     # Utils
     pod 'SwiftDate', '~> 4.0' # Date helper
@@ -45,4 +46,10 @@ target 'PFM' do
     
 end
 
-
+target 'PFM_watch Extension' do
+    pod 'Alamofire' # Networking
+    pod 'AlamofireObjectMapper' # Network object mapping
+    pod 'Swinject', '~> 2.0.0-beta.2' # DI Tool
+    pod 'PromiseKit'
+    pod 'Locksmith', '~> 3.0.0' # Keychain wrapper
+end
