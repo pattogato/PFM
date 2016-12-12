@@ -8,7 +8,6 @@
 
 import WatchKit
 import Foundation
-import Swinject
 
 class InputInterfaceController: WKInterfaceController {
     
@@ -20,20 +19,15 @@ class InputInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
+        setupDependencies()
+        
         // Configure interface objects here.
         setupCategoryPicker()
         setupAmountPicker()
     }
     
     func setupDependencies() {
-        
-        let categoryService = UIApplication.resolve(
-            service: CategoryServiceProtocol.self
-        )
-        let categoryStorage = UIApplication.resolve(
-            service: CategoriesStorageProtocol.self
-        )
-        self.categoriesManager = CategoriesManager(service: categoryService, storage: categoryStorage)
+        self.categoriesManager = DIManager.sharedInstance.assembler.resolver.resolve(CategoriesManagerProtocol.self)
     }
     
     func setupCategoryPicker() {
@@ -74,9 +68,11 @@ class InputInterfaceController: WKInterfaceController {
             items.append(item)
         }
         
-//        for category in categories {
-//            addItem(imageUrl: category.imageUrl, caption: category.title)
-//        }
+        _ = categoriesManager.getCategories().then { (categories) -> Void in
+            for category in categories {
+                addItem(imageUrl: category.imageUri, caption: category.name)
+            }
+        }
     }
     
     func loadDummyCategoryData() {

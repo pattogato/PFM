@@ -12,7 +12,7 @@ import Swinject
 extension UIApplication {
     /// Easy Access to the Application Assembler (might not need it)
     static var ApplicationAssembler: Assembler {
-        return (UIApplication.shared.delegate as! AppDelegate).assembler
+        return DIManager.sharedInstance.assembler
     }
     
     /**

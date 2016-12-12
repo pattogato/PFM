@@ -15,34 +15,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var router: RouterProtocol!
-    let assembler = Assembler(container: SwinjectStoryboard.defaultContainer)
     let managersAssemby = ManagersAssembly()
-    var watchDataProvider: WatchDataProvider!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        DIManager.sharedInstance = DIManager(
+            assembler: Assembler(container: SwinjectStoryboard.defaultContainer))
         
-        // Register assemblys
-        assembler.apply(assemblies: [
-            ApplicationAssembly(),
-            ServicesAssembly(),
-            managersAssemby,
-            StoragesAssembly(),
-            DataProvidersAssembly(),
-            PresenterAssembly(),
-            ViewsAssembly()
-            ])
+        func registerAssemblies() {
+            // Register assemblys
+            DIManager.sharedInstance.assembler.apply(assemblies: [
+                ApplicationAssembly(),
+                ServicesAssembly(),
+                managersAssemby,
+                StoragesAssembly(),
+                DataProvidersAssembly(),
+                PresenterAssembly(),
+                ViewsAssembly()
+                ])
+        }
         
         ApplicationAssembly.resolveAppDelegateDependencies(appDelegate: self)
-        
         managersAssemby.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         router.start()
-        
-        // Load watch data
-        watchDataProvider = WatchDataProvider()
-        watchDataProvider.loadCategoriesToStorage()
         
         return true
     }

@@ -13,7 +13,7 @@ import SwinjectStoryboard
 final class ApplicationAssembly: AssemblyType {
     
     class func resolveAppDelegateDependencies(appDelegate: AppDelegate) {
-        let resolver = appDelegate.assembler.resolver
+        let resolver = DIManager.sharedInstance.assembler.resolver
         appDelegate.router = resolver.resolve(RouterProtocol.self)!
         appDelegate.window = resolver.resolve(UIWindow.self)
     }
