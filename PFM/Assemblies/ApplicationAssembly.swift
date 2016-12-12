@@ -8,7 +8,6 @@
 
 import Foundation
 import Swinject
-import SwinjectStoryboard
 
 final class ApplicationAssembly: AssemblyType {
     
@@ -20,31 +19,26 @@ final class ApplicationAssembly: AssemblyType {
     
     func assemble(container: Container) {
         registerWindow(container: container)
-        registerStoryboards(container: container)
-        registerViewControllers(container: container)
+//        registerStoryboards(container: container)
+//        registerViewControllers(container: container)
     }
     
-    private func registerStoryboards(container: Container) {
-        Storyboards.all().forEach {
-            storyboard in
-            
-            container.register(
-                UIStoryboard.self,
-                name: storyboard.name,
-                factory: { (r) -> UIStoryboard in
-                    SwinjectStoryboard.create(
-                        name: storyboard.name,
-                        bundle: nil,
-                        container: container)
-            }).inObjectScope(.container)
-        }
-    }
+//    private func registerStoryboards(container: Container) {
+//        Storyboards.all().forEach {
+//            storyboard in
+//            
+//            container.register(
+//                UIStoryboard.self,
+//                name: storyboard.name,
+//                factory: { (r) -> UIStoryboard in
+//                    SwinjectStoryboard.create(
+//                        name: storyboard.name,
+//                        bundle: nil,
+//                        container: container)
+//            }).inObjectScope(.container)
+//        }
+//    }
     
-    private func registerViewControllers(container: Container) {
-        // Register all viewcontrollers here
-        
-        
-    }
     
     private func registerWindow(container: Container) {
         container.register(UIWindow.self) { (r) -> UIWindow in
