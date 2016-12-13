@@ -9,7 +9,7 @@
 import WatchKit
 import Foundation
 
-class InputInterfaceController: WKInterfaceController {
+final class InputInterfaceController: WKInterfaceController {
     
     var categoriesManager: CategoriesManagerProtocol!
     
@@ -27,7 +27,7 @@ class InputInterfaceController: WKInterfaceController {
     }
     
     func setupDependencies() {
-        self.categoriesManager = DIManager.sharedInstance.assembler.resolver.resolve(CategoriesManagerProtocol.self)
+        self.categoriesManager = DIManager.resolve(CategoriesManagerProtocol.self)
     }
     
     func setupCategoryPicker() {

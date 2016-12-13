@@ -15,29 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var router: RouterProtocol!
-    let managersAssemby = ManagersAssembly()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        DIManager.sharedInstance = DIManager(
+        DIManager.shared = DIManager(
             assembler: Assembler(container: SwinjectStoryboard.defaultContainer))
         
-        func registerAssemblies() {
-            // Register assemblys
-            DIManager.sharedInstance.assembler.apply(assemblies: [
-                ApplicationAssembly(),
-                ServicesAssembly(),
-                managersAssemby,
-                StoragesAssembly(),
-                DataProvidersAssembly(),
-                PresenterAssembly(),
-                ViewsAssembly()
-                ])
-        }
-        
         ApplicationAssembly.resolveAppDelegateDependencies(appDelegate: self)
-        managersAssemby.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        DIManager.shared.application(
+            application, didFinishLaunchingWithOptions: launchOptions)
         
         router.start()
         
@@ -45,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return managersAssemby.application(app, open: url, options: options)
+        return DIManager.shared.application(app, open: url, options: options)
     }
 
 

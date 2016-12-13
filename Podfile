@@ -52,4 +52,5 @@ target 'PFM_watch Extension' do
     pod 'Swinject', '~> 2.0.0-beta.2' # DI Tool
     pod 'PromiseKit'
     pod 'Locksmith', '~> 3.0.0' # Keychain wrapper
+    pod 'SwiftyUserDefaults', '~> 3.0.0' # User defaults wrapper
 end

@@ -7,11 +7,13 @@
 //
 
 import WatchKit
+import Swinject
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        DIManager.shared = DIManager(assembler: Assembler(container: Container()))
     }
 
     func applicationDidBecomeActive() {

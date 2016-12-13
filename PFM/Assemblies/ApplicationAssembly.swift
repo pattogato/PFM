@@ -8,36 +8,38 @@
 
 import Foundation
 import Swinject
+import SwinjectStoryboard
 
 final class ApplicationAssembly: AssemblyType {
     
     class func resolveAppDelegateDependencies(appDelegate: AppDelegate) {
-        let resolver = DIManager.sharedInstance.assembler.resolver
-        appDelegate.router = resolver.resolve(RouterProtocol.self)!
+        let resolver = DIManager.DIResolver
+        
+        appDelegate.router = resolver.resolve(
+            RouterProtocol.self)!
         appDelegate.window = resolver.resolve(UIWindow.self)
     }
     
     func assemble(container: Container) {
         registerWindow(container: container)
-//        registerStoryboards(container: container)
-//        registerViewControllers(container: container)
+        registerStoryboards(container: container)
     }
     
-//    private func registerStoryboards(container: Container) {
-//        Storyboards.all().forEach {
-//            storyboard in
-//            
-//            container.register(
-//                UIStoryboard.self,
-//                name: storyboard.name,
-//                factory: { (r) -> UIStoryboard in
-//                    SwinjectStoryboard.create(
-//                        name: storyboard.name,
-//                        bundle: nil,
-//                        container: container)
-//            }).inObjectScope(.container)
-//        }
-//    }
+    private func registerStoryboards(container: Container) {
+        Storyboards.all().forEach {
+            storyboard in
+            
+            container.register(
+                UIStoryboard.self,
+                name: storyboard.name,
+                factory: { (r) -> UIStoryboard in
+                    SwinjectStoryboard.create(
+                        name: storyboard.name,
+                        bundle: nil,
+                        container: container)
+            }).inObjectScope(.container)
+        }
+    }
     
     
     private func registerWindow(container: Container) {

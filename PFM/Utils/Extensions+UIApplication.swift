@@ -9,10 +9,10 @@ import Foundation
 
 import Swinject
 
-extension UIApplication {
+extension DIManager {
     /// Easy Access to the Application Assembler (might not need it)
-    static var ApplicationAssembler: Assembler {
-        return DIManager.sharedInstance.assembler
+    static var DIAssembler: Assembler {
+        return DIManager.shared.assembler
     }
     
     /**
@@ -23,8 +23,8 @@ extension UIApplication {
      
      `UIApplication.ApplicationResolver.resolve(SomeProtocol.self)`
      */
-    static var ApplicationResolver: ResolverType {
-        return ApplicationAssembler.resolver
+    static var DIResolver: ResolverType {
+        return DIAssembler.resolver
     }
     
     /**
@@ -35,8 +35,8 @@ extension UIApplication {
      
      - returns: The requested resource.
      */
-    class func resolve<T>(service: T.Type? = nil) -> T {
-        return ApplicationResolver.resolve(T.self)!
+    class func resolve<T>(_ service: T.Type? = nil) -> T {
+        return DIResolver.resolve(T.self)!
     }
     
     /**
@@ -50,13 +50,13 @@ extension UIApplication {
      - returns: The resolved service type instance, or nil if no service with the
      name is found.
      */
-    class func resolve<T>(service: T.Type, name: String?) -> T? {
-        return ApplicationResolver.resolve(T.self, name: name)
+    class func resolve<T>(_ service: T.Type, name: String?) -> T? {
+        return DIResolver.resolve(T.self, name: name)
     }
     
     class func resolve<Service, Arg1>(
         _ serviceType: Service.Type,
         argument: Arg1) -> Service? {
-        return ApplicationResolver.resolve(Service.self, argument: argument)
+        return DIResolver.resolve(Service.self, argument: argument)
     }
 }

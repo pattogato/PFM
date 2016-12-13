@@ -43,3 +43,17 @@ final class DataProvidersAssembly: AssemblyType {
     }
     
 }
+
+#if os(watchOS)
+    extension DataProvidersAssembly {
+        fileprivate func registerSpecifics(in container: Container) {
+            
+        }
+    }
+#else
+    extension DataProvidersAssembly {
+        fileprivate func registerSpecifics(in container: Container) {
+            
+        }
+    }
+#endif

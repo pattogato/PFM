@@ -39,7 +39,7 @@ class Router: RouterProtocol {
             if let existingManager = _swipeNavigationManager {
                 return existingManager
             } else {
-                let newManager = UIApplication.resolve(
+                let newManager = DIManager.resolve(
                     SwipeNavigationPresenterProtocol.self,
                     argument: self as SwipeNavigationManagerDataSource)
                 

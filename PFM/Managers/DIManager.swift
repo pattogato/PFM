@@ -11,13 +11,14 @@ import Swinject
 
 final class DIManager {
     
-    static var sharedInstance: DIManager!
+    static var shared: DIManager!
     
     let assembler: Assembler
     
     init(assembler: Assembler) {
         self.assembler = assembler
+        
+        self.registerAssemblys()
     }
-    
     
 }

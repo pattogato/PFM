@@ -22,6 +22,21 @@
 		014E2DCE1DD23100004175EF /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DCD1DD23100004175EF /* RealmExtensions.swift */; };
 		015A56111DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */; };
 		015A56131DD1CA6500D1D7F9 /* RESTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */; };
+		018E49A81DFFFEC2000D9C4D /* DIManager_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E49A31DFFFE2A000D9C4D /* DIManager_iOS.swift */; };
+		018E49A91DFFFEC7000D9C4D /* DIManager_Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E49A51DFFFEB4000D9C4D /* DIManager_Watch.swift */; };
+		018E49AA1E000039000D9C4D /* Extensions+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B2ECE1DD1D1F70089E848 /* Extensions+UIApplication.swift */; };
+		018E49AC1E00081E000D9C4D /* StoragesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96F1DCB45F70090CF08 /* StoragesAssembly.swift */; };
+		018E49AD1E000951000D9C4D /* ManagersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96E1DCB45F70090CF08 /* ManagersAssembly.swift */; };
+		018E49AE1E000A09000D9C4D /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164F96D1DCB45F70090CF08 /* ServicesAssembly.swift */; };
+		018E49AF1E000A85000D9C4D /* RESTAPIAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */; };
+		018E49B01E000A8E000D9C4D /* RESTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */; };
+		018E49B11E000AA0000D9C4D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC01DD21F27004175EF /* AuthService.swift */; };
+		018E49B21E000AA7000D9C4D /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605931DF78D45000A2707 /* UserStorage.swift */; };
+		018E49B31E000B54000D9C4D /* BaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC91DD22086004175EF /* BaseModels.swift */; };
+		018E49B41E000BF9000D9C4D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1157DF21DF63D7C00954671 /* UserManager.swift */; };
+		018E49B51E000D0E000D9C4D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DC1CA99CDA00DD18E9 /* UserModel.swift */; };
+		018E49B71E000D82000D9C4D /* SocialUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E49B61E000D82000D9C4D /* SocialUserData.swift */; };
+		018E49B81E000D87000D9C4D /* SocialUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E49B61E000D82000D9C4D /* SocialUserData.swift */; };
 		33ABE6351DF7EA5100FE608E /* PfmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE6341DF7EA5100FE608E /* PfmTextField.swift */; };
 		6425ABBEFF147F75200D599E /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8439207E4B616D9E209FFBAF /* Pods_PFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4F4B085D8223986B746CA /* Pods_PFMTests.framework */; };
@@ -240,6 +255,9 @@
 		014E2DCD1DD23100004175EF /* RealmExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmExtensions.swift; path = Utils/RealmExtensions.swift; sourceTree = "<group>"; };
 		015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClientProtocol.swift; sourceTree = "<group>"; };
 		015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTAPIClient.swift; sourceTree = "<group>"; };
+		018E49A31DFFFE2A000D9C4D /* DIManager_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIManager_iOS.swift; sourceTree = "<group>"; };
+		018E49A51DFFFEB4000D9C4D /* DIManager_Watch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIManager_Watch.swift; sourceTree = "<group>"; };
+		018E49B61E000D82000D9C4D /* SocialUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialUserData.swift; sourceTree = "<group>"; };
 		0852298A43EA809741B58E46 /* Pods-PFM-PFM_watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM-PFM_watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM-PFM_watch Extension/Pods-PFM-PFM_watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		33ABE6341DF7EA5100FE608E /* PfmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PfmTextField.swift; path = CustomElements/PfmTextField.swift; sourceTree = "<group>"; };
 		6DF4F4B085D8223986B746CA /* Pods_PFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -528,11 +546,14 @@
 			isa = PBXGroup;
 			children = (
 				B19C33D01DF6C0E700C432DC /* FacebookManager.swift */,
+				018E49B61E000D82000D9C4D /* SocialUserData.swift */,
 				B1157DF21DF63D7C00954671 /* UserManager.swift */,
 				010605891DF76EB3000A2707 /* CategoriesManager.swift */,
 				0106058E1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift */,
 				B19C33DC1DF79B3100C432DC /* SyncManager.swift */,
 				B18A84981DFEE073007B5B88 /* DIManager.swift */,
+				018E49A31DFFFE2A000D9C4D /* DIManager_iOS.swift */,
+				018E49A51DFFFEB4000D9C4D /* DIManager_Watch.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1360,19 +1381,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				B12655DC1DBEC1DE00AEDED5 /* InputInterfaceController.swift in Sources */,
+				018E49B11E000AA0000D9C4D /* AuthService.swift in Sources */,
+				018E49AE1E000A09000D9C4D /* ServicesAssembly.swift in Sources */,
 				B1FB5E961DFED1C100A9E2CC /* CategoriesStorage.swift in Sources */,
+				018E49B31E000B54000D9C4D /* BaseModels.swift in Sources */,
 				B1FB5E941DFED19600A9E2CC /* RealmExtensions.swift in Sources */,
+				018E49AD1E000951000D9C4D /* ManagersAssembly.swift in Sources */,
+				018E49B81E000D87000D9C4D /* SocialUserData.swift in Sources */,
 				B1FB5E931DFED0EB00A9E2CC /* ModelObject.swift in Sources */,
 				B1464ADD1DFEF4A4006EFAE5 /* DIManager.swift in Sources */,
+				018E49B21E000AA7000D9C4D /* UserStorage.swift in Sources */,
 				B1FB5E951DFED1BC00A9E2CC /* CategoryService.swift in Sources */,
+				018E49AA1E000039000D9C4D /* Extensions+UIApplication.swift in Sources */,
+				018E49AC1E00081E000D9C4D /* StoragesAssembly.swift in Sources */,
+				018E49AF1E000A85000D9C4D /* RESTAPIAuthenticationManager.swift in Sources */,
 				B12655CC1DBEBE4500AEDED5 /* ExtensionDelegate.swift in Sources */,
 				B1FB5E981DFED1F600A9E2CC /* APIResources.swift in Sources */,
+				018E49B51E000D0E000D9C4D /* UserModel.swift in Sources */,
+				018E49B41E000BF9000D9C4D /* UserManager.swift in Sources */,
 				B10576C91DFEB59400DABE39 /* WatchDataStorage.swift in Sources */,
 				B1DEDFB91DFECA9000F439E3 /* CategoryModel.swift in Sources */,
 				B1FB5E991DFED21000A9E2CC /* DALHelper.swift in Sources */,
 				B1FB5E971DFED1C900A9E2CC /* RESTAPIClientProtocol.swift in Sources */,
+				018E49B01E000A8E000D9C4D /* RESTAPIClient.swift in Sources */,
 				B18A84951DFED32C007B5B88 /* SecureProperty.swift in Sources */,
 				B1DEDFBA1DFECB8300F439E3 /* MappableModelObject.swift in Sources */,
+				018E49A91DFFFEC7000D9C4D /* DIManager_Watch.swift in Sources */,
 				B1B21A121DFEC8DE00F467E4 /* CategoriesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1478,8 +1512,10 @@
 				E26D7E6C1CCE49F000454C08 /* PresentingTransitionAnimator.swift in Sources */,
 				B19C33DD1DF79B3100C432DC /* SyncManager.swift in Sources */,
 				E2D55DE41CF47BA4002343BD /* HistoryCollectionViewCell.swift in Sources */,
+				018E49A81DFFFEC2000D9C4D /* DIManager_iOS.swift in Sources */,
 				014E2DBE1DD21A28004175EF /* APIResources.swift in Sources */,
 				B10B2EC91DD079210089E848 /* SwipeNavigationPresenter.swift in Sources */,
+				018E49B71E000D82000D9C4D /* SocialUserData.swift in Sources */,
 				B18EC8561DF085340069A722 /* NoteViewController.swift in Sources */,
 				B10B2ECF1DD1D1F70089E848 /* Extensions+UIApplication.swift in Sources */,
 				E2D55DEA1CF48491002343BD /* HistoryTransition.swift in Sources */,

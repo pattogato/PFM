@@ -11,12 +11,8 @@ import Foundation
 final class WatchDataProvider {
     
     init() {
-        let categoryService = UIApplication.resolve(
-            service: CategoryServiceProtocol.self
-        )
-        let categoryStorage = UIApplication.resolve(
-            service: CategoriesStorageProtocol.self
-        )
+        let categoryService = DIManager.resolve(CategoryServiceProtocol.self)
+        let categoryStorage = DIManager.resolve(CategoriesStorageProtocol.self)
         self.categoriesManager = CategoriesManager(service: categoryService, storage: categoryStorage)
     }
     

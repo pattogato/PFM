@@ -75,7 +75,7 @@ final class CategoriesViewController: UIViewController, CategoriesViewProtocol, 
         
         // TODO: Not very nice (should load from sb)
         if presenter == nil {
-            presenter = UIApplication.resolve(
+            presenter = DIManager.resolve(
                 CategoriesPresenterProtocol.self,
                 argument: self as CategoriesViewProtocol
             )

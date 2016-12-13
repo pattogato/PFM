@@ -18,11 +18,6 @@ enum SocialLoginError: Swift.Error {
     case Disconnected
 }
 
-enum SocialUserType {
-    case facebook
-    case google
-}
-
 typealias UserResponseBlock = (fulfill: (SocialUserData) -> Void, reject: (Error) -> Void)
 
 protocol FacebookManagerProtocol {
@@ -122,20 +117,4 @@ final class FacebookManager: FacebookManagerProtocol {
         }
     }
 
-}
-
-final class SocialUserData {
-    var name: String
-    var email: String?
-    var accessToken: String
-    var userId: String?
-    var type: SocialUserType
-    
-    init(name: String?, email: String?, accessToken: String?, type: SocialUserType, userId: String?) {
-        self.name = name ?? ""
-        self.email = email ?? ""
-        self.accessToken = accessToken ?? ""
-        self.type = type
-        self.userId = userId ?? ""
-    }
 }

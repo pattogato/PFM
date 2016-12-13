@@ -88,7 +88,7 @@ final class ViewsAssembly: AssemblyType {
     
 }
 
-extension Container {
+fileprivate extension Container {
     
     func registerForStoryboardProject<C:Controller>(controllerType: C.Type, name: String? = nil, initCompleted: ((ResolverType, C) -> ())? = nil) {
         self.registerForStoryboard(controllerType, name: name) { (r, c) in
@@ -105,3 +105,17 @@ extension Container {
     }
     
 }
+
+#if os(watchOS)
+    extension ViewsAssembly {
+        fileprivate func registerSpecifics(in container: Container) {
+            
+        }
+    }
+#else
+    extension ViewsAssembly {
+        fileprivate func registerSpecifics(in container: Container) {
+            
+        }
+    }
+#endif

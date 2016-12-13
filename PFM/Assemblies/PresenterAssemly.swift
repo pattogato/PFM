@@ -114,3 +114,18 @@ final class PresenterAssembly: AssemblyType {
         }
     }
 }
+
+#if os(watchOS)
+    extension PresenterAssembly {
+        fileprivate func registerSpecifics(in container: Container) {
+            
+        }
+    }
+#else
+    extension PresenterAssembly {
+        fileprivate func registerSpecifics(in container: Container) {
+            
+        }
+    }
+#endif
+

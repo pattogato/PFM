@@ -22,6 +22,21 @@ final class StoragesAssembly: AssemblyType {
                 dalHelper: r.resolve(DALHelperProtocol.self)!
             )
         }
+        
+        registerSpecifics(in: container)
     }
     
 }
+
+#if os(watchOS)
+    extension StoragesAssembly {
+        fileprivate func registerSpecifics(in container: Container) {
+            
+        }
+    }
+#else
+    extension StoragesAssembly {
+        fileprivate func registerSpecifics(in container: Container) {
+        }
+    }
+#endif

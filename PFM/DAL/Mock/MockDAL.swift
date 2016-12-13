@@ -40,8 +40,7 @@ class MockDAL: NSObject {
         
         var categories = [CategoryModel]()
         
-        
-        _ = UIApplication.resolve(service: CategoryServiceProtocol.self)
+        _ = DIManager.resolve(CategoryServiceProtocol.self)
             .getCategories().then { (categories) -> Void in
                 print(categories)
         }

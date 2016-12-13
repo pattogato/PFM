@@ -11,8 +11,11 @@ import Alamofire
 import PromiseKit
 import ObjectMapper
 import AlamofireObjectMapper
-import AlamofireActivityLogger
-import AlamofireNetworkActivityIndicator
+
+#if !os(watchOS)
+    import AlamofireNetworkActivityIndicator
+    import AlamofireActivityLogger
+#endif
 
 // MARK: - Default Error Object
 public class APIErrorObject: Mappable, Error, LocalizedError {
@@ -37,8 +40,10 @@ public final class RESTAPIClient: RESTAPIClientProtocol {
     
     private let sessionManager: SessionManager
     private let baseUrl: URL
-    private let logLevel: LogLevel = .all
-    private let logOptions: [LogOption] = [.jsonPrettyPrint, .onlyDebug]
+    #if !os(watchOS)
+        private let logLevel: LogLevel = .all
+        private let logOptions: [LogOption] = [.jsonPrettyPrint, .onlyDebug]
+    #endif
     private let unauthenticatedStatusCode: Int = 401
     
     public var authenticationDelegate: RESTAPIAuthenticationDelegate?
@@ -62,9 +67,11 @@ public final class RESTAPIClient: RESTAPIClientProtocol {
         self.baseUrl = baseUrl
         self.errorType = errorType
         
-        if networkActivityIndicatorEnabled {
-            NetworkActivityIndicatorManager.shared.isEnabled = true
-        }
+        #if !os(watchOS)
+            if networkActivityIndicatorEnabled {
+                NetworkActivityIndicatorManager.shared.isEnabled = true
+            }
+        #endif
     }
     
     // MARK: Public methods
@@ -128,7 +135,11 @@ public final class RESTAPIClient: RESTAPIClientProtocol {
             encoding: parameterEncoding,
             headers: headersWithAddingAdditionalHeaders(headers: headers, needsAuthentication: needsAuthentication)
             )
-            .log(level: logLevel, options: logOptions)
+        
+        #if !os(watchOS)
+            response = response
+                .log(level: logLevel, options: logOptions)
+        #endif
         
         if let errorObjectType = errorType {
             response = response
@@ -175,7 +186,7 @@ public final class RESTAPIClient: RESTAPIClientProtocol {
                     
                     switch response {
                     case .success(let upload, _, _):
-                        _ = upload
+                        let uploadProcess = upload
                             .validate()
                             .responseObject(
                                 completionHandler: {
@@ -190,7 +201,11 @@ public final class RESTAPIClient: RESTAPIClientProtocol {
                                     }
                                     
                             })
-                            .log(level: self.logLevel, options: self.logOptions)
+                            #if !os(watchOS)
+                                uploadProcess
+                                    .log(level: self.logLevel,
+                                         options: self.logOptions)
+                        #endif
                     case .failure(let error):
                         reject(error)
                     }
