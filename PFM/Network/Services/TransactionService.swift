@@ -71,7 +71,7 @@ protocol TransactionServiceProtocol {
         -> Promise<[TransactionModel]>
     func editTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]>
-    func deleteTransactions(ids: [String]) -> Promise<EmptyNetworkResponseModel>
+    func deleteTransactions(ids: [String]) -> Promise<Void>
 }
 
 final class TransactionService: TransactionServiceProtocol {
@@ -83,7 +83,7 @@ final class TransactionService: TransactionServiceProtocol {
     }
     
     func getTransactions(from date: Date) -> Promise<[TransactionModel]> {
-        return apiClient.mappedServerMethod(
+        return apiClient.pfmMappedServerMethod(
             method: API.Method.Transactions.getList,
             object: GetTransactionsRequestModel(
                 from: date
@@ -93,8 +93,8 @@ final class TransactionService: TransactionServiceProtocol {
     
     func uploadTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]> {
-            return apiClient.mappedServerMethod(
-                method: API.Method.Transactions.post,
+            return apiClient.pfmMappedServerMethod(
+                method: API.Method.Transactions.saveBulk,
                 object: TransactionUploadRequestModel(
                     transactions: transactions
                 )
@@ -103,21 +103,25 @@ final class TransactionService: TransactionServiceProtocol {
     
     func editTransactions(transactions: [TransactionRequestModel])
         -> Promise<[TransactionModel]> {
-            return apiClient.mappedServerMethod(
-                method: API.Method.Transactions.put,
+            return apiClient.pfmMappedServerMethod(
+                method: API.Method.Transactions.saveBulk,
                 object: TransactionUploadRequestModel(
                     transactions: transactions
                 )
             )
     }
     
-    func deleteTransactions(ids: [String]) -> Promise<EmptyNetworkResponseModel> {
-        return apiClient.mappedServerMethod(
-            method: API.Method.Transactions.delete,
-            object: TransactionDeleteRequestModel(
-                ids: ids
+    func deleteTransactions(ids: [String]) -> Promise<Void> {
+        let promises: [Promise<EmptyNetworkResponseModel>] = ids.map {
+            self.apiClient.pfmMappedServerMethod(
+                method: API.Method.Transactions.delete(id: $0),
+                object: TransactionDeleteRequestModel(
+                    ids: ids
+                )
             )
-        )
+        }
+        
+        return when(fulfilled: promises).asVoid()
     }
     
 }

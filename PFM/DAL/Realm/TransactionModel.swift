@@ -35,18 +35,18 @@ final class TransactionModel: MappableModelObject {
     override func mapping(map: Map) {
         super.mapping(map: map)
         
-        date <- map["date"]
+        date <- map["Date"]
         if coordinates != nil {
-            latitude <- map["latitude"]
-            longitude <- map["longitude"]
+            latitude <- map["PlaceLat"]
+            longitude <- map["PlaceLon"]
         }
-        imageUri <- map["imageUrl"]
-        amount <- map["amount"]
-        currency <- map["currency"]
-        desc <- map["desc"]
-        categoryId <- map["categoryId"]
-        name <- map["name"]
-        
+        imageUri <- map["Image"]
+        amount <- map["Amount"]
+        currency <- map["Currency"]
+        desc <- map["Description"]
+        categoryId <- map["Category.Id"]
+        name <- map["Name"]
+        venue <- map["PlaceName"]
     }
     
     override class func ignoredProperties() -> [String] {

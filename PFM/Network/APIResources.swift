@@ -46,7 +46,7 @@ extension PFMServerMethod {
 
 struct API {
     
-    static let baseUrlString = "http://pfm2016.azurewebsites.net/"
+    static let baseUrlString = "http://pfm1.azurewebsites.net/"
     static var baseUrl: URL { return URL(string: baseUrlString)! }
     
     struct Method {
@@ -80,12 +80,12 @@ struct API {
             case edit
             
             var additionalPath: String? {
-                return "api/users"
+                return "api/account"
             }
             
             var lastPath: String? {
                 switch self {
-                case .edit: return "edit"
+                case .edit: return "update"
                 case .register: return "register"
                 }
             }
@@ -98,6 +98,12 @@ struct API {
                 return "api/categories"
             }
             
+            var lastPath: String? {
+                switch self {
+                case .get: return "list"
+                }
+            }
+            
             var httpMethod: HTTPMethod {
                 return .get
             }
@@ -105,20 +111,28 @@ struct API {
         
         enum Transactions: PFMServerMethod {
             case getList
-            case post
-            case put
-            case delete
+            case save
+            case saveBulk
+            case delete(id: String)
             
             var additionalPath: String? {
                 return "api/transactions"
             }
             
+            var lastPath: String? {
+                switch self {
+                case .getList: return "list"
+                case .save: return "save"
+                case .saveBulk: return "saveBulk"
+                case .delete(let id): return "delete/\(id)"
+                }
+            }
+            
             var httpMethod: HTTPMethod {
                 switch self {
                 case .getList: return .get
-                case .post: return .post
-                case .put: return .put
-                case .delete: return .delete
+                case .save, .saveBulk, .delete:
+                    return .post
                 }
             }
             
@@ -127,8 +141,7 @@ struct API {
                 case .getList,
                      .delete:
                     return URLEncoding.default
-                case .post,
-                     .put:
+                case .save, .saveBulk:
                     return JSONEncoding.default
                 }
             }

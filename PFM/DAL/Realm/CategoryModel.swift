@@ -21,10 +21,10 @@ final class CategoryModel: MappableModelObject {
     override func mapping(map: Map) {
         super.mapping(map: map)
         
-        parentId <- map["parentId"]
-        order <- map["order"]
-        name <- map["name"]
-        imageUri <- map["imageUrl"]
+        parentId <- map["ParentCategoryId"]
+        order <- map["Order"]
+        name <- map["Name"]
+        imageUri <- map["IconUrl"]
     }
     
     override func updateRelationships() {

@@ -21,7 +21,7 @@ final class CategoryService: CategoryServiceProtocol {
     }
     
     func getCategories() -> Promise<[CategoryModel]> {
-        return apiClient.mappedServerMethod(
+        return apiClient.pfmMappedServerMethod(
             method: API.Method.Categories.get
         )
     }

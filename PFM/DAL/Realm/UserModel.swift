@@ -16,8 +16,8 @@ final class UserModel: MappableModelObject {
     override func mapping(map: Map) {
         super.mapping(map: map)
         
-        name <- map["name"]
-        defaultCurrency <- map["defaultCurrency"]
+        name <- map["FullName"]
+        defaultCurrency <- map["Currency"]
     }
     
 }

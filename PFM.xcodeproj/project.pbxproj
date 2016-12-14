@@ -37,6 +37,8 @@
 		018E49B51E000D0E000D9C4D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DC1CA99CDA00DD18E9 /* UserModel.swift */; };
 		018E49B71E000D82000D9C4D /* SocialUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E49B61E000D82000D9C4D /* SocialUserData.swift */; };
 		018E49B81E000D87000D9C4D /* SocialUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E49B61E000D82000D9C4D /* SocialUserData.swift */; };
+		01CE12F21E015FD300C4891B /* RESTAPIClient+PFM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE12F11E015FD300C4891B /* RESTAPIClient+PFM.swift */; };
+		01CE12F31E01620800C4891B /* RESTAPIClient+PFM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE12F11E015FD300C4891B /* RESTAPIClient+PFM.swift */; };
 		33ABE6351DF7EA5100FE608E /* PfmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE6341DF7EA5100FE608E /* PfmTextField.swift */; };
 		6425ABBEFF147F75200D599E /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8439207E4B616D9E209FFBAF /* Pods_PFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4F4B085D8223986B746CA /* Pods_PFMTests.framework */; };
@@ -263,6 +265,7 @@
 		018E49A31DFFFE2A000D9C4D /* DIManager_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIManager_iOS.swift; sourceTree = "<group>"; };
 		018E49A51DFFFEB4000D9C4D /* DIManager_Watch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIManager_Watch.swift; sourceTree = "<group>"; };
 		018E49B61E000D82000D9C4D /* SocialUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialUserData.swift; sourceTree = "<group>"; };
+		01CE12F11E015FD300C4891B /* RESTAPIClient+PFM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RESTAPIClient+PFM.swift"; sourceTree = "<group>"; };
 		0852298A43EA809741B58E46 /* Pods-PFM-PFM_watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFM-PFM_watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PFM-PFM_watch Extension/Pods-PFM-PFM_watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		33ABE6341DF7EA5100FE608E /* PfmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PfmTextField.swift; path = CustomElements/PfmTextField.swift; sourceTree = "<group>"; };
 		6DF4F4B085D8223986B746CA /* Pods_PFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -487,6 +490,7 @@
 			children = (
 				015A56101DD1C41A00D1D7F9 /* RESTAPIClientProtocol.swift */,
 				015A56121DD1CA6500D1D7F9 /* RESTAPIClient.swift */,
+				01CE12F11E015FD300C4891B /* RESTAPIClient+PFM.swift */,
 				014E2DBD1DD21A28004175EF /* APIResources.swift */,
 				014E2DBF1DD21F1F004175EF /* Services */,
 				014E2DC81DD2207D004175EF /* Models */,
@@ -1392,6 +1396,7 @@
 				B1FB5E961DFED1C100A9E2CC /* CategoriesStorage.swift in Sources */,
 				018E49B31E000B54000D9C4D /* BaseModels.swift in Sources */,
 				B1FB5E941DFED19600A9E2CC /* RealmExtensions.swift in Sources */,
+				01CE12F31E01620800C4891B /* RESTAPIClient+PFM.swift in Sources */,
 				018E49AD1E000951000D9C4D /* ManagersAssembly.swift in Sources */,
 				B1B607861E00DC6D007169FB /* TransactionModel.swift in Sources */,
 				018E49B81E000D87000D9C4D /* SocialUserData.swift in Sources */,
@@ -1471,6 +1476,7 @@
 				B1783C281CB3C78000056895 /* SettingsViewProtocol.swift in Sources */,
 				B18EC84F1DF084C50069A722 /* NoteViewProtocol.swift in Sources */,
 				B1FFEEBA1DFB1F9A00DE74EA /* MapViewController.swift in Sources */,
+				01CE12F21E015FD300C4891B /* RESTAPIClient+PFM.swift in Sources */,
 				E26D7E781CCE5B8600454C08 /* CategoryCollectionViewCell.swift in Sources */,
 				0106058F1DF77BD2000A2707 /* RESTAPIAuthenticationManager.swift in Sources */,
 				B1783C091CB30A1000056895 /* PresentableView.swift in Sources */,
