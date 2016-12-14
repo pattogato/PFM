@@ -49,6 +49,7 @@ end
 target 'PFM_watch Extension' do
     pod 'Alamofire' # Networking
     pod 'AlamofireObjectMapper' # Network object mapping
+    pod 'AlamofireImage', '~> 3.0.0' # Image loader
     pod 'Swinject', '~> 2.0.0-beta.2' # DI Tool
     pod 'PromiseKit'
     pod 'Locksmith', '~> 3.0.0' # Keychain wrapper

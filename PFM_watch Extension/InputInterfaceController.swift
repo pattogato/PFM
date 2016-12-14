@@ -8,6 +8,7 @@
 
 import WatchKit
 import Foundation
+import AlamofireImage
 
 final class InputInterfaceController: WKInterfaceController {
     
@@ -59,19 +60,21 @@ final class InputInterfaceController: WKInterfaceController {
     func loadCategories() {
         var items = [WKPickerItem]()
         
-        func addItem(imageUrl: String, caption: String) {
+        func addItem(image: WKImage?, caption: String) {
             let item = WKPickerItem()
             item.caption = caption
-            getImageFromUrl(url: imageUrl) { image in
-                item.contentImage = image
-            }
+            item.contentImage = image
             items.append(item)
         }
         
         _ = categoriesManager.getCategories().then { (categories) -> Void in
-            for category in categories {
-                addItem(imageUrl: category.imageUri, caption: category.name)
-            }
+            // Download all the images, then present the categories
+            self.getImages(urls: categories.map({ $0.imageUri }), completionHandler: { (imagesDict) in
+                for category in categories {
+                    addItem(image: imagesDict[category.imageUri], caption: category.name)
+                }
+                self.categoryPicker.setItems(items)
+            })
         }
     }
     
@@ -121,18 +124,43 @@ final class InputInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    func getImageFromUrl(url:String, scale: CGFloat = 1.0, completionHandler: @escaping ((_ image: WKImage) -> Void)) {
+    private func getImageFromUrl(url:String, scale: CGFloat = 1.0, completionHandler: @escaping ((_ image: WKImage) -> Void), failureHandler: @escaping ((_ error: Error) -> Void)) {
         URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
             if (data != nil && error == nil) {
                 
                 DispatchQueue.main.async {
                     if let image = UIImage(data: data!, scale: scale) {
                         completionHandler(WKImage(image: image))
+                    } else {
+                        failureHandler(ImageDownloadError.unkown)
                     }
                 }
+            } else {
+                failureHandler(ImageDownloadError.unkown)
             }
             }.resume()
     }
     
+    private func getImages(urls: [String], completionHandler: @escaping ((_ images: [String: WKImage]) -> Void)) {
+        var images = [String: WKImage]()
+        var count = 0
+        
+        for url in urls {
+            getImageFromUrl(url: url, completionHandler: { (image) in
+                images.updateValue(image, forKey: url)
+                count += 1
+                if count == urls.count {
+                    completionHandler(images)
+                }
+            }, failureHandler: { (error) in
+                count += 1
+            })
+        }
+    }
+    
+}
+
+enum ImageDownloadError: Swift.Error {
+    case unkown
 }
 

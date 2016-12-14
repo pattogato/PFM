@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
         <!--Input-->
@@ -18,7 +21,7 @@
                         </group>
                         <group width="1" height="0.59999999999999998" alignment="left" id="Xis-I5-atw">
                             <items>
-                                <picker width="0.5" height="1" alignment="center" verticalAlignment="center" style="stack" focusStyle="sequence" indicatorMode="shownWhileFocused" enabled="NO" id="lNY-qN-g1a"/>
+                                <picker width="0.5" height="1" alignment="center" verticalAlignment="center" style="stack" focusStyle="sequence" enabled="NO" id="lNY-qN-g1a"/>
                                 <button width="0.5" height="1" alignment="right" verticalAlignment="center" title="OK" id="ryg-Vt-K5a">
                                     <color key="titleColor" red="0.55294117649999996" green="0.85490196080000003" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
