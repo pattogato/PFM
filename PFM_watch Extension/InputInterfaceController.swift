@@ -13,9 +13,13 @@ import AlamofireImage
 final class InputInterfaceController: WKInterfaceController {
     
     var categoriesManager: CategoriesManagerProtocol!
+    var transactionService: TransactionServiceProtocol!
     
     @IBOutlet weak var categoryPicker: WKInterfacePicker!
     @IBOutlet weak var amountPicker: WKInterfacePicker!
+    
+    private var categories = [CategoryModel]()
+    private var amounts = [Double]()
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -29,6 +33,7 @@ final class InputInterfaceController: WKInterfaceController {
     
     func setupDependencies() {
         self.categoriesManager = DIManager.resolve(CategoriesManagerProtocol.self)
+        self.transactionService = DIManager.resolve(TransactionServiceProtocol.self)
     }
     
     func setupCategoryPicker() {
@@ -38,18 +43,23 @@ final class InputInterfaceController: WKInterfaceController {
     
     func setupAmountPicker() {
         loadDummyAmountData()
+        
     }
     
     func loadDummyAmountData() {
+        amounts.removeAll()
+        
         func createItem(amount: Double, currency: String = "$") -> WKPickerItem {
             let item = WKPickerItem()
-            item.title = "\(amount) " + currency
+            let roundedAmount = Double(round(10*amount)/10)
+            item.title = "\(roundedAmount) " + currency
             return item
         }
         var amount: Double = 0.1
         var items = [WKPickerItem]()
         
         while amount < 200 {
+            amounts.append(amount)
             items.append(createItem(amount: amount))
             amount += 0.1
         }
@@ -58,6 +68,7 @@ final class InputInterfaceController: WKInterfaceController {
     }
     
     func loadCategories() {
+        categories.removeAll()
         var items = [WKPickerItem]()
         
         func addItem(image: WKImage?, caption: String) {
@@ -67,10 +78,11 @@ final class InputInterfaceController: WKInterfaceController {
             items.append(item)
         }
         
-        _ = categoriesManager.getCategories().then { (categories) -> Void in
+        _ = categoriesManager.getCategories().then { (cats) -> Void in
+            self.categories = Array(cats)
             // Download all the images, then present the categories
-            self.getImages(urls: categories.map({ $0.imageUri }), completionHandler: { (imagesDict) in
-                for category in categories {
+            self.getImages(urls: cats.map({ $0.imageUri }), completionHandler: { (imagesDict) in
+                for category in cats {
                     addItem(image: imagesDict[category.imageUri], caption: category.name)
                 }
                 self.categoryPicker.setItems(items)
@@ -78,51 +90,51 @@ final class InputInterfaceController: WKInterfaceController {
         }
     }
     
-    func loadDummyCategoryData() {
-        let images = [
-            WKImage(imageName: "categoryFun"),
-            WKImage(imageName: "categoryHealth"),
-            WKImage(imageName: "categoryMeal"),
-            WKImage(imageName: "categoryTransport")
-        ]
-        
-        let captions = [
-            "Fun",
-            "Health",
-            "Meal",
-            "Transport"
-        ]
-        
-        var items = [WKPickerItem]()
-        
-        func addItem(image: WKImage, caption: String) {
-            let item = WKPickerItem()
-            item.caption = caption
-            item.contentImage = image
-            items.append(item)
-        }
-        
-        for i in 0..<min(images.count, captions.count) {
-            addItem(image: images[i], caption: captions[i])
-        }
-        
-        self.categoryPicker.setItems(items)
-    }
     
     @IBAction func didTouchSaveButton() {
-        print("save")
+        let transaction = TransactionModel()
+        transaction.amount = selectedAmount
+        transaction.category = selectedCategory
+        transactionService.uploadTransactions(
+            transactions: [TransactionRequestModel(modelObject: transaction)])
+            .then { (_) -> Void in
+                self.showPopup(title: "Saved", message: nil)
+            }.catch { (error) in
+                self.showPopup(title: "Something went wrong", message: error.localizedDescription)
+            }
+        
     }
     
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
+    var selectedCategoryIndex = 0
+    var selectedCategory: CategoryModel? {
+        if categories.count > selectedCategoryIndex {
+            return categories[selectedCategoryIndex]
+        } else {
+            return nil
+        }
+    }
+    @IBAction func categoryPickerUpdated(_ value: Int) {
+        selectedCategoryIndex = value
     }
     
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
+    var selectedAmountIndex = 0
+    var selectedAmount: Double {
+        if amounts.count > selectedAmountIndex {
+            return amounts[selectedAmountIndex]
+        } else {
+            return 0
+        }
     }
+    @IBAction func amountPickerUpdated(_ value: Int) {
+        selectedAmountIndex = value
+    }
+    
+    func showPopup(title: String, message: String?) {
+        let action1 = WKAlertAction(title: "OK", style: .default) {}
+        
+        presentAlert(withTitle: title, message: message ?? "", preferredStyle: .actionSheet, actions: [action1])
+    }
+    
     
     private func getImageFromUrl(url:String, scale: CGFloat = 1.0, completionHandler: @escaping ((_ image: WKImage) -> Void), failureHandler: @escaping ((_ error: Error) -> Void)) {
         URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in

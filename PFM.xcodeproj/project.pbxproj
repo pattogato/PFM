@@ -132,6 +132,11 @@
 		B19C33DF1DF7A82B00C432DC /* CategoriesInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C33DE1DF7A82B00C432DC /* CategoriesInteractionController.swift */; };
 		B1AEA8C31DFDA53C0036F8FF /* WatchDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AEA8C21DFDA53C0036F8FF /* WatchDataProvider.swift */; };
 		B1B21A121DFEC8DE00F467E4 /* CategoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010605891DF76EB3000A2707 /* CategoriesManager.swift */; };
+		B1B607841E00DC65007169FB /* TransactionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BE81CB18A2400056895 /* TransactionDataProvider.swift */; };
+		B1B607851E00DC68007169FB /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E2DC61DD21F4F004175EF /* TransactionService.swift */; };
+		B1B607861E00DC6D007169FB /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18785DA1CA99B4800DD18E9 /* TransactionModel.swift */; };
+		B1B607881E00E020007169FB /* CurrentTransactionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B5E9C1CF48229008427C0 /* CurrentTransactionDataProvider.swift */; };
+		B1B607891E00E029007169FB /* CategoryDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1783BEA1CB1A34B00056895 /* CategoryDataProvider.swift */; };
 		B1DA8A6E1CEA80A700C51E85 /* LocationPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6C1CEA80A700C51E85 /* LocationPickerPresenter.swift */; };
 		B1DA8A6F1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A6D1CEA80A700C51E85 /* LocationPickerPresenterProtocol.swift */; };
 		B1DA8A751CEA80E500C51E85 /* LocationPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA8A731CEA80E500C51E85 /* LocationPickerViewProtocol.swift */; };
@@ -1383,13 +1388,17 @@
 				B12655DC1DBEC1DE00AEDED5 /* InputInterfaceController.swift in Sources */,
 				018E49B11E000AA0000D9C4D /* AuthService.swift in Sources */,
 				018E49AE1E000A09000D9C4D /* ServicesAssembly.swift in Sources */,
+				B1B607841E00DC65007169FB /* TransactionDataProvider.swift in Sources */,
 				B1FB5E961DFED1C100A9E2CC /* CategoriesStorage.swift in Sources */,
 				018E49B31E000B54000D9C4D /* BaseModels.swift in Sources */,
 				B1FB5E941DFED19600A9E2CC /* RealmExtensions.swift in Sources */,
 				018E49AD1E000951000D9C4D /* ManagersAssembly.swift in Sources */,
+				B1B607861E00DC6D007169FB /* TransactionModel.swift in Sources */,
 				018E49B81E000D87000D9C4D /* SocialUserData.swift in Sources */,
 				B1FB5E931DFED0EB00A9E2CC /* ModelObject.swift in Sources */,
 				B1464ADD1DFEF4A4006EFAE5 /* DIManager.swift in Sources */,
+				B1B607851E00DC68007169FB /* TransactionService.swift in Sources */,
+				B1B607891E00E029007169FB /* CategoryDataProvider.swift in Sources */,
 				018E49B21E000AA7000D9C4D /* UserStorage.swift in Sources */,
 				B1FB5E951DFED1BC00A9E2CC /* CategoryService.swift in Sources */,
 				018E49AA1E000039000D9C4D /* Extensions+UIApplication.swift in Sources */,
@@ -1406,6 +1415,7 @@
 				018E49B01E000A8E000D9C4D /* RESTAPIClient.swift in Sources */,
 				B18A84951DFED32C007B5B88 /* SecureProperty.swift in Sources */,
 				B1DEDFBA1DFECB8300F439E3 /* MappableModelObject.swift in Sources */,
+				B1B607881E00E020007169FB /* CurrentTransactionDataProvider.swift in Sources */,
 				018E49A91DFFFEC7000D9C4D /* DIManager_Watch.swift in Sources */,
 				B1B21A121DFEC8DE00F467E4 /* CategoriesManager.swift in Sources */,
 			);

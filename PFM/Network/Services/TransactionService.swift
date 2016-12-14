@@ -37,6 +37,34 @@ extension TransactionRequestModelProtocol {
     }
 }
 
+struct TransactionRequestModel: TransactionRequestModelProtocol {
+    
+    var localId: String
+    var serverId: String
+    var date: Date
+    var latitude: Double
+    var longitude: Double
+    var imageUrl: String
+    var amount: Double
+    var currency: String
+    var descriptionText: String
+    var categoryId: String
+    
+    init(modelObject: TransactionModel) {
+        self.localId = modelObject.id
+        self.serverId = modelObject.serverId
+        self.date = modelObject.date
+        self.latitude = modelObject.latitude
+        self.longitude = modelObject.longitude
+        self.imageUrl = modelObject.imageUri
+        self.amount = modelObject.amount
+        self.currency = modelObject.currency
+        self.descriptionText = modelObject.desc
+        self.categoryId = modelObject.categoryId ?? ""
+    }
+    
+}
+
 protocol TransactionServiceProtocol {
     func getTransactions(from date: Date) -> Promise<[TransactionModel]>
     func uploadTransactions(transactions: [TransactionRequestModel])

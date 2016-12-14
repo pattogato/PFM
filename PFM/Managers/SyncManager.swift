@@ -12,6 +12,7 @@ import PromiseKit
 
 protocol SyncManagerProtocol {
     func syncTransactions() -> Promise<Void>
+    func syncTransaction(transaction: TransactionModel) -> Promise<TransactionModel?>
 }
 
 final class SyncManager: SyncManagerProtocol {
@@ -36,36 +37,14 @@ final class SyncManager: SyncManagerProtocol {
         }).asVoid()
     }
     
-    private func getUnsycedTransactions() -> [TransactionModel] {
-        return Array(transactionDataProvider.getAllTransactions(nil).filter("serverId == ''"))
+    func syncTransaction(transaction: TransactionModel) -> Promise<TransactionModel?> {
+        return transactionService.uploadTransactions(transactions: [TransactionRequestModel.init(modelObject: transaction)]).then(execute: { (models) -> Promise<TransactionModel?> in
+            return Promise(value: models.first)
+        })
     }
     
-}
-
-struct TransactionRequestModel: TransactionRequestModelProtocol {
-    
-    var localId: String
-    var serverId: String
-    var date: Date
-    var latitude: Double
-    var longitude: Double
-    var imageUrl: String
-    var amount: Double
-    var currency: String
-    var descriptionText: String
-    var categoryId: String
-    
-    init(modelObject: TransactionModel) {
-        self.localId = modelObject.id
-        self.serverId = modelObject.serverId
-        self.date = modelObject.date
-        self.latitude = modelObject.latitude
-        self.longitude = modelObject.longitude
-        self.imageUrl = modelObject.imageUri
-        self.amount = modelObject.amount
-        self.currency = modelObject.currency
-        self.descriptionText = modelObject.desc
-        self.categoryId = modelObject.categoryId ?? ""
+    private func getUnsycedTransactions() -> [TransactionModel] {
+        return Array(transactionDataProvider.getAllTransactions(nil).filter("serverId == ''"))
     }
     
 }

@@ -23,6 +23,11 @@ final class ServicesAssembly: AssemblyType {
                 r.resolve(RESTAPIClientProtocol.self)!)
         }
         
+        container.register(TransactionServiceProtocol.self) { r in
+            return TransactionService(apiClient:
+                r.resolve(RESTAPIClientProtocol.self)!)
+        }
+        
         registerSpecifics(in: container)
     }
     
@@ -40,11 +45,6 @@ final class ServicesAssembly: AssemblyType {
             
             container.register(UserServiceProtocol.self) { r in
                 return UserService(apiClient:
-                    r.resolve(RESTAPIClientProtocol.self)!)
-            }
-            
-            container.register(TransactionServiceProtocol.self) { r in
-                return TransactionService(apiClient:
                     r.resolve(RESTAPIClientProtocol.self)!)
             }
             
