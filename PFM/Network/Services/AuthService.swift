@@ -104,6 +104,8 @@ fileprivate struct RegistrationModel: BaseMappable {
         password <- map["password"]
         var confirmPassword = password
         confirmPassword <- map["confirmPassword"]
+        var currency = "HUF"
+        currency <- map["Currency"]
     }
 }
 
