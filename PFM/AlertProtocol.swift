@@ -3,7 +3,6 @@
 //  gem
 //
 //  Created by Bence Pattogato on 26/08/16.
-//  Copyright © 2016 IncepTech ltd. All rights reserved.
 //
 
 import UIKit

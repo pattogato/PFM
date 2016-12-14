@@ -3,7 +3,6 @@
 //  hero2
 //
 //  Created by Bence Pattogato on 19/09/16.
-//  Copyright © 2016 Inceptech. All rights reserved.
 //
 
 import RealmSwift

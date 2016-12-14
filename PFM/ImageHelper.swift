@@ -3,7 +3,6 @@
 //  hero2
 //
 //  Created by Bence Pattogató on 2016. 09. 23..
-//  Copyright © 2016. Inceptech. All rights reserved.
 //
 
 import UIKit
